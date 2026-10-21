@@ -1,0 +1,857 @@
+{
+  "mode": "full",
+  "n_districts": 469,
+  "n_states": 21,
+  "quadrants": {
+    "Low dev / High vul": 145,
+    "High dev / Low vul": 143,
+    "High dev / High vul": 92,
+    "Low dev / Low vul": 89
+  },
+  "anomalies": 181,
+  "anomaly_share": 0.386,
+  "medians": {
+    "development_score": -0.068,
+    "climate_vul_in": 0.566
+  },
+  "preprocessing": {
+    "ndap_rows": 699,
+    "ndap_cols": 79,
+    "ndap_cols_over_half_empty": 64,
+    "matched": 602,
+    "match_types": {
+      "exact": 528,
+      "unmatched": 97,
+      "alias": 45,
+      "fuzzy": 23,
+      "wordorder": 6
+    },
+    "unmatched_by_state": {
+      "Telangana": 23,
+      "Chhattisgarh": 10,
+      "Arunachal Pradesh": 9,
+      "Gujarat": 7,
+      "Manipur": 7,
+      "Assam": 6,
+      "Tamil Nadu": 6,
+      "West Bengal": 5,
+      "Meghalaya": 5,
+      "Tripura": 4,
+      "Uttar Pradesh": 4,
+      "Punjab": 3,
+      "Mizoram": 3,
+      "Madhya Pradesh": 2,
+      "Nagaland": 1,
+      "Maharashtra": 1,
+      "Haryana": 1
+    },
+    "with_index": 589,
+    "index_missing_pct": 2.159,
+    "missing_pct_planned_ndap": {
+      "MGNREGA days": 3.654,
+      "Yield variability": 19.934,
+      "Small landholdings": 23.256,
+      "Livestock": 26.412,
+      "Infant mortality": 29.9,
+      "Women's workforce": 31.894,
+      "Road density": 36.545,
+      "Crop insurance": 45.515,
+      "Drinking water": 46.844,
+      "Health centres": 47.841,
+      "Rainfed agriculture": 54.485
+    }
+  },
+  "association": {
+    "development_score": {
+      "pearson": -0.356,
+      "pearson_p": 1.76e-15,
+      "spearman": -0.365,
+      "spearman_p": 3.13e-16
+    },
+    "literacy_rate": {
+      "pearson": -0.388,
+      "pearson_p": 2.74e-18,
+      "spearman": -0.38,
+      "spearman_p": 1.47e-17
+    },
+    "female_literacy_rate": {
+      "pearson": -0.376,
+      "pearson_p": 3.1e-17,
+      "spearman": -0.379,
+      "spearman_p": 1.98e-17
+    },
+    "agri_worker_share": {
+      "pearson": 0.289,
+      "pearson_p": 1.91e-10,
+      "spearman": 0.335,
+      "spearman_p": 8.53e-14
+    },
+    "mgnrega_days": {
+      "pearson": -0.061,
+      "pearson_p": 0.185,
+      "spearman": -0.069,
+      "spearman_p": 0.134
+    },
+    "yield_variability": {
+      "pearson": -0.116,
+      "pearson_p": 0.0117,
+      "spearman": 0.112,
+      "spearman_p": 0.0154
+    },
+    "annual_rain_mm": {
+      "pearson": 0.071,
+      "pearson_p": 0.124,
+      "spearman": 0.169,
+      "spearman_p": 0.00023
+    },
+    "rain_variability": {
+      "pearson": -0.003,
+      "pearson_p": 0.947,
+      "spearman": 0.098,
+      "spearman_p": 0.0342
+    },
+    "rx5day_mm": {
+      "pearson": 0.202,
+      "pearson_p": 1.08e-05,
+      "spearman": 0.214,
+      "spearman_p": 2.91e-06
+    },
+    "heavy_rain_days": {
+      "pearson": 0.135,
+      "pearson_p": 0.00339,
+      "spearman": 0.191,
+      "spearman_p": 3.21e-05
+    },
+    "max_dry_spell": {
+      "pearson": 0.044,
+      "pearson_p": 0.338,
+      "spearman": 0.04,
+      "spearman_p": 0.393
+    },
+    "mean_tmax": {
+      "pearson": 0.242,
+      "pearson_p": 1.06e-07,
+      "spearman": 0.067,
+      "spearman_p": 0.145
+    },
+    "hot_days": {
+      "pearson": 0.086,
+      "pearson_p": 0.0623,
+      "spearman": -0.037,
+      "spearman_p": 0.418
+    },
+    "tropical_nights": {
+      "pearson": 0.262,
+      "pearson_p": 8.91e-09,
+      "spearman": 0.263,
+      "spearman_p": 7.22e-09
+    }
+  },
+  "regression": {
+    "m1_dev_only": {
+      "r2": 0.127,
+      "adj_r2": 0.125,
+      "n": 469,
+      "coef_dev": -0.041,
+      "p_dev": 1.29e-16
+    },
+    "m1_state_fe": {
+      "r2": 0.531,
+      "adj_r2": 0.509,
+      "coef_dev": -0.037,
+      "p_dev": 6.36e-10
+    },
+    "state_only": {
+      "r2": 0.477
+    },
+    "m2_dev_climate": {
+      "r2": 0.334,
+      "adj_r2": 0.321,
+      "coef": {
+        "Intercept": 0.563,
+        "development_score": -0.047,
+        "annual_rain_mm": -0.012,
+        "rain_variability": -0.013,
+        "rx5day_mm": 0.012,
+        "heavy_rain_days": 0.013,
+        "max_dry_spell": -0.003,
+        "mean_tmax": 0.03,
+        "hot_days": -0.042,
+        "tropical_nights": 0.02
+      },
+      "p": {
+        "Intercept": 0.0,
+        "development_score": 1.79e-21,
+        "annual_rain_mm": 0.275,
+        "rain_variability": 0.00839,
+        "rx5day_mm": 0.175,
+        "heavy_rain_days": 0.19,
+        "max_dry_spell": 0.604,
+        "mean_tmax": 6.6e-08,
+        "hot_days": 7.54e-09,
+        "tropical_nights": 2.07e-09
+      }
+    },
+    "climate_only": {
+      "r2": 0.181,
+      "adj_r2": 0.167
+    },
+    "most_vulnerable_than_predicted": [
+      {
+        "censuscode": 328,
+        "district_name": "Jalpaiguri",
+        "state_name": "West Bengal",
+        "development_score": 0.422,
+        "climate_vul_in": 0.679,
+        "quadrant": "High dev / High vul",
+        "residual_dev": 0.133
+      },
+      {
+        "censuscode": 212,
+        "district_name": "Katihar",
+        "state_name": "Bihar",
+        "development_score": -0.953,
+        "climate_vul_in": 0.725,
+        "quadrant": "Low dev / High vul",
+        "residual_dev": 0.123
+      },
+      {
+        "censuscode": 626,
+        "district_name": "Ramanathapuram",
+        "state_name": "Tamil Nadu",
+        "development_score": 0.553,
+        "climate_vul_in": 0.663,
+        "quadrant": "High dev / High vul",
+        "residual_dev": 0.123
+      },
+      {
+        "censuscode": 329,
+        "district_name": "Coochbehar",
+        "state_name": "West Bengal",
+        "development_score": 0.109,
+        "climate_vul_in": 0.681,
+        "quadrant": "High dev / High vul",
+        "residual_dev": 0.123
+      },
+      {
+        "censuscode": 238,
+        "district_name": "Jamui",
+        "state_name": "Bihar",
+        "development_score": -0.473,
+        "climate_vul_in": 0.7,
+        "quadrant": "Low dev / High vul",
+        "residual_dev": 0.118
+      },
+      {
+        "censuscode": 615,
+        "district_name": "Perambalur",
+        "state_name": "Tamil Nadu",
+        "development_score": -0.204,
+        "climate_vul_in": 0.688,
+        "quadrant": "Low dev / High vul",
+        "residual_dev": 0.117
+      },
+      {
+        "censuscode": 385,
+        "district_name": "Nayagarh",
+        "state_name": "Odisha",
+        "development_score": 0.446,
+        "climate_vul_in": 0.661,
+        "quadrant": "High dev / High vul",
+        "residual_dev": 0.116
+      },
+      {
+        "censuscode": 210,
+        "district_name": "Kishanganj",
+        "state_name": "Bihar",
+        "development_score": -0.747,
+        "climate_vul_in": 0.707,
+        "quadrant": "Low dev / High vul",
+        "residual_dev": 0.114
+      },
+      {
+        "censuscode": 616,
+        "district_name": "Ariyalur",
+        "state_name": "Tamil Nadu",
+        "development_score": -0.323,
+        "climate_vul_in": 0.686,
+        "quadrant": "Low dev / High vul",
+        "residual_dev": 0.11
+      },
+      {
+        "censuscode": 341,
+        "district_name": "Howrah",
+        "state_name": "West Bengal",
+        "development_score": 1.107,
+        "climate_vul_in": 0.627,
+        "quadrant": "High dev / High vul",
+        "residual_dev": 0.109
+      }
+    ],
+    "most_resilient_than_predicted": [
+      {
+        "censuscode": 25,
+        "district_name": "Lahul and Spiti",
+        "state_name": "Himachal Pradesh",
+        "development_score": 0.052,
+        "climate_vul_in": 0.344,
+        "quadrant": "High dev / Low vul",
+        "residual_dev": -0.217
+      },
+      {
+        "censuscode": 34,
+        "district_name": "Kinnaur",
+        "state_name": "Himachal Pradesh",
+        "development_score": 0.541,
+        "climate_vul_in": 0.35,
+        "quadrant": "High dev / Low vul",
+        "residual_dev": -0.191
+      },
+      {
+        "censuscode": 23,
+        "district_name": "Chamba",
+        "state_name": "Himachal Pradesh",
+        "development_score": 0.29,
+        "climate_vul_in": 0.369,
+        "quadrant": "High dev / Low vul",
+        "residual_dev": -0.182
+      },
+      {
+        "censuscode": 32,
+        "district_name": "Sirmaur",
+        "state_name": "Himachal Pradesh",
+        "development_score": 0.293,
+        "climate_vul_in": 0.369,
+        "quadrant": "High dev / Low vul",
+        "residual_dev": -0.182
+      },
+      {
+        "censuscode": 26,
+        "district_name": "Kullu",
+        "state_name": "Himachal Pradesh",
+        "development_score": 0.088,
+        "climate_vul_in": 0.392,
+        "quadrant": "High dev / Low vul",
+        "residual_dev": -0.167
+      },
+      {
+        "censuscode": 33,
+        "district_name": "Shimla",
+        "state_name": "Himachal Pradesh",
+        "development_score": 0.403,
+        "climate_vul_in": 0.396,
+        "quadrant": "High dev / Low vul",
+        "residual_dev": -0.15
+      },
+      {
+        "censuscode": 265,
+        "district_name": "Dimapur",
+        "state_name": "Nagaland",
+        "development_score": 0.397,
+        "climate_vul_in": 0.413,
+        "quadrant": "High dev / Low vul",
+        "residual_dev": -0.134
+      },
+      {
+        "censuscode": 610,
+        "district_name": "Erode",
+        "state_name": "Tamil Nadu",
+        "development_score": 0.408,
+        "climate_vul_in": 0.414,
+        "quadrant": "High dev / Low vul",
+        "residual_dev": -0.132
+      },
+      {
+        "censuscode": 266,
+        "district_name": "Phek",
+        "state_name": "Nagaland",
+        "development_score": -0.429,
+        "climate_vul_in": 0.451,
+        "quadrant": "Low dev / Low vul",
+        "residual_dev": -0.129
+      },
+      {
+        "censuscode": 418,
+        "district_name": "Sheopur",
+        "state_name": "Madhya Pradesh",
+        "development_score": -0.674,
+        "climate_vul_in": 0.462,
+        "quadrant": "Low dev / Low vul",
+        "residual_dev": -0.128
+      }
+    ]
+  },
+  "anomaly_profiles": {
+    "A_vs_expected_high_dev": {
+      "n_anomaly": 92,
+      "n_expected": 143,
+      "variables": {
+        "literacy_rate": {
+          "anomaly_median": 76.025,
+          "expected_median": 79.07,
+          "smd": -0.301,
+          "mw_p": 0.0292
+        },
+        "female_literacy_rate": {
+          "anomaly_median": 68.8,
+          "expected_median": 71.54,
+          "smd": -0.281,
+          "mw_p": 0.0464
+        },
+        "agri_worker_share": {
+          "anomaly_median": 54.87,
+          "expected_median": 48.15,
+          "smd": 0.266,
+          "mw_p": 0.0271
+        },
+        "mgnrega_days": {
+          "anomaly_median": 47.065,
+          "expected_median": 47.85,
+          "smd": -0.214,
+          "mw_p": 0.217
+        },
+        "yield_variability": {
+          "anomaly_median": 0.22,
+          "expected_median": 0.21,
+          "smd": -0.234,
+          "mw_p": 0.571
+        },
+        "annual_rain_mm": {
+          "anomaly_median": 1088.729,
+          "expected_median": 961.682,
+          "smd": 0.1,
+          "mw_p": 0.148
+        },
+        "rain_variability": {
+          "anomaly_median": 271.822,
+          "expected_median": 252.407,
+          "smd": 0.024,
+          "mw_p": 0.412
+        },
+        "rx5day_mm": {
+          "anomaly_median": 172.512,
+          "expected_median": 154.023,
+          "smd": 0.153,
+          "mw_p": 0.146
+        },
+        "heavy_rain_days": {
+          "anomaly_median": 1.183,
+          "expected_median": 0.933,
+          "smd": 0.099,
+          "mw_p": 0.168
+        },
+        "max_dry_spell": {
+          "anomaly_median": 67.883,
+          "expected_median": 66.967,
+          "smd": 0.1,
+          "mw_p": 0.584
+        },
+        "mean_tmax": {
+          "anomaly_median": 31.944,
+          "expected_median": 31.8,
+          "smd": 0.365,
+          "mw_p": 0.112
+        },
+        "hot_days": {
+          "anomaly_median": 80.333,
+          "expected_median": 87.5,
+          "smd": 0.065,
+          "mw_p": 0.938
+        },
+        "tropical_nights": {
+          "anomaly_median": 90.517,
+          "expected_median": 45.3,
+          "smd": 0.417,
+          "mw_p": 0.00118
+        }
+      }
+    },
+    "B_vs_expected_low_dev": {
+      "n_anomaly": 89,
+      "n_expected": 145,
+      "variables": {
+        "literacy_rate": {
+          "anomaly_median": 66.75,
+          "expected_median": 63.67,
+          "smd": 0.415,
+          "mw_p": 0.00479
+        },
+        "female_literacy_rate": {
+          "anomaly_median": 55.92,
+          "expected_median": 52.41,
+          "smd": 0.438,
+          "mw_p": 0.00375
+        },
+        "agri_worker_share": {
+          "anomaly_median": 68.78,
+          "expected_median": 73.63,
+          "smd": -0.604,
+          "mw_p": 1.71e-05
+        },
+        "mgnrega_days": {
+          "anomaly_median": 45.56,
+          "expected_median": 44.76,
+          "smd": -0.133,
+          "mw_p": 0.822
+        },
+        "yield_variability": {
+          "anomaly_median": 0.19,
+          "expected_median": 0.29,
+          "smd": 0.253,
+          "mw_p": 0.0661
+        },
+        "annual_rain_mm": {
+          "anomaly_median": 863.37,
+          "expected_median": 1077.839,
+          "smd": -0.152,
+          "mw_p": 0.000838
+        },
+        "rain_variability": {
+          "anomaly_median": 229.946,
+          "expected_median": 249.002,
+          "smd": 0.161,
+          "mw_p": 0.0177
+        },
+        "rx5day_mm": {
+          "anomaly_median": 150.461,
+          "expected_median": 174.75,
+          "smd": -0.48,
+          "mw_p": 0.00116
+        },
+        "heavy_rain_days": {
+          "anomaly_median": 0.933,
+          "expected_median": 1.167,
+          "smd": -0.225,
+          "mw_p": 0.0101
+        },
+        "max_dry_spell": {
+          "anomaly_median": 82.2,
+          "expected_median": 77.6,
+          "smd": 0.172,
+          "mw_p": 0.0837
+        },
+        "mean_tmax": {
+          "anomaly_median": 32.292,
+          "expected_median": 31.587,
+          "smd": -0.046,
+          "mw_p": 0.36
+        },
+        "hot_days": {
+          "anomaly_median": 110.267,
+          "expected_median": 90.633,
+          "smd": 0.085,
+          "mw_p": 0.00235
+        },
+        "tropical_nights": {
+          "anomaly_median": 61.833,
+          "expected_median": 79.333,
+          "smd": -0.411,
+          "mw_p": 0.00276
+        }
+      }
+    },
+    "by_state": [
+      {
+        "state_name": "Uttar Pradesh",
+        "districts": 70,
+        "anomaly_A": 15,
+        "anomaly_B": 11,
+        "anomaly_share": 0.371
+      },
+      {
+        "state_name": "Madhya Pradesh",
+        "districts": 49,
+        "anomaly_A": 7,
+        "anomaly_B": 14,
+        "anomaly_share": 0.429
+      },
+      {
+        "state_name": "Bihar",
+        "districts": 38,
+        "anomaly_A": 2,
+        "anomaly_B": 0,
+        "anomaly_share": 0.053
+      },
+      {
+        "state_name": "Rajasthan",
+        "districts": 33,
+        "anomaly_A": 1,
+        "anomaly_B": 18,
+        "anomaly_share": 0.576
+      },
+      {
+        "state_name": "Tamil Nadu",
+        "districts": 30,
+        "anomaly_A": 6,
+        "anomaly_B": 1,
+        "anomaly_share": 0.233
+      },
+      {
+        "state_name": "Odisha",
+        "districts": 29,
+        "anomaly_A": 10,
+        "anomaly_B": 5,
+        "anomaly_share": 0.517
+      },
+      {
+        "state_name": "Gujarat",
+        "districts": 26,
+        "anomaly_A": 9,
+        "anomaly_B": 1,
+        "anomaly_share": 0.385
+      },
+      {
+        "state_name": "Karnataka",
+        "districts": 25,
+        "anomaly_A": 10,
+        "anomaly_B": 3,
+        "anomaly_share": 0.52
+      },
+      {
+        "state_name": "Jharkhand",
+        "districts": 24,
+        "anomaly_A": 4,
+        "anomaly_B": 0,
+        "anomaly_share": 0.167
+      },
+      {
+        "state_name": "Haryana",
+        "districts": 21,
+        "anomaly_A": 1,
+        "anomaly_B": 6,
+        "anomaly_share": 0.333
+      },
+      {
+        "state_name": "Punjab",
+        "districts": 20,
+        "anomaly_A": 0,
+        "anomaly_B": 8,
+        "anomaly_share": 0.4
+      },
+      {
+        "state_name": "West Bengal",
+        "districts": 17,
+        "anomaly_A": 12,
+        "anomaly_B": 0,
+        "anomaly_share": 0.706
+      },
+      {
+        "state_name": "Andhra Pradesh",
+        "districts": 13,
+        "anomaly_A": 4,
+        "anomaly_B": 2,
+        "anomaly_share": 0.462
+      },
+      {
+        "state_name": "Kerala",
+        "districts": 13,
+        "anomaly_A": 4,
+        "anomaly_B": 0,
+        "anomaly_share": 0.308
+      },
+      {
+        "state_name": "Arunachal Pradesh",
+        "districts": 12,
+        "anomaly_A": 0,
+        "anomaly_B": 9,
+        "anomaly_share": 0.75
+      },
+      {
+        "state_name": "Himachal Pradesh",
+        "districts": 12,
+        "anomaly_A": 1,
+        "anomaly_B": 0,
+        "anomaly_share": 0.083
+      },
+      {
+        "state_name": "Nagaland",
+        "districts": 11,
+        "anomaly_A": 0,
+        "anomaly_B": 5,
+        "anomaly_share": 0.455
+      },
+      {
+        "state_name": "Manipur",
+        "districts": 9,
+        "anomaly_A": 4,
+        "anomaly_B": 0,
+        "anomaly_share": 0.444
+      },
+      {
+        "state_name": "Mizoram",
+        "districts": 8,
+        "anomaly_A": 0,
+        "anomaly_B": 3,
+        "anomaly_share": 0.375
+      },
+      {
+        "state_name": "Telangana",
+        "districts": 5,
+        "anomaly_A": 0,
+        "anomaly_B": 3,
+        "anomaly_share": 0.6
+      },
+      {
+        "state_name": "Tripura",
+        "districts": 4,
+        "anomaly_A": 2,
+        "anomaly_B": 0,
+        "anomaly_share": 0.5
+      }
+    ]
+  },
+  "kmeans": {
+    "silhouette": {
+      "2": 0.334,
+      "3": 0.286,
+      "4": 0.229,
+      "5": 0.241,
+      "6": 0.252,
+      "7": 0.257,
+      "8": 0.234
+    },
+    "best_k": 2,
+    "ari_best_k_vs_quadrant": 0.195,
+    "ari_k4_vs_quadrant": 0.254,
+    "k4_profiles": [
+      {
+        "z_literacy_rate": -1.015,
+        "z_female_literacy_rate": -1.013,
+        "z_agri_worker_share": -0.76,
+        "z_mgnrega_days": 0.109,
+        "z_yield_variability": 0.208,
+        "z_vulnerability": 0.727,
+        "size": 152
+      },
+      {
+        "z_literacy_rate": 0.053,
+        "z_female_literacy_rate": 0.019,
+        "z_agri_worker_share": -0.114,
+        "z_mgnrega_days": -0.252,
+        "z_yield_variability": 0.24,
+        "z_vulnerability": -0.248,
+        "size": 198
+      },
+      {
+        "z_literacy_rate": 1.165,
+        "z_female_literacy_rate": 1.188,
+        "z_agri_worker_share": 1.426,
+        "z_mgnrega_days": -0.028,
+        "z_yield_variability": 0.046,
+        "z_vulnerability": -0.449,
+        "size": 96
+      },
+      {
+        "z_literacy_rate": 1.391,
+        "z_female_literacy_rate": 1.571,
+        "z_agri_worker_share": 0.048,
+        "z_mgnrega_days": 1.567,
+        "z_yield_variability": -3.636,
+        "z_vulnerability": -0.799,
+        "size": 23
+      }
+    ],
+    "k4_crosstab": {
+      "0": {
+        "High dev / High vul": 3,
+        "High dev / Low vul": 2,
+        "Low dev / High vul": 117,
+        "Low dev / Low vul": 30
+      },
+      "1": {
+        "High dev / High vul": 59,
+        "High dev / Low vul": 62,
+        "Low dev / High vul": 26,
+        "Low dev / Low vul": 51
+      },
+      "2": {
+        "High dev / High vul": 28,
+        "High dev / Low vul": 68,
+        "Low dev / High vul": 0,
+        "Low dev / Low vul": 0
+      },
+      "3": {
+        "High dev / High vul": 2,
+        "High dev / Low vul": 11,
+        "Low dev / High vul": 2,
+        "Low dev / Low vul": 8
+      }
+    }
+  },
+  "random_forest": {
+    "A_vs_expected_high_dev": {
+      "cv_balanced_accuracy": 0.654,
+      "cv_balanced_accuracy_sd": 0.058,
+      "n": 235,
+      "importance": {
+        "mgnrega_days": 0.042,
+        "tropical_nights": 0.038,
+        "mean_tmax": 0.034,
+        "rain_variability": 0.022,
+        "literacy_rate": 0.018,
+        "rx5day_mm": 0.016,
+        "yield_variability": 0.013,
+        "hot_days": 0.013,
+        "female_literacy_rate": 0.012,
+        "agri_worker_share": 0.01,
+        "annual_rain_mm": 0.008,
+        "heavy_rain_days": 0.008,
+        "max_dry_spell": 0.002
+      }
+    },
+    "B_vs_expected_low_dev": {
+      "cv_balanced_accuracy": 0.788,
+      "cv_balanced_accuracy_sd": 0.063,
+      "n": 234,
+      "importance": {
+        "mean_tmax": 0.054,
+        "max_dry_spell": 0.043,
+        "tropical_nights": 0.042,
+        "yield_variability": 0.022,
+        "mgnrega_days": 0.021,
+        "rain_variability": 0.021,
+        "hot_days": 0.019,
+        "annual_rain_mm": 0.017,
+        "female_literacy_rate": 0.014,
+        "agri_worker_share": 0.012,
+        "rx5day_mm": 0.012,
+        "heavy_rain_days": 0.004,
+        "literacy_rate": 0.002
+      }
+    }
+  },
+  "mgnrega_sensitivity": {
+    "reading": "higher MGNREGA uptake = rural distress (sign flipped)",
+    "pearson": -0.306,
+    "spearman": -0.324,
+    "quadrants": {
+      "Low dev / High vul": 142,
+      "High dev / Low vul": 140,
+      "High dev / High vul": 95,
+      "Low dev / Low vul": 92
+    },
+    "anomalies": 187,
+    "anomaly_share": 0.399,
+    "districts_changing_quadrant": 96
+  },
+  "robust_anomalies": {
+    "0.1": {
+      "districts_clear_of_both_medians": 390,
+      "anomaly_A": 69,
+      "anomaly_B": 71,
+      "anomaly_share_of_clear": 0.359
+    },
+    "0.25": {
+      "districts_clear_of_both_medians": 302,
+      "anomaly_A": 45,
+      "anomaly_B": 52,
+      "anomaly_share_of_clear": 0.321
+    },
+    "0.5": {
+      "districts_clear_of_both_medians": 189,
+      "anomaly_A": 26,
+      "anomaly_B": 26,
+      "anomaly_share_of_clear": 0.275
+    }
+  }
+}

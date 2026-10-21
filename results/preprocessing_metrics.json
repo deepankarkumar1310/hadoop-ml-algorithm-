@@ -1,0 +1,78 @@
+{
+  "census": {
+    "districts": 640,
+    "population": 1210854977,
+    "population_official": 1210854977,
+    "population_abs_error": 0,
+    "population_pct_error": 0.0,
+    "literacy_pct": 72.9819,
+    "literacy_official": 72.98,
+    "literacy_abs_error_pp": 0.0019
+  },
+  "ndap": {
+    "rows": 699,
+    "cols": 79,
+    "overall_missing_pct": 75.0,
+    "cols_over_half_empty": 64
+  },
+  "matching": {
+    "ndap_districts": 699,
+    "match_types": {
+      "exact": 528,
+      "unmatched": 97,
+      "alias": 45,
+      "fuzzy": 23,
+      "wordorder": 6
+    },
+    "matched": 602,
+    "duplicate_censuscodes_after": 0
+  },
+  "grid_rain": {
+    "pairs": 10291,
+    "districts": 640,
+    "max_abs_sum_error": 7.000000001866624e-08,
+    "rmse_sum_error": 1.1930789996999434e-08
+  },
+  "grid_temp": {
+    "pairs": 2074,
+    "districts": 640,
+    "max_abs_sum_error": 1.9999999989472883e-08,
+    "rmse_sum_error": 4.5069390831050195e-09
+  },
+  "district_day": {
+    "years": 30,
+    "rows": 7013120,
+    "rain_missing_pct": 0.625,
+    "tmax_missing_pct": 0.3674541430918051,
+    "tmin_missing_pct": 0.3649445610512867,
+    "source": "Colab run 2026-10-11 manifest"
+  },
+  "final_table": {
+    "rows": 469,
+    "states": 21,
+    "feature_missing_cells": 0,
+    "duplicate_censuscodes": 0,
+    "out_of_range_values": 0,
+    "outliers_abs_z_gt3": 66,
+    "class_high": 237,
+    "class_low": 232,
+    "years_per_district_min": null
+  },
+  "feature_signal_auc": {
+    "agri_worker_share": 0.674,
+    "female_literacy_rate": 0.661,
+    "literacy_rate": 0.66,
+    "tropical_nights": 0.631,
+    "rx5day_mm": 0.591,
+    "annual_rain_mm": 0.583,
+    "heavy_rain_days": 0.575,
+    "yield_variability": 0.549,
+    "mgnrega_days": 0.54,
+    "rain_variability": 0.539,
+    "hot_days": 0.524,
+    "mean_tmax": 0.522,
+    "max_dry_spell": 0.512
+  },
+  "rain_snr_median": 3.98,
+  "computed": "2026-10-21 from reused project data"
+}
