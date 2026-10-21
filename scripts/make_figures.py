@@ -96,7 +96,7 @@ def preprocessing(df, X):
 
 
 def preprocessing_gain():
-    """Devanshu: model ROC-AUC on raw vs preprocessed features."""
+    """Tanmay: model ROC-AUC on raw vs preprocessed features."""
     ba = pd.read_csv(RES / "preprocessing_before_after.csv")
     fig, ax = plt.subplots(figsize=(8.5, 3.8))
     x = np.arange(len(ba))
@@ -111,7 +111,7 @@ def preprocessing_gain():
 
 
 def classifier(df):
-    """Devanshu: ROC/PR, confusion, comparison, stability, calibration, LOSO, training curve, ablation."""
+    """Tanmay: ROC/PR, confusion, comparison, stability, calibration, LOSO. Devanshu: training curve, ablation."""
     t5 = pd.read_csv(RES / "table5_comparison.csv")
     fm = pd.read_csv(RES / "fold_metrics.csv")
     # C1 ROC + C2 PR
@@ -287,7 +287,7 @@ def platform():
 
 
 def processing():
-    """Tanmay: MapReduce scaling and Spark k-means silhouette."""
+    """Deepankar: MapReduce scaling and Spark k-means silhouette."""
     t = pd.read_csv(RES / "scalability_timings.csv").groupby("years").agg(rt=("runtime_s", "mean"), rec=("map_input_records", "first"))
     fig, ax = plt.subplots(figsize=(6, 3.6))
     ax.plot(t.rec / 1e6, t.rt, marker="o", color=V.ORANGE)
@@ -311,9 +311,9 @@ def main():
     df, X, _ = load_table()
     preprocessing(df, X)       # Sehjodh Grewal
     platform()                 # Deepankar
-    processing()               # Tanmay Singh
-    preprocessing_gain()       # Devanshu Kumar
-    classifier(df)             # Devanshu Kumar
+    processing()               # Deepankar
+    preprocessing_gain()       # Tanmay Singh
+    classifier(df)             # Tanmay Singh (comparison) + Devanshu Kumar (training curve, ablation)
     explanation(df)            # Devanshu Kumar
 
 

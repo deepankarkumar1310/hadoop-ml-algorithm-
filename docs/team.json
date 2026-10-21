@@ -2,35 +2,35 @@
   "title": "Beyond Development: Explaining Climate Resilience Across Indian Districts",
   "course": "Big Data, SRM Institute of Science and Technology - Review 2",
   "faculty": "Dr Bhanu Priya",
-  "completion_note": "Completion percentages are estimates at Review 2",
+  "completion_note": "Status at Review 2",
   "members": [
     {
       "name": "Sehjodh Grewal",
       "reg_no": "RA2411031010081",
-      "role": "Data acquisition & preprocessing",
-      "responsibilities": "Data download, Census rates, district matching, variable selection, grid weights, grid-to-district-day, orientation check, data-quality error metrics (Table 1)",
-      "completion": "100% (estimate)"
+      "role": "Dataset & Preprocessing",
+      "responsibilities": "Collect NDAP, Census 2011, IMD and boundary data; Census rates; district matching; variable selection (no imputation); grid-to-district aggregation; district-day table; orientation check; preprocessing results and error metrics (Table 1)",
+      "completion": "Completed (IMD re-run in Colab pending)"
     },
     {
       "name": "Deepankar",
       "reg_no": "RA2411031010103",
-      "role": "Big Data platform & storage",
-      "responsibilities": "Hadoop/YARN/Hive/Spark installation and configuration in Colab, cluster health checks, HDFS zone design, data loading, storage report (Table 2), repository and notebook structure",
-      "completion": "90% (estimate: fresh Colab run pending)"
-    },
-    {
-      "name": "Tanmay Singh",
-      "reg_no": "RA2411031010118",
-      "role": "Big Data processing jobs",
-      "responsibilities": "MapReduce mapper/reducer and timings, MapReduce correctness check, Hive queries and pandas check, Spark k-means climate regimes (Table 3), slide assembly",
-      "completion": "90% (estimate: fresh MapReduce/Hive run pending)"
+      "role": "Big Data Pipeline",
+      "responsibilities": "Set up Hadoop (HDFS + YARN), Hive and Spark in Colab; HDFS zones and data loading; storage report (Table 2); MapReduce yearly climate indices and scalability; Hive 30-year baseline and join; Spark k-means climate regimes (Table 3)",
+      "completion": "Completed (fresh Colab run pending)"
     },
     {
       "name": "Devanshu Kumar",
       "reg_no": "RA2411031010102",
-      "role": "Models & comparison",
-      "responsibilities": "A-CPN design and training, 5 comparison models (Spark MLlib + MLP), metrics, effect of preprocessing on the models, ablation, climate-push analysis (Tables 4-6)",
-      "completion": "95% (estimate: all models run; tuning next)"
+      "role": "Novel Deep Learning Model",
+      "responsibilities": "Design and train A-CPN (attention, KAN layer, residual MLP, development baseline); MC Dropout and conformal uncertainty; model card (Table 4); ablation; climate-push analysis (Table 6)",
+      "completion": "Completed"
+    },
+    {
+      "name": "Tanmay Singh",
+      "reg_no": "RA2411031010118",
+      "role": "Comparative ML & Visualization",
+      "responsibilities": "Compare A-CPN with Logistic Regression, Random Forest, GBT, Linear SVM (Spark MLlib) and MLP on the same folds; all metrics, confidence intervals, significance; effect of preprocessing on the models (Table 5); result figures; slides",
+      "completion": "Completed"
     }
   ]
 }

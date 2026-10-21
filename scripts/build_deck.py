@@ -468,7 +468,7 @@ table(s, 0.4, 1.3, 9.2, [
     [1.75, 1.75, 2.0, 1.75, 1.95], size=12, row_h=0.72)
 textbox(s, 0.4, 5.85, 9.2, 0.9, f"MapReduce and Hive values: {REF} (2 vCPU, 12.7 GB RAM). Single node: "
         "throughput rises with input size, but no multi-machine speed-up is claimed.", 13, color=GREY)
-owner(s, "Tanmay Singh")
+owner(s, "Deepankar")
 
 # ================================================================= 9 PREPROCESSING STEPS
 s = new_slide("Preprocessing: Big Data Analysis Steps",
@@ -585,7 +585,7 @@ s = new_slide("Comparison with Existing Classifier Models",
               "larger than one standard deviation, and we report a baseline that beats A-CPN as it is.", size=24)
 table(s, 0.4, 1.3, 9.2, rows, [2.25, 1.7, 1.05, 1.05, 1.05, 1.0, 1.1], size=12, row_h=0.55, highlight=(1,))
 bullets(s, 0.4, 5.3, 9.2, 1.7, cmp_items, size=15, space=3)
-owner(s, "Devanshu Kumar")
+owner(s, "Tanmay Singh")
 
 # ================================================================= EFFECT OF PREPROCESSING ON THE MODELS (Devanshu)
 ba = load("preprocessing_before_after.csv")
@@ -610,7 +610,7 @@ table(s, 0.4, 1.3, 9.2, rows, [2.3, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15], size=12
 bullets(s, 0.4, 5.55, 9.2, 1.4, [
     ("Before: ", "raw features (rain in mm, days, %, °C on very different scales); After: preprocessed, same 25 folds"),
     ("Result: ", ba_note)], size=15, space=4)
-owner(s, "Devanshu Kumar")
+owner(s, "Tanmay Singh")
 
 # ================================================================= 15 DETAILED METRICS
 cols = [("precision", "Prec."), ("recall", "Recall"), ("specificity", "Spec."), ("mcc", "MCC"),
@@ -626,7 +626,7 @@ table(s, 0.4, 1.3, 9.2, rows, [2.2] + [0.78] * 9, size=11, row_h=0.6, highlight=
 bullets(s, 0.4, 5.75, 9.2, 1.2, [
     ("Higher is better: ", "precision, recall, specificity, MCC, Cohen's kappa, PR-AUC"),
     ("Lower is better: ", "log loss, Brier, ECE (Linear SVM: n/a, no probabilities)")], size=15, space=3)
-owner(s, "Devanshu Kumar")
+owner(s, "Tanmay Singh")
 
 # ================================================================= 16 CONFUSION / CI / SIGNIFICANCE
 rows = [["Model", "TP", "TN", "FP", "FN", "ROC-AUC 95% CI", "p vs A-CPN"]]
@@ -642,7 +642,7 @@ bullets(s, 0.4, 5.65, 9.2, 1.3, [
     ("TP/TN/FP/FN: ", "summed over the 25 test folds (High = positive class)"),
     ("Significance: ", "corrected resampled t-test (Nadeau–Bengio) on paired fold ROC-AUC; p < 0.05 = real difference")],
     size=15, space=3)
-owner(s, "Devanshu Kumar")
+owner(s, "Tanmay Singh")
 
 # ================================================================= 17 ABLATION
 VAR = ["Full A-CPN", "Without feature attention", "Without KAN layer (plain MLP)", "Without residual block",
@@ -736,29 +736,38 @@ fig_slide("MapReduce & Spark Results (Figures)",
           "Left: MapReduce runtime against input size for 1, 10 and 30 years on a single node. Right: the "
           "silhouette score used to choose the number of Spark k-means climate regimes.",
           "mapreduce_scalability.png", "kmeans_silhouette.png",
-          f"MapReduce scaling, single node ({REF})", "Spark k-means: silhouette by k", "Tanmay Singh")
-fig_slide("Results of Classification (Figures)",
-          "Top: ROC and precision-recall curves for A-CPN and the five baselines, pooled over the 25 folds. Bottom: "
-          "mean and standard deviation of four metrics for every model.",
-          "roc_curves.png", "comparison_bars.png",
-          "ROC and precision-recall curves (25 folds)", "Comparison: mean ± SD over 25 folds",
-          "Devanshu Kumar", size=26, stacked=True)
-fig_slide("Confusion Matrix & Stability (Figures)",
-          "Left: the A-CPN confusion matrix summed over all test folds. Right: the spread of ROC-AUC across the 25 "
-          "folds for every model, which shows how stable each model is.",
-          "confusion_acpn.png", "fold_boxplots.png",
-          "A-CPN confusion matrix (25 folds)", "ROC-AUC per fold, all models", "Devanshu Kumar", size=26)
-fig_slide("Preprocessing Gain & Ablation (Figures)",
-          "Top: ROC-AUC of every model on raw versus preprocessed features, with the gain above each pair. "
-          "Bottom: the ablation, removing one A-CPN component at a time.",
-          "prep_model_gain.png", "ablation.png",
-          "Model ROC-AUC before vs after preprocessing", "Ablation: one component removed at a time",
-          "Devanshu Kumar", size=26, stacked=True)
+          f"MapReduce scaling, single node ({REF})", "Spark k-means: silhouette by k", "Deepankar")
+fig_slide("A-CPN Training & Attention (Figures)",
+          "Left: A-CPN training and validation loss; training stops at the best validation epoch. Right: the mean "
+          "attention weight of each climate feature, showing which hazards drive the climate push.",
+          "acpn_training_curve.png", "attention_importance.png",
+          "A-CPN training curve (early stopping)", "Feature attention (mean weight)", "Devanshu Kumar")
+fig_slide("Ablation (Figure)",
+          "Each bar is A-CPN with one component removed, on the same 25 folds. Removing the climate push costs the "
+          "most; removing attention or the KAN layer does not lower accuracy, so those parts are kept for the "
+          "explanation they give.",
+          "ablation.png", None, "Ablation: one A-CPN component removed at a time", None, "Devanshu Kumar")
 fig_slide("Climate-Push Visualisation",
           "Left: the climate push of every district by group, with the group mean. Right: an India map of the "
           "climate push, so the panel can see where climate drives vulnerability beyond development.",
           "climate_push_by_quadrant.png", "climate_push_map.png",
           "Climate push by group (bar = mean)", "Climate push per district (469)", "Devanshu Kumar")
+fig_slide("Results of Classification (Figures)",
+          "Top: ROC and precision-recall curves for A-CPN and the five baselines, pooled over the 25 folds. Bottom: "
+          "mean and standard deviation of four metrics for every model.",
+          "roc_curves.png", "comparison_bars.png",
+          "ROC and precision-recall curves (25 folds)", "Comparison: mean ± SD over 25 folds",
+          "Tanmay Singh", size=26, stacked=True)
+fig_slide("Confusion Matrices & Stability (Figures)",
+          "Top: confusion matrices of all six models summed over the 25 test folds. Bottom: the spread of ROC-AUC "
+          "across the folds, which shows how stable each model is.",
+          "confusion_matrices.png", "fold_boxplots.png",
+          "Confusion matrices, all models", "ROC-AUC per fold, all models", "Tanmay Singh", size=26, stacked=True)
+fig_slide("Effect of Preprocessing (Figure)",
+          "ROC-AUC of every model on raw versus preprocessed features, with the gain written above each pair. The "
+          "neural models gain; tree models and Spark's internally standardised models do not change.",
+          "prep_model_gain.png", None, "Model ROC-AUC before vs after preprocessing (label = gain)", None,
+          "Tanmay Singh")
 
 # ================================================================= 20 KEY FINDINGS
 rg = ar["regression"]
@@ -802,15 +811,15 @@ owner(s, "Tanmay Singh")
 # ================================================================= 21 PLAN OF ACTION
 team = json.loads((ROOT / "docs" / "team.json").read_text())
 s = new_slide("Plan of Action / Member Tasks",
-              "Each member owns one stage of the pipeline with no overlap: Sehjodh the data and preprocessing, "
-              "Deepankar the Big Data platform, Tanmay the processing jobs, and Devanshu the models. Completion "
-              "percentages are estimates at Review 2.")
-rows = [["Team member", "Assigned work", "Key responsibilities", "Completion (Review 2)"]]
+              "Each member owns one stage with no overlap: Sehjodh the dataset and preprocessing, Deepankar the Big "
+              "Data pipeline, Devanshu the novel deep-learning model, and Tanmay the comparison with existing models "
+              "and the visualisation. Each member presents only the slides of their own stage.")
+rows = [["Member", "Role", "Key Responsibilities", "Status"]]
 for mbr in team["members"]:
     rows.append([mbr["name"], mbr["role"], mbr["responsibilities"], mbr["completion"]])
-table(s, 0.4, 1.3, 9.2, rows, [1.6, 1.9, 4.3, 1.4], size=11, row_h=0.95)
-textbox(s, 0.4, 6.15, 9.2, 0.8, "Next (Review 3): full 1901–2024 rainfall in HDFS and re-timing; A-CPN tuning; "
-        "comparison with CEEW / DST district rankings; final report.", 13, color=INK)
+table(s, 0.4, 1.25, 9.2, rows, [1.6, 1.8, 4.4, 1.6], size=11, row_h=0.9)
+textbox(s, 0.4, 6.45, 9.2, 0.55, "Next (Review 3): full 1901–2024 rainfall in HDFS and re-timing; A-CPN tuning; "
+        "comparison with CEEW / DST district rankings; final report.", 12, color=INK)
 owner(s, "Tanmay Singh")
 
 # ================================================================= 22 REFERENCES
