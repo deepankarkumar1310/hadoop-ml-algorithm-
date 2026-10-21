@@ -1,0 +1,470 @@
+censuscode,district_name,state_name,climate_vul_in,literacy_rate,female_literacy_rate,agri_worker_share,mgnrega_days,yield_variability,z_literacy_rate,z_female_literacy_rate,z_agri_worker_share,z_mgnrega_days,z_yield_variability,development_score,dev_group,vul_group,quadrant,match_type
+23,Chamba,Himachal Pradesh,0.369,72.17,61.67,70.01,69.09,0.28,0.089,-0.0492,-0.5895,1.7586,0.2398,0.2897,High,Low,High dev / Low vul,exact
+24,Kangra,Himachal Pradesh,0.501,85.67,80.02,53.0,39.61,0.21,1.3949,1.3919,0.3184,-0.4524,0.2581,0.5822,High,Low,High dev / Low vul,exact
+25,Lahul and Spiti,Himachal Pradesh,0.344,76.81,66.84,61.15,35.5,0.27,0.5379,0.3568,-0.1166,-0.7606,0.2424,0.052,High,Low,High dev / Low vul,exact
+26,Kullu,Himachal Pradesh,0.392,79.4,70.91,77.86,41.94,0.2,0.7884,0.6765,-1.0084,-0.2776,0.2607,0.0879,High,Low,High dev / Low vul,exact
+27,Mandi,Himachal Pradesh,0.455,81.53,73.66,70.51,46.96,0.71,0.9944,0.8924,-0.6161,0.0989,0.1275,0.2994,High,Low,High dev / Low vul,exact
+28,Hamirpur,Himachal Pradesh,0.48,88.15,82.62,64.45,40.31,0.24,1.6348,1.5961,-0.2927,-0.3999,0.2503,0.5577,High,Low,High dev / Low vul,exact
+29,Una,Himachal Pradesh,0.464,86.53,81.11,48.48,53.13,0.21,1.4781,1.4775,0.5597,0.5616,0.2581,0.867,High,Low,High dev / Low vul,exact
+30,Bilaspur,Himachal Pradesh,0.574,84.59,77.97,63.78,47.92,0.25,1.2904,1.2309,-0.2569,0.1709,0.2477,0.5366,High,High,High dev / High vul,exact
+31,Solan,Himachal Pradesh,0.511,83.68,76.97,50.73,42.97,0.36,1.2024,1.1524,0.4396,-0.2004,0.2189,0.5626,High,Low,High dev / Low vul,exact
+32,Sirmaur,Himachal Pradesh,0.369,78.8,71.36,69.15,49.78,0.22,0.7304,0.7118,-0.5436,0.3103,0.2555,0.2929,High,Low,High dev / Low vul,exact
+33,Shimla,Himachal Pradesh,0.396,83.64,77.13,64.02,41.34,0.27,1.1985,1.1649,-0.2697,-0.3226,0.2424,0.4027,High,Low,High dev / Low vul,exact
+34,Kinnaur,Himachal Pradesh,0.35,80.0,70.96,63.14,60.9,0.21,0.8464,0.6804,-0.2228,1.1443,0.2581,0.5413,High,Low,High dev / Low vul,exact
+35,Gurdaspur,Punjab,0.553,79.95,74.85,32.83,32.88,0.1,0.8416,0.9859,1.395,-0.9571,0.2868,0.5104,High,Low,High dev / Low vul,exact
+36,Kapurthala,Punjab,0.541,79.07,74.63,34.36,39.21,0.06,0.7565,0.9686,1.3133,-0.4824,0.2973,0.5707,High,Low,High dev / Low vul,exact
+37,Jalandhar,Punjab,0.464,82.48,78.48,19.67,28.96,0.06,1.0863,1.2709,2.0974,-1.2511,0.2973,0.7002,High,Low,High dev / Low vul,exact
+38,Hoshiarpur,Punjab,0.462,84.59,80.31,32.84,30.0,0.08,1.2904,1.4147,1.3945,-1.1731,0.2921,0.6437,High,Low,High dev / Low vul,exact
+39,Shahid Bhagat Singh Nagar,Punjab,0.488,79.78,73.93,31.93,40.29,0.08,0.8252,0.9136,1.443,-0.4014,0.2921,0.6145,High,Low,High dev / Low vul,exact
+40,Fatehgarh Sahib,Punjab,0.462,79.35,74.8,30.56,52.87,0.07,0.7836,0.982,1.5162,0.5421,0.2947,0.8237,High,Low,High dev / Low vul,exact
+41,Ludhiana,Punjab,0.459,82.2,77.88,18.63,36.48,0.05,1.0592,1.2238,2.1529,-0.6871,0.2999,0.8097,High,Low,High dev / Low vul,exact
+42,Moga,Punjab,0.528,70.68,66.48,48.45,28.8,0.1,-0.0551,0.3286,0.5613,-1.2631,0.2868,-0.0283,High,Low,High dev / Low vul,exact
+43,Firozepur,Punjab,0.482,68.92,61.69,55.46,25.03,0.07,-0.2253,-0.0476,0.1871,-1.5458,0.2947,-0.2674,Low,Low,Low dev / Low vul,fuzzy
+44,Sri Muktsar Sahib,Punjab,0.526,65.81,59.24,58.92,26.4,0.05,-0.5262,-0.24,0.0025,-1.4431,0.2999,-0.3814,Low,Low,Low dev / Low vul,alias
+45,Faridkot,Punjab,0.533,69.55,63.91,48.42,28.57,0.07,-0.1644,0.1268,0.5629,-1.2804,0.2947,-0.0921,Low,Low,Low dev / Low vul,exact
+46,Bathinda,Punjab,0.51,68.28,61.94,49.08,28.28,0.06,-0.2872,-0.028,0.5277,-1.3021,0.2973,-0.1585,Low,Low,Low dev / Low vul,exact
+47,Mansa,Punjab,0.519,61.83,55.68,59.76,28.72,0.06,-0.9112,-0.5196,-0.0424,-1.2691,0.2973,-0.489,Low,Low,Low dev / Low vul,exact
+48,Patiala,Punjab,0.484,75.28,69.8,30.64,23.45,0.05,0.3899,0.5893,1.5119,-1.6643,0.2999,0.2253,High,Low,High dev / Low vul,exact
+49,Amritsar,Punjab,0.481,76.27,71.96,26.83,32.65,0.09,0.4856,0.7589,1.7152,-0.9744,0.2894,0.4549,High,Low,High dev / Low vul,exact
+50,Tarn Taran,Punjab,0.527,67.81,61.85,51.76,28.2,0.09,-0.3327,-0.035,0.3846,-1.3081,0.2894,-0.2004,Low,Low,Low dev / Low vul,exact
+51,Rupnagar,Punjab,0.487,82.19,76.42,28.74,39.51,0.1,1.0583,1.1092,1.6133,-0.4599,0.2868,0.7215,High,Low,High dev / Low vul,exact
+52,S.A.S Nagar,Punjab,0.458,83.8,79.18,17.6,34.18,0.08,1.214,1.3259,2.2079,-0.8596,0.2921,0.8361,High,Low,High dev / Low vul,alias
+53,Sangrur,Punjab,0.514,67.99,62.17,43.78,23.79,0.06,-0.3153,-0.0099,0.8105,-1.6388,0.2973,-0.1712,Low,Low,Low dev / Low vul,exact
+54,Barnala,Punjab,0.496,67.82,63.57,48.15,29.5,0.05,-0.3317,0.1001,0.5773,-1.2106,0.2999,-0.113,Low,Low,Low dev / Low vul,exact
+69,Panchkula,Haryana,0.523,81.88,75.99,18.68,37.73,0.15,1.0283,1.0754,2.1502,-0.5934,0.2738,0.7869,High,Low,High dev / Low vul,exact
+70,Ambala,Haryana,0.499,81.75,75.5,29.6,36.27,0.08,1.0157,1.0369,1.5674,-0.7029,0.2921,0.6418,High,Low,High dev / Low vul,exact
+71,Yamunanagar,Haryana,0.511,77.99,71.38,34.62,44.4,0.09,0.652,0.7134,1.2995,-0.0931,0.2894,0.5722,High,Low,High dev / Low vul,exact
+72,Kurukshetra,Haryana,0.486,76.31,68.84,45.96,24.62,0.08,0.4895,0.5139,0.6942,-1.5766,0.2921,0.0826,High,Low,High dev / Low vul,exact
+73,Kaithal,Haryana,0.514,69.15,59.24,57.15,31.19,0.08,-0.2031,-0.24,0.0969,-1.0839,0.2921,-0.2276,Low,Low,Low dev / Low vul,exact
+74,Karnal,Haryana,0.511,74.73,66.82,47.67,37.12,0.09,0.3367,0.3553,0.6029,-0.6391,0.2894,0.189,High,Low,High dev / Low vul,exact
+75,Panipat,Haryana,0.493,75.94,67.0,32.62,42.5,0.09,0.4537,0.3694,1.4062,-0.2356,0.2894,0.4566,High,Low,High dev / Low vul,exact
+76,Sonipat,Haryana,0.498,79.12,69.8,46.65,39.63,0.09,0.7613,0.5893,0.6574,-0.4509,0.2894,0.3693,High,Low,High dev / Low vul,exact
+77,Jind,Haryana,0.502,71.44,60.76,63.52,31.65,0.07,0.0184,-0.1206,-0.2431,-1.0494,0.2947,-0.22,Low,Low,Low dev / Low vul,exact
+78,Fatehabad,Haryana,0.445,67.92,58.87,62.38,35.64,0.07,-0.3221,-0.269,-0.1822,-0.7501,0.2947,-0.2457,Low,Low,Low dev / Low vul,exact
+79,Sirsa,Haryana,0.476,68.82,60.4,62.02,20.57,0.21,-0.235,-0.1489,-0.163,-1.8803,0.2581,-0.4338,Low,Low,Low dev / Low vul,exact
+80,Hisar,Haryana,0.469,72.89,62.25,58.61,28.22,0.07,0.1587,-0.0036,0.019,-1.3066,0.2947,-0.1676,Low,Low,Low dev / Low vul,exact
+81,Bhiwani,Haryana,0.548,75.21,63.54,62.97,24.48,0.13,0.3831,0.0977,-0.2137,-1.5871,0.279,-0.2082,Low,Low,Low dev / Low vul,exact
+82,Rohtak,Haryana,0.52,80.22,71.72,38.24,44.24,0.15,0.8677,0.7401,1.1062,-0.1051,0.2738,0.5765,High,Low,High dev / Low vul,exact
+83,Jhajjar,Haryana,0.524,80.65,70.73,48.15,38.13,0.15,0.9093,0.6623,0.5773,-0.5634,0.2738,0.3719,High,Low,High dev / Low vul,exact
+84,Mahendragarh,Haryana,0.535,77.72,64.57,55.37,49.09,0.12,0.6259,0.1786,0.1919,0.2586,0.2816,0.3073,High,Low,High dev / Low vul,exact
+85,Rewari,Haryana,0.487,80.99,69.57,38.76,32.14,0.13,0.9422,0.5712,1.0785,-1.0126,0.279,0.3717,High,Low,High dev / Low vul,exact
+86,Gurugram,Haryana,0.486,84.7,77.98,15.26,52.37,0.12,1.3011,1.2317,2.3328,0.5046,0.2816,1.1304,High,Low,High dev / Low vul,alias
+87,Nuh,Haryana,0.663,54.08,36.6,55.01,54.02,0.13,-1.6608,-2.0179,0.2112,0.6283,0.279,-0.512,Low,High,Low dev / High vul,alias
+88,Faridabad,Haryana,0.58,81.7,73.84,9.84,42.25,0.13,1.0109,0.9066,2.6221,-0.2544,0.279,0.9128,High,High,High dev / High vul,exact
+89,Palwal,Haryana,0.502,69.32,54.23,49.16,54.64,0.07,-0.1866,-0.6334,0.5234,0.6748,0.2947,0.1346,High,Low,High dev / Low vul,exact
+99,Ganganagar,Rajasthan,0.445,69.64,59.7,54.65,54.05,0.15,-0.1557,-0.2039,0.2304,0.6306,0.2738,0.155,High,Low,High dev / Low vul,exact
+100,Hanumangarh,Rajasthan,0.459,67.13,55.84,64.33,61.87,0.28,-0.3985,-0.507,-0.2863,1.2171,0.2398,0.053,High,Low,High dev / Low vul,exact
+101,Bikaner,Rajasthan,0.541,65.13,53.23,61.15,58.25,0.34,-0.592,-0.712,-0.1166,0.9456,0.2241,-0.0502,High,Low,High dev / Low vul,exact
+102,Churu,Rajasthan,0.536,66.75,54.04,73.17,60.55,0.28,-0.4352,-0.6483,-0.7581,1.1181,0.2398,-0.0967,Low,Low,Low dev / Low vul,exact
+103,Jhunjhunu,Rajasthan,0.465,74.13,60.95,66.01,62.27,0.21,0.2786,-0.1057,-0.376,1.2471,0.2581,0.2604,High,Low,High dev / Low vul,fuzzy
+104,Alwar,Rajasthan,0.461,70.72,56.25,65.3,45.01,0.11,-0.0512,-0.4748,-0.3381,-0.0474,0.2842,-0.1255,Low,Low,Low dev / Low vul,exact
+105,Bharatpur,Rajasthan,0.564,70.11,54.24,69.07,41.97,0.1,-0.1102,-0.6326,-0.5393,-0.2754,0.2868,-0.2541,Low,Low,Low dev / Low vul,exact
+106,Dholpur,Rajasthan,0.549,69.08,54.67,58.16,55.88,0.11,-0.2099,-0.5989,0.043,0.7678,0.2842,0.0572,High,Low,High dev / Low vul,alias
+107,Karauli,Rajasthan,0.554,66.22,48.61,71.68,49.79,0.08,-0.4865,-1.0748,-0.6786,0.3111,0.2921,-0.3273,Low,Low,Low dev / Low vul,exact
+108,Sawai Madhopur,Rajasthan,0.554,65.39,47.51,69.57,48.31,0.12,-0.5668,-1.1612,-0.566,0.2001,0.2816,-0.3625,Low,Low,Low dev / Low vul,exact
+109,Dausa,Rajasthan,0.546,68.16,51.93,68.26,46.19,0.13,-0.2989,-0.814,-0.4961,0.0411,0.279,-0.2578,Low,Low,Low dev / Low vul,exact
+110,Jaipur,Rajasthan,0.506,75.51,64.02,35.53,44.45,0.15,0.4121,0.1354,1.2509,-0.0894,0.2738,0.3966,High,Low,High dev / Low vul,exact
+111,Sikar,Rajasthan,0.485,71.91,58.23,58.54,61.67,0.21,0.0639,-0.3193,0.0227,1.2021,0.2581,0.2455,High,Low,High dev / Low vul,exact
+112,Nagaur,Rajasthan,0.566,62.8,47.82,69.99,62.57,0.22,-0.8173,-1.1368,-0.5884,1.2696,0.2555,-0.2035,Low,High,Low dev / High vul,exact
+113,Jodhpur,Rajasthan,0.553,65.94,51.83,56.01,60.98,0.3,-0.5136,-0.8219,0.1578,1.1503,0.2346,0.0414,High,Low,High dev / Low vul,exact
+114,Jaisalmer,Rajasthan,0.587,57.22,39.71,61.04,75.76,0.68,-1.3571,-1.7737,-0.1107,2.2588,0.1353,-0.1695,Low,High,Low dev / High vul,exact
+115,Barmer,Rajasthan,0.587,56.53,40.63,73.76,63.57,0.43,-1.4238,-1.7014,-0.7896,1.3446,0.2006,-0.4739,Low,High,Low dev / High vul,exact
+116,Jalore,Rajasthan,0.513,54.86,38.47,72.65,62.32,0.38,-1.5854,-1.8711,-0.7304,1.2508,0.2137,-0.5445,Low,Low,Low dev / Low vul,fuzzy
+117,Sirohi,Rajasthan,0.536,55.25,39.73,52.86,62.31,0.31,-1.5477,-1.7721,0.3259,1.2501,0.232,-0.3024,Low,Low,Low dev / Low vul,exact
+118,Pali,Rajasthan,0.561,62.39,48.01,57.08,62.29,0.29,-0.857,-1.1219,0.1007,1.2486,0.2372,-0.0785,Low,Low,Low dev / Low vul,exact
+119,Ajmer,Rajasthan,0.574,69.33,55.68,42.17,61.4,0.26,-0.1857,-0.5196,0.8965,1.1818,0.245,0.3236,High,High,High dev / High vul,exact
+120,Tonk,Rajasthan,0.52,61.58,45.45,67.7,45.91,0.19,-0.9353,-1.3229,-0.4662,0.0201,0.2633,-0.4882,Low,Low,Low dev / Low vul,exact
+121,Bundi,Rajasthan,0.5,61.52,46.55,68.78,55.2,0.19,-0.9411,-1.2365,-0.5238,0.7168,0.2633,-0.3443,Low,Low,Low dev / Low vul,exact
+122,Bhilwara,Rajasthan,0.549,61.37,47.21,62.55,67.93,0.26,-0.9557,-1.1847,-0.1913,1.6716,0.245,-0.083,Low,Low,Low dev / Low vul,exact
+123,Rajsamand,Rajasthan,0.553,63.14,47.95,57.04,64.7,0.17,-0.7844,-1.1266,0.1028,1.4293,0.2685,-0.0221,High,Low,High dev / Low vul,exact
+124,Dungarpur,Rajasthan,0.55,59.46,46.16,64.25,68.21,0.18,-1.1404,-1.2672,-0.282,1.6926,0.2659,-0.1462,Low,Low,Low dev / Low vul,exact
+125,Banswara,Rajasthan,0.563,56.33,43.06,81.38,56.44,0.17,-1.4432,-1.5106,-1.1963,0.8098,0.2685,-0.6144,Low,Low,Low dev / Low vul,exact
+126,Chittorgarh,Rajasthan,0.493,61.71,46.53,71.84,54.71,0.18,-0.9228,-1.2381,-0.6871,0.6801,0.2659,-0.3804,Low,Low,Low dev / Low vul,fuzzy
+127,Kota,Rajasthan,0.431,76.56,65.87,36.76,58.7,0.19,0.5137,0.2807,1.1852,0.9793,0.2633,0.6444,High,Low,High dev / Low vul,exact
+128,Baran,Rajasthan,0.493,66.66,51.96,72.67,58.39,0.19,-0.444,-0.8117,-0.7314,0.9561,0.2633,-0.1535,Low,Low,Low dev / Low vul,exact
+129,Jhalawar,Rajasthan,0.514,61.5,46.53,78.5,61.32,0.16,-0.9431,-1.2381,-1.0426,1.1758,0.2712,-0.3554,Low,Low,Low dev / Low vul,exact
+130,Udaipur,Rajasthan,0.6,61.82,48.45,61.66,54.16,0.17,-0.9121,-1.0873,-0.1438,0.6388,0.2685,-0.2472,Low,High,Low dev / High vul,exact
+131,Pratapgarh,Rajasthan,0.529,55.97,42.35,83.78,58.04,0.18,-1.478,-1.5664,-1.3244,0.9298,0.2659,-0.6346,Low,Low,Low dev / Low vul,exact
+132,Saharanpur,Uttar Pradesh,0.547,70.49,61.74,47.68,27.33,0.11,-0.0735,-0.0437,0.6024,-1.3733,0.2842,-0.1208,Low,Low,Low dev / Low vul,exact
+133,Muzaffarnagar,Uttar Pradesh,0.531,69.12,58.69,51.07,39.52,0.11,-0.206,-0.2832,0.4215,-0.4591,0.2842,-0.0485,High,Low,High dev / Low vul,exact
+134,Bijnor,Uttar Pradesh,0.593,68.48,59.72,49.97,26.11,0.07,-0.2679,-0.2023,0.4802,-1.4648,0.2947,-0.232,Low,High,Low dev / High vul,exact
+135,Moradabad,Uttar Pradesh,0.521,56.77,47.86,49.87,48.11,0.13,-1.4006,-1.1337,0.4855,0.1851,0.279,-0.3169,Low,Low,Low dev / Low vul,exact
+136,Rampur,Uttar Pradesh,0.589,53.34,44.44,60.28,45.26,0.14,-1.7324,-1.4022,-0.0701,-0.0286,0.2764,-0.5914,Low,High,Low dev / High vul,exact
+138,Meerut,Uttar Pradesh,0.48,72.84,63.98,32.1,47.68,0.09,0.1538,0.1322,1.434,0.1529,0.2894,0.4325,High,Low,High dev / Low vul,exact
+139,Baghpat,Uttar Pradesh,0.527,72.01,59.95,47.81,35.77,0.1,0.0736,-0.1842,0.5955,-0.7404,0.2868,0.0063,High,Low,High dev / Low vul,exact
+140,Ghaziabad,Uttar Pradesh,0.614,78.07,69.79,18.58,16.98,0.34,0.6597,0.5885,2.1556,-2.1496,0.2241,0.2957,High,High,High dev / High vul,exact
+141,Gautam Buddha Nagar,Uttar Pradesh,0.596,80.12,70.82,21.35,22.73,0.14,0.858,0.6694,2.0077,-1.7183,0.2764,0.4186,High,High,High dev / High vul,exact
+142,Bulandshahr,Uttar Pradesh,0.512,68.88,55.57,48.89,20.6,0.11,-0.2292,-0.5282,0.5378,-1.8781,0.2842,-0.3627,Low,Low,Low dev / Low vul,exact
+143,Aligarh,Uttar Pradesh,0.526,67.52,55.68,46.72,37.89,0.13,-0.3608,-0.5196,0.6536,-0.5814,0.279,-0.1058,Low,Low,Low dev / Low vul,exact
+144,Hathras,Uttar Pradesh,0.568,71.59,59.23,57.62,33.41,0.14,0.0329,-0.2408,0.0718,-0.9174,0.2764,-0.1554,Low,High,Low dev / High vul,alias
+145,Mathura,Uttar Pradesh,0.513,70.36,56.89,49.37,42.88,0.17,-0.086,-0.4245,0.5122,-0.2071,0.2685,0.0126,High,Low,High dev / Low vul,exact
+146,Agra,Uttar Pradesh,0.572,71.58,61.18,37.41,43.55,0.14,0.032,-0.0876,1.1505,-0.1569,0.2764,0.2429,High,High,High dev / High vul,exact
+147,Firozabad,Uttar Pradesh,0.581,71.92,61.75,43.97,48.31,0.11,0.0649,-0.0429,0.8004,0.2001,0.2842,0.2613,High,High,High dev / High vul,exact
+148,Mainpuri,Uttar Pradesh,0.596,75.99,66.3,72.76,45.89,0.12,0.4585,0.3144,-0.7362,0.0186,0.2816,0.0674,High,High,High dev / High vul,exact
+149,Budaun,Uttar Pradesh,0.603,51.29,40.09,75.38,47.04,0.13,-1.9307,-1.7439,-0.8761,0.1049,0.279,-0.8334,Low,High,Low dev / High vul,exact
+150,Bareilly,Uttar Pradesh,0.639,58.49,48.3,49.38,35.64,0.15,-1.2342,-1.0991,0.5117,-0.7501,0.2738,-0.4596,Low,High,Low dev / High vul,exact
+151,Pilibhit,Uttar Pradesh,0.637,61.47,50.0,71.24,36.4,0.12,-0.946,-0.9656,-0.6551,-0.6931,0.2816,-0.5956,Low,High,Low dev / High vul,exact
+152,Shahjahanpur,Uttar Pradesh,0.622,59.54,49.57,69.51,39.86,0.15,-1.1327,-0.9994,-0.5628,-0.4336,0.2738,-0.5709,Low,High,Low dev / High vul,exact
+153,Kheri,Uttar Pradesh,0.627,60.56,50.42,75.22,43.47,0.16,-1.034,-0.9326,-0.8675,-0.1629,0.2712,-0.5452,Low,High,Low dev / High vul,exact
+154,Sitapur,Uttar Pradesh,0.6,61.12,50.67,73.43,48.11,0.15,-0.9798,-0.913,-0.772,0.1851,0.2738,-0.4412,Low,High,Low dev / High vul,exact
+155,Hardoi,Uttar Pradesh,0.608,64.57,53.19,76.09,52.67,0.12,-0.6461,-0.7151,-0.914,0.5271,0.2816,-0.2933,Low,High,Low dev / High vul,exact
+156,Unnao,Uttar Pradesh,0.532,66.37,56.76,69.6,47.11,0.15,-0.472,-0.4347,-0.5676,0.1101,0.2738,-0.2181,Low,Low,Low dev / Low vul,exact
+157,Lucknow,Uttar Pradesh,0.494,77.29,71.54,24.54,44.48,0.14,0.5843,0.7259,1.8375,-0.0871,0.2764,0.6674,High,Low,High dev / Low vul,exact
+158,Rae Bareli,Uttar Pradesh,0.592,67.25,56.29,68.46,45.12,0.14,-0.3869,-0.4717,-0.5067,-0.0391,0.2764,-0.2256,Low,High,Low dev / High vul,exact
+159,Farrukhabad,Uttar Pradesh,0.593,69.04,59.44,64.29,40.28,0.17,-0.2137,-0.2243,-0.2842,-0.4021,0.2685,-0.1712,Low,High,Low dev / High vul,exact
+160,Kannauj,Uttar Pradesh,0.605,72.7,63.33,70.3,39.57,0.17,0.1403,0.0812,-0.6049,-0.4554,0.2685,-0.1141,Low,High,Low dev / High vul,exact
+161,Etawah,Uttar Pradesh,0.595,78.41,69.61,64.98,44.2,0.13,0.6926,0.5744,-0.321,-0.1081,0.279,0.2234,High,High,High dev / High vul,exact
+162,Auraiya,Uttar Pradesh,0.549,78.95,70.61,72.05,38.02,0.11,0.7449,0.6529,-0.6983,-0.5716,0.2842,0.0824,High,Low,High dev / Low vul,exact
+163,Kanpur Dehat,Uttar Pradesh,0.596,75.78,66.86,73.0,44.79,0.19,0.4382,0.3584,-0.749,-0.0639,0.2633,0.0494,High,High,High dev / High vul,exact
+164,Kanpur Nagar,Uttar Pradesh,0.565,79.65,75.05,29.09,42.67,0.21,0.8126,1.0016,1.5946,-0.2229,0.2581,0.6888,High,Low,High dev / Low vul,exact
+165,Jalaun,Uttar Pradesh,0.591,73.75,62.46,70.82,33.41,0.31,0.2419,0.0129,-0.6327,-0.9174,0.232,-0.2127,Low,High,Low dev / High vul,exact
+166,Jhansi,Uttar Pradesh,0.531,75.05,63.49,58.53,51.34,0.23,0.3676,0.0938,0.0233,0.4273,0.2529,0.233,High,Low,High dev / Low vul,exact
+167,Lalitpur,Uttar Pradesh,0.525,63.52,50.84,79.26,53.52,0.24,-0.7477,-0.8996,-1.0832,0.5908,0.2503,-0.3779,Low,Low,Low dev / Low vul,exact
+168,Hamirpur,Uttar Pradesh,0.48,68.77,55.95,70.27,53.78,0.28,-0.2398,-0.4984,-0.6033,0.6103,0.2398,-0.0983,Low,Low,Low dev / Low vul,exact
+169,Mahoba,Uttar Pradesh,0.636,65.27,53.22,69.97,49.91,0.38,-0.5784,-0.7127,-0.5873,0.3201,0.2137,-0.2689,Low,High,Low dev / High vul,exact
+170,Banda,Uttar Pradesh,0.61,66.67,53.67,74.85,52.28,0.32,-0.443,-0.6774,-0.8478,0.4978,0.2294,-0.2482,Low,High,Low dev / High vul,exact
+171,Chitrakoot,Uttar Pradesh,0.63,65.05,52.74,78.84,54.13,0.42,-0.5997,-0.7504,-1.0608,0.6366,0.2032,-0.3142,Low,High,Low dev / High vul,exact
+172,Fatehpur,Uttar Pradesh,0.557,67.43,56.58,70.88,52.02,0.17,-0.3695,-0.4489,-0.6359,0.4783,0.2685,-0.1415,Low,Low,Low dev / Low vul,exact
+173,Pratapgarh,Uttar Pradesh,0.509,70.09,58.45,64.91,45.82,0.15,-0.1122,-0.302,-0.3172,0.0134,0.2738,-0.0888,Low,Low,Low dev / Low vul,exact
+174,Kaushambi,Uttar Pradesh,0.548,61.28,48.56,72.37,46.11,0.17,-0.9644,-1.0787,-0.7154,0.0351,0.2685,-0.491,Low,Low,Low dev / Low vul,exact
+175,Prayagraj,Uttar Pradesh,0.539,72.32,60.97,48.08,44.73,0.19,0.1035,-0.1041,0.581,-0.0684,0.2633,0.1551,High,Low,High dev / Low vul,alias
+176,Barabanki,Uttar Pradesh,0.585,61.75,52.34,73.81,50.19,0.16,-0.9189,-0.7818,-0.7923,0.3411,0.2712,-0.3761,Low,High,Low dev / High vul,exact
+177,Ayodhya,Uttar Pradesh,0.536,68.73,59.03,64.14,48.45,0.15,-0.2437,-0.2565,-0.2762,0.2106,0.2738,-0.0584,High,Low,High dev / Low vul,alias
+178,Ambedkar Nagar,Uttar Pradesh,0.546,72.23,62.66,65.4,45.18,0.13,0.0948,0.0286,-0.3434,-0.0346,0.279,0.0049,High,Low,High dev / Low vul,exact
+179,Sultanpur,Uttar Pradesh,0.585,69.27,58.28,67.64,49.6,0.43,-0.1915,-0.3154,-0.463,0.2968,0.2006,-0.0945,Low,High,Low dev / High vul,exact
+180,Bahraich,Uttar Pradesh,0.676,49.36,39.18,79.25,49.7,0.13,-2.1174,-1.8153,-1.0826,0.3043,0.279,-0.8864,Low,High,Low dev / High vul,exact
+181,Shravasti,Uttar Pradesh,0.653,46.74,34.78,81.38,51.59,0.13,-2.3708,-2.1609,-1.1963,0.4461,0.279,-1.0006,Low,High,Low dev / High vul,fuzzy
+182,Balrampur,Uttar Pradesh,0.659,49.51,38.43,79.63,55.0,0.15,-2.1029,-1.8742,-1.1029,0.7018,0.2738,-0.8209,Low,High,Low dev / High vul,exact
+183,Gonda,Uttar Pradesh,0.621,58.71,47.09,74.48,50.63,0.08,-1.213,-1.1941,-0.828,0.3741,0.2921,-0.5138,Low,High,Low dev / High vul,exact
+184,Siddharth Nagar,Uttar Pradesh,0.631,59.25,47.41,79.0,47.54,0.19,-1.1607,-1.169,-1.0693,0.1424,0.2633,-0.5987,Low,High,Low dev / High vul,exact
+185,Basti,Uttar Pradesh,0.584,67.22,56.23,73.91,50.59,0.18,-0.3898,-0.4764,-0.7976,0.3711,0.2659,-0.2054,Low,High,Low dev / High vul,exact
+186,Sant Kabeer Nagar,Uttar Pradesh,0.619,66.72,54.8,72.56,49.16,0.16,-0.4381,-0.5887,-0.7256,0.2639,0.2712,-0.2435,Low,High,Low dev / High vul,fuzzy
+187,Maharajganj,Uttar Pradesh,0.626,62.76,48.92,76.67,45.55,0.11,-0.8212,-1.0504,-0.9449,-0.0069,0.2842,-0.5078,Low,High,Low dev / High vul,fuzzy
+188,Gorakhpur,Uttar Pradesh,0.487,70.83,59.36,52.57,45.14,0.21,-0.0406,-0.2306,0.3414,-0.0376,0.2581,0.0581,High,Low,High dev / Low vul,exact
+189,Kushi Nagar,Uttar Pradesh,0.571,65.25,52.36,71.09,46.89,0.15,-0.5803,-0.7803,-0.6471,0.0936,0.2738,-0.3281,Low,High,Low dev / High vul,exact
+190,Deoria,Uttar Pradesh,0.578,71.13,59.38,60.4,47.77,0.18,-0.0116,-0.229,-0.0765,0.1596,0.2659,0.0217,High,High,High dev / High vul,exact
+191,Azamgarh,Uttar Pradesh,0.581,70.93,60.91,63.97,41.43,0.14,-0.0309,-0.1088,-0.2671,-0.3159,0.2764,-0.0893,Low,High,Low dev / High vul,exact
+192,Mau,Uttar Pradesh,0.591,73.09,63.63,51.32,48.2,0.2,0.178,0.1048,0.4081,0.1919,0.2607,0.2287,High,High,High dev / High vul,exact
+193,Ballia,Uttar Pradesh,0.606,70.94,59.75,57.94,43.18,0.2,-0.0299,-0.1999,0.0548,-0.1846,0.2607,-0.0198,High,High,High dev / High vul,exact
+194,Jaunpur,Uttar Pradesh,0.581,71.55,59.81,68.01,49.36,0.14,0.0291,-0.1952,-0.4827,0.2789,0.2764,-0.0187,High,High,High dev / High vul,exact
+195,Ghazipur,Uttar Pradesh,0.586,71.78,60.29,66.82,43.19,0.12,0.0513,-0.1575,-0.4192,-0.1839,0.2816,-0.0855,Low,High,Low dev / High vul,exact
+196,Chandauli,Uttar Pradesh,0.595,71.48,60.35,57.41,47.78,0.17,0.0223,-0.1528,0.0831,0.1604,0.2685,0.0763,High,High,High dev / High vul,exact
+197,Varanasi,Uttar Pradesh,0.563,75.6,66.69,31.14,36.08,0.16,0.4208,0.3451,1.4852,-0.7171,0.2712,0.361,High,Low,High dev / Low vul,exact
+198,Bhadohi,Uttar Pradesh,0.619,68.97,56.03,42.25,43.31,0.22,-0.2205,-0.4921,0.8922,-0.1749,0.2555,0.052,High,High,High dev / High vul,alias
+199,Mirzapur,Uttar Pradesh,0.615,68.48,56.86,58.11,48.23,0.19,-0.2679,-0.4269,0.0457,0.1941,0.2633,-0.0383,High,High,High dev / High vul,exact
+200,Sonbhadra,Uttar Pradesh,0.64,64.03,52.14,70.14,42.42,0.26,-0.6984,-0.7976,-0.5964,-0.2416,0.245,-0.4178,Low,High,Low dev / High vul,exact
+201,Etah,Uttar Pradesh,0.568,70.81,58.8,68.53,48.52,0.15,-0.0425,-0.2745,-0.5105,0.2159,0.2738,-0.0676,High,High,High dev / High vul,exact
+202,Kasganj,Uttar Pradesh,0.517,61.02,49.0,71.11,45.56,0.15,-0.9895,-1.0441,-0.6482,-0.0061,0.2738,-0.4828,Low,Low,Low dev / Low vul,alias
+203,Pashchim Champaran,Bihar,0.633,55.7,44.69,82.25,37.15,0.34,-1.5041,-1.3826,-1.2428,-0.6369,0.2241,-0.9085,Low,High,Low dev / High vul,exact
+204,Purbi Champaran,Bihar,0.673,55.79,45.12,80.94,43.12,0.54,-1.4954,-1.3488,-1.1728,-0.1891,0.1719,-0.8068,Low,High,Low dev / High vul,exact
+205,Sheohar,Bihar,0.694,53.78,45.26,80.91,41.85,0.32,-1.6898,-1.3378,-1.1712,-0.2844,0.2294,-0.8508,Low,High,Low dev / High vul,exact
+206,Sitamarhi,Bihar,0.668,52.05,42.41,76.43,36.02,0.37,-1.8572,-1.5617,-0.9321,-0.7216,0.2163,-0.9713,Low,High,Low dev / High vul,exact
+207,Madhubani,Bihar,0.659,58.62,46.16,81.71,37.83,0.25,-1.2217,-1.2672,-1.2139,-0.5859,0.2477,-0.8082,Low,High,Low dev / High vul,exact
+208,Supaul,Bihar,0.655,57.67,44.77,86.15,41.98,0.21,-1.3136,-1.3763,-1.4509,-0.2746,0.2581,-0.8315,Low,High,Low dev / High vul,exact
+209,Araria,Bihar,0.707,53.53,43.93,85.51,32.07,0.33,-1.714,-1.4423,-1.4168,-1.0179,0.2268,-1.0728,Low,High,Low dev / High vul,exact
+210,Kishanganj,Bihar,0.707,55.46,46.76,81.22,45.33,0.35,-1.5273,-1.2201,-1.1878,-0.0234,0.2215,-0.7474,Low,High,Low dev / High vul,exact
+211,Purnia,Bihar,0.701,51.08,42.34,82.43,38.02,0.54,-1.951,-1.5672,-1.2524,-0.5716,0.1719,-1.0341,Low,High,Low dev / High vul,exact
+212,Katihar,Bihar,0.725,52.24,44.39,82.99,39.71,0.41,-1.8388,-1.4062,-1.2823,-0.4449,0.2059,-0.9533,Low,High,Low dev / High vul,exact
+213,Madhepura,Bihar,0.68,52.25,41.74,86.79,45.89,0.32,-1.8378,-1.6143,-1.4851,0.0186,0.2294,-0.9378,Low,High,Low dev / High vul,exact
+214,Saharsa,Bihar,0.616,53.2,41.68,80.23,46.09,0.23,-1.746,-1.619,-1.1349,0.0336,0.2529,-0.8427,Low,High,Low dev / High vul,exact
+215,Darbhanga,Bihar,0.632,56.56,45.24,71.82,38.75,0.3,-1.4209,-1.3394,-0.6861,-0.5169,0.2346,-0.7457,Low,High,Low dev / High vul,exact
+216,Muzaffarpur,Bihar,0.643,63.43,54.67,67.36,35.83,0.26,-0.7564,-0.5989,-0.448,-0.7359,0.245,-0.4588,Low,High,Low dev / High vul,exact
+217,Gopalganj,Bihar,0.659,65.47,54.81,75.2,38.72,0.33,-0.5591,-0.5879,-0.8665,-0.5191,0.2268,-0.4612,Low,High,Low dev / High vul,exact
+218,Siwan,Bihar,0.669,69.45,58.66,68.78,45.58,0.38,-0.1741,-0.2855,-0.5238,-0.0046,0.2137,-0.1549,Low,High,Low dev / High vul,exact
+219,Saran,Bihar,0.607,65.96,54.42,69.75,53.01,0.25,-0.5117,-0.6185,-0.5756,0.5526,0.2477,-0.1811,Low,High,Low dev / High vul,exact
+220,Vaishali,Bihar,0.655,66.6,56.73,71.45,41.13,0.34,-0.4498,-0.4371,-0.6663,-0.3384,0.2241,-0.3335,Low,High,Low dev / High vul,exact
+221,Samastipur,Bihar,0.623,61.86,51.51,75.98,59.71,0.34,-0.9083,-0.847,-0.9081,1.0551,0.2241,-0.2768,Low,High,Low dev / High vul,exact
+222,Begusarai,Bihar,0.611,63.87,55.21,61.49,42.3,0.4,-0.7138,-0.5565,-0.1347,-0.2506,0.2085,-0.2894,Low,High,Low dev / High vul,exact
+223,Khagaria,Bihar,0.66,57.92,49.56,76.72,33.26,0.37,-1.2894,-1.0002,-0.9476,-0.9286,0.2163,-0.7899,Low,High,Low dev / High vul,exact
+224,Bhagalpur,Bihar,0.605,63.14,54.89,62.06,44.34,0.32,-0.7844,-0.5816,-0.1651,-0.0976,0.2294,-0.2799,Low,High,Low dev / High vul,exact
+225,Banka,Bihar,0.619,58.17,47.66,82.36,40.5,0.38,-1.2652,-1.1494,-1.2486,-0.3856,0.2137,-0.767,Low,High,Low dev / High vul,exact
+226,Munger,Bihar,0.627,70.46,62.08,56.81,45.73,0.29,-0.0764,-0.017,0.1151,0.0066,0.2372,0.0531,High,High,High dev / High vul,exact
+227,Lakhisarai,Bihar,0.672,62.42,52.57,73.03,41.5,0.25,-0.8541,-0.7638,-0.7506,-0.3106,0.2477,-0.4863,Low,High,Low dev / High vul,exact
+228,Sheikhpura,Bihar,0.612,63.86,53.4,73.09,47.18,0.29,-0.7148,-0.6986,-0.7538,0.1154,0.2372,-0.3629,Low,High,Low dev / High vul,exact
+229,Nalanda,Bihar,0.621,64.43,53.1,72.24,48.92,0.34,-0.6597,-0.7222,-0.7085,0.2459,0.2241,-0.3241,Low,High,Low dev / High vul,exact
+230,Patna,Bihar,0.609,70.68,61.96,49.39,40.14,0.3,-0.0551,-0.0264,0.5111,-0.4126,0.2346,0.0503,High,High,High dev / High vul,exact
+231,Bhojpur,Bihar,0.618,70.47,58.03,67.57,39.35,0.27,-0.0754,-0.335,-0.4592,-0.4719,0.2424,-0.2198,Low,High,Low dev / High vul,exact
+232,Buxar,Bihar,0.656,70.14,58.63,71.38,40.22,0.47,-0.1073,-0.2879,-0.6626,-0.4066,0.1902,-0.2548,Low,High,Low dev / High vul,exact
+233,Kaimur (Bhabua),Bihar,0.601,69.34,58.4,77.01,44.38,0.14,-0.1847,-0.306,-0.9631,-0.0946,0.2764,-0.2544,Low,High,Low dev / High vul,exact
+234,Rohtas,Bihar,0.585,73.37,62.97,67.43,38.41,0.21,0.2051,0.0529,-0.4518,-0.5424,0.2581,-0.0956,Low,High,Low dev / High vul,exact
+235,Aurangabad,Bihar,0.622,70.32,59.71,72.17,49.8,0.29,-0.0899,-0.2031,-0.7047,0.3118,0.2372,-0.0897,Low,High,Low dev / High vul,exact
+236,Gaya,Bihar,0.647,63.67,53.34,69.36,40.49,0.25,-0.7332,-0.7033,-0.5548,-0.3864,0.2477,-0.426,Low,High,Low dev / High vul,exact
+237,Nawada,Bihar,0.639,59.76,48.86,75.14,41.72,0.21,-1.1114,-1.0551,-0.8633,-0.2941,0.2581,-0.6132,Low,High,Low dev / High vul,exact
+238,Jamui,Bihar,0.7,59.79,47.28,67.07,47.58,0.39,-1.1085,-1.1792,-0.4325,0.1454,0.2111,-0.4727,Low,High,Low dev / High vul,exact
+239,Jehanabad,Bihar,0.626,66.8,55.01,72.7,50.04,0.28,-0.4304,-0.5722,-0.733,0.3298,0.2398,-0.2332,Low,High,Low dev / High vul,exact
+240,Arwal,Bihar,0.648,67.43,54.85,82.01,44.02,0.15,-0.3695,-0.5847,-1.2299,-0.1216,0.2738,-0.4064,Low,High,Low dev / High vul,exact
+245,Tawang,Arunachal Pradesh,0.576,59.0,46.53,32.25,15.01,0.13,-1.1849,-1.2381,1.426,-2.2973,0.279,-0.6031,Low,High,Low dev / High vul,exact
+246,West Kameng,Arunachal Pradesh,0.525,67.07,59.05,38.08,17.49,0.14,-0.4043,-0.2549,1.1148,-2.1113,0.2764,-0.2759,Low,Low,Low dev / Low vul,exact
+247,East Kameng,Arunachal Pradesh,0.538,60.02,51.69,72.21,7.39,0.19,-1.0862,-0.8329,-0.7069,-2.8688,0.2633,-1.0463,Low,Low,Low dev / Low vul,exact
+248,Papum Pare,Arunachal Pradesh,0.439,79.95,73.72,24.27,12.94,0.14,0.8416,0.8971,1.8519,-2.4526,0.2764,0.2829,High,Low,High dev / Low vul,exact
+252,Upper Siang,Arunachal Pradesh,0.484,59.99,52.63,61.1,17.2,0.2,-1.0891,-0.7591,-0.1139,-2.1331,0.2607,-0.7669,Low,Low,Low dev / Low vul,exact
+253,Changlang,Arunachal Pradesh,0.537,59.8,49.84,69.78,27.51,0.11,-1.1075,-0.9782,-0.5772,-1.3598,0.2842,-0.7477,Low,Low,Low dev / Low vul,exact
+254,Tirap,Arunachal Pradesh,0.575,52.19,41.89,75.3,11.84,0.29,-1.8436,-1.6025,-0.8718,-2.5351,0.2372,-1.3232,Low,High,Low dev / High vul,exact
+256,Kurung Kumey,Arunachal Pradesh,0.551,48.75,42.64,79.81,14.3,0.49,-2.1764,-1.5436,-1.1125,-2.3506,0.185,-1.3996,Low,Low,Low dev / Low vul,exact
+257,Dibang Valley,Arunachal Pradesh,0.549,64.1,59.16,39.27,5.11,0.13,-0.6916,-0.2463,1.0513,-3.0398,0.279,-0.5295,Low,Low,Low dev / Low vul,exact
+258,Lower Dibang Valley,Arunachal Pradesh,0.496,69.13,62.19,58.41,16.6,0.12,-0.205,-0.0083,0.0297,-2.1781,0.2816,-0.416,Low,Low,Low dev / Low vul,exact
+259,Lohit,Arunachal Pradesh,0.495,68.18,60.04,61.86,31.08,0.1,-0.2969,-0.1772,-0.1545,-1.0921,0.2868,-0.2868,Low,Low,Low dev / Low vul,exact
+260,Anjaw,Arunachal Pradesh,0.504,56.46,43.71,61.87,11.22,0.34,-1.4306,-1.4596,-0.155,-2.5816,0.2241,-1.0805,Low,Low,Low dev / Low vul,exact
+261,Mon,Nagaland,0.596,56.99,52.58,84.19,51.18,11.28,-1.3793,-0.763,-1.3463,0.4153,-2.6336,-1.1414,Low,High,Low dev / High vul,exact
+262,Mokokchung,Nagaland,0.421,91.62,91.01,58.05,54.09,10.89,1.9705,2.2549,0.0489,0.6336,-2.5317,0.4752,High,Low,High dev / Low vul,exact
+263,Zunheboto,Nagaland,0.466,85.26,82.62,71.32,48.0,12.95,1.3552,1.5961,-0.6594,0.1769,-3.0699,-0.1202,Low,Low,Low dev / Low vul,exact
+264,Wokha,Nagaland,0.509,87.69,84.48,68.75,42.88,12.3,1.5903,1.7421,-0.5222,-0.2071,-2.9001,-0.0594,High,Low,High dev / Low vul,exact
+265,Dimapur,Nagaland,0.413,84.79,81.77,22.14,42.7,11.15,1.3098,1.5293,1.9656,-0.2206,-2.5997,0.3969,High,Low,High dev / Low vul,exact
+266,Phek,Nagaland,0.451,78.05,72.21,72.56,43.06,11.39,0.6578,0.7786,-0.7256,-0.1936,-2.6624,-0.429,Low,Low,Low dev / Low vul,exact
+267,Tuensang,Nagaland,0.523,73.08,69.59,80.61,45.18,12.0,0.1771,0.5728,-1.1552,-0.0346,-2.8217,-0.6523,Low,Low,Low dev / Low vul,exact
+268,Longleng,Nagaland,0.576,72.17,69.63,77.89,54.25,12.29,0.089,0.5759,-1.01,0.6456,-2.8975,-0.5194,Low,High,Low dev / High vul,exact
+269,Kiphire,Nagaland,0.521,69.54,63.96,71.0,53.37,11.74,-0.1654,0.1307,-0.6423,0.5796,-2.7538,-0.5702,Low,Low,Low dev / Low vul,exact
+270,Kohima,Nagaland,0.494,85.23,81.48,40.83,35.42,12.37,1.3523,1.5065,0.968,-0.7666,-2.9184,0.0284,High,Low,High dev / Low vul,exact
+271,Peren,Nagaland,0.513,77.95,72.58,70.71,59.32,11.64,0.6481,0.8076,-0.6268,1.0258,-2.7277,-0.1746,Low,Low,Low dev / Low vul,exact
+272,Senapati,Manipur,0.579,63.6,57.67,79.76,20.14,0.1,-0.7399,-0.3633,-1.1099,-1.9126,0.2868,-0.7678,Low,High,Low dev / High vul,exact
+273,Tamenglong,Manipur,0.572,70.05,63.69,71.84,19.74,0.18,-0.116,0.1095,-0.6871,-1.9426,0.2659,-0.4741,Low,High,Low dev / High vul,exact
+274,Churachandpur,Manipur,0.566,82.78,78.5,59.61,20.39,0.12,1.1154,1.2725,-0.0344,-1.8938,0.2816,0.1483,High,High,High dev / High vul,exact
+275,Bishnupur,Manipur,0.665,75.85,66.68,45.0,21.37,0.11,0.445,0.3443,0.7454,-1.8203,0.2842,-0.0003,High,High,High dev / High vul,exact
+276,Thoubal,Manipur,0.58,74.47,64.09,56.54,24.18,0.12,0.3115,0.1409,0.1295,-1.6096,0.2816,-0.1492,Low,High,Low dev / High vul,exact
+277,Imphal West,Manipur,0.619,86.08,80.17,23.42,22.14,0.1,1.4346,1.4037,1.8972,-1.7626,0.2868,0.6519,High,High,High dev / High vul,exact
+278,Imphal East,Manipur,0.557,81.95,75.32,29.05,20.62,0.09,1.0351,1.0228,1.5968,-1.8766,0.2894,0.4135,High,Low,High dev / Low vul,exact
+279,Ukhrul,Manipur,0.621,81.35,76.95,69.0,19.58,0.14,0.977,1.1508,-0.5355,-1.9546,0.2764,-0.0172,High,High,High dev / High vul,exact
+280,Chandel,Manipur,0.585,71.11,63.96,67.64,20.98,0.11,-0.0135,0.1307,-0.463,-1.8496,0.2842,-0.3822,Low,High,Low dev / High vul,exact
+281,Mamit,Mizoram,0.547,84.93,80.35,79.37,81.11,21.06,1.3233,1.4178,-1.089,2.66,-5.1884,-0.1753,Low,Low,Low dev / Low vul,exact
+282,Kolasib,Mizoram,0.425,93.5,92.38,65.21,80.36,7.73,2.1523,2.3625,-0.3333,2.6038,-1.7063,1.0158,High,Low,High dev / Low vul,exact
+283,Aizawl,Mizoram,0.546,97.89,97.67,29.03,86.23,21.25,2.577,2.778,1.5978,3.044,-5.238,0.9518,High,Low,High dev / Low vul,exact
+284,Champhai,Mizoram,0.473,95.91,94.59,73.18,85.14,7.61,2.3854,2.5361,-0.7587,2.9623,-1.6749,1.09,High,Low,High dev / Low vul,exact
+285,Serchhip,Mizoram,0.459,97.91,97.53,71.27,80.25,23.65,2.5789,2.767,-0.6567,2.5955,-5.8649,0.284,High,Low,High dev / Low vul,exact
+286,Lunglei,Mizoram,0.524,88.86,85.49,71.66,85.09,28.46,1.7035,1.8214,-0.6775,2.9585,-7.1214,-0.2631,Low,Low,Low dev / Low vul,exact
+287,Lawngtlai,Mizoram,0.644,65.88,57.12,70.98,87.89,34.04,-0.5194,-0.4065,-0.6412,3.1685,-8.579,-1.3955,Low,High,Low dev / High vul,exact
+288,Saiha,Mizoram,0.513,90.01,87.34,50.69,81.28,36.43,1.8147,1.9667,0.4417,2.6728,-9.2033,-0.4615,Low,Low,Low dev / Low vul,exact
+289,West Tripura,Tripura,0.509,88.69,84.75,38.86,86.19,7.18,1.687,1.7633,1.0731,3.041,-1.5626,1.2004,High,Low,High dev / Low vul,exact
+290,South Tripura,Tripura,0.519,84.66,79.09,53.66,98.56,5.31,1.2972,1.3189,0.2832,3.9687,-1.0741,1.1588,High,Low,High dev / Low vul,exact
+291,Dhalai,Tripura,0.577,85.72,79.79,56.57,93.54,9.11,1.3997,1.3738,0.1279,3.5922,-2.0668,0.8854,High,High,High dev / High vul,exact
+292,North Tripura,Tripura,0.592,87.5,83.75,37.51,74.92,5.55,1.5719,1.6848,1.1452,2.1958,-1.1368,1.0922,High,High,High dev / High vul,exact
+327,Darjeeling,West Bengal,0.607,79.56,73.33,20.8,75.51,0.2,0.8039,0.8665,2.0371,2.24,0.2607,1.2416,High,High,High dev / High vul,alias
+328,Jalpaiguri,West Bengal,0.679,73.25,66.23,37.32,48.26,0.21,0.1935,0.3089,1.1553,0.1964,0.2581,0.4224,High,High,High dev / High vul,exact
+329,Coochbehar,West Bengal,0.681,74.78,68.49,67.08,44.96,0.42,0.3415,0.4864,-0.4331,-0.0511,0.2032,0.1094,High,High,High dev / High vul,alias
+330,Dinajpur Uttar,West Bengal,0.583,59.07,52.17,65.05,57.4,0.12,-1.1781,-0.7952,-0.3247,0.8818,0.2816,-0.2269,Low,High,Low dev / High vul,wordorder
+331,Dinajpur Dakshin,West Bengal,0.649,72.82,67.01,67.31,52.57,0.11,0.1519,0.3702,-0.4453,0.5196,0.2842,0.1761,High,High,High dev / High vul,wordorder
+332,Maldah,West Bengal,0.622,61.73,56.96,52.08,52.59,0.37,-0.9208,-0.419,0.3675,0.5211,0.2163,-0.047,High,High,High dev / High vul,exact
+333,Murshidabad,West Bengal,0.531,66.59,63.09,47.24,56.64,0.1,-0.4507,0.0624,0.6259,0.8248,0.2868,0.2698,High,Low,High dev / Low vul,exact
+334,Birbhum,West Bengal,0.609,70.68,64.14,62.99,42.57,0.16,-0.0551,0.1448,-0.2148,-0.2304,0.2712,-0.0169,High,High,High dev / High vul,exact
+336,Nadia,West Bengal,0.573,74.97,70.98,46.94,44.44,0.21,0.3599,0.682,0.6419,-0.0901,0.2581,0.3704,High,High,High dev / High vul,exact
+337,24 Paraganas North,West Bengal,0.532,84.06,80.34,24.84,59.44,0.14,1.2392,1.417,1.8215,1.0348,0.2764,1.1578,High,Low,High dev / Low vul,wordorder
+338,Hooghly,West Bengal,0.547,81.8,76.36,39.16,40.34,0.09,1.0206,1.1045,1.0571,-0.3976,0.2894,0.6148,High,Low,High dev / Low vul,alias
+339,Bankura,West Bengal,0.615,70.26,60.05,65.28,45.86,0.19,-0.0957,-0.1764,-0.337,0.0164,0.2633,-0.0659,High,High,High dev / High vul,exact
+340,Purulia,West Bengal,0.676,64.48,50.52,60.9,57.66,0.11,-0.6548,-0.9248,-0.1032,0.9013,0.2842,-0.0995,Low,High,Low dev / High vul,fuzzy
+341,Howrah,West Bengal,0.627,83.31,79.43,14.41,50.96,0.25,1.1666,1.3456,2.3781,0.3988,0.2477,1.1074,High,High,High dev / High vul,alias
+343,24 Paraganas South,West Bengal,0.614,77.51,71.4,39.19,68.72,0.22,0.6056,0.7149,1.0555,1.7308,0.2555,0.8725,High,High,High dev / High vul,wordorder
+344,Medinipur West,West Bengal,0.653,78.0,70.5,66.85,48.17,0.14,0.653,0.6443,-0.4208,0.1896,0.2764,0.2685,High,High,High dev / High vul,wordorder
+345,Medinipur East,West Bengal,0.621,87.02,81.37,54.83,52.59,0.06,1.5255,1.4979,0.2208,0.5211,0.2973,0.8125,High,High,High dev / High vul,wordorder
+346,Garhwa,Jharkhand,0.626,60.33,47.58,77.39,47.72,0.41,-1.0563,-1.1557,-0.9834,0.1559,0.2059,-0.5667,Low,High,Low dev / High vul,exact
+347,Chatra,Jharkhand,0.651,60.18,49.92,77.4,43.28,0.34,-1.0708,-0.9719,-0.9839,-0.1771,0.2241,-0.5959,Low,High,Low dev / High vul,exact
+348,Koderma,Jharkhand,0.613,66.84,53.23,57.26,46.65,0.15,-0.4265,-0.712,0.0911,0.0756,0.2738,-0.1396,Low,High,Low dev / High vul,alias
+349,Giridih,Jharkhand,0.657,63.14,48.72,70.69,48.87,0.32,-0.7844,-1.0661,-0.6258,0.2421,0.2294,-0.401,Low,High,Low dev / High vul,exact
+350,Deoghar,Jharkhand,0.603,64.85,51.8,61.35,46.2,0.11,-0.619,-0.8243,-0.1272,0.0419,0.2842,-0.2489,Low,High,Low dev / High vul,exact
+351,Godda,Jharkhand,0.642,56.4,44.14,81.92,50.91,0.17,-1.4364,-1.4258,-1.2251,0.3951,0.2685,-0.6847,Low,High,Low dev / High vul,exact
+352,Sahebganj,Jharkhand,0.696,52.04,43.31,64.64,40.3,0.19,-1.8582,-1.491,-0.3028,-0.4006,0.2633,-0.7579,Low,High,Low dev / High vul,fuzzy
+353,Pakur,Jharkhand,0.643,48.82,40.52,63.12,44.0,0.17,-2.1696,-1.7101,-0.2217,-0.1231,0.2685,-0.7912,Low,High,Low dev / High vul,exact
+354,Dhanbad,Jharkhand,0.599,74.52,64.29,23.75,49.7,0.15,0.3164,0.1566,1.8796,0.3043,0.2738,0.5861,High,High,High dev / High vul,exact
+355,Bokaro,Jharkhand,0.599,72.01,60.63,38.51,44.39,0.22,0.0736,-0.1308,1.0918,-0.0939,0.2555,0.2392,High,High,High dev / High vul,exact
+356,Lohardaga,Jharkhand,0.639,67.61,57.69,81.61,39.87,0.16,-0.3521,-0.3617,-1.2086,-0.4329,0.2712,-0.4168,Low,High,Low dev / High vul,exact
+357,East Singhbum,Jharkhand,0.609,75.49,66.81,38.45,42.06,0.19,0.4102,0.3545,1.095,-0.2686,0.2633,0.3709,High,High,High dev / High vul,fuzzy
+358,Palamu,Jharkhand,0.645,63.63,52.09,72.15,38.94,0.41,-0.737,-0.8015,-0.7037,-0.5026,0.2059,-0.5078,Low,High,Low dev / High vul,exact
+359,Latehar,Jharkhand,0.622,59.51,48.68,78.63,46.1,0.45,-1.1356,-1.0693,-1.0495,0.0344,0.1954,-0.6049,Low,High,Low dev / High vul,exact
+360,Hazaribagh,Jharkhand,0.644,69.75,58.95,63.37,45.74,0.18,-0.1451,-0.2628,-0.2351,0.0074,0.2659,-0.0739,Low,High,Low dev / High vul,exact
+361,Ramgarh,Jharkhand,0.539,73.17,63.09,44.08,52.1,0.12,0.1858,0.0624,0.7945,0.4843,0.2816,0.3617,High,Low,High dev / Low vul,exact
+362,Dumka,Jharkhand,0.596,61.02,48.82,79.47,50.83,0.11,-0.9895,-1.0583,-1.0944,0.3891,0.2842,-0.4938,Low,High,Low dev / High vul,exact
+363,Jamtara,Jharkhand,0.627,64.59,52.15,73.99,59.04,0.2,-0.6442,-0.7968,-0.8019,1.0048,0.2607,-0.1955,Low,High,Low dev / High vul,exact
+364,Ranchi,Jharkhand,0.599,76.06,67.44,51.17,43.41,0.29,0.4653,0.404,0.4161,-0.1674,0.2372,0.271,High,High,High dev / High vul,exact
+365,Khunti,Jharkhand,0.634,63.86,53.69,82.98,45.11,0.35,-0.7148,-0.6758,-1.2817,-0.0399,0.2215,-0.4981,Low,High,Low dev / High vul,exact
+366,Gumla,Jharkhand,0.583,65.73,55.9,85.99,48.2,0.07,-0.5339,-0.5023,-1.4424,0.1919,0.2947,-0.3984,Low,High,Low dev / High vul,exact
+367,Simdega,Jharkhand,0.64,67.99,59.92,86.01,47.26,0.51,-0.3153,-0.1866,-1.4434,0.1214,0.1797,-0.3288,Low,High,Low dev / High vul,exact
+368,West Singhbhum,Jharkhand,0.602,58.63,46.25,73.63,37.22,0.24,-1.2207,-1.2601,-0.7827,-0.6316,0.2503,-0.729,Low,High,Low dev / High vul,exact
+369,Saraikela Kharsawan,Jharkhand,0.638,67.7,55.88,60.39,48.85,0.39,-0.3434,-0.5038,-0.076,0.2406,0.2111,-0.0943,Low,High,Low dev / High vul,exact
+370,Bargarh,Odisha,0.578,74.62,65.38,75.72,41.4,0.16,0.326,0.2422,-0.8942,-0.3181,0.2712,-0.0746,Low,High,Low dev / High vul,exact
+371,Jharsuguda,Odisha,0.615,78.86,70.73,39.43,47.53,0.55,0.7362,0.6623,1.0427,0.1416,0.1693,0.5504,High,High,High dev / High vul,exact
+372,Sambalpur,Odisha,0.546,76.22,67.93,48.95,42.49,0.28,0.4808,0.4424,0.5346,-0.2364,0.2398,0.2922,High,Low,High dev / Low vul,exact
+373,Deogarh,Odisha,0.608,72.57,63.05,75.65,41.33,0.4,0.1277,0.0592,-0.8905,-0.3234,0.2085,-0.1637,Low,High,Low dev / High vul,alias
+374,Sundargarh,Odisha,0.532,73.34,65.48,50.11,51.61,0.42,0.2022,0.25,0.4727,0.4476,0.2032,0.3151,High,Low,High dev / Low vul,exact
+375,Kendujhar,Odisha,0.552,68.24,58.28,66.29,43.05,0.15,-0.2911,-0.3154,-0.3909,-0.1944,0.2738,-0.1836,Low,Low,Low dev / Low vul,exact
+376,Mayurbhanj,Odisha,0.462,63.17,52.71,66.0,45.59,0.2,-0.7815,-0.7528,-0.3754,-0.0039,0.2607,-0.3306,Low,Low,Low dev / Low vul,exact
+377,Baleshwar,Odisha,0.587,79.79,72.28,69.37,41.46,0.13,0.8261,0.7841,-0.5553,-0.3136,0.279,0.2041,High,High,High dev / High vul,exact
+378,Bhadrak,Odisha,0.573,82.78,75.83,65.59,37.32,0.07,1.1154,1.0628,-0.3535,-0.6241,0.2947,0.2991,High,High,High dev / High vul,exact
+379,Kendrapara,Odisha,0.586,85.15,78.96,62.78,39.62,0.13,1.3446,1.3086,-0.2036,-0.4516,0.279,0.4554,High,High,High dev / High vul,exact
+380,Jagatsinghapur,Odisha,0.616,86.59,80.63,54.91,29.34,0.19,1.4839,1.4398,0.2165,-1.2226,0.2633,0.4362,High,High,High dev / High vul,exact
+381,Cuttack,Odisha,0.616,85.5,79.55,41.33,38.12,0.22,1.3785,1.355,0.9413,-0.5641,0.2555,0.6732,High,High,High dev / High vul,exact
+382,Jajapur,Odisha,0.651,80.13,73.29,55.57,42.24,0.16,0.859,0.8634,0.1813,-0.2551,0.2712,0.384,High,High,High dev / High vul,exact
+383,Dhenkanal,Odisha,0.613,78.76,71.0,53.93,55.34,0.23,0.7265,0.6835,0.2688,0.7273,0.2529,0.5318,High,High,High dev / High vul,exact
+384,Anugul,Odisha,0.559,77.53,68.64,53.18,44.48,0.38,0.6075,0.4982,0.3088,-0.0871,0.2137,0.3082,High,Low,High dev / Low vul,exact
+385,Nayagarh,Odisha,0.661,80.42,72.05,59.12,50.35,0.31,0.8871,0.766,-0.0082,0.3531,0.232,0.446,High,High,High dev / High vul,exact
+387,Puri,Odisha,0.551,84.67,78.28,54.16,42.72,0.17,1.2982,1.2552,0.2565,-0.2191,0.2685,0.5719,High,Low,High dev / Low vul,exact
+388,Ganjam,Odisha,0.485,71.09,61.13,56.63,64.45,0.31,-0.0154,-0.0916,0.1247,1.4106,0.232,0.3321,High,Low,High dev / Low vul,exact
+389,Gajapati,Odisha,0.544,53.49,43.18,74.26,44.54,0.24,-1.7179,-1.5012,-0.8163,-0.0826,0.2503,-0.7735,Low,Low,Low dev / Low vul,exact
+390,Kandhamal,Odisha,0.536,64.13,51.94,68.15,49.34,0.1,-0.6887,-0.8133,-0.4902,0.2774,0.2868,-0.2856,Low,Low,Low dev / Low vul,exact
+391,Boudh,Odisha,0.599,71.61,59.79,76.71,43.04,0.29,0.0349,-0.1968,-0.9471,-0.1951,0.2372,-0.2134,Low,High,Low dev / High vul,alias
+392,Sonepur,Odisha,0.613,74.42,64.04,74.45,44.79,0.28,0.3067,0.137,-0.8264,-0.0639,0.2398,-0.0414,High,High,High dev / High vul,alias
+393,Balangir,Odisha,0.64,64.72,53.5,68.41,49.79,0.47,-0.6316,-0.6908,-0.5041,0.3111,0.1902,-0.265,Low,High,Low dev / High vul,exact
+394,Nuapada,Odisha,0.699,57.35,44.76,80.06,40.06,0.29,-1.3445,-1.3771,-1.1259,-0.4186,0.2372,-0.8058,Low,High,Low dev / High vul,exact
+395,Kalahandi,Odisha,0.586,59.22,46.68,77.36,42.73,0.32,-1.1636,-1.2263,-0.9818,-0.2184,0.2294,-0.6721,Low,High,Low dev / High vul,exact
+396,Rayagada,Odisha,0.523,49.76,39.19,74.38,43.75,0.17,-2.0787,-1.8145,-0.8227,-0.1419,0.2685,-0.9179,Low,Low,Low dev / Low vul,exact
+397,Nabarangpur,Odisha,0.643,46.43,35.8,82.15,55.07,0.33,-2.4008,-2.0807,-1.2374,0.7071,0.2268,-0.957,Low,High,Low dev / High vul,alias
+398,Koraput,Odisha,0.654,49.21,38.55,71.79,42.72,0.14,-2.1319,-1.8648,-0.6845,-0.2191,0.2764,-0.9248,Low,High,Low dev / High vul,exact
+399,Malkangiri,Odisha,0.631,48.54,38.28,82.92,53.42,0.36,-2.1967,-1.886,-1.2785,0.5833,0.2189,-0.9118,Low,High,Low dev / High vul,exact
+418,Sheopur,Madhya Pradesh,0.462,57.43,44.23,80.02,50.07,0.53,-1.3368,-1.4187,-1.1237,0.3321,0.1745,-0.6745,Low,Low,Low dev / Low vul,exact
+419,Morena,Madhya Pradesh,0.585,71.03,56.9,67.0,54.69,0.48,-0.0212,-0.4237,-0.4288,0.6786,0.1876,-0.0015,High,High,High dev / High vul,exact
+420,Bhind,Madhya Pradesh,0.618,75.26,63.14,74.78,57.43,0.35,0.3879,0.0663,-0.8441,0.8841,0.2215,0.1431,High,High,High dev / High vul,exact
+421,Gwalior,Madhya Pradesh,0.529,76.65,67.38,36.62,59.2,0.5,0.5224,0.3993,1.1927,1.0168,0.1823,0.6627,High,Low,High dev / Low vul,exact
+422,Datia,Madhya Pradesh,0.48,72.63,59.41,76.8,53.19,0.49,0.1335,-0.2266,-0.9519,0.5661,0.185,-0.0588,High,Low,High dev / Low vul,exact
+423,Shivpuri,Madhya Pradesh,0.615,62.55,48.79,79.52,51.62,0.53,-0.8415,-1.0606,-1.097,0.4483,0.1745,-0.4753,Low,High,Low dev / High vul,exact
+424,Tikamgarh,Madhya Pradesh,0.622,61.43,49.97,80.83,63.42,0.92,-0.9499,-0.968,-1.167,1.3333,0.0726,-0.3358,Low,High,Low dev / High vul,exact
+425,Chhatarpur,Madhya Pradesh,0.634,63.74,53.59,71.91,54.93,0.75,-0.7264,-0.6837,-0.6909,0.6966,0.117,-0.2575,Low,High,Low dev / High vul,exact
+426,Panna,Madhya Pradesh,0.615,64.79,54.44,77.38,45.21,0.67,-0.6248,-0.6169,-0.9828,-0.0324,0.1379,-0.4238,Low,High,Low dev / High vul,exact
+427,Sagar,Madhya Pradesh,0.577,76.46,67.02,57.87,47.13,0.73,0.504,0.371,0.0585,0.1116,0.1223,0.2335,High,High,High dev / High vul,exact
+428,Damoh,Madhya Pradesh,0.605,69.73,59.22,63.48,50.43,0.71,-0.147,-0.2416,-0.2409,0.3591,0.1275,-0.0286,High,High,High dev / High vul,exact
+429,Satna,Madhya Pradesh,0.628,72.26,62.45,65.79,44.8,0.74,0.0977,0.0121,-0.3642,-0.0631,0.1197,-0.0396,High,High,High dev / High vul,exact
+430,Rewa,Madhya Pradesh,0.636,71.62,61.16,72.77,45.5,0.7,0.0358,-0.0892,-0.7368,-0.0106,0.1301,-0.1341,Low,High,Low dev / High vul,exact
+431,Umaria,Madhya Pradesh,0.629,65.89,55.23,72.86,41.34,0.93,-0.5184,-0.5549,-0.7416,-0.3226,0.07,-0.4135,Low,High,Low dev / High vul,exact
+432,Neemuch,Madhya Pradesh,0.57,70.8,57.13,74.5,50.91,0.74,-0.0435,-0.4057,-0.8291,0.3951,0.1197,-0.1527,Low,High,Low dev / High vul,exact
+433,Mandsaur,Madhya Pradesh,0.589,71.78,57.98,80.59,55.4,0.73,0.0513,-0.3389,-1.1542,0.7318,0.1223,-0.1175,Low,High,Low dev / High vul,exact
+434,Ratlam,Madhya Pradesh,0.56,66.78,55.77,75.93,49.17,0.95,-0.4323,-0.5125,-0.9054,0.2646,0.0648,-0.3042,Low,Low,Low dev / Low vul,exact
+435,Ujjain,Madhya Pradesh,0.536,72.34,60.74,65.86,52.3,0.93,0.1055,-0.1222,-0.368,0.4993,0.07,0.0369,High,Low,High dev / Low vul,exact
+436,Shajapur,Madhya Pradesh,0.469,69.09,55.93,82.34,53.09,0.84,-0.2089,-0.4999,-1.2476,0.5586,0.0935,-0.2609,Low,Low,Low dev / Low vul,exact
+437,Dewas,Madhya Pradesh,0.482,69.35,57.76,76.86,53.66,0.5,-0.1837,-0.3562,-0.9551,0.6013,0.1823,-0.1423,Low,Low,Low dev / Low vul,exact
+438,Dhar,Madhya Pradesh,0.51,59.0,48.77,80.06,47.27,0.56,-1.1849,-1.0622,-1.1259,0.1221,0.1667,-0.6168,Low,Low,Low dev / Low vul,exact
+439,Indore,Madhya Pradesh,0.453,80.87,74.02,26.53,55.25,0.84,0.9306,0.9207,1.7313,0.7206,0.0935,0.8793,High,Low,High dev / Low vul,exact
+440,Khargone,Madhya Pradesh,0.507,62.7,53.03,81.96,46.06,0.05,-0.827,-0.7277,-1.2273,0.0314,0.2999,-0.4901,Low,Low,Low dev / Low vul,exact
+442,Rajgarh,Madhya Pradesh,0.555,61.21,48.95,82.61,49.25,0.99,-0.9711,-1.0481,-1.262,0.2706,0.0543,-0.5913,Low,Low,Low dev / Low vul,exact
+443,Vidisha,Madhya Pradesh,0.51,70.53,60.85,72.12,49.39,0.9,-0.0696,-0.1136,-0.7021,0.2811,0.0779,-0.1053,Low,Low,Low dev / Low vul,exact
+444,Bhopal,Madhya Pradesh,0.531,80.37,74.87,20.58,52.5,0.42,0.8822,0.9875,2.0488,0.5143,0.2032,0.9272,High,Low,High dev / Low vul,exact
+445,Sehore,Madhya Pradesh,0.51,70.06,58.33,73.08,50.07,0.99,-0.1151,-0.3114,-0.7533,0.3321,0.0543,-0.1587,Low,Low,Low dev / Low vul,exact
+446,Raisen,Madhya Pradesh,0.485,72.98,64.24,70.85,47.82,0.83,0.1674,0.1527,-0.6343,0.1634,0.0961,-0.0109,High,Low,High dev / Low vul,exact
+447,Betul,Madhya Pradesh,0.494,68.9,60.94,77.74,40.33,0.65,-0.2273,-0.1065,-1.002,-0.3984,0.1432,-0.3182,Low,Low,Low dev / Low vul,exact
+448,Harda,Madhya Pradesh,0.464,72.5,63.27,73.29,47.03,0.57,0.121,0.0765,-0.7645,0.1041,0.1641,-0.0598,High,Low,High dev / Low vul,exact
+449,Hoshangabad,Madhya Pradesh,0.485,75.29,66.45,62.42,44.12,0.79,0.3908,0.3262,-0.1843,-0.1141,0.1066,0.105,High,Low,High dev / Low vul,exact
+450,Katni,Madhya Pradesh,0.599,71.98,61.56,61.91,44.05,0.95,0.0707,-0.0578,-0.1571,-0.1194,0.0648,-0.0398,High,High,High dev / High vul,exact
+451,Jabalpur,Madhya Pradesh,0.645,81.07,74.37,38.83,40.13,1.12,0.9499,0.9482,1.0748,-0.4134,0.0204,0.516,High,High,High dev / High vul,exact
+452,Narsinghpur,Madhya Pradesh,0.5,75.69,67.06,77.8,43.72,1.05,0.4295,0.3741,-1.0052,-0.1441,0.0387,-0.0614,High,Low,High dev / Low vul,alias
+453,Dindori,Madhya Pradesh,0.585,63.9,52.41,87.46,47.46,0.59,-0.7109,-0.7764,-1.5208,0.1364,0.1588,-0.5426,Low,High,Low dev / High vul,exact
+454,Mandla,Madhya Pradesh,0.643,66.87,56.39,83.6,44.76,0.59,-0.4236,-0.4638,-1.3148,-0.0661,0.1588,-0.4219,Low,High,Low dev / High vul,exact
+455,Chhindwara,Madhya Pradesh,0.486,71.16,63.01,73.67,45.91,0.61,-0.0087,0.0561,-0.7848,0.0201,0.1536,-0.1127,Low,Low,Low dev / Low vul,exact
+456,Seoni,Madhya Pradesh,0.582,72.12,63.67,80.37,40.27,0.41,0.0842,0.1079,-1.1424,-0.4029,0.2059,-0.2295,Low,High,Low dev / High vul,exact
+457,Balaghat,Madhya Pradesh,0.544,77.09,69.04,80.35,40.5,0.8,0.565,0.5296,-1.1413,-0.3856,0.104,-0.0657,High,Low,High dev / Low vul,exact
+458,Guna,Madhya Pradesh,0.572,63.23,51.36,75.66,49.96,0.71,-0.7757,-0.8588,-0.891,0.3238,0.1275,-0.4148,Low,High,Low dev / High vul,exact
+459,Ashoknagar,Madhya Pradesh,0.592,66.42,53.42,75.9,51.11,0.52,-0.4672,-0.697,-0.9038,0.4101,0.1771,-0.2962,Low,High,Low dev / High vul,exact
+460,Shahdol,Madhya Pradesh,0.637,66.67,56.99,71.96,42.45,0.94,-0.443,-0.4167,-0.6935,-0.2394,0.0674,-0.345,Low,High,Low dev / High vul,exact
+461,Anuppur,Madhya Pradesh,0.62,67.88,57.3,70.95,47.42,0.53,-0.3259,-0.3923,-0.6396,0.1334,0.1745,-0.21,Low,High,Low dev / High vul,exact
+462,Sidhi,Madhya Pradesh,0.617,64.43,54.07,78.97,44.9,0.72,-0.6597,-0.646,-1.0677,-0.0556,0.1249,-0.4608,Low,High,Low dev / High vul,exact
+463,Singrauli,Madhya Pradesh,0.634,60.41,48.53,75.33,40.43,0.94,-1.0485,-1.0811,-0.8734,-0.3909,0.0674,-0.6653,Low,High,Low dev / High vul,exact
+464,Jhabua,Madhya Pradesh,0.618,43.3,33.77,86.35,44.34,0.8,-2.7036,-2.2402,-1.4616,-0.0976,0.104,-1.2798,Low,High,Low dev / High vul,exact
+465,Alirajpur,Madhya Pradesh,0.543,36.1,30.29,89.99,45.72,0.54,-3.4001,-2.5135,-1.6559,0.0059,0.1719,-1.4783,Low,Low,Low dev / Low vul,exact
+466,East Nimar,Madhya Pradesh,0.527,66.39,55.92,79.28,38.07,0.89,-0.4701,-0.5007,-1.0842,-0.5679,0.0805,-0.5085,Low,Low,Low dev / Low vul,alias
+467,Burhanpur,Madhya Pradesh,0.503,64.36,56.58,68.25,42.77,0.85,-0.6664,-0.4489,-0.4955,-0.2154,0.0909,-0.3471,Low,Low,Low dev / Low vul,exact
+468,Kachchh,Gujarat,0.497,70.59,60.87,37.34,59.51,0.08,-0.0638,-0.112,1.1543,1.0401,0.2921,0.4621,High,Low,High dev / Low vul,exact
+469,Banas Kantha,Gujarat,0.572,65.32,51.75,66.16,42.99,0.32,-0.5736,-0.8282,-0.384,-0.1989,0.2294,-0.3511,Low,High,Low dev / High vul,exact
+470,Patan,Gujarat,0.604,72.3,61.05,65.55,38.04,0.33,0.1016,-0.0978,-0.3514,-0.5701,0.2268,-0.1382,Low,High,Low dev / High vul,exact
+471,Mahesana,Gujarat,0.537,83.61,75.32,53.29,51.11,0.2,1.1956,1.0228,0.303,0.4101,0.2607,0.6384,High,Low,High dev / Low vul,exact
+472,Sabar Kantha,Gujarat,0.554,75.79,64.69,64.58,39.2,0.2,0.4392,0.188,-0.2996,-0.4831,0.2607,0.021,High,Low,High dev / Low vul,exact
+473,Gandhinagar,Gujarat,0.526,84.16,75.76,43.65,39.78,0.15,1.2488,1.0573,0.8175,-0.4396,0.2738,0.5916,High,Low,High dev / Low vul,exact
+474,Ahmadabad,Gujarat,0.6,85.31,79.35,15.86,44.84,0.2,1.3601,1.3393,2.3008,-0.0601,0.2607,1.0402,High,High,High dev / High vul,exact
+475,Surendranagar,Gujarat,0.593,72.13,61.45,63.04,48.72,0.16,0.0852,-0.0664,-0.2174,0.2309,0.2712,0.0607,High,High,High dev / High vul,exact
+476,Rajkot,Gujarat,0.593,80.96,74.43,38.11,48.72,0.16,0.9393,0.9529,1.1132,0.2309,0.2712,0.7015,High,High,High dev / High vul,exact
+477,Jamnagar,Gujarat,0.582,73.65,65.33,48.56,48.52,0.15,0.2322,0.2383,0.5554,0.2159,0.2738,0.3031,High,High,High dev / High vul,exact
+478,Porbandar,Gujarat,0.604,75.78,67.75,49.6,47.0,0.26,0.4382,0.4283,0.4999,0.1019,0.245,0.3427,High,High,High dev / High vul,exact
+479,Junagadh,Gujarat,0.519,75.8,66.86,62.41,38.33,0.15,0.4402,0.3584,-0.1838,-0.5484,0.2738,0.068,High,Low,High dev / Low vul,exact
+480,Amreli,Gujarat,0.565,74.25,66.09,67.27,49.65,0.22,0.2902,0.2979,-0.4432,0.3006,0.2555,0.1402,High,Low,High dev / Low vul,exact
+481,Bhavnagar,Gujarat,0.6,75.52,66.08,49.17,44.84,0.2,0.4131,0.2972,0.5229,-0.0601,0.2607,0.2868,High,High,High dev / High vul,exact
+482,Anand,Gujarat,0.514,84.37,76.36,59.04,35.96,0.18,1.2692,1.1045,-0.0039,-0.7261,0.2659,0.3819,High,Low,High dev / Low vul,exact
+483,Kheda,Gujarat,0.576,82.65,73.49,64.14,42.09,0.24,1.1028,0.8791,-0.2762,-0.2664,0.2503,0.3379,High,High,High dev / High vul,exact
+484,Panch Mahals,Gujarat,0.576,70.99,58.89,75.88,42.09,0.24,-0.0251,-0.2675,-0.9028,-0.2664,0.2503,-0.2423,Low,High,Low dev / High vul,exact
+485,Dohad,Gujarat,0.597,58.82,47.65,82.79,46.26,0.27,-1.2023,-1.1502,-1.2716,0.0464,0.2424,-0.6671,Low,High,Low dev / High vul,exact
+486,Vadodara,Gujarat,0.555,78.92,72.03,52.11,45.93,0.21,0.742,0.7644,0.3659,0.0216,0.2581,0.4304,High,Low,High dev / Low vul,exact
+487,Narmada,Gujarat,0.446,72.31,63.09,85.09,42.47,0.19,0.1026,0.0624,-1.3943,-0.2379,0.2633,-0.2408,Low,Low,Low dev / Low vul,exact
+488,Bharuch,Gujarat,0.57,81.51,75.09,52.89,46.91,0.21,0.9925,1.0047,0.3243,0.0951,0.2581,0.5349,High,High,High dev / High vul,exact
+489,Dang,Gujarat,0.548,75.16,67.38,88.83,50.88,0.33,0.3783,0.3993,-1.594,0.3928,0.2268,-0.0394,High,Low,High dev / Low vul,fuzzy
+490,Navsari,Gujarat,0.573,83.88,78.83,53.97,31.48,0.23,1.2218,1.2984,0.2667,-1.0621,0.2529,0.3955,High,High,High dev / High vul,exact
+491,Valsad,Gujarat,0.564,78.55,72.06,44.48,34.81,0.18,0.7062,0.7668,0.7732,-0.8124,0.2659,0.3399,High,Low,High dev / Low vul,exact
+492,Surat,Gujarat,0.517,85.53,80.37,17.05,36.84,0.19,1.3814,1.4194,2.2372,-0.6601,0.2633,0.9282,High,Low,High dev / Low vul,exact
+493,Tapi,Gujarat,0.571,68.26,61.16,79.95,22.62,0.27,-0.2892,-0.0892,-1.12,-1.7266,0.2424,-0.5965,Low,High,Low dev / High vul,exact
+532,Adilabad,Telangana,0.502,61.01,51.31,64.11,0.41,0.78,-0.9905,-0.8627,-0.2745,-3.3923,0.1092,-1.0822,Low,Low,Low dev / Low vul,exact
+534,Karimnagar,Telangana,0.546,64.15,54.79,59.53,1.0,0.26,-0.6867,-0.5894,-0.0301,-3.348,0.245,-0.8818,Low,Low,Low dev / Low vul,exact
+535,Medak,Telangana,0.634,61.42,51.37,64.09,0.55,0.4,-0.9508,-0.858,-0.2735,-3.3818,0.2085,-1.0511,Low,High,Low dev / High vul,exact
+538,Mahabubnagar,Telangana,0.622,55.04,44.72,72.04,0.69,1.0,-1.568,-1.3803,-0.6978,-3.3713,0.0517,-1.3931,Low,High,Low dev / High vul,alias
+541,Khammam,Telangana,0.514,64.81,57.44,73.01,0.88,0.37,-0.6229,-0.3813,-0.7496,-3.357,0.2163,-0.9789,Low,Low,Low dev / Low vul,exact
+542,Srikakulam,Andhra Pradesh,0.605,61.74,52.08,67.13,59.36,0.19,-0.9199,-0.8023,-0.4357,1.0288,0.2633,-0.1732,Low,High,Low dev / High vul,exact
+543,Vizianagaram,Andhra Pradesh,0.504,58.89,49.87,66.46,70.24,0.16,-1.1956,-0.9758,-0.4,1.8448,0.2712,-0.0911,Low,Low,Low dev / Low vul,exact
+544,Visakhapatanam,Andhra Pradesh,0.593,66.91,59.34,47.68,62.16,0.18,-0.4198,-0.2321,0.6024,1.2388,0.2659,0.291,High,High,High dev / High vul,fuzzy
+545,East Godavari,Andhra Pradesh,0.575,70.99,67.52,61.25,47.88,0.13,-0.0251,0.4102,-0.1219,0.1679,0.279,0.142,High,High,High dev / High vul,exact
+546,West Godavari,Andhra Pradesh,0.566,74.63,71.36,68.64,40.34,0.1,0.327,0.7118,-0.5163,-0.3976,0.2868,0.0823,High,High,High dev / High vul,exact
+547,Krishna,Andhra Pradesh,0.571,73.74,69.18,56.48,32.56,0.11,0.2409,0.5406,0.1327,-0.9811,0.2842,0.0435,High,High,High dev / High vul,exact
+548,Guntur,Andhra Pradesh,0.625,67.4,60.09,64.25,30.1,0.13,-0.3724,-0.1732,-0.282,-1.1656,0.279,-0.3428,Low,High,Low dev / High vul,exact
+549,Prakasam,Andhra Pradesh,0.628,63.08,53.11,68.76,46.22,0.12,-0.7902,-0.7214,-0.5227,0.0434,0.2816,-0.3419,Low,High,Low dev / High vul,exact
+550,Spsr Nellore,Andhra Pradesh,0.601,68.9,61.99,60.16,36.66,0.16,-0.2273,-0.024,-0.0637,-0.6736,0.2712,-0.1435,Low,High,Low dev / High vul,alias
+551,Y.S.R.,Andhra Pradesh,0.521,67.3,56.77,59.53,55.54,0.28,-0.382,-0.434,-0.0301,0.7423,0.2398,0.0272,High,Low,High dev / Low vul,exact
+552,Kurnool,Andhra Pradesh,0.619,59.97,49.78,66.44,40.33,0.14,-1.0911,-0.9829,-0.3989,-0.3984,0.2764,-0.519,Low,High,Low dev / High vul,exact
+553,Anantapur,Andhra Pradesh,0.528,63.57,53.97,63.49,58.62,0.19,-0.7429,-0.6538,-0.2415,0.9733,0.2633,-0.0803,Low,Low,Low dev / Low vul,exact
+554,Chittoor,Andhra Pradesh,0.558,71.53,63.28,61.17,50.96,0.18,0.0271,0.0773,-0.1176,0.3988,0.2659,0.1303,High,Low,High dev / Low vul,exact
+555,Belagavi,Karnataka,0.55,73.48,64.58,64.66,43.35,0.13,0.2158,0.1794,-0.3039,-0.1719,0.279,0.0397,High,Low,High dev / Low vul,alias
+556,Bagalkote,Karnataka,0.563,68.82,58.4,61.05,47.76,0.49,-0.235,-0.306,-0.1112,0.1589,0.185,-0.0617,High,Low,High dev / Low vul,fuzzy
+557,Vijayapura,Karnataka,0.564,67.15,56.72,66.16,45.1,0.58,-0.3966,-0.4379,-0.384,-0.0406,0.1614,-0.2195,Low,Low,Low dev / Low vul,alias
+558,Bidar,Karnataka,0.612,70.51,61.55,59.98,43.03,0.43,-0.0715,-0.0586,-0.0541,-0.1959,0.2006,-0.0359,High,High,High dev / High vul,exact
+559,Raichur,Karnataka,0.579,59.56,48.73,69.61,68.49,0.7,-1.1307,-1.0653,-0.5681,1.7136,0.1301,-0.1841,Low,High,Low dev / High vul,exact
+560,Koppal,Karnataka,0.602,68.09,57.55,66.65,53.2,0.35,-0.3056,-0.3727,-0.4101,0.5668,0.2215,-0.06,High,High,High dev / High vul,exact
+561,Gadag,Karnataka,0.616,75.12,65.44,66.12,44.78,0.56,0.3744,0.2469,-0.3818,-0.0646,0.1667,0.0683,High,High,High dev / High vul,exact
+562,Dharwad,Karnataka,0.594,80.0,73.46,47.39,40.14,0.64,0.8464,0.8767,0.6179,-0.4126,0.1458,0.4148,High,High,High dev / High vul,exact
+564,Haveri,Karnataka,0.6,77.4,70.46,70.45,48.11,0.45,0.5949,0.6411,-0.6129,0.1851,0.1954,0.2007,High,High,High dev / High vul,exact
+565,Ballari,Karnataka,0.532,67.43,58.09,59.47,53.47,0.43,-0.3695,-0.3303,-0.0269,0.5871,0.2006,0.0122,High,Low,High dev / Low vul,alias
+566,Chitradurga,Karnataka,0.51,73.71,65.88,67.78,57.84,0.41,0.238,0.2815,-0.4704,0.9148,0.2059,0.234,High,Low,High dev / Low vul,exact
+567,Davangere,Karnataka,0.561,75.74,68.91,60.18,58.63,0.52,0.4344,0.5194,-0.0648,0.9741,0.1771,0.408,High,Low,High dev / Low vul,fuzzy
+570,Chikkamagaluru,Karnataka,0.512,79.25,73.16,49.84,48.86,0.47,0.7739,0.8532,0.4871,0.2414,0.1902,0.5092,High,Low,High dev / Low vul,alias
+572,Bengaluru Urban,Karnataka,0.589,87.67,84.01,4.56,47.34,0.52,1.5884,1.7052,2.9039,0.1274,0.1771,1.3004,High,High,High dev / High vul,alias
+573,Mandya,Karnataka,0.517,70.4,62.54,69.44,41.82,0.44,-0.0822,0.0192,-0.559,-0.2866,0.198,-0.1421,Low,Low,Low dev / Low vul,exact
+574,Hassan,Karnataka,0.587,76.07,68.6,66.73,53.33,0.46,0.4663,0.4951,-0.4144,0.5766,0.1928,0.2633,High,High,High dev / High vul,exact
+575,Dakshina Kannada,Karnataka,0.488,88.57,84.13,6.32,47.31,0.47,1.6754,1.7146,2.8099,0.1251,0.1902,1.303,High,Low,High dev / Low vul,exact
+576,Kodagu,Karnataka,0.513,82.61,78.14,13.02,46.43,0.44,1.0989,1.2442,2.4523,0.0591,0.198,1.0105,High,Low,High dev / Low vul,exact
+577,Mysuru,Karnataka,0.545,72.79,67.06,50.24,44.44,0.57,0.149,0.3741,0.4658,-0.0901,0.1641,0.2126,High,Low,High dev / Low vul,alias
+578,Chamarajanagara,Karnataka,0.503,61.43,54.92,67.97,44.63,0.61,-0.9499,-0.5792,-0.4806,-0.0759,0.1536,-0.3864,Low,Low,Low dev / Low vul,alias
+579,Kalaburagi,Karnataka,0.586,64.85,55.09,58.46,40.66,0.46,-0.619,-0.5659,0.027,-0.3736,0.1928,-0.2677,Low,High,Low dev / High vul,alias
+581,Kolar,Karnataka,0.608,74.39,66.84,53.53,55.26,0.35,0.3038,0.3568,0.2901,0.7213,0.2215,0.3787,High,High,High dev / High vul,exact
+582,Chikkaballapura,Karnataka,0.577,69.76,61.55,65.52,47.53,0.47,-0.1441,-0.0586,-0.3498,0.1416,0.1902,-0.0441,High,High,High dev / High vul,exact
+583,Bengaluru Rural,Karnataka,0.575,77.93,70.63,46.07,49.87,0.45,0.6462,0.6545,0.6883,0.3171,0.1954,0.5003,High,High,High dev / High vul,alias
+584,Ramanagara,Karnataka,0.499,69.22,61.5,58.44,65.41,0.57,-0.1963,-0.0625,0.0281,1.4826,0.1641,0.2832,High,Low,High dev / Low vul,exact
+588,Kasaragod,Kerala,0.535,90.09,86.49,13.5,52.51,3.33,1.8225,1.9,2.4267,0.5151,-0.5569,1.2215,High,Low,High dev / Low vul,exact
+589,Kannur,Kerala,0.556,95.1,93.29,14.5,42.28,4.45,2.3071,2.434,2.3733,-0.2521,-0.8495,1.2026,High,Low,High dev / Low vul,exact
+591,Kozhikode,Kerala,0.605,95.08,92.99,9.56,48.1,8.69,2.3051,2.4104,2.637,0.1844,-1.9571,1.116,High,High,High dev / High vul,exact
+592,Malappuram,Kerala,0.597,93.57,91.62,16.47,48.78,12.75,2.1591,2.3028,2.2682,0.2354,-3.0176,0.7896,High,High,High dev / High vul,exact
+593,Palakkad,Kerala,0.539,89.31,85.79,30.48,43.98,8.3,1.747,1.845,1.5204,-0.1246,-1.8552,0.6265,High,Low,High dev / Low vul,exact
+594,Thrissur,Kerala,0.518,95.08,93.56,10.56,54.52,8.58,2.3051,2.4552,2.5836,0.6658,-1.9283,1.2163,High,Low,High dev / Low vul,exact
+595,Ernakulam,Kerala,0.542,95.89,94.46,9.75,52.87,5.97,2.3835,2.5259,2.6269,0.5421,-1.2465,1.3664,High,Low,High dev / Low vul,exact
+596,Idukki,Kerala,0.495,91.99,89.45,47.76,51.84,6.15,2.0062,2.1324,0.5981,0.4648,-1.2936,0.7816,High,Low,High dev / Low vul,exact
+597,Kottayam,Kerala,0.544,97.21,96.48,15.36,51.69,6.26,2.5112,2.6845,2.3274,0.4536,-1.3223,1.3309,High,Low,High dev / Low vul,exact
+598,Alappuzha,Kerala,0.548,95.72,94.24,12.05,61.85,7.81,2.3671,2.5086,2.5041,1.2156,-1.7272,1.3736,High,Low,High dev / Low vul,exact
+599,Pathanamthitta,Kerala,0.548,96.55,95.83,24.66,57.57,14.4,2.4473,2.6335,1.8311,0.8946,-3.4486,0.8716,High,Low,High dev / Low vul,exact
+600,Kollam,Kerala,0.566,94.09,92.31,16.32,46.63,7.18,2.2094,2.357,2.2762,0.0741,-1.5626,1.0708,High,High,High dev / High vul,exact
+601,Thiruvananthapuram,Kerala,0.573,93.02,91.17,10.82,54.98,6.74,2.1059,2.2675,2.5698,0.7003,-1.4477,1.2392,High,High,High dev / High vul,exact
+602,Thiruvallur,Tamil Nadu,0.553,84.03,78.32,22.37,62.8,0.48,1.2363,1.2584,1.9533,1.2868,0.1876,1.1845,High,Low,High dev / Low vul,exact
+603,Chennai,Tamil Nadu,0.54643,90.18,86.64,1.55,64.27153,0.35681,1.8312,1.9118,3.0645,1.3972,0.2198,1.6849,High,Low,High dev / Low vul,exact
+604,Kanchipuram,Tamil Nadu,0.532,84.49,79.02,21.62,67.45,0.16,1.2808,1.3134,1.9933,1.6356,0.2712,1.2989,High,Low,High dev / Low vul,fuzzy
+605,Vellore,Tamil Nadu,0.527,79.17,71.95,33.57,51.71,0.18,0.7662,0.7581,1.3555,0.4551,0.2659,0.7202,High,Low,High dev / Low vul,exact
+608,Salem,Tamil Nadu,0.56,72.86,65.15,41.98,51.03,0.21,0.1558,0.2241,0.9066,0.4041,0.2581,0.3897,High,Low,High dev / Low vul,exact
+609,Namakkal,Tamil Nadu,0.526,74.63,66.57,45.89,53.64,0.28,0.327,0.3356,0.6979,0.5998,0.2398,0.44,High,Low,High dev / Low vul,exact
+610,Erode,Tamil Nadu,0.414,72.58,64.71,45.86,55.78,0.19,0.1287,0.1896,0.6995,0.7603,0.2633,0.4083,High,Low,High dev / Low vul,exact
+611,The Nilgiris,Tamil Nadu,0.504,85.2,78.98,27.07,43.21,0.1,1.3494,1.3102,1.7024,-0.1824,0.2868,0.8933,High,Low,High dev / Low vul,exact
+612,Dindigul,Tamil Nadu,0.509,76.26,68.33,57.31,54.81,0.32,0.4847,0.4739,0.0884,0.6876,0.2294,0.3928,High,Low,High dev / Low vul,exact
+613,Karur,Tamil Nadu,0.525,75.6,66.86,52.77,61.26,0.28,0.4208,0.3584,0.3307,1.1713,0.2398,0.5042,High,Low,High dev / Low vul,exact
+614,Tiruchirappalli,Tamil Nadu,0.515,83.23,76.87,45.26,60.45,0.21,1.1589,1.1445,0.7316,1.1106,0.2581,0.8807,High,Low,High dev / Low vul,exact
+615,Perambalur,Tamil Nadu,0.688,74.32,65.9,78.6,36.0,0.55,0.297,0.283,-1.0479,-0.7231,0.1693,-0.2043,Low,High,Low dev / High vul,exact
+616,Ariyalur,Tamil Nadu,0.686,71.34,61.74,76.18,33.78,0.32,0.0087,-0.0437,-0.9188,-0.8896,0.2294,-0.3228,Low,High,Low dev / High vul,exact
+617,Cuddalore,Tamil Nadu,0.584,78.04,70.14,60.23,38.68,0.27,0.6568,0.616,-0.0675,-0.5221,0.2424,0.1851,High,High,High dev / High vul,exact
+618,Nagapattinam,Tamil Nadu,0.541,83.59,77.58,61.39,48.39,0.49,1.1937,1.2003,-0.1294,0.2061,0.185,0.5311,High,Low,High dev / Low vul,exact
+619,Thiruvarur,Tamil Nadu,0.468,82.86,76.72,67.58,37.78,0.18,1.1231,1.1327,-0.4598,-0.5896,0.2659,0.2945,High,Low,High dev / Low vul,exact
+620,Thanjavur,Tamil Nadu,0.491,82.64,76.5,55.98,50.79,0.24,1.1018,1.1155,0.1594,0.3861,0.2503,0.6026,High,Low,High dev / Low vul,exact
+621,Pudukkottai,Tamil Nadu,0.572,77.19,69.0,67.54,60.26,0.22,0.5746,0.5265,-0.4576,1.0963,0.2555,0.3991,High,High,High dev / High vul,exact
+622,Sivaganga,Tamil Nadu,0.565,79.85,71.85,54.91,56.1,0.41,0.8319,0.7503,0.2165,0.7843,0.2059,0.5578,High,Low,High dev / Low vul,exact
+623,Madurai,Tamil Nadu,0.585,83.45,77.16,34.37,48.06,0.14,1.1802,1.1673,1.3128,0.1814,0.2764,0.8236,High,High,High dev / High vul,exact
+624,Theni,Tamil Nadu,0.522,77.26,69.46,59.75,35.31,0.2,0.5814,0.5626,-0.0418,-0.7749,0.2607,0.1176,High,Low,High dev / Low vul,exact
+625,Virudhunagar,Tamil Nadu,0.617,80.15,72.69,27.98,43.24,0.28,0.8609,0.8163,1.6539,-0.1801,0.2398,0.6782,High,High,High dev / High vul,exact
+626,Ramanathapuram,Tamil Nadu,0.663,80.72,73.52,54.34,53.07,0.57,0.9161,0.8814,0.2469,0.5571,0.1641,0.5531,High,High,High dev / High vul,exact
+627,Tuticorin,Tamil Nadu,0.54,86.16,81.33,33.31,62.24,0.16,1.4423,1.4948,1.3694,1.2448,0.2712,1.1645,High,Low,High dev / Low vul,alias
+628,Tirunelveli,Tamil Nadu,0.486,82.5,75.98,34.49,52.07,0.15,1.0883,1.0746,1.3064,0.4821,0.2738,0.845,High,Low,High dev / Low vul,exact
+629,Kanniyakumari,Tamil Nadu,0.45,91.75,89.9,13.02,59.27,0.11,1.983,2.1678,2.4523,1.0221,0.2842,1.5819,High,Low,High dev / Low vul,exact
+630,Dharmapuri,Tamil Nadu,0.551,68.54,59.8,62.39,36.14,0.2,-0.2621,-0.196,-0.1827,-0.7126,0.2607,-0.2185,Low,Low,Low dev / Low vul,exact
+631,Krishnagiri,Tamil Nadu,0.566,71.46,63.91,56.89,54.59,0.23,0.0204,0.1268,0.1108,0.6711,0.2529,0.2364,High,High,High dev / High vul,exact
+632,Coimbatore,Tamil Nadu,0.462,83.98,78.92,19.79,47.85,0.58,1.2314,1.3055,2.091,0.1656,0.1614,0.991,High,Low,High dev / Low vul,exact
+633,Tiruppur,Tamil Nadu,0.502,78.68,71.82,30.18,61.32,0.11,0.7188,0.7479,1.5364,1.1758,0.2842,0.8926,High,Low,High dev / Low vul,exact

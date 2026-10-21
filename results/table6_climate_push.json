@@ -1,0 +1,75 @@
+{
+  "by_quadrant": {
+    "High dev / High vul": {
+      "n": 92,
+      "push": 0.30673469646847823,
+      "push_sd": 1.3358041528700138,
+      "share_positive": 0.5434782608695652,
+      "factor": "max dry spell"
+    },
+    "High dev / Low vul": {
+      "n": 143,
+      "push": -0.5260872511454546,
+      "push_sd": 1.166868542227742,
+      "share_positive": 0.26573426573426573,
+      "factor": "max dry spell"
+    },
+    "Low dev / High vul": {
+      "n": 145,
+      "push": 0.8081602944468964,
+      "push_sd": 1.4218828237865992,
+      "share_positive": 0.7310344827586207,
+      "factor": "hot days"
+    },
+    "Low dev / Low vul": {
+      "n": 89,
+      "push": -0.9785699894492137,
+      "push_sd": 1.3610170177967378,
+      "share_positive": 0.19101123595505617,
+      "factor": "annual rain mm"
+    }
+  },
+  "by_regime": {
+    "0": {
+      "n": 95,
+      "push": -0.9982711687408421,
+      "factor": "max dry spell"
+    },
+    "1": {
+      "n": 374,
+      "push": 0.20832991931951872,
+      "factor": "mean tmax"
+    }
+  },
+  "anomaly_A_mean_push": 0.30673469646847823,
+  "expected_high_dev_low_vul_mean_push": -0.5260872511454546,
+  "anomaly_B_mean_push": -0.9785699894492137,
+  "expected_low_dev_high_vul_mean_push": 0.8081602944468964,
+  "anomaly_A_vs_expected_p": 9.205965030648754e-07,
+  "anomaly_B_vs_expected_p": 3.058599751244167e-18,
+  "top_climate": [
+    "Khagaria (Bihar) +3.34",
+    "Madhepura (Bihar) +3.31",
+    "Maldah (West Bengal) +3.18",
+    "Sahebganj (Jharkhand) +3.12",
+    "Saharsa (Bihar) +3.07"
+  ],
+  "top_development": [
+    "Darjeeling (West Bengal) 1%",
+    "Mahoba (Uttar Pradesh) 1%",
+    "Kannur (Kerala) 2%",
+    "Kanpur Dehat (Uttar Pradesh) 4%",
+    "Deogarh (Odisha) 5%"
+  ],
+  "mean_push_mc_sd": 0.5323962017889126,
+  "attention_mean": {
+    "annual_rain_mm": 0.15850213288827292,
+    "rain_variability": 0.07430249256605544,
+    "rx5day_mm": 0.07776487751727078,
+    "heavy_rain_days": 0.08742114455778252,
+    "max_dry_spell": 0.171543901571855,
+    "mean_tmax": 0.1598471430827292,
+    "hot_days": 0.17990487193432836,
+    "tropical_nights": 0.09071343520063965
+  }
+}

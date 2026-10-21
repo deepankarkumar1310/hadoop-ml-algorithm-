@@ -6,8 +6,8 @@ written as PENDING and filled in automatically once results/ contains them.
 
 Usage: python scripts/build_deck.py
 """
-import copy
 import json
+import numbers
 from pathlib import Path
 
 import pandas as pd
@@ -240,9 +240,13 @@ def g(df, model, col, fmt="{:.3f}"):
     if df is None or col not in df or model not in set(df.model):
         return PENDING
     v = df.loc[df.model == model, col].iloc[0]
-    return fmt.format(v) if isinstance(v, (int, float)) else str(v)
+    if isinstance(v, numbers.Number):
+        return "n/a" if pd.isna(v) else fmt.format(v)
+    return "n/a" if pd.isna(v) else str(v)
 
 
+SHORTN = {"Logistic Regression": "LR", "Random Forest": "RF", "Gradient-Boosted Trees": "GBT",
+          "Linear SVM": "Linear SVM", "Standard MLP": "MLP", "A-CPN (proposed)": "A-CPN"}
 MODELS = [("A-CPN (proposed)", "Novel DL · PyTorch"), ("Logistic Regression", "Spark MLlib"),
           ("Random Forest", "Spark MLlib"), ("Gradient-Boosted Trees", "Spark MLlib"),
           ("Linear SVM", "Spark MLlib"), ("Standard MLP", "PyTorch")]
@@ -335,7 +339,7 @@ bullets(s, 0.4, 1.3, 9.2, 1.75, [
      "MGNREGA days, yield variability (NDAP 2021)"),
     ("8 hazard variables: ", "annual rain, rain variability, max 5-day rain, heavy-rain days, longest dry "
      "spell, mean Tmax, hot days, tropical nights"),
-    ("Scale: ", f"~212 million gridded climate values; {tot_bytes / 1e9:.2f} GB in HDFS ({REF})")], size=14, space=4)
+    ("Scale: ", f"~212 million gridded climate values; {tot_bytes / 1e9:.2f} GB in HDFS ({REF})")], size=15, space=3)
 table(s, 0.4, 3.2, 9.2, [
     ["Dataset", "Source", "Year", "Format", "Size", "Role"],
     ["Climate Vulnerability Index + indicators", "NITI Aayog NDAP 7160", "2021", "CSV", "699 × 79", "Outcome + 2 dev vars"],
@@ -433,7 +437,7 @@ table(s, 0.4, 4.35, 9.2, [
     [0.9, 3.6, 4.7], size=12, row_h=0.45)
 bullets(s, 0.4, 5.85, 9.2, 1.1, [
     f"{env['hadoop']} + YARN, Hive 3.1.3, Spark (pyspark), Java 8 (Hive 3.1.3 fails on Java 11)",
-    "Daemons started directly (Colab has no SSH); replication 1, block size 128 MB"], size=13, space=2)
+    "Daemons started directly (Colab has no SSH); replication 1, block size 128 MB"], size=15, space=2)
 owner(s, "Deepankar")
 
 # ================================================================= 8 PROCESSING
@@ -502,6 +506,16 @@ owner(s, "Sehjodh Grewal")
 
 # ================================================================= 11 PREPROCESSING ERROR METRICS
 c_, gr, gt, dd = pm["census"], pm["grid_rain"], pm["grid_temp"], pm["district_day"]
+cc = load("preprocessing_colab_checks.json")
+if cc:
+    _m, _a = cc["mapreduce_vs_pandas"], cc["area_vs_nearest_cell"]
+    mr_row = ["MapReduce vs pandas", f"{_m['rows_compared']:,} district-years", "7 indices recomputed",
+              f"RMSE ≤ {_m['rmse_max']:.2g}, MAE ≤ {_m['mae_max']:.2g}"]
+    nc_row = ["Area-weighted vs nearest-cell", f"naive method, {_a['year']}", f"{_a['districts']} districts",
+              f"RMSE {_a['rmse_mm']:.0f} mm ({_a['mean_abs_pct']:.1f}%) avoided"]
+else:
+    mr_row = ["MapReduce vs pandas", "same district-days", PENDING, "RMSE / MAE: PENDING"]
+    nc_row = ["Area-weighted vs nearest-cell", "naive method", PENDING, "RMSE: PENDING"]
 s = new_slide("Preprocessing Error Metrics: Before vs After",
               "Each preprocessing step is checked against a reference. Census totals reproduce the official "
               "figures, grid weights sum to one within rounding, missing climate cells stay missing instead of "
@@ -517,16 +531,41 @@ table(s, 0.4, 1.25, 9.2, [
     ["District-day missing cells", f"rain {dd['rain_missing_pct']:.2f}%, Tmax {dd['tmax_missing_pct']:.2f}%", "kept as NaN, weights renormalised", "0 zero-filled"],
     ["Final table quality", "—", f"{ft['duplicate_censuscodes']} duplicates, {ft['out_of_range_values']} out of range", f"{ft['outliers_abs_z_gt3']} outlier cells flagged, kept"],
     ["Hive vs pandas", f"{hive['pandas_rows']} rows", f"{hive['hive_rows']} rows", f"max diff {hive['max_abs_diff']}"],
-    ["MapReduce vs pandas", "same district-days", PENDING, "RMSE / MAE: PENDING"],
-    ["Area-weighted vs nearest-cell", "naive method", PENDING, "RMSE: PENDING"]],
+    mr_row, nc_row],
     [2.15, 2.55, 2.5, 2.0], size=11, row_h=0.47)
 textbox(s, 0.4, 6.5, 9.2, 0.45, f"Computed {pm['computed'].split(' ')[0]} from project data; district-day and Hive "
         f"values from the {REF}. PENDING rows need the raw IMD grids (Colab).", 11, color=GREY)
 owner(s, "Sehjodh Grewal")
 
-# ================================================================= 12 MODEL CARD
+# ================================================================= 12 PREPROCESSING IMPROVEMENT
+ba = load("preprocessing_before_after.csv")
+rows = [["Model", "AUC before", "AUC after", "AUC gain", "F1 before", "F1 after", "F1 gain"]]
+for m, _ in MODELS:
+    rows.append([m] + [g(ba.assign(auc_gain=ba.auc_gain.round(3) + 0.0, f1_gain=ba.f1_gain.round(3) + 0.0)
+                         if ba is not None else None, m, c, f) for c, f in (("auc_before", "{:.3f}"), ("auc_after", "{:.3f}"), ("auc_gain", "{:+.3f}"),
+                                                   ("f1_before", "{:.3f}"), ("f1_after", "{:.3f}"), ("f1_gain", "{:+.3f}"))])
+if ba is not None:
+    big = ba.sort_values("auc_gain", ascending=False).iloc[0]
+    acp_gain = ba[ba.model == "A-CPN (proposed)"].auc_gain.iloc[0]
+    ba_note = (f"largest gain {SHORTN[big.model]} {big.auc_gain:+.3f} ROC-AUC, A-CPN {acp_gain:+.3f}. RF and GBT ignore feature "
+               "scale, and Spark's LR and Linear SVM standardise internally, so their before/after runs are equal.")
+else:
+    ba_note = PENDING
+s = new_slide("Preprocessing Improvement: Before vs After",
+              "To measure what preprocessing buys, every model is trained twice on the same districts and folds: once on "
+              "the raw features exactly as they come, and once on the preprocessed features. The gain column is the "
+              "improvement. The neural models gain the most. Random Forest and GBT do not depend on scale, and Spark's "
+              "Logistic Regression and Linear SVM standardise features internally, so those four do not change.", size=24)
+table(s, 0.4, 1.3, 9.2, rows, [2.3, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15], size=12, row_h=0.58, highlight=(1,))
+bullets(s, 0.4, 5.55, 9.2, 1.4, [
+    ("Before: ", "raw features (rain in mm, days, %, °C on very different scales); After: preprocessed, same 25 folds"),
+    ("Result: ", ba_note)], size=15, space=4)
+owner(s, "Sehjodh Grewal")
+
+# ================================================================= 13 MODEL CARD
 pc = PENDING if card is None else f"{card['parameters']:,}"
 tt = PENDING if card is None else card["train_time"]
+cov = PENDING if card is None else f"{card['conformal_coverage_mean']:.1%} coverage (target 90%), avg set size {card['conformal_avg_set_size']:.2f}"
 s = new_slide("Classification: A-CPN Model Card",
               "Table 4 lists the full A-CPN specification. The development part is deliberately linear so the "
               "baseline is readable; the climate part is a small deep network sized for 469 districts. Every "
@@ -538,30 +577,42 @@ table(s, 0.4, 1.25, 9.2, [
     ["KAN layer", "Kolmogorov–Arnold layer (8 → 16), learnable cubic B-spline per edge"],
     ["Residual MLP", "Linear(16→16) → BatchNorm → ReLU → Dropout 0.3, skip connection → Linear(16→1)"],
     ["Output", "p = σ(development baseline + climate push)"],
-    ["Uncertainty", "MC Dropout (50 passes) + split conformal prediction (90% target coverage)"],
-    ["Loss / optimiser", "Class-weighted BCE; AdamW lr 3e-3, weight decay 1e-3, batch 64, early stopping"],
-    ["Parameters / train time", f"{pc} / {tt}"],
+    ["Uncertainty", f"MC Dropout (50 passes) + split conformal: {cov}"],
+    ["Loss / optimiser", "Class-weighted BCE; AdamW lr 3e-3, weight decay 1e-3, batch 64, early stopping (patience 30)"],
+    ["Parameters / train time", f"{pc} trainable / {tt} (CPU)"],
     ["Validation", "Repeated stratified 5-fold × 5 (25 folds) + leave-one-state-out"],
     ["Target", "High vs Low vulnerability (median of 2021 index); index never an input"]],
     [2.3, 6.9], size=12, row_h=0.52)
 owner(s, "Devanshu Kumar")
 
-# ================================================================= 13 COMPARISON
+# ================================================================= 14 COMPARISON
 rows = [["Model", "Type / Tool", "ROC-AUC", "Bal. acc.", "Accuracy", "F1", "LOSO AUC"]]
 for m, typ in MODELS:
     rows.append([m, typ] + [g(cmp5, m, c) for c in ("roc_auc", "bal_acc", "accuracy", "f1", "loso_auc")])
+if cmp5 is not None:
+    srt = cmp5.sort_values("roc_auc", ascending=False).reset_index(drop=True)
+    best = srt.iloc[0]
+    acp = cmp5[cmp5.model == "A-CPN (proposed)"].iloc[0]
+    rank = int(srt.index[srt.model == "A-CPN (proposed)"][0]) + 1
+    gap = best.roc_auc - acp.roc_auc
+    verdict = ("A-CPN has the best ROC-AUC" if rank == 1 else
+               f"{best.model} is best (ROC-AUC {best.roc_auc:.3f}); A-CPN ranks {rank} of 6 "
+               f"({acp.roc_auc:.3f}, gap {gap:.3f} {'>' if gap > acp.roc_auc_sd else '<'} 1 SD = {acp.roc_auc_sd:.3f})")
+    beats = cmp5[(cmp5.roc_auc < acp.roc_auc) & (cmp5.model != acp.model)].model.map(lambda x: SHORTN.get(x, x)).tolist()
+    cmp_items = [("Result: ", verdict),
+                 ("A-CPN is higher than: ", ", ".join(beats) if beats else "none of the baselines"),
+                 ("A-CPN's added value: ", "a per-district climate push, attention and uncertainty, which the baselines do not give")]
+else:
+    cmp_items = [("Result: ", PENDING)]
 s = new_slide("Comparison with Existing Classifier Models",
               "Table 5 compares A-CPN with five existing models on exactly the same 25 folds and the same "
-              "leave-one-state-out split. Values are mean over folds. We call a model best only if its lead is "
-              "larger than one standard deviation; otherwise the models are comparable.", size=24)
-table(s, 0.4, 1.3, 9.2, rows, [2.25, 1.7, 1.05, 1.05, 1.05, 1.0, 1.1], size=12, row_h=0.62, highlight=(1,))
-bullets(s, 0.4, 5.85, 9.2, 1.1, [
-    "Same 25 folds (5 × 5 repeated stratified CV) and leave-one-state-out for every model; mean ± SD in results/",
-    "\"Best\" only if the gap exceeds 1 SD, otherwise \"comparable\"; if a baseline wins, it is reported as such"],
-    size=13, space=2)
+              "leave-one-state-out split. Values are means over folds. We call a model best only if its lead is "
+              "larger than one standard deviation, and we report a baseline that beats A-CPN as it is.", size=24)
+table(s, 0.4, 1.3, 9.2, rows, [2.25, 1.7, 1.05, 1.05, 1.05, 1.0, 1.1], size=12, row_h=0.55, highlight=(1,))
+bullets(s, 0.4, 5.3, 9.2, 1.7, cmp_items, size=15, space=3)
 owner(s, "Devanshu Kumar")
 
-# ================================================================= 14 DETAILED METRICS
+# ================================================================= 15 DETAILED METRICS
 cols = [("precision", "Prec."), ("recall", "Recall"), ("specificity", "Spec."), ("mcc", "MCC"),
         ("kappa", "Kappa"), ("pr_auc", "PR-AUC"), ("log_loss", "Log loss"), ("brier", "Brier"), ("ece", "ECE")]
 rows = [["Model"] + [c[1] for c in cols]]
@@ -570,90 +621,142 @@ for m, _ in MODELS:
 s = new_slide("Detailed Classifier Metrics",
               "Beyond accuracy we report precision, recall and specificity, two chance-corrected scores (MCC and "
               "kappa), PR-AUC, and three probability-quality scores: log loss, Brier score and expected "
-              "calibration error. Lower is better for the last three.")
+              "calibration error, where lower is better. Linear SVM gives no probabilities, so those cells are n/a.")
 table(s, 0.4, 1.3, 9.2, rows, [2.2] + [0.78] * 9, size=11, row_h=0.6, highlight=(1,))
 bullets(s, 0.4, 5.75, 9.2, 1.2, [
-    ("Classification: ", "precision, recall, specificity, MCC, Cohen's kappa (higher is better)"),
-    ("Probability quality: ", "PR-AUC (higher); log loss, Brier, ECE (lower is better); training and prediction time in results/")],
-    size=13, space=2)
+    ("Higher is better: ", "precision, recall, specificity, MCC, Cohen's kappa, PR-AUC"),
+    ("Lower is better: ", "log loss, Brier, ECE (Linear SVM: n/a, no probabilities)")], size=15, space=3)
 owner(s, "Devanshu Kumar")
 
-# ================================================================= 15 CONFUSION / CI / SIGNIFICANCE
+# ================================================================= 16 CONFUSION / CI / SIGNIFICANCE
 rows = [["Model", "TP", "TN", "FP", "FN", "ROC-AUC 95% CI", "p vs A-CPN"]]
 for m, _ in MODELS:
     rows.append([m] + [g(conf, m, c, "{:.0f}") for c in ("tp", "tn", "fp", "fn")] +
-                [g(sig, m, "auc_ci"), "—" if m.startswith("A-CPN") else g(sig, m, "p_value")])
+                [g(sig, m, "auc_ci"), "—" if m.startswith("A-CPN") else g(sig, m, "p_value_fmt")])
 s = new_slide("Confusion Matrix, CIs and Significance",
-              "Confusion counts are summed over all test folds. The 95% confidence interval shows how certain each "
+              "Confusion counts are summed over all 25 test folds. The 95% confidence interval shows how certain each "
               "ROC-AUC is, and the corrected paired test tells us whether a difference from A-CPN is real or "
-              "could be noise from the folds.", size=26)
-table(s, 0.4, 1.3, 9.2, rows, [2.3, 0.8, 0.8, 0.8, 0.8, 1.9, 1.3], size=12, row_h=0.62, highlight=(1,))
-bullets(s, 0.4, 5.75, 9.2, 1.2, [
+              "could be noise from the folds; p below 0.05 means a real difference.", size=26)
+table(s, 0.4, 1.3, 9.2, rows, [2.3, 0.8, 0.8, 0.8, 0.8, 1.9, 1.3], size=12, row_h=0.6, highlight=(1,))
+bullets(s, 0.4, 5.65, 9.2, 1.3, [
     ("TP/TN/FP/FN: ", "summed over the 25 test folds (High = positive class)"),
-    ("Significance: ", "corrected resampled t-test (Nadeau–Bengio) on paired fold scores; p < 0.05 = real difference")],
-    size=13, space=2)
+    ("Significance: ", "corrected resampled t-test (Nadeau–Bengio) on paired fold ROC-AUC; p < 0.05 = real difference")],
+    size=15, space=3)
 owner(s, "Devanshu Kumar")
 
-# ================================================================= 16 ABLATION
-VAR = [("Full A-CPN", "—"), ("Without feature attention", ""), ("Without KAN layer (plain MLP)", ""),
-       ("Without residual block", ""), ("Climate only (no development baseline)", ""),
-       ("Development only (no climate push)", ""), ("Linear climate part (no deep layers)", "")]
-rows = [["Variant", "ROC-AUC", "Change vs full"]]
-for v, ch in VAR:
-    rows.append([v, g(abl, v, "roc_auc"), ch or g(abl, v, "delta", "{:+.3f}")])
+# ================================================================= 17 ABLATION
+VAR = ["Full A-CPN", "Without feature attention", "Without KAN layer (plain MLP)", "Without residual block",
+       "Climate only (no development baseline)", "Development only (no climate push)", "Linear climate part (no deep layers)"]
+rows = [["Variant", "ROC-AUC", "Change vs full", "p vs full"]]
+for v in VAR:
+    rows.append([v, g(abl, v, "roc_auc"), "—" if v == "Full A-CPN" else g(abl, v, "delta", "{:+.3f}"),
+                 "—" if v == "Full A-CPN" else g(abl, v, "p_value")])
+if abl is not None:
+    fa = abl[abl.model == "Full A-CPN"].iloc[0]
+    hurt = abl[(abl.delta < -fa.roc_auc_sd)].model.tolist()
+    nohelp = abl[(abl.model != "Full A-CPN") & (abl.delta >= -fa.roc_auc_sd)].model.tolist()
+    ab_items = [("Removal hurts by more than 1 SD: ", ", ".join(hurt) if hurt else "no single component"),
+                ("Within 1 SD (no clear accuracy gain): ", ", ".join(nohelp) if nohelp else "none")]
+else:
+    ab_items = [("Result: ", PENDING)]
 s = new_slide("Ablation Study", "Each row removes one part of A-CPN and re-runs it on the same folds. If "
-              "accuracy drops, that part helps prediction; if it does not, the part is kept only for what it "
-              "explains, and we say so.")
-table(s, 0.4, 1.3, 9.2, rows, [5.0, 2.0, 2.2], size=13, row_h=0.56, highlight=(1,))
-bullets(s, 0.4, 5.95, 9.2, 1.0, [
-    "Same 25 folds as Table 5; a drop larger than 1 SD means the component helps prediction",
-    "Components that do not improve accuracy are reported honestly and justified by explanation only"], size=13, space=2)
+              "accuracy drops by more than one standard deviation, that part helps prediction; if not, the part is "
+              "kept only for what it explains, and we say so.")
+table(s, 0.4, 1.3, 9.2, rows, [4.6, 1.5, 1.6, 1.5], size=13, row_h=0.52, highlight=(1,))
+bullets(s, 0.4, 5.6, 9.2, 1.4, ab_items, size=14, space=3)
 owner(s, "Devanshu Kumar")
 
-# ================================================================= 17 CLIMATE PUSH ANALYSIS
+# ================================================================= 18 CLIMATE PUSH ANALYSIS
 pq = (push or {}).get("by_quadrant", {})
-rows = [["Group", "Districts", "Mean climate push", "Top climate factor"]]
+rows = [["Group", "Districts", "Mean climate push", "Push > 0", "Top climate factor"]]
 for k, lab in [("High dev / Low vul", "High dev / Low vul (expected)"), ("Low dev / High vul", "Low dev / High vul (expected)"),
                ("High dev / High vul", "Anomaly A: developed yet vulnerable"), ("Low dev / Low vul", "Anomaly B: less developed yet resilient")]:
     d = pq.get(k, {})
-    rows.append([lab, str(q[k]), f"{d['push']:+.2f}" if d else PENDING, d.get("factor", PENDING)])
-rows.append(["Spark k-means climate regimes", km_txt, PENDING if push is None else "see results/", PENDING if push is None else "see results/"])
+    rows.append([lab, str(q[k]), f"{d['push']:+.2f}" if d else PENDING,
+                 f"{d['share_positive']:.0%}" if d else PENDING, d.get("factor", PENDING)])
+for r_, d in sorted(((push or {}).get("by_regime") or {}).items()):
+    rows.append([f"Spark k-means climate regime {r_}", str(d["n"]), f"{d['push']:+.2f}", "—", d["factor"]])
 s = new_slide("Climate-Push Analysis: What It Explains",
-              "The climate push answers our research question. We expect a large positive push for Anomaly A, "
-              "developed districts that are vulnerable because of climate, and a negative push for Anomaly B, "
-              "where a mild climate protects less-developed districts.", size=24)
-table(s, 0.4, 1.3, 9.2, rows, [3.9, 1.2, 1.9, 2.2], size=12, row_h=0.55, highlight=(3, 4))
-textbox(s, 0.4, 4.85, 4.45, 0.4, "Top 5 climate-driven districts", 14, True, NAVY)
-textbox(s, 5.15, 4.85, 4.45, 0.4, "Top 5 development-driven districts", 14, True, NAVY)
+              "The climate push answers our research question. A positive push means climate makes a district more "
+              "vulnerable than its development predicts. We compare Anomaly A with the expected developed districts, "
+              "and Anomaly B with the expected less-developed districts.", size=24)
+table(s, 0.4, 1.25, 9.2, rows, [3.6, 1.0, 1.6, 1.0, 2.0], size=12, row_h=0.45, highlight=(3, 4))
+y0 = 1.25 + 0.45 * len(rows) + 0.15
+if push:
+    textbox(s, 0.4, y0, 9.2, 0.4, f"Anomaly A vs expected developed: p = {push['anomaly_A_vs_expected_p']:.3g};  "
+            f"Anomaly B vs expected less-developed: p = {push['anomaly_B_vs_expected_p']:.3g};  "
+            f"mean MC Dropout SD of push = {push['mean_push_mc_sd']:.2f}", 12, color=GREY)
+textbox(s, 0.4, y0 + 0.45, 4.45, 0.35, "Top 5 climate-driven districts (push)", 14, True, NAVY)
+textbox(s, 5.15, y0 + 0.45, 4.45, 0.35, "Top 5 development-driven (climate share)", 14, True, NAVY)
 top_c = (push or {}).get("top_climate", []) or [PENDING]
 top_d = (push or {}).get("top_development", []) or [PENDING]
-textbox(s, 0.4, 5.3, 4.45, 1.6, ", ".join(top_c), 13)
-textbox(s, 5.15, 5.3, 4.45, 1.6, ", ".join(top_d), 13)
+bullets(s, 0.4, y0 + 0.85, 4.6, 1.6, top_c, size=12, space=0)
+bullets(s, 5.15, y0 + 0.85, 4.6, 1.6, top_d, size=12, space=0)
 owner(s, "Devanshu Kumar")
 
-# ================================================================= 18 CLASSIFICATION FIGURES
+# ================================================================= FIGURES (only from here on)
 FIG = ROOT / "figures"
-s = new_slide("Results of Classification (Figures)",
-              "Left: ROC curves of A-CPN and the five baselines on the pooled test folds. Right: the A-CPN "
-              "confusion matrix. Both figures are generated from results/ after the model run.")
-fig_or_panel(s, 0.4, 1.35, 4.5, 5.0, FIG / "roc_curves.png", "ROC curves", "PENDING: generated after the model run")
-fig_or_panel(s, 5.1, 1.35, 4.5, 5.0, FIG / "confusion_acpn.png", "A-CPN confusion matrix", "PENDING: generated after the model run")
-textbox(s, 0.4, 6.45, 4.5, 0.5, "ROC curves: A-CPN vs 5 baselines (25 folds)", 12, color=GREY, align=PP_ALIGN.CENTER)
-textbox(s, 5.1, 6.45, 4.5, 0.5, "A-CPN confusion matrix (all test folds)", 12, color=GREY, align=PP_ALIGN.CENTER)
-owner(s, "Devanshu Kumar")
 
-# ================================================================= 19 CLIMATE-PUSH FIGURES
-s = new_slide("Climate-Push Visualisation",
-              "Left: mean climate push for each of the four groups. Right: an India map of the climate push for "
-              "every district, so the panel can see where climate drives vulnerability beyond development.")
-fig_or_panel(s, 0.4, 1.35, 4.5, 5.0, FIG / "climate_push_by_quadrant.png", "Climate push by quadrant", "PENDING: generated after the model run")
-fig_or_panel(s, 5.1, 1.35, 4.5, 5.0, FIG / "climate_push_map.png", "India map of climate push", "PENDING: generated after the model run")
-textbox(s, 0.4, 6.45, 4.5, 0.5, "Mean climate push per quadrant", 12, color=GREY, align=PP_ALIGN.CENTER)
-textbox(s, 5.1, 6.45, 4.5, 0.5, "Climate push per district (469)", 12, color=GREY, align=PP_ALIGN.CENTER)
-owner(s, "Devanshu Kumar")
+
+def fig_slide(title, notes, left, right, cap_l, cap_r, who, size=28, stacked=False):
+    s = new_slide(title, notes, size)
+    if stacked:
+        fig_or_panel(s, 0.4, 1.3, 9.2, 2.65, FIG / left, cap_l, "PENDING")
+        fig_or_panel(s, 0.4, 4.05, 9.2, 2.65, FIG / right, cap_r, "PENDING")
+        textbox(s, 0.4, 6.72, 9.2, 0.32, f"Top: {cap_l}.  Bottom: {cap_r}.", 12, color=GREY, align=PP_ALIGN.CENTER)
+    else:
+        fig_or_panel(s, 0.4, 1.35, 4.5, 5.0, FIG / left, cap_l, "PENDING")
+        fig_or_panel(s, 5.1, 1.35, 4.5, 5.0, FIG / right, cap_r, "PENDING")
+        textbox(s, 0.4, 6.45, 4.5, 0.5, cap_l, 12, color=GREY, align=PP_ALIGN.CENTER)
+        textbox(s, 5.1, 6.45, 4.5, 0.5, cap_r, 12, color=GREY, align=PP_ALIGN.CENTER)
+    owner(s, who)
+
+
+fig_slide("Preprocessing: Before vs After (Figures)",
+          "Top: the data-quality problems in the raw sources and after preprocessing; missing values, unmatched and "
+          "wrongly matched districts all go to zero without imputation. Bottom: the raw features live on very "
+          "different scales, and after standardisation they are comparable.",
+          "prep_quality_before_after.png", "prep_feature_scaling.png",
+          "Data-quality problems before vs after", "Feature scales before (raw) vs after (standardised)",
+          "Sehjodh Grewal", size=26, stacked=True)
+fig_slide("Preprocessing Improvement (Figures)",
+          "Top: ROC-AUC of every model on raw versus preprocessed features, with the gain written above each pair. "
+          "Bottom: how many districts survive each preprocessing stage when nothing is imputed.",
+          "prep_model_gain.png", "prep_retention.png",
+          "Model ROC-AUC before vs after preprocessing", "District retention 640 → 469",
+          "Sehjodh Grewal", size=26, stacked=True)
+fig_slide("Big Data Results (Figures)",
+          "Top: HDFS storage by zone, dominated by the 30 years of rainfall grids. Bottom: MapReduce runtime against "
+          "input size for 1, 10 and 30 years on a single node; both measured in the earlier Colab run.",
+          "hdfs_storage.png", "mapreduce_scalability.png",
+          f"HDFS storage by zone ({REF})", f"MapReduce scaling, single node ({REF})", "Tanmay Singh",
+          stacked=True)
+fig_slide("Results of Classification (Figures)",
+          "Top: ROC and precision-recall curves for A-CPN and the five baselines, pooled over the 25 folds. Bottom: "
+          "mean and standard deviation of four metrics for every model.",
+          "roc_curves.png", "comparison_bars.png",
+          "ROC and precision-recall curves (25 folds)", "Comparison: mean ± SD over 25 folds",
+          "Devanshu Kumar", size=26, stacked=True)
+fig_slide("Confusion Matrix & Stability (Figures)",
+          "Left: the A-CPN confusion matrix summed over all test folds. Right: the spread of ROC-AUC across the 25 "
+          "folds for every model, which shows how stable each model is.",
+          "confusion_acpn.png", "fold_boxplots.png",
+          "A-CPN confusion matrix (25 folds)", "ROC-AUC per fold, all models", "Devanshu Kumar", size=26)
+fig_slide("Climate-Push Visualisation",
+          "Left: the climate push of every district by group, with the group mean. Right: an India map of the "
+          "climate push, so the panel can see where climate drives vulnerability beyond development.",
+          "climate_push_by_quadrant.png", "climate_push_map.png",
+          "Climate push by group (bar = mean)", "Climate push per district (469)", "Devanshu Kumar")
 
 # ================================================================= 20 KEY FINDINGS
 rg = ar["regression"]
+if cmp5 is not None and push:
+    _a = cmp5[cmp5.model == "A-CPN (proposed)"].iloc[0]
+    _b = cmp5.sort_values("roc_auc").iloc[-1]
+    acpn_finding = (f"ROC-AUC {_a.roc_auc:.3f} vs best {SHORTN[_b.model]} {_b.roc_auc:.3f}; climate push "
+                    f"Anomaly A {push['anomaly_A_mean_push']:+.2f} vs expected {push['expected_high_dev_low_vul_mean_push']:+.2f}")
+else:
+    acpn_finding = PENDING
 s = new_slide("Key Findings", "Development explains only 13% of the variation in vulnerability; adding climate "
               "raises that to 33%, and state alone explains 48%. Anomaly A districts have about twice as many "
               "tropical nights, and Anomaly B districts are drier. Limitations are listed honestly.")
@@ -663,7 +766,7 @@ bullets(s, 0.4, 1.3, 5.0, 5.6, [
     ("Anomalies are common: ", f"{ar['anomalies']}/469 districts ({ar['anomaly_share'] * 100:.1f}%)"),
     ("Anomaly A: ", "≈2× tropical nights (91 vs 45 per year)"),
     ("Anomaly B: ", "drier (863 vs 1078 mm annual rain)"),
-    ("A-CPN result: ", PENDING),
+    ("A-CPN result: ", acpn_finding),
     ("Limitations: ", "2011 Census vs 2021 index; 1° temperature grid; single-node Hadoop; 469 districts")],
     size=15, space=10)
 cd = CategoryChartData()

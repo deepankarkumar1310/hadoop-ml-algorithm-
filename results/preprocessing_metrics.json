@@ -55,8 +55,7 @@
     "out_of_range_values": 0,
     "outliers_abs_z_gt3": 66,
     "class_high": 237,
-    "class_low": 232,
-    "years_per_district_min": null
+    "class_low": 232
   },
   "feature_signal_auc": {
     "agri_worker_share": 0.674,
@@ -74,5 +73,5 @@
     "max_dry_spell": 0.512
   },
   "rain_snr_median": 3.98,
-  "computed": "2026-10-21 from reused project data"
+  "computed": "2026-10-21 from project data"
 }

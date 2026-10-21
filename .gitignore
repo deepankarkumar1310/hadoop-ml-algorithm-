@@ -1,0 +1,14 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+# large, regenerable: IMD binaries and the district-day staging table live in Drive/HDFS
+data/imd/
+data/staging/
+data/processed/district_year_indices.csv
+data/processed/integrated_district_hive.csv
+.ipynb_checkpoints/
+
+# local caches
+spark-warehouse/
+metastore_db/
+derby.log

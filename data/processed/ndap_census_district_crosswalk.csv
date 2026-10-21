@@ -1,0 +1,700 @@
+district_code,district_name,state_name,censuscode,matched_census_name,match_type,match_score,climate_vul_in
+191,Begusarai,Bihar,222,begusarai,exact,1.0,0.611
+192,Bhagalpur,Bihar,224,bhagalpur,exact,1.0,0.605
+193,Bhojpur,Bihar,231,bhojpur,exact,1.0,0.618
+194,Buxar,Bihar,232,buxar,exact,1.0,0.656
+195,Darbhanga,Bihar,215,darbhanga,exact,1.0,0.632
+196,Gaya,Bihar,236,gaya,exact,1.0,0.647
+188,Araria,Bihar,209,araria,exact,1.0,0.707
+189,Aurangabad,Bihar,235,aurangabad,exact,1.0,0.622
+190,Banka,Bihar,225,banka,exact,1.0,0.619
+197,Gopalganj,Bihar,217,gopalganj,exact,1.0,0.659
+198,Jamui,Bihar,238,jamui,exact,1.0,0.7
+199,Jehanabad,Bihar,239,jehanabad,exact,1.0,0.626
+200,Kaimur (Bhabua),Bihar,233,kaimur,exact,1.0,0.601
+201,Katihar,Bihar,212,katihar,exact,1.0,0.725
+202,Khagaria,Bihar,223,khagaria,exact,1.0,0.66
+203,Kishanganj,Bihar,210,kishanganj,exact,1.0,0.707
+204,Lakhisarai,Bihar,227,lakhisarai,exact,1.0,0.672
+205,Madhepura,Bihar,213,madhepura,exact,1.0,0.68
+206,Madhubani,Bihar,207,madhubani,exact,1.0,0.659
+207,Munger,Bihar,226,munger,exact,1.0,0.627
+208,Muzaffarpur,Bihar,216,muzaffarpur,exact,1.0,0.643
+209,Nalanda,Bihar,229,nalanda,exact,1.0,0.621
+210,Nawada,Bihar,237,nawada,exact,1.0,0.639
+211,Pashchim Champaran,Bihar,203,westchamparan,exact,1.0,0.633
+212,Patna,Bihar,230,patna,exact,1.0,0.609
+213,Purbi Champaran,Bihar,204,eastchamparan,exact,1.0,0.673
+214,Purnia,Bihar,211,purnia,exact,1.0,0.701
+215,Rohtas,Bihar,234,rohtas,exact,1.0,0.585
+216,Saharsa,Bihar,214,saharsa,exact,1.0,0.616
+217,Samastipur,Bihar,221,samastipur,exact,1.0,0.623
+218,Saran,Bihar,219,saran,exact,1.0,0.607
+219,Sheikhpura,Bihar,228,sheikhpura,exact,1.0,0.612
+220,Sheohar,Bihar,205,sheohar,exact,1.0,0.694
+221,Sitamarhi,Bihar,206,sitamarhi,exact,1.0,0.668
+222,Siwan,Bihar,218,siwan,exact,1.0,0.669
+223,Supaul,Bihar,208,supaul,exact,1.0,0.655
+224,Vaishali,Bihar,220,vaishali,exact,1.0,0.655
+611,Arwal,Bihar,240,arwal,exact,1.0,0.648
+239,Tirap,Arunachal Pradesh,254,tirap,exact,1.0,0.575
+229,Changlang,Arunachal Pradesh,253,changlang,exact,1.0,0.537
+230,Dibang Valley,Arunachal Pradesh,257,dibangvalley,exact,1.0,0.549
+231,East Kameng,Arunachal Pradesh,247,eastkameng,exact,1.0,0.538
+232,East Siang,Arunachal Pradesh,251,eastsiang,exact,1.0,
+233,Kurung Kumey,Arunachal Pradesh,256,kurungkumey,exact,1.0,0.551
+234,Lohit,Arunachal Pradesh,259,lohit,exact,1.0,0.495
+235,Lower Dibang Valley,Arunachal Pradesh,258,lowerdibangvalley,exact,1.0,0.496
+236,Lower Subansiri,Arunachal Pradesh,255,lowersubansiri,exact,1.0,
+237,Papum Pare,Arunachal Pradesh,248,papumpare,exact,1.0,0.439
+238,Tawang,Arunachal Pradesh,245,tawang,exact,1.0,0.576
+240,Upper Siang,Arunachal Pradesh,252,uppersiang,exact,1.0,0.484
+241,Upper Subansiri,Arunachal Pradesh,249,uppersubansiri,exact,1.0,
+242,West Kameng,Arunachal Pradesh,246,westkameng,exact,1.0,0.525
+243,West Siang,Arunachal Pradesh,250,westsiang,exact,1.0,
+628,Anjaw,Arunachal Pradesh,260,anjaw,exact,1.0,0.504
+666,Longding,Arunachal Pradesh,,,unmatched,0.0,0.575
+677,Kra Daadi,Arunachal Pradesh,,,unmatched,0.0,0.535307
+678,Namsai,Arunachal Pradesh,,,unmatched,0.0,0.508493
+679,Siang,Arunachal Pradesh,,,unmatched,0.0,
+718,Kamle,Arunachal Pradesh,,,unmatched,0.0,
+719,Lower Siang,Arunachal Pradesh,,,unmatched,0.0,
+723,Pakke Kessang,Arunachal Pradesh,,,unmatched,0.0,0.538
+724,Leparada,Arunachal Pradesh,,,unmatched,0.0,
+725,Shi Yomi,Arunachal Pradesh,,,unmatched,0.0,
+244,Dimapur,Nagaland,265,dimapur,exact,1.0,0.413
+245,Kohima,Nagaland,270,kohima,exact,1.0,0.494
+246,Mokokchung,Nagaland,262,mokokchung,exact,1.0,0.421
+247,Mon,Nagaland,261,mon,exact,1.0,0.596
+248,Phek,Nagaland,266,phek,exact,1.0,0.451
+249,Tuensang,Nagaland,267,tuensang,exact,1.0,0.523
+250,Wokha,Nagaland,264,wokha,exact,1.0,0.509
+251,Zunheboto,Nagaland,263,zunheboto,exact,1.0,0.466
+613,Peren,Nagaland,271,peren,exact,1.0,0.513
+614,Kiphire,Nagaland,269,kiphire,exact,1.0,0.521
+615,Longleng,Nagaland,268,longleng,exact,1.0,0.576
+736,Noklak,Nagaland,,,unmatched,0.0,0.523
+252,Bishnupur,Manipur,275,bishnupur,exact,1.0,0.665
+253,Chandel,Manipur,280,chandel,exact,1.0,0.585
+254,Churachandpur,Manipur,274,churachandpur,exact,1.0,0.566
+255,Imphal East,Manipur,278,imphaleast,exact,1.0,0.557
+256,Imphal West,Manipur,277,imphalwest,exact,1.0,0.619
+257,Senapati,Manipur,272,senapati,exact,1.0,0.579
+258,Tamenglong,Manipur,273,tamenglong,exact,1.0,0.572
+259,Thoubal,Manipur,276,thoubal,exact,1.0,0.58
+260,Ukhrul,Manipur,279,ukhrul,exact,1.0,0.621
+711,Kakching,Manipur,,,unmatched,0.0,0.58
+712,Kangpokpi,Manipur,,,unmatched,0.0,0.578891
+713,Jiribam,Manipur,,,unmatched,0.0,0.557
+714,Noney,Manipur,,,unmatched,0.0,0.572
+715,Pherzawl,Manipur,,,unmatched,0.0,0.566
+716,Tengnoupal,Manipur,,,unmatched,0.0,0.585
+717,Kamjong,Manipur,,,unmatched,0.0,0.621
+261,Aizawl,Mizoram,283,aizawl,exact,1.0,0.546
+262,Champhai,Mizoram,284,champhai,exact,1.0,0.473
+263,Kolasib,Mizoram,282,kolasib,exact,1.0,0.425
+264,Lawngtlai,Mizoram,287,lawngtlai,exact,1.0,0.644
+265,Lunglei,Mizoram,286,lunglei,exact,1.0,0.524
+266,Mamit,Mizoram,281,mamit,exact,1.0,0.547
+267,Saiha,Mizoram,288,saiha,exact,1.0,0.513
+655,Unakoti,Tripura,,,unmatched,0.0,
+268,Serchhip,Mizoram,285,serchhip,exact,1.0,0.459
+726,Hnahthial,Mizoram,,,unmatched,0.0,0.524
+727,Saitual,Mizoram,,,unmatched,0.0,0.512837
+728,Khawzawl,Mizoram,,,unmatched,0.0,0.47269
+269,Dhalai,Tripura,291,dhalai,exact,1.0,0.577
+270,North Tripura,Tripura,292,northtripura,exact,1.0,0.592
+271,South Tripura,Tripura,290,southtripura,exact,1.0,0.519
+272,West Tripura,Tripura,289,westtripura,exact,1.0,0.509
+652,Khowai,Tripura,,,unmatched,0.0,
+653,Sepahijala,Tripura,,,unmatched,0.0,
+654,Gomati,Tripura,,,unmatched,0.0,
+273,East Garo Hills,Meghalaya,294,eastgarohills,exact,1.0,0.0845
+274,East Khasi Hills,Meghalaya,298,eastkhasihills,exact,1.0,0.068857
+275,West Jaintia Hills,Meghalaya,,,unmatched,0.0,
+276,Ri Bhoi,Meghalaya,297,ribhoi,exact,1.0,0.1225
+277,South Garo Hills,Meghalaya,295,southgarohills,exact,1.0,0.074857
+278,West Garo Hills,Meghalaya,293,westgarohills,exact,1.0,0.1048
+279,West Khasi Hills,Meghalaya,296,westkhasihills,exact,1.0,0.072571
+656,North Garo Hills,Meghalaya,,,unmatched,0.0,
+657,East Jaintia Hills,Meghalaya,,,unmatched,0.0,0.1385
+658,South West Khasi Hills,Meghalaya,,,unmatched,0.0,
+663,South West Garo Hills,Meghalaya,,,unmatched,0.0,
+280,Barpeta,Assam,303,barpeta,exact,1.0,0.703
+281,Bongaigaon,Assam,319,bongaigaon,exact,1.0,0.631
+282,Cachar,Assam,316,cachar,exact,1.0,0.703
+283,Darrang,Assam,325,darrang,exact,1.0,0.732
+284,Dhemaji,Assam,308,dhemaji,exact,1.0,0.651
+285,Dhubri,Assam,301,dhubri,exact,1.0,0.734
+286,Dibrugarh,Assam,310,dibrugarh,exact,1.0,0.685
+287,Goalpara,Assam,302,goalpara,exact,1.0,0.752
+288,Golaghat,Assam,313,golaghat,exact,1.0,0.707
+289,Hailakandi,Assam,318,hailakandi,exact,1.0,0.684
+290,Jorhat,Assam,312,jorhat,exact,1.0,0.663
+291,Kamrup,Assam,321,kamrup,exact,1.0,0.512
+292,Karbi Anglong,Assam,314,karbianglong,exact,1.0,0.626
+293,Karimganj,Assam,317,karimganj,exact,1.0,0.753
+294,Kokrajhar,Assam,300,kokrajhar,exact,1.0,0.699
+295,Lakhimpur,Assam,307,lakhimpur,exact,1.0,0.673
+296,Marigaon,Assam,304,morigaon,fuzzy,0.875,0.688
+297,Nagaon,Assam,305,nagaon,exact,1.0,0.683
+298,Nalbari,Assam,323,nalbari,exact,1.0,0.654
+299,Dima Hasao,Assam,315,dimahasao,exact,1.0,0.553
+300,Sivasagar,Assam,311,sivasagar,exact,1.0,0.685
+301,Sonitpur,Assam,306,sonitpur,exact,1.0,0.72
+302,Tinsukia,Assam,309,tinsukia,exact,1.0,0.693
+612,Chirang,Assam,320,chirang,exact,1.0,0.662
+616,Baksa,Assam,324,baksa,exact,1.0,0.69
+617,Udalguri,Assam,326,udalguri,exact,1.0,0.659
+618,Kamrup Metro,Assam,322,kamrupmetropolitan,alias,1.0,0.647
+705,Biswanath,Assam,,,unmatched,0.0,0.72
+706,Majuli,Assam,,,unmatched,0.0,0.663
+707,South Salmara Mancachar,Assam,,,unmatched,0.0,0.734
+708,Charaideo,Assam,,,unmatched,0.0,0.685
+709,Hojai,Assam,,,unmatched,0.0,0.683
+331,Gumla,Jharkhand,366,gumla,exact,1.0,0.583
+710,West Karbi Anglong,Assam,,,unmatched,0.0,0.626
+303,24 Paraganas North,West Bengal,337,fournorthparganastwenty,wordorder,1.0,0.532
+304,24 Paraganas South,West Bengal,343,fourparganassouthtwenty,wordorder,1.0,0.614
+305,Bankura,West Bengal,339,bankura,exact,1.0,0.615
+306,Purba Bardhaman,West Bengal,,,unmatched,0.0,0.553
+307,Birbhum,West Bengal,334,birbhum,exact,1.0,0.609
+308,Coochbehar,West Bengal,329,kochbihar,alias,1.0,0.681
+309,Darjeeling,West Bengal,327,darjiling,alias,1.0,0.607
+310,Dinajpur Dakshin,West Bengal,331,dinajpursouth,wordorder,1.0,0.649
+311,Dinajpur Uttar,West Bengal,330,dinajpurnorth,wordorder,1.0,0.583
+312,Hooghly,West Bengal,338,hugli,alias,1.0,0.547
+313,Howrah,West Bengal,341,haora,alias,1.0,0.627
+314,Jalpaiguri,West Bengal,328,jalpaiguri,exact,1.0,0.679
+316,Maldah,West Bengal,332,maldah,exact,1.0,0.622
+317,Medinipur East,West Bengal,345,eastmedinipur,wordorder,1.0,0.621
+318,Medinipur West,West Bengal,344,medinipurwest,wordorder,1.0,0.653
+319,Murshidabad,West Bengal,333,murshidabad,exact,1.0,0.531
+320,Nadia,West Bengal,336,nadia,exact,1.0,0.573
+321,Purulia,West Bengal,340,puruliya,fuzzy,0.933,0.676
+664,Alipurduar,West Bengal,,,unmatched,0.0,0.679
+702,Kalimpong,West Bengal,,,unmatched,0.0,0.607
+703,Jhargram,West Bengal,,,unmatched,0.0,0.653
+704,Paschim Bardhaman,West Bengal,,,unmatched,0.0,0.553
+322,Bokaro,Jharkhand,355,bokaro,exact,1.0,0.599
+323,Chatra,Jharkhand,347,chatra,exact,1.0,0.651
+324,Deoghar,Jharkhand,350,deoghar,exact,1.0,0.603
+325,Dhanbad,Jharkhand,354,dhanbad,exact,1.0,0.599
+326,Dumka,Jharkhand,362,dumka,exact,1.0,0.596
+327,East Singhbum,Jharkhand,357,eastsinghbhum,fuzzy,0.96,0.609
+328,Garhwa,Jharkhand,346,garhwa,exact,1.0,0.626
+329,Giridih,Jharkhand,349,giridih,exact,1.0,0.657
+330,Godda,Jharkhand,351,godda,exact,1.0,0.642
+332,Hazaribagh,Jharkhand,360,hazaribagh,exact,1.0,0.644
+333,Jamtara,Jharkhand,363,jamtara,exact,1.0,0.627
+334,Koderma,Jharkhand,348,kodarma,alias,1.0,0.613
+335,Latehar,Jharkhand,359,latehar,exact,1.0,0.622
+336,Lohardaga,Jharkhand,356,lohardaga,exact,1.0,0.639
+337,Pakur,Jharkhand,353,pakur,exact,1.0,0.643
+338,Palamu,Jharkhand,358,palamu,exact,1.0,0.645
+339,Ranchi,Jharkhand,364,ranchi,exact,1.0,0.599
+340,Sahebganj,Jharkhand,352,sahibganj,fuzzy,0.889,0.696
+341,Saraikela Kharsawan,Jharkhand,369,saraikelakharsawan,exact,1.0,0.638
+342,Simdega,Jharkhand,367,simdega,exact,1.0,0.64
+343,West Singhbhum,Jharkhand,368,westsinghbhum,exact,1.0,0.602
+606,Khunti,Jharkhand,365,khunti,exact,1.0,0.634
+607,Ramgarh,Jharkhand,361,ramgarh,exact,1.0,0.539
+344,Anugul,Odisha,384,anugul,exact,1.0,0.559
+345,Balangir,Odisha,393,balangir,exact,1.0,0.64
+346,Baleshwar,Odisha,377,baleshwar,exact,1.0,0.587
+347,Bargarh,Odisha,370,bargarh,exact,1.0,0.578
+348,Bhadrak,Odisha,378,bhadrak,exact,1.0,0.573
+349,Boudh,Odisha,391,baudh,alias,1.0,0.599
+350,Cuttack,Odisha,381,cuttack,exact,1.0,0.616
+351,Deogarh,Odisha,373,debagarh,alias,1.0,0.608
+352,Dhenkanal,Odisha,383,dhenkanal,exact,1.0,0.613
+353,Gajapati,Odisha,389,gajapati,exact,1.0,0.544
+354,Ganjam,Odisha,388,ganjam,exact,1.0,0.485
+355,Jagatsinghapur,Odisha,380,jagatsinghapur,exact,1.0,0.616
+356,Jajapur,Odisha,382,jajapur,exact,1.0,0.651
+357,Jharsuguda,Odisha,371,jharsuguda,exact,1.0,0.615
+358,Kalahandi,Odisha,395,kalahandi,exact,1.0,0.586
+359,Kandhamal,Odisha,390,kandhamal,exact,1.0,0.536
+360,Kendrapara,Odisha,379,kendrapara,exact,1.0,0.586
+361,Kendujhar,Odisha,375,kendujhar,exact,1.0,0.552
+362,Khordha,Odisha,386,khordha,exact,1.0,
+363,Koraput,Odisha,398,koraput,exact,1.0,0.654
+364,Malkangiri,Odisha,399,malkangiri,exact,1.0,0.631
+365,Mayurbhanj,Odisha,376,mayurbhanj,exact,1.0,0.462
+366,Nabarangpur,Odisha,397,nabarangapur,alias,1.0,0.643
+367,Nayagarh,Odisha,385,nayagarh,exact,1.0,0.661
+368,Nuapada,Odisha,394,nuapada,exact,1.0,0.699
+369,Puri,Odisha,387,puri,exact,1.0,0.551
+370,Rayagada,Odisha,396,rayagada,exact,1.0,0.523
+371,Sambalpur,Odisha,372,sambalpur,exact,1.0,0.546
+372,Sonepur,Odisha,392,subarnapur,alias,1.0,0.613
+373,Sundargarh,Odisha,374,sundargarh,exact,1.0,0.532
+374,Bastar,Chhattisgarh,414,bastar,exact,1.0,0.526
+375,Bilaspur,Chhattisgarh,406,bilaspur,exact,1.0,0.574
+376,Dantewada,Chhattisgarh,416,dakshinbastardantewada,alias,1.0,0.478
+377,Dhamtari,Chhattisgarh,412,dhamtari,exact,1.0,0.491
+378,Durg,Chhattisgarh,409,durg,exact,1.0,0.489
+379,Janjgir-Champa,Chhattisgarh,405,janjgirchampa,exact,1.0,0.574
+380,Jashpur,Chhattisgarh,402,jashpur,exact,1.0,0.526
+381,Kanker,Chhattisgarh,413,uttarbastarkanker,alias,1.0,0.484
+382,Kabirdham,Chhattisgarh,407,kabeerdham,alias,1.0,0.511
+383,Korba,Chhattisgarh,404,korba,exact,1.0,0.53
+384,Korea,Chhattisgarh,400,koriya,alias,1.0,0.495
+385,Mahasamund,Chhattisgarh,411,mahasamund,exact,1.0,0.555
+386,Raigarh,Chhattisgarh,403,raigarh,exact,1.0,0.577
+387,Raipur,Chhattisgarh,410,raipur,exact,1.0,0.477
+388,Rajnandgaon,Chhattisgarh,408,rajnandgaon,exact,1.0,0.48
+389,Surguja,Chhattisgarh,401,surguja,exact,1.0,0.527
+636,Bijapur,Chhattisgarh,417,bijapur,exact,1.0,0.443
+637,Narayanpur,Chhattisgarh,415,narayanpur,exact,1.0,0.515
+642,Sukma,Chhattisgarh,,,unmatched,0.0,
+643,Kondagaon,Chhattisgarh,,,unmatched,0.0,
+644,Baloda Bazar,Chhattisgarh,,,unmatched,0.0,
+645,Gariyaband,Chhattisgarh,,,unmatched,0.0,
+646,Balod,Chhattisgarh,,,unmatched,0.0,
+647,Mungeli,Chhattisgarh,,,unmatched,0.0,
+648,Surajpur,Chhattisgarh,,,unmatched,0.0,
+649,Balrampur,Chhattisgarh,,,unmatched,0.0,0.623
+650,Bemetara,Chhattisgarh,,,unmatched,0.0,
+734,Gaurella Pendra Marwahi,Chhattisgarh,,,unmatched,0.0,0.574
+390,Anuppur,Madhya Pradesh,461,anuppur,exact,1.0,0.62
+391,Ashoknagar,Madhya Pradesh,459,ashoknagar,exact,1.0,0.592
+392,Balaghat,Madhya Pradesh,457,balaghat,exact,1.0,0.544
+393,Barwani,Madhya Pradesh,441,barwani,exact,1.0,
+394,Betul,Madhya Pradesh,447,betul,exact,1.0,0.494
+395,Bhind,Madhya Pradesh,420,bhind,exact,1.0,0.618
+396,Bhopal,Madhya Pradesh,444,bhopal,exact,1.0,0.531
+397,Burhanpur,Madhya Pradesh,467,burhanpur,exact,1.0,0.503
+398,Chhatarpur,Madhya Pradesh,425,chhatarpur,exact,1.0,0.634
+399,Chhindwara,Madhya Pradesh,455,chhindwara,exact,1.0,0.486
+400,Damoh,Madhya Pradesh,428,damoh,exact,1.0,0.605
+401,Datia,Madhya Pradesh,422,datia,exact,1.0,0.48
+402,Dewas,Madhya Pradesh,437,dewas,exact,1.0,0.482
+403,Dhar,Madhya Pradesh,438,dhar,exact,1.0,0.51
+404,Dindori,Madhya Pradesh,453,dindori,exact,1.0,0.585
+405,East Nimar,Madhya Pradesh,466,khandwa,alias,1.0,0.527
+406,Guna,Madhya Pradesh,458,guna,exact,1.0,0.572
+407,Gwalior,Madhya Pradesh,421,gwalior,exact,1.0,0.529
+408,Harda,Madhya Pradesh,448,harda,exact,1.0,0.464
+409,Hoshangabad,Madhya Pradesh,449,hoshangabad,exact,1.0,0.485
+410,Indore,Madhya Pradesh,439,indore,exact,1.0,0.453
+411,Jabalpur,Madhya Pradesh,451,jabalpur,exact,1.0,0.645
+412,Jhabua,Madhya Pradesh,464,jhabua,exact,1.0,0.618
+413,Katni,Madhya Pradesh,450,katni,exact,1.0,0.599
+414,Khargone,Madhya Pradesh,440,khargone,exact,1.0,0.507
+415,Mandla,Madhya Pradesh,454,mandla,exact,1.0,0.643
+416,Mandsaur,Madhya Pradesh,433,mandsaur,exact,1.0,0.589
+417,Morena,Madhya Pradesh,419,morena,exact,1.0,0.585
+418,Narsinghpur,Madhya Pradesh,452,narsimhapur,alias,1.0,0.5
+419,Neemuch,Madhya Pradesh,432,neemuch,exact,1.0,0.57
+420,Panna,Madhya Pradesh,426,panna,exact,1.0,0.615
+421,Raisen,Madhya Pradesh,446,raisen,exact,1.0,0.485
+470,Beed,Maharashtra,523,bid,alias,1.0,0.556
+422,Rajgarh,Madhya Pradesh,442,rajgarh,exact,1.0,0.555
+423,Ratlam,Madhya Pradesh,434,ratlam,exact,1.0,0.56
+424,Rewa,Madhya Pradesh,430,rewa,exact,1.0,0.636
+425,Sagar,Madhya Pradesh,427,sagar,exact,1.0,0.577
+426,Satna,Madhya Pradesh,429,satna,exact,1.0,0.628
+427,Sehore,Madhya Pradesh,445,sehore,exact,1.0,0.51
+428,Seoni,Madhya Pradesh,456,seoni,exact,1.0,0.582
+429,Shahdol,Madhya Pradesh,460,shahdol,exact,1.0,0.637
+430,Shajapur,Madhya Pradesh,436,shajapur,exact,1.0,0.469
+471,Bhandara,Maharashtra,506,bhandara,exact,1.0,0.57
+431,Sheopur,Madhya Pradesh,418,sheopur,exact,1.0,0.462
+432,Shivpuri,Madhya Pradesh,423,shivpuri,exact,1.0,0.615
+433,Sidhi,Madhya Pradesh,462,sidhi,exact,1.0,0.617
+434,Tikamgarh,Madhya Pradesh,424,tikamgarh,exact,1.0,0.622
+435,Ujjain,Madhya Pradesh,435,ujjain,exact,1.0,0.536
+436,Umaria,Madhya Pradesh,431,umaria,exact,1.0,0.629
+437,Vidisha,Madhya Pradesh,443,vidisha,exact,1.0,0.51
+638,Singrauli,Madhya Pradesh,463,singrauli,exact,1.0,0.634
+639,Alirajpur,Madhya Pradesh,465,alirajpur,exact,1.0,0.543
+667,Agar Malwa,Madhya Pradesh,,,unmatched,0.0,0.469
+722,Niwari,Madhya Pradesh,,,unmatched,0.0,0.622
+438,Ahmadabad,Gujarat,474,ahmadabad,exact,1.0,0.6
+439,Amreli,Gujarat,480,amreli,exact,1.0,0.565
+440,Anand,Gujarat,482,anand,exact,1.0,0.514
+441,Banas Kantha,Gujarat,469,banaskantha,exact,1.0,0.572
+442,Bharuch,Gujarat,488,bharuch,exact,1.0,0.57
+443,Bhavnagar,Gujarat,481,bhavnagar,exact,1.0,0.6
+444,Dang,Gujarat,489,dangs,fuzzy,0.889,0.548
+445,Dohad,Gujarat,485,dohad,exact,1.0,0.597
+446,Gandhinagar,Gujarat,473,gandhinagar,exact,1.0,0.526
+447,Jamnagar,Gujarat,477,jamnagar,exact,1.0,0.582
+448,Junagadh,Gujarat,479,junagadh,exact,1.0,0.519
+449,Kachchh,Gujarat,468,kachchh,exact,1.0,0.497
+450,Kheda,Gujarat,483,kheda,exact,1.0,0.576
+451,Mahesana,Gujarat,471,mahesana,exact,1.0,0.537
+452,Narmada,Gujarat,487,narmada,exact,1.0,0.446
+453,Navsari,Gujarat,490,navsari,exact,1.0,0.573
+454,Panch Mahals,Gujarat,484,panchmahals,exact,1.0,0.576
+455,Patan,Gujarat,470,patan,exact,1.0,0.604
+456,Porbandar,Gujarat,478,porbandar,exact,1.0,0.604
+457,Rajkot,Gujarat,476,rajkot,exact,1.0,0.593
+458,Sabar Kantha,Gujarat,472,sabarkantha,exact,1.0,0.554
+459,Surat,Gujarat,492,surat,exact,1.0,0.517
+460,Surendranagar,Gujarat,475,surendranagar,exact,1.0,0.593
+461,Vadodara,Gujarat,486,vadodara,exact,1.0,0.555
+462,Valsad,Gujarat,491,valsad,exact,1.0,0.564
+641,Tapi,Gujarat,493,tapi,exact,1.0,0.571
+668,Chhotaudepur,Gujarat,,,unmatched,0.0,0.555
+669,Mahisagar,Gujarat,,,unmatched,0.0,0.576
+672,Arvalli,Gujarat,,,unmatched,0.0,0.554
+673,Morbi,Gujarat,,,unmatched,0.0,0.592744
+674,Devbhumi Dwarka,Gujarat,,,unmatched,0.0,0.582
+675,Gir Somnath,Gujarat,,,unmatched,0.0,0.519
+676,Botad,Gujarat,,,unmatched,0.0,0.599939
+665,Palghar,Maharashtra,,,unmatched,0.0,
+466,Ahmednagar,Maharashtra,522,ahmadnagar,alias,1.0,0.575
+467,Akola,Maharashtra,501,akola,exact,1.0,0.566
+468,Amravati,Maharashtra,503,amravati,exact,1.0,0.512
+189,Aurangabad,Maharashtra,515,aurangabad,exact,1.0,0.592
+472,Buldhana,Maharashtra,500,buldana,fuzzy,0.933,0.655
+473,Chandrapur,Maharashtra,509,chandrapur,exact,1.0,0.571
+474,Dhule,Maharashtra,498,dhule,exact,1.0,0.63
+475,Gadchiroli,Maharashtra,508,gadchiroli,exact,1.0,0.512
+476,Gondia,Maharashtra,507,gondiya,fuzzy,0.923,0.603
+477,Hingoli,Maharashtra,512,hingoli,exact,1.0,0.635
+478,Jalgaon,Maharashtra,499,jalgaon,exact,1.0,0.547
+479,Jalna,Maharashtra,514,jalna,exact,1.0,0.631
+480,Kolhapur,Maharashtra,530,kolhapur,exact,1.0,0.593
+481,Latur,Maharashtra,524,latur,exact,1.0,0.548
+482,Mumbai,Maharashtra,519,mumbai,exact,1.0,0.503
+484,Nagpur,Maharashtra,505,nagpur,exact,1.0,0.501
+485,Nanded,Maharashtra,511,nanded,exact,1.0,0.584
+486,Nandurbar,Maharashtra,497,nandurbar,exact,1.0,0.656
+487,Nashik,Maharashtra,516,nashik,exact,1.0,0.577
+488,Osmanabad,Maharashtra,525,osmanabad,exact,1.0,0.539
+489,Parbhani,Maharashtra,513,parbhani,exact,1.0,0.572
+490,Pune,Maharashtra,521,pune,exact,1.0,0.54
+491,Raigad,Maharashtra,520,raigarh,alias,1.0,0.553
+492,Ratnagiri,Maharashtra,528,ratnagiri,exact,1.0,0.533
+493,Sangli,Maharashtra,531,sangli,exact,1.0,0.523
+494,Satara,Maharashtra,527,satara,exact,1.0,0.612
+495,Sindhudurg,Maharashtra,529,sindhudurg,exact,1.0,0.548
+496,Solapur,Maharashtra,526,solapur,exact,1.0,0.508
+497,Thane,Maharashtra,517,thane,exact,1.0,0.583
+498,Wardha,Maharashtra,504,wardha,exact,1.0,0.558
+499,Washim,Maharashtra,502,washim,exact,1.0,0.644
+500,Yavatmal,Maharashtra,510,yavatmal,exact,1.0,0.607
+502,Anantapur,Andhra Pradesh,553,anantapur,exact,1.0,0.528
+503,Chittoor,Andhra Pradesh,554,chittoor,exact,1.0,0.558
+504,Y.S.R.,Andhra Pradesh,551,ysr,exact,1.0,0.521
+505,East Godavari,Andhra Pradesh,545,eastgodavari,exact,1.0,0.575
+506,Guntur,Andhra Pradesh,548,guntur,exact,1.0,0.625
+510,Krishna,Andhra Pradesh,547,krishna,exact,1.0,0.571
+511,Kurnool,Andhra Pradesh,552,kurnool,exact,1.0,0.619
+515,Spsr Nellore,Andhra Pradesh,550,sripottisriramulunellore,alias,1.0,0.601
+517,Prakasam,Andhra Pradesh,549,prakasam,exact,1.0,0.628
+519,Srikakulam,Andhra Pradesh,542,srikakulam,exact,1.0,0.605
+520,Visakhapatanam,Andhra Pradesh,544,visakhapatnam,fuzzy,0.963,0.593
+521,Vizianagaram,Andhra Pradesh,543,vizianagaram,exact,1.0,0.504
+523,West Godavari,Andhra Pradesh,546,westgodavari,exact,1.0,0.566
+524,Bagalkote,Karnataka,556,bagalkot,fuzzy,0.941,0.563
+525,Bengaluru Urban,Karnataka,572,bangalore,alias,1.0,0.589
+620,Kishtwar,Jammu and Kashmir,18,kishtwar,exact,1.0,0.488
+526,Bengaluru Rural,Karnataka,583,bangalorerural,alias,1.0,0.575
+527,Belagavi,Karnataka,555,belgaum,alias,1.0,0.55
+528,Ballari,Karnataka,565,bellary,alias,1.0,0.532
+529,Bidar,Karnataka,558,bidar,exact,1.0,0.612
+530,Vijayapura,Karnataka,557,bijapur,alias,1.0,0.564
+531,Chamarajanagara,Karnataka,578,chamarajanagar,alias,1.0,0.503
+532,Chikkamagaluru,Karnataka,570,chikmagalur,alias,1.0,0.512
+533,Chitradurga,Karnataka,566,chitradurga,exact,1.0,0.51
+534,Dakshina Kannada,Karnataka,575,southkannada,exact,1.0,0.488
+535,Davangere,Karnataka,567,davanagere,fuzzy,0.947,0.561
+536,Dharwad,Karnataka,562,dharwad,exact,1.0,0.594
+537,Gadag,Karnataka,561,gadag,exact,1.0,0.616
+538,Kalaburagi,Karnataka,579,gulbarga,alias,1.0,0.586
+539,Hassan,Karnataka,574,hassan,exact,1.0,0.587
+540,Haveri,Karnataka,564,haveri,exact,1.0,0.6
+541,Kodagu,Karnataka,576,kodagu,exact,1.0,0.513
+542,Kolar,Karnataka,581,kolar,exact,1.0,0.608
+543,Koppal,Karnataka,560,koppal,exact,1.0,0.602
+544,Mandya,Karnataka,573,mandya,exact,1.0,0.517
+545,Mysuru,Karnataka,577,mysore,alias,1.0,0.545
+546,Raichur,Karnataka,559,raichur,exact,1.0,0.579
+630,Chikkaballapura,Karnataka,582,chikkaballapura,exact,1.0,0.577
+631,Ramanagara,Karnataka,584,ramanagara,exact,1.0,0.499
+554,Alappuzha,Kerala,598,alappuzha,exact,1.0,0.548
+555,Ernakulam,Kerala,595,ernakulam,exact,1.0,0.542
+556,Idukki,Kerala,596,idukki,exact,1.0,0.495
+557,Kannur,Kerala,589,kannur,exact,1.0,0.556
+558,Kasaragod,Kerala,588,kasaragod,exact,1.0,0.535
+559,Kollam,Kerala,600,kollam,exact,1.0,0.566
+560,Kottayam,Kerala,597,kottayam,exact,1.0,0.544
+561,Kozhikode,Kerala,591,kozhikode,exact,1.0,0.605
+562,Malappuram,Kerala,592,malappuram,exact,1.0,0.597
+563,Palakkad,Kerala,593,palakkad,exact,1.0,0.539
+564,Pathanamthitta,Kerala,599,pathanamthitta,exact,1.0,0.548
+565,Thiruvananthapuram,Kerala,601,thiruvananthapuram,exact,1.0,0.573
+566,Thrissur,Kerala,594,thrissur,exact,1.0,0.518
+567,Wayanad,Kerala,590,wayanad,exact,1.0,
+568,Chennai,Tamil Nadu,603,chennai,exact,1.0,0.54643
+569,Coimbatore,Tamil Nadu,632,coimbatore,exact,1.0,0.462
+570,Cuddalore,Tamil Nadu,617,cuddalore,exact,1.0,0.584
+571,Dharmapuri,Tamil Nadu,630,dharmapuri,exact,1.0,0.551
+572,Dindigul,Tamil Nadu,612,dindigul,exact,1.0,0.509
+573,Erode,Tamil Nadu,610,erode,exact,1.0,0.414
+574,Kanchipuram,Tamil Nadu,604,kancheepuram,fuzzy,0.87,0.532
+575,Kanniyakumari,Tamil Nadu,629,kanniyakumari,exact,1.0,0.45
+576,Karur,Tamil Nadu,613,karur,exact,1.0,0.525
+577,Krishnagiri,Tamil Nadu,631,krishnagiri,exact,1.0,0.566
+578,Madurai,Tamil Nadu,623,madurai,exact,1.0,0.585
+579,Nagapattinam,Tamil Nadu,618,nagapattinam,exact,1.0,0.541
+580,Namakkal,Tamil Nadu,609,namakkal,exact,1.0,0.526
+581,Perambalur,Tamil Nadu,615,perambalur,exact,1.0,0.688
+582,Pudukkottai,Tamil Nadu,621,pudukkottai,exact,1.0,0.572
+583,Ramanathapuram,Tamil Nadu,626,ramanathapuram,exact,1.0,0.663
+584,Salem,Tamil Nadu,608,salem,exact,1.0,0.56
+585,Sivaganga,Tamil Nadu,622,sivaganga,exact,1.0,0.565
+586,Thanjavur,Tamil Nadu,620,thanjavur,exact,1.0,0.491
+587,The Nilgiris,Tamil Nadu,611,nilgiris,exact,1.0,0.504
+588,Theni,Tamil Nadu,624,theni,exact,1.0,0.522
+589,Thiruvallur,Tamil Nadu,602,thiruvallur,exact,1.0,0.553
+590,Thiruvarur,Tamil Nadu,619,thiruvarur,exact,1.0,0.468
+591,Tiruchirappalli,Tamil Nadu,614,tiruchirappalli,exact,1.0,0.515
+592,Tirunelveli,Tamil Nadu,628,tirunelveli,exact,1.0,0.486
+593,Tiruvannamalai,Tamil Nadu,606,tiruvannamalai,exact,1.0,
+594,Tuticorin,Tamil Nadu,627,thoothukkudi,alias,1.0,0.54
+595,Vellore,Tamil Nadu,605,vellore,exact,1.0,0.527
+596,Villupuram,Tamil Nadu,607,viluppuram,fuzzy,0.9,
+597,Virudhunagar,Tamil Nadu,625,virudhunagar,exact,1.0,0.617
+610,Ariyalur,Tamil Nadu,616,ariyalur,exact,1.0,0.686
+634,Tiruppur,Tamil Nadu,633,tiruppur,exact,1.0,0.502
+729,Kallakurichi,Tamil Nadu,,,unmatched,0.0,
+730,Chengalpattu,Tamil Nadu,,,unmatched,0.0,0.532
+731,Ranipet,Tamil Nadu,,,unmatched,0.0,0.527
+732,Tirupathur,Tamil Nadu,,,unmatched,0.0,0.527
+733,Tenkasi,Tamil Nadu,,,unmatched,0.0,0.486812
+735,Mayiladuthurai,Tamil Nadu,,,unmatched,0.0,0.541
+501,Adilabad,Telangana,532,adilabad,exact,1.0,0.502
+508,Karimnagar,Telangana,534,karimnagar,exact,1.0,0.546
+509,Khammam,Telangana,541,khammam,exact,1.0,0.514
+512,Mahabubnagar,Telangana,538,mahbubnagar,alias,1.0,0.622
+513,Medak,Telangana,535,medak,exact,1.0,0.634
+514,Nalgonda,Telangana,539,nalgonda,exact,1.0,
+516,Nizamabad,Telangana,533,nizamabad,exact,1.0,
+518,Ranga Reddy,Telangana,537,rangareddy,exact,1.0,
+522,Warangal,Telangana,540,warangal,exact,1.0,
+680,Nirmal,Telangana,,,unmatched,0.0,
+681,Jagitial,Telangana,,,unmatched,0.0,
+682,Peddapalli,Telangana,,,unmatched,0.0,
+683,Rajanna Sircilla,Telangana,,,unmatched,0.0,
+684,Mancherial,Telangana,,,unmatched,0.0,
+685,Kamareddy,Telangana,,,unmatched,0.0,
+621,Ramban,Jammu and Kashmir,17,ramban,exact,1.0,0.665
+686,Hanumakonda,Telangana,,,unmatched,0.0,
+687,Jayashankar Bhupalapally,Telangana,,,unmatched,0.0,
+688,Mahabubabad,Telangana,,,unmatched,0.0,
+689,Jangoan,Telangana,,,unmatched,0.0,
+690,Bhadradri Kothagudem,Telangana,,,unmatched,0.0,
+691,Sangareddy,Telangana,,,unmatched,0.0,
+692,Siddipet,Telangana,,,unmatched,0.0,
+693,Wanaparthy,Telangana,,,unmatched,0.0,
+694,Nagarkurnool,Telangana,,,unmatched,0.0,
+695,Jogulamba Gadwal,Telangana,,,unmatched,0.0,
+696,Suryapet,Telangana,,,unmatched,0.0,
+697,Yadadri Bhuvanagiri,Telangana,,,unmatched,0.0,
+698,Vikarabad,Telangana,,,unmatched,0.0,
+699,Kumuram Bheem Asifabad,Telangana,,,unmatched,0.0,
+700,Medchal Malkajgiri,Telangana,,,unmatched,0.0,
+720,Mulugu,Telangana,,,unmatched,0.0,
+721,Narayanpet,Telangana,,,unmatched,0.0,0.622
+622,Kulgam,Jammu and Kashmir,15,kulgam,exact,1.0,0.559
+623,Bandipora,Jammu and Kashmir,9,bandipore,fuzzy,0.889,0.634
+624,Samba,Jammu and Kashmir,22,samba,exact,1.0,0.592
+625,Shopian,Jammu and Kashmir,13,shupiyan,alias,1.0,0.546
+626,Ganderbal,Jammu and Kashmir,11,ganderbal,exact,1.0,0.623
+627,Reasi,Jammu and Kashmir,20,reasi,exact,1.0,0.597
+375,Bilaspur,Himachal Pradesh,30,bilaspur,exact,1.0,0.574
+605,Barnala,Punjab,54,barnala,exact,1.0,0.496
+608,S.A.S Nagar,Punjab,52,sahibzadaajitsinghnagar,alias,1.0,0.458
+609,Tarn Taran,Punjab,50,tarntaran,exact,1.0,0.527
+651,Fazilka,Punjab,,,unmatched,0.0,
+662,Pathankot,Punjab,,,unmatched,0.0,
+737,Malerkotla,Punjab,,,unmatched,0.0,0.514
+58,Ambala,Haryana,70,ambala,exact,1.0,0.499
+604,Nuh,Haryana,87,mewat,alias,1.0,0.663
+619,Palwal,Haryana,89,palwal,exact,1.0,0.502
+701,Charki Dadri,Haryana,,,unmatched,0.0,
+100,Ganganagar,Rajasthan,99,ganganagar,exact,1.0,0.445
+101,Hanumangarh,Rajasthan,100,hanumangarh,exact,1.0,0.459
+102,Jaipur,Rajasthan,110,jaipur,exact,1.0,0.506
+103,Jaisalmer,Rajasthan,114,jaisalmer,exact,1.0,0.587
+104,Jalore,Rajasthan,116,jalor,fuzzy,0.909,0.513
+105,Jhalawar,Rajasthan,129,jhalawar,exact,1.0,0.514
+106,Jhunjhunu,Rajasthan,103,jhunjhunun,fuzzy,0.947,0.465
+107,Jodhpur,Rajasthan,113,jodhpur,exact,1.0,0.553
+108,Karauli,Rajasthan,107,karauli,exact,1.0,0.554
+109,Kota,Rajasthan,127,kota,exact,1.0,0.431
+110,Nagaur,Rajasthan,112,nagaur,exact,1.0,0.566
+111,Pali,Rajasthan,118,pali,exact,1.0,0.561
+112,Rajsamand,Rajasthan,123,rajsamand,exact,1.0,0.553
+113,Sawai Madhopur,Rajasthan,108,sawaimadhopur,exact,1.0,0.554
+114,Sikar,Rajasthan,111,sikar,exact,1.0,0.485
+115,Sirohi,Rajasthan,117,sirohi,exact,1.0,0.536
+116,Tonk,Rajasthan,120,tonk,exact,1.0,0.52
+117,Udaipur,Rajasthan,130,udaipur,exact,1.0,0.6
+629,Pratapgarh,Rajasthan,131,pratapgarh,exact,1.0,0.529
+118,Agra,Uttar Pradesh,146,agra,exact,1.0,0.572
+119,Aligarh,Uttar Pradesh,143,aligarh,exact,1.0,0.526
+120,Prayagraj,Uttar Pradesh,175,allahabad,alias,1.0,0.539
+121,Ambedkar Nagar,Uttar Pradesh,178,ambedkarnagar,exact,1.0,0.546
+122,Auraiya,Uttar Pradesh,162,auraiya,exact,1.0,0.549
+123,Azamgarh,Uttar Pradesh,191,azamgarh,exact,1.0,0.581
+124,Baghpat,Uttar Pradesh,139,baghpat,exact,1.0,0.527
+125,Bahraich,Uttar Pradesh,180,bahraich,exact,1.0,0.676
+126,Ballia,Uttar Pradesh,193,ballia,exact,1.0,0.606
+649,Balrampur,Uttar Pradesh,182,balrampur,exact,1.0,0.659
+128,Banda,Uttar Pradesh,170,banda,exact,1.0,0.61
+129,Barabanki,Uttar Pradesh,176,barabanki,exact,1.0,0.585
+130,Bareilly,Uttar Pradesh,150,bareilly,exact,1.0,0.639
+131,Basti,Uttar Pradesh,185,basti,exact,1.0,0.584
+132,Bijnor,Uttar Pradesh,134,bijnor,exact,1.0,0.593
+133,Budaun,Uttar Pradesh,149,budaun,exact,1.0,0.603
+134,Bulandshahr,Uttar Pradesh,142,bulandshahr,exact,1.0,0.512
+135,Chandauli,Uttar Pradesh,196,chandauli,exact,1.0,0.595
+136,Chitrakoot,Uttar Pradesh,171,chitrakoot,exact,1.0,0.63
+137,Deoria,Uttar Pradesh,190,deoria,exact,1.0,0.578
+138,Etah,Uttar Pradesh,201,etah,exact,1.0,0.568
+139,Etawah,Uttar Pradesh,161,etawah,exact,1.0,0.595
+140,Ayodhya,Uttar Pradesh,177,faizabad,alias,1.0,0.536
+141,Farrukhabad,Uttar Pradesh,159,farrukhabad,exact,1.0,0.593
+142,Fatehpur,Uttar Pradesh,172,fatehpur,exact,1.0,0.557
+143,Firozabad,Uttar Pradesh,147,firozabad,exact,1.0,0.581
+144,Gautam Buddha Nagar,Uttar Pradesh,141,gautambuddhanagar,exact,1.0,0.596
+145,Ghaziabad,Uttar Pradesh,140,ghaziabad,exact,1.0,0.614
+146,Ghazipur,Uttar Pradesh,195,ghazipur,exact,1.0,0.586
+147,Gonda,Uttar Pradesh,183,gonda,exact,1.0,0.621
+148,Gorakhpur,Uttar Pradesh,188,gorakhpur,exact,1.0,0.487
+150,Hardoi,Uttar Pradesh,155,hardoi,exact,1.0,0.608
+151,Jalaun,Uttar Pradesh,165,jalaun,exact,1.0,0.591
+152,Jaunpur,Uttar Pradesh,194,jaunpur,exact,1.0,0.581
+153,Jhansi,Uttar Pradesh,166,jhansi,exact,1.0,0.531
+155,Kannauj,Uttar Pradesh,160,kannauj,exact,1.0,0.605
+156,Kanpur Dehat,Uttar Pradesh,163,kanpurdehat,exact,1.0,0.596
+157,Kanpur Nagar,Uttar Pradesh,164,kanpurnagar,exact,1.0,0.565
+158,Kaushambi,Uttar Pradesh,174,kaushambi,exact,1.0,0.548
+159,Kheri,Uttar Pradesh,153,kheri,exact,1.0,0.627
+160,Kushi Nagar,Uttar Pradesh,189,kushinagar,exact,1.0,0.571
+161,Lalitpur,Uttar Pradesh,167,lalitpur,exact,1.0,0.525
+162,Lucknow,Uttar Pradesh,157,lucknow,exact,1.0,0.494
+163,Hathras,Uttar Pradesh,144,mahamayanagar,alias,1.0,0.568
+164,Maharajganj,Uttar Pradesh,187,mahrajganj,fuzzy,0.952,0.626
+165,Mahoba,Uttar Pradesh,169,mahoba,exact,1.0,0.636
+166,Mainpuri,Uttar Pradesh,148,mainpuri,exact,1.0,0.596
+167,Mathura,Uttar Pradesh,145,mathura,exact,1.0,0.513
+168,Mau,Uttar Pradesh,192,mau,exact,1.0,0.591
+169,Meerut,Uttar Pradesh,138,meerut,exact,1.0,0.48
+170,Mirzapur,Uttar Pradesh,199,mirzapur,exact,1.0,0.615
+171,Moradabad,Uttar Pradesh,135,moradabad,exact,1.0,0.521
+172,Muzaffarnagar,Uttar Pradesh,133,muzaffarnagar,exact,1.0,0.531
+173,Pilibhit,Uttar Pradesh,151,pilibhit,exact,1.0,0.637
+629,Pratapgarh,Uttar Pradesh,173,pratapgarh,exact,1.0,0.509
+175,Rae Bareli,Uttar Pradesh,158,raebareli,exact,1.0,0.592
+176,Rampur,Uttar Pradesh,136,rampur,exact,1.0,0.589
+177,Saharanpur,Uttar Pradesh,132,saharanpur,exact,1.0,0.547
+178,Sant Kabeer Nagar,Uttar Pradesh,186,santkabirnagar,fuzzy,0.897,0.619
+179,Bhadohi,Uttar Pradesh,198,santravidasnagarbhadohi,alias,1.0,0.619
+180,Shahjahanpur,Uttar Pradesh,152,shahjahanpur,exact,1.0,0.622
+181,Shravasti,Uttar Pradesh,181,shrawasti,fuzzy,0.889,0.653
+182,Siddharth Nagar,Uttar Pradesh,184,siddharthnagar,exact,1.0,0.631
+183,Sitapur,Uttar Pradesh,154,sitapur,exact,1.0,0.6
+184,Sonbhadra,Uttar Pradesh,200,sonbhadra,exact,1.0,0.64
+185,Sultanpur,Uttar Pradesh,179,sultanpur,exact,1.0,0.585
+186,Unnao,Uttar Pradesh,156,unnao,exact,1.0,0.532
+187,Varanasi,Uttar Pradesh,197,varanasi,exact,1.0,0.563
+633,Kasganj,Uttar Pradesh,202,kanshiramnagar,alias,1.0,0.517
+640,Amethi,Uttar Pradesh,,,unmatched,0.0,0.586886
+659,Sambhal,Uttar Pradesh,,,unmatched,0.0,0.541661
+660,Shamli,Uttar Pradesh,,,unmatched,0.0,0.531
+661,Hapur,Uttar Pradesh,,,unmatched,0.0,0.614
+1,Anantnag,Jammu and Kashmir,14,anantnag,exact,1.0,0.471
+2,Budgam,Jammu and Kashmir,2,badgam,alias,1.0,0.59
+3,Baramulla,Jammu and Kashmir,8,baramula,fuzzy,0.941,0.614
+4,Doda,Jammu and Kashmir,16,doda,exact,1.0,0.485
+5,Jammu,Jammu and Kashmir,21,jammu,exact,1.0,0.595
+7,Kathua,Jammu and Kashmir,7,kathua,exact,1.0,0.58
+8,Kupwara,Jammu and Kashmir,1,kupwara,exact,1.0,0.635
+10,Poonch,Jammu and Kashmir,5,punch,alias,1.0,0.517
+11,Pulwama,Jammu and Kashmir,12,pulwama,exact,1.0,0.637
+12,Rajouri,Jammu and Kashmir,6,rajouri,exact,1.0,0.605
+13,Srinagar,Jammu and Kashmir,10,srinagar,exact,1.0,0.62
+14,Udhampur,Jammu and Kashmir,19,udhampur,exact,1.0,0.622
+6,Kargil,Ladakh,4,kargil,exact,1.0,0.505
+9,Leh Ladakh,Ladakh,3,lehladakh,exact,1.0,0.447
+16,Chamba,Himachal Pradesh,23,chamba,exact,1.0,0.369
+17,Hamirpur,Himachal Pradesh,28,hamirpur,exact,1.0,0.48
+18,Kangra,Himachal Pradesh,24,kangra,exact,1.0,0.501
+19,Kinnaur,Himachal Pradesh,34,kinnaur,exact,1.0,0.35
+20,Kullu,Himachal Pradesh,26,kullu,exact,1.0,0.392
+21,Lahul and Spiti,Himachal Pradesh,25,lahulspiti,exact,1.0,0.344
+22,Mandi,Himachal Pradesh,27,mandi,exact,1.0,0.455
+23,Shimla,Himachal Pradesh,33,shimla,exact,1.0,0.396
+24,Sirmaur,Himachal Pradesh,32,sirmaur,exact,1.0,0.369
+25,Solan,Himachal Pradesh,31,solan,exact,1.0,0.511
+26,Una,Himachal Pradesh,29,una,exact,1.0,0.464
+27,Amritsar,Punjab,49,amritsar,exact,1.0,0.481
+28,Bathinda,Punjab,46,bathinda,exact,1.0,0.51
+29,Faridkot,Punjab,45,faridkot,exact,1.0,0.533
+30,Fatehgarh Sahib,Punjab,40,fatehgarhsahib,exact,1.0,0.462
+31,Firozepur,Punjab,43,firozpur,fuzzy,0.941,0.482
+32,Gurdaspur,Punjab,35,gurdaspur,exact,1.0,0.553
+33,Hoshiarpur,Punjab,38,hoshiarpur,exact,1.0,0.462
+34,Jalandhar,Punjab,37,jalandhar,exact,1.0,0.464
+35,Kapurthala,Punjab,36,kapurthala,exact,1.0,0.541
+36,Ludhiana,Punjab,41,ludhiana,exact,1.0,0.459
+37,Mansa,Punjab,47,mansa,exact,1.0,0.519
+38,Moga,Punjab,42,moga,exact,1.0,0.528
+39,Sri Muktsar Sahib,Punjab,44,muktsar,alias,1.0,0.526
+40,Shahid Bhagat Singh Nagar,Punjab,39,shahidbhagatsinghnagar,exact,1.0,0.488
+41,Patiala,Punjab,48,patiala,exact,1.0,0.484
+42,Rupnagar,Punjab,51,rupnagar,exact,1.0,0.487
+43,Sangrur,Punjab,53,sangrur,exact,1.0,0.514
+45,Almora,Uttarakhand,64,almora,exact,1.0,0.515
+46,Bageshwar,Uttarakhand,63,bageshwar,exact,1.0,0.49
+47,Chamoli,Uttarakhand,57,chamoli,exact,1.0,0.409
+48,Champawat,Uttarakhand,65,champawat,exact,1.0,0.542
+49,Dehradun,Uttarakhand,60,dehradun,exact,1.0,0.387
+50,Haridwar,Uttarakhand,68,hardwar,fuzzy,0.933,0.566
+51,Nainital,Uttarakhand,66,nainital,exact,1.0,0.438
+52,Pauri Garhwal,Uttarakhand,61,garhwal,alias,1.0,0.464
+53,Pithoragarh,Uttarakhand,62,pithoragarh,exact,1.0,0.499
+54,Rudra Prayag,Uttarakhand,58,rudraprayag,exact,1.0,0.449
+55,Tehri Garhwal,Uttarakhand,59,tehrigarhwal,exact,1.0,0.558
+56,Udam Singh Nagar,Uttarakhand,67,udhamsinghnagar,fuzzy,0.966,0.543
+57,Uttar Kashi,Uttarakhand,56,uttarkashi,exact,1.0,0.491
+59,Bhiwani,Haryana,81,bhiwani,exact,1.0,0.548
+60,Faridabad,Haryana,88,faridabad,exact,1.0,0.58
+61,Fatehabad,Haryana,78,fatehabad,exact,1.0,0.445
+62,Gurugram,Haryana,86,gurgaon,alias,1.0,0.486
+63,Hisar,Haryana,80,hisar,exact,1.0,0.469
+64,Jhajjar,Haryana,83,jhajjar,exact,1.0,0.524
+65,Jind,Haryana,77,jind,exact,1.0,0.502
+66,Kaithal,Haryana,73,kaithal,exact,1.0,0.514
+67,Karnal,Haryana,74,karnal,exact,1.0,0.511
+68,Kurukshetra,Haryana,72,kurukshetra,exact,1.0,0.486
+69,Mahendragarh,Haryana,84,mahendragarh,exact,1.0,0.535
+70,Panchkula,Haryana,69,panchkula,exact,1.0,0.523
+71,Panipat,Haryana,75,panipat,exact,1.0,0.493
+72,Rewari,Haryana,85,rewari,exact,1.0,0.487
+73,Rohtak,Haryana,82,rohtak,exact,1.0,0.52
+74,Sirsa,Haryana,79,sirsa,exact,1.0,0.476
+75,Sonipat,Haryana,76,sonipat,exact,1.0,0.498
+76,Yamunanagar,Haryana,71,yamunanagar,exact,1.0,0.511
+86,Ajmer,Rajasthan,119,ajmer,exact,1.0,0.574
+87,Alwar,Rajasthan,104,alwar,exact,1.0,0.461
+88,Banswara,Rajasthan,125,banswara,exact,1.0,0.563
+89,Baran,Rajasthan,128,baran,exact,1.0,0.493
+90,Barmer,Rajasthan,115,barmer,exact,1.0,0.587
+91,Bharatpur,Rajasthan,105,bharatpur,exact,1.0,0.564
+92,Bhilwara,Rajasthan,122,bhilwara,exact,1.0,0.549
+93,Bikaner,Rajasthan,101,bikaner,exact,1.0,0.541
+94,Bundi,Rajasthan,121,bundi,exact,1.0,0.5
+95,Chittorgarh,Rajasthan,126,chittaurgarh,fuzzy,0.87,0.493
+96,Churu,Rajasthan,102,churu,exact,1.0,0.536
+97,Dausa,Rajasthan,109,dausa,exact,1.0,0.546
+98,Dholpur,Rajasthan,106,dhaulpur,alias,1.0,0.549
+99,Dungarpur,Rajasthan,124,dungarpur,exact,1.0,0.55
+17,Hamirpur,Uttar Pradesh,168,hamirpur,exact,1.0,0.48

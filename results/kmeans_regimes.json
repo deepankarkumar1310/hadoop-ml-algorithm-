@@ -1,0 +1,42 @@
+{
+  "k": 2,
+  "silhouette": 0.6510312777465258,
+  "silhouette_by_k": {
+    "2": 0.6510312777465258,
+    "3": 0.33061057279841755,
+    "4": 0.3921790674234039,
+    "5": 0.36287662433636203,
+    "6": 0.45802870879070695,
+    "7": 0.46017671731374854,
+    "8": 0.4653169568390508
+  },
+  "sizes": {
+    "1": 374,
+    "0": 95
+  },
+  "profiles": [
+    {
+      "regime": 0,
+      "annual_rain_mm": 1902.0,
+      "rain_variability": 441.6,
+      "rx5day_mm": 204.1,
+      "heavy_rain_days": 2.4,
+      "max_dry_spell": 54.1,
+      "mean_tmax": 28.6,
+      "hot_days": 11.3,
+      "tropical_nights": 11.6
+    },
+    {
+      "regime": 1,
+      "annual_rain_mm": 950.0,
+      "rain_variability": 245.2,
+      "rx5day_mm": 163.4,
+      "heavy_rain_days": 1.2,
+      "max_dry_spell": 82.5,
+      "mean_tmax": 32.1,
+      "hot_days": 99.4,
+      "tropical_nights": 80.1
+    }
+  ],
+  "spark_version": "3.5.3"
+}

@@ -1,0 +1,2075 @@
+censuscode,district_name,state_name,ilon,ilat,lon,lat,weight
+532,Adilabad,Andhra Pradesh,12,12,79.5,19.5,0.36565366
+532,Adilabad,Andhra Pradesh,12,11,79.5,18.5,0.11531495
+532,Adilabad,Andhra Pradesh,11,12,78.5,19.5,0.44897102
+532,Adilabad,Andhra Pradesh,11,11,78.5,18.5,0.01712394
+532,Adilabad,Andhra Pradesh,10,12,77.5,19.5,0.03799408
+532,Adilabad,Andhra Pradesh,10,11,77.5,18.5,0.01494236
+146,Agra,Uttar Pradesh,11,20,78.5,27.5,0.2821322
+146,Agra,Uttar Pradesh,11,19,78.5,26.5,0.29642554
+146,Agra,Uttar Pradesh,10,20,77.5,27.5,0.27149515
+146,Agra,Uttar Pradesh,10,19,77.5,26.5,0.14994711
+474,Ahmadabad,Gujarat,5,16,72.5,23.5,0.21474524
+474,Ahmadabad,Gujarat,5,15,72.5,22.5,0.5920451
+474,Ahmadabad,Gujarat,4,16,71.5,23.5,0.04601304
+474,Ahmadabad,Gujarat,4,15,71.5,22.5,0.14560402
+474,Ahmadabad,Gujarat,5,14,72.5,21.5,0.00159261
+522,Ahmadnagar,Maharashtra,8,12,75.5,19.5,0.14847952
+522,Ahmadnagar,Maharashtra,8,11,75.5,18.5,0.08281571
+522,Ahmadnagar,Maharashtra,7,12,74.5,19.5,0.49163076
+522,Ahmadnagar,Maharashtra,7,11,74.5,18.5,0.21222676
+522,Ahmadnagar,Maharashtra,6,12,73.5,19.5,0.06484725
+283,Aizawl,Mizoram,26,17,93.5,24.5,0.05917864
+283,Aizawl,Mizoram,26,16,93.5,23.5,0.16299804
+283,Aizawl,Mizoram,25,17,92.5,24.5,0.15451244
+283,Aizawl,Mizoram,25,16,92.5,23.5,0.62331088
+119,Ajmer,Rajasthan,8,19,75.5,26.5,0.1441551
+119,Ajmer,Rajasthan,8,18,75.5,25.5,0.10692874
+119,Ajmer,Rajasthan,7,19,74.5,26.5,0.61815115
+119,Ajmer,Rajasthan,7,18,74.5,25.5,0.11349345
+119,Ajmer,Rajasthan,6,18,73.5,25.5,0.01727157
+501,Akola,Maharashtra,10,14,77.5,21.5,0.08241725
+501,Akola,Maharashtra,10,13,77.5,20.5,0.4633502
+501,Akola,Maharashtra,9,14,76.5,21.5,0.09125933
+501,Akola,Maharashtra,9,13,76.5,20.5,0.36297323
+598,Alappuzha,Kerala,9,2,76.5,9.5,1.0
+143,Aligarh,Uttar Pradesh,11,21,78.5,28.5,0.18487596
+143,Aligarh,Uttar Pradesh,11,20,78.5,27.5,0.38402833
+143,Aligarh,Uttar Pradesh,10,21,77.5,28.5,0.15260867
+143,Aligarh,Uttar Pradesh,10,20,77.5,27.5,0.27848703
+465,Alirajpur,Madhya Pradesh,7,15,74.5,22.5,0.9581617
+465,Alirajpur,Madhya Pradesh,7,14,74.5,21.5,0.0418383
+175,Allahabad,Uttar Pradesh,15,18,82.5,25.5,0.39420226
+175,Allahabad,Uttar Pradesh,15,17,82.5,24.5,0.06795862
+175,Allahabad,Uttar Pradesh,14,18,81.5,25.5,0.50899236
+175,Allahabad,Uttar Pradesh,14,17,81.5,24.5,0.02884676
+64,Almora,Uttarakhand,13,22,80.5,29.5,0.01032179
+64,Almora,Uttarakhand,12,22,79.5,29.5,0.98967821
+104,Alwar,Rajasthan,10,20,77.5,27.5,0.04165562
+104,Alwar,Rajasthan,9,21,76.5,28.5,0.10172373
+104,Alwar,Rajasthan,9,20,76.5,27.5,0.85662065
+70,Ambala,Haryana,10,23,77.5,30.5,0.44165118
+70,Ambala,Haryana,9,23,76.5,30.5,0.55834882
+178,Ambedkar Nagar,Uttar Pradesh,16,19,83.5,26.5,0.07059918
+178,Ambedkar Nagar,Uttar Pradesh,15,19,82.5,26.5,0.92940082
+503,Amravati,Maharashtra,11,14,78.5,21.5,0.10608053
+503,Amravati,Maharashtra,11,13,78.5,20.5,0.07906836
+503,Amravati,Maharashtra,10,14,77.5,21.5,0.49377363
+503,Amravati,Maharashtra,10,13,77.5,20.5,0.21668011
+503,Amravati,Maharashtra,9,14,76.5,21.5,0.10439737
+480,Amreli,Gujarat,5,14,72.5,21.5,1.453e-05
+480,Amreli,Gujarat,4,15,71.5,22.5,0.00320595
+480,Amreli,Gujarat,4,14,71.5,21.5,0.72811499
+480,Amreli,Gujarat,4,13,71.5,20.5,0.07721792
+480,Amreli,Gujarat,3,14,70.5,21.5,0.12311917
+480,Amreli,Gujarat,3,13,70.5,20.5,0.06832744
+49,Amritsar,Punjab,8,24,75.5,31.5,0.31332233
+49,Amritsar,Punjab,7,25,74.5,32.5,0.01267549
+49,Amritsar,Punjab,7,24,74.5,31.5,0.67400218
+482,Anand,Gujarat,6,15,73.5,22.5,0.20562696
+482,Anand,Gujarat,5,15,72.5,22.5,0.79437304
+553,Anantapur,Andhra Pradesh,11,8,78.5,15.5,0.0014963
+553,Anantapur,Andhra Pradesh,11,7,78.5,14.5,0.12494382
+553,Anantapur,Andhra Pradesh,10,8,77.5,15.5,0.09298814
+553,Anantapur,Andhra Pradesh,10,7,77.5,14.5,0.55209072
+553,Anantapur,Andhra Pradesh,11,6,78.5,13.5,0.03622873
+553,Anantapur,Andhra Pradesh,10,6,77.5,13.5,0.10821734
+553,Anantapur,Andhra Pradesh,9,8,76.5,15.5,0.0068539
+553,Anantapur,Andhra Pradesh,9,7,76.5,14.5,0.07643054
+553,Anantapur,Andhra Pradesh,9,6,76.5,13.5,0.0007505
+14,Anantnag,Jammu & Kashmir,8,27,75.5,34.5,0.2830323
+14,Anantnag,Jammu & Kashmir,8,26,75.5,33.5,0.7169677
+260,Anjaw,Arunanchal Pradesh,30,21,97.5,28.5,0.17885737
+260,Anjaw,Arunanchal Pradesh,30,20,97.5,27.5,0.10885793
+260,Anjaw,Arunanchal Pradesh,29,21,96.5,28.5,0.45049465
+260,Anjaw,Arunanchal Pradesh,29,20,96.5,27.5,0.26179005
+384,Anugul,Odisha,18,14,85.5,21.5,0.27892669
+384,Anugul,Odisha,18,13,85.5,20.5,0.15507532
+384,Anugul,Odisha,17,14,84.5,21.5,0.13984633
+384,Anugul,Odisha,17,13,84.5,20.5,0.42615166
+461,Anuppur,Madhya Pradesh,15,16,82.5,23.5,0.13864542
+461,Anuppur,Madhya Pradesh,14,16,81.5,23.5,0.46508682
+461,Anuppur,Madhya Pradesh,14,15,81.5,22.5,0.39626776
+209,Araria,Bihar,20,19,87.5,26.5,0.94042437
+209,Araria,Bihar,20,18,87.5,25.5,0.05957563
+616,Ariyalur,Tamil Nadu,12,4,79.5,11.5,0.86428797
+616,Ariyalur,Tamil Nadu,12,3,79.5,10.5,0.1224532
+616,Ariyalur,Tamil Nadu,11,3,78.5,10.5,0.01325883
+459,Ashoknagar,Madhya Pradesh,11,17,78.5,24.5,0.29899573
+459,Ashoknagar,Madhya Pradesh,10,18,77.5,25.5,0.00032311
+459,Ashoknagar,Madhya Pradesh,10,17,77.5,24.5,0.70068116
+162,Auraiya,Uttar Pradesh,12,19,79.5,26.5,1.0
+235,Aurangabad,Bihar,17,18,84.5,25.5,0.12399507
+235,Aurangabad,Bihar,17,17,84.5,24.5,0.87600493
+515,Aurangabad,Maharashtra,8,13,75.5,20.5,0.4321063
+515,Aurangabad,Maharashtra,8,12,75.5,19.5,0.36844741
+515,Aurangabad,Maharashtra,7,13,74.5,20.5,0.07265839
+515,Aurangabad,Maharashtra,7,12,74.5,19.5,0.1267879
+191,Azamgarh,Uttar Pradesh,16,19,83.5,26.5,0.36923976
+191,Azamgarh,Uttar Pradesh,16,18,83.5,25.5,0.25341152
+191,Azamgarh,Uttar Pradesh,15,19,82.5,26.5,0.22485665
+191,Azamgarh,Uttar Pradesh,15,18,82.5,25.5,0.15249207
+2,Badgam,Jammu & Kashmir,7,27,74.5,34.5,0.12892865
+2,Badgam,Jammu & Kashmir,7,26,74.5,33.5,0.87107135
+556,Bagalkot,Karnataka,9,9,76.5,16.5,0.10352188
+556,Bagalkot,Karnataka,9,8,76.5,15.5,0.03703652
+556,Bagalkot,Karnataka,8,9,75.5,16.5,0.72170778
+556,Bagalkot,Karnataka,8,8,75.5,15.5,0.13708163
+556,Bagalkot,Karnataka,7,9,74.5,16.5,0.00065219
+63,Bageshwar,Uttarakhand,13,23,80.5,30.5,0.12577152
+63,Bageshwar,Uttarakhand,13,22,80.5,29.5,0.06968714
+63,Bageshwar,Uttarakhand,12,23,79.5,30.5,0.2840769
+63,Bageshwar,Uttarakhand,12,22,79.5,29.5,0.52046445
+139,Baghpat,Uttar Pradesh,10,22,77.5,29.5,0.6433404
+139,Baghpat,Uttar Pradesh,10,21,77.5,28.5,0.3566596
+180,Bahraich,Uttar Pradesh,14,21,81.5,28.5,0.24187411
+180,Bahraich,Uttar Pradesh,14,20,81.5,27.5,0.75812589
+324,Baksa,Assam,24,19,91.5,26.5,0.88988691
+324,Baksa,Assam,23,19,90.5,26.5,0.11011309
+457,Balaghat,Madhya Pradesh,14,15,81.5,22.5,0.00569764
+457,Balaghat,Madhya Pradesh,13,15,80.5,22.5,0.33437705
+457,Balaghat,Madhya Pradesh,13,14,80.5,21.5,0.49849191
+457,Balaghat,Madhya Pradesh,12,15,79.5,22.5,0.00643033
+457,Balaghat,Madhya Pradesh,12,14,79.5,21.5,0.15500307
+393,Balangir,Odisha,16,14,83.5,21.5,0.01390289
+393,Balangir,Odisha,16,13,83.5,20.5,0.68679945
+393,Balangir,Odisha,15,13,82.5,20.5,0.29929766
+377,Baleshwar,Odisha,20,14,87.5,21.5,0.40738611
+377,Baleshwar,Odisha,20,13,87.5,20.5,1.403e-05
+377,Baleshwar,Odisha,19,14,86.5,21.5,0.5901515
+377,Baleshwar,Odisha,19,13,86.5,20.5,0.00244836
+193,Ballia,Uttar Pradesh,17,19,84.5,26.5,0.05297384
+193,Ballia,Uttar Pradesh,17,18,84.5,25.5,0.57101727
+193,Ballia,Uttar Pradesh,16,19,83.5,26.5,0.14778794
+193,Ballia,Uttar Pradesh,16,18,83.5,25.5,0.22822096
+182,Balrampur,Uttar Pradesh,15,20,82.5,27.5,1.0
+469,Banas Kantha,Gujarat,6,17,73.5,24.5,0.00145692
+469,Banas Kantha,Gujarat,5,17,72.5,24.5,0.46813089
+469,Banas Kantha,Gujarat,5,16,72.5,23.5,0.01315659
+469,Banas Kantha,Gujarat,4,17,71.5,24.5,0.46730134
+469,Banas Kantha,Gujarat,4,16,71.5,23.5,0.04995427
+170,Banda,Uttar Pradesh,14,18,81.5,25.5,0.00748528
+170,Banda,Uttar Pradesh,13,18,80.5,25.5,0.99094852
+170,Banda,Uttar Pradesh,13,17,80.5,24.5,0.0015662
+9,Bandipore,Jammu & Kashmir,8,27,75.5,34.5,0.24622385
+9,Bandipore,Jammu & Kashmir,7,27,74.5,34.5,0.75377615
+583,Bangalore Rural,Karnataka,10,6,77.5,13.5,0.94743696
+583,Bangalore Rural,Karnataka,10,5,77.5,12.5,0.05256304
+572,Bangalore,Karnataka,10,6,77.5,13.5,0.37767573
+572,Bangalore,Karnataka,10,5,77.5,12.5,0.62232427
+225,Banka,Bihar,20,18,87.5,25.5,0.05596522
+225,Banka,Bihar,20,17,87.5,24.5,0.15261431
+225,Banka,Bihar,19,18,86.5,25.5,0.1313387
+225,Banka,Bihar,19,17,86.5,24.5,0.66008178
+339,Bankura,West Bengal,20,16,87.5,23.5,0.51081498
+339,Bankura,West Bengal,20,15,87.5,22.5,0.12375233
+339,Bankura,West Bengal,19,16,86.5,23.5,0.20533645
+339,Bankura,West Bengal,19,15,86.5,22.5,0.16009624
+125,Banswara,Rajasthan,7,16,74.5,23.5,0.99514816
+125,Banswara,Rajasthan,6,16,73.5,23.5,0.00485184
+176,Bara Banki,Uttar Pradesh,14,20,81.5,27.5,0.38056718
+176,Bara Banki,Uttar Pradesh,14,19,81.5,26.5,0.60204218
+176,Bara Banki,Uttar Pradesh,13,20,80.5,27.5,0.01739065
+370,Bargarh,Odisha,16,14,83.5,21.5,0.70079335
+370,Bargarh,Odisha,16,13,83.5,20.5,0.09426056
+370,Bargarh,Odisha,15,14,82.5,21.5,0.10675098
+370,Bargarh,Odisha,15,13,82.5,20.5,0.0981951
+8,Baramula,Jammu & Kashmir,7,27,74.5,34.5,0.89908105
+8,Baramula,Jammu & Kashmir,7,26,74.5,33.5,0.10091895
+128,Baran,Rajasthan,10,18,77.5,25.5,0.16626242
+128,Baran,Rajasthan,10,17,77.5,24.5,0.0195224
+128,Baran,Rajasthan,9,18,76.5,25.5,0.41967447
+128,Baran,Rajasthan,9,17,76.5,24.5,0.39454072
+335,Barddhaman,West Bengal,21,16,88.5,23.5,0.33330583
+335,Barddhaman,West Bengal,21,15,88.5,22.5,0.00182389
+335,Barddhaman,West Bengal,20,16,87.5,23.5,0.58284762
+335,Barddhaman,West Bengal,20,15,87.5,22.5,0.02135837
+335,Barddhaman,West Bengal,19,16,86.5,23.5,0.0606643
+150,Bareilly,Uttar Pradesh,12,21,79.5,28.5,1.0
+115,Barmer,Rajasthan,5,19,72.5,26.5,0.07151626
+115,Barmer,Rajasthan,5,18,72.5,25.5,0.14775536
+115,Barmer,Rajasthan,4,19,71.5,26.5,0.15284193
+115,Barmer,Rajasthan,4,18,71.5,25.5,0.3672748
+115,Barmer,Rajasthan,4,17,71.5,24.5,0.03648346
+115,Barmer,Rajasthan,3,19,70.5,26.5,0.05600847
+115,Barmer,Rajasthan,3,18,70.5,25.5,0.16527143
+115,Barmer,Rajasthan,3,17,70.5,24.5,0.00284829
+54,Barnala,Punjab,8,23,75.5,30.5,1.0
+303,Barpeta,Assam,24,19,91.5,26.5,0.52217295
+303,Barpeta,Assam,23,19,90.5,26.5,0.47782705
+441,Barwani,Madhya Pradesh,8,15,75.5,22.5,0.0931438
+441,Barwani,Madhya Pradesh,8,14,75.5,21.5,0.45951348
+441,Barwani,Madhya Pradesh,7,15,74.5,22.5,0.06523936
+441,Barwani,Madhya Pradesh,7,14,74.5,21.5,0.38210336
+414,Bastar,Chhattisgarh,15,12,82.5,19.5,0.11678557
+414,Bastar,Chhattisgarh,14,13,81.5,20.5,0.08546427
+414,Bastar,Chhattisgarh,14,12,81.5,19.5,0.62521716
+414,Bastar,Chhattisgarh,15,11,82.5,18.5,0.05634404
+414,Bastar,Chhattisgarh,14,11,81.5,18.5,0.11618895
+185,Basti,Uttar Pradesh,15,20,82.5,27.5,0.11100834
+185,Basti,Uttar Pradesh,15,19,82.5,26.5,0.88899166
+46,Bathinda,Punjab,8,23,75.5,30.5,0.50789183
+46,Bathinda,Punjab,8,22,75.5,29.5,0.10107132
+46,Bathinda,Punjab,7,23,74.5,30.5,0.34427013
+46,Bathinda,Punjab,7,22,74.5,29.5,0.04676672
+391,Bauda,Odisha,17,13,84.5,20.5,0.66301665
+391,Bauda,Odisha,16,13,83.5,20.5,0.33698335
+222,Begusarai,Bihar,19,18,86.5,25.5,0.7955593
+222,Begusarai,Bihar,18,18,85.5,25.5,0.2044407
+555,Belgaum,Karnataka,8,9,75.5,16.5,0.18833173
+555,Belgaum,Karnataka,8,8,75.5,15.5,0.11374709
+555,Belgaum,Karnataka,7,9,74.5,16.5,0.37723117
+555,Belgaum,Karnataka,7,8,74.5,15.5,0.32069001
+565,Bellary,Karnataka,10,8,77.5,15.5,0.09473358
+565,Bellary,Karnataka,9,8,76.5,15.5,0.53107553
+565,Bellary,Karnataka,9,7,76.5,14.5,0.2840875
+565,Bellary,Karnataka,8,8,75.5,15.5,0.02510543
+565,Bellary,Karnataka,8,7,75.5,14.5,0.06499796
+447,Betul,Madhya Pradesh,11,15,78.5,22.5,0.12437341
+447,Betul,Madhya Pradesh,11,14,78.5,21.5,0.2432214
+447,Betul,Madhya Pradesh,10,15,77.5,22.5,0.20010087
+447,Betul,Madhya Pradesh,10,14,77.5,21.5,0.43230432
+378,Bhadrak,Odisha,19,14,86.5,21.5,0.44551856
+378,Bhadrak,Odisha,19,13,86.5,20.5,0.55448144
+224,Bhagalpur,Bihar,20,18,87.5,25.5,0.62223552
+224,Bhagalpur,Bihar,19,18,86.5,25.5,0.37776448
+506,Bhandara,Maharashtra,13,14,80.5,21.5,0.04378304
+506,Bhandara,Maharashtra,12,14,79.5,21.5,0.64344187
+506,Bhandara,Maharashtra,12,13,79.5,20.5,0.31277509
+105,Bharatpur,Rajasthan,10,20,77.5,27.5,0.74853551
+105,Bharatpur,Rajasthan,10,19,77.5,26.5,0.22247404
+105,Bharatpur,Rajasthan,9,20,76.5,27.5,0.02899045
+488,Bharuch,Gujarat,6,15,73.5,22.5,0.00101355
+488,Bharuch,Gujarat,6,14,73.5,21.5,0.35060955
+488,Bharuch,Gujarat,5,15,72.5,22.5,0.17056265
+488,Bharuch,Gujarat,5,14,72.5,21.5,0.47781425
+481,Bhavnagar,Gujarat,5,15,72.5,22.5,0.01658254
+481,Bhavnagar,Gujarat,5,14,72.5,21.5,0.24787033
+481,Bhavnagar,Gujarat,4,15,71.5,22.5,0.14358512
+481,Bhavnagar,Gujarat,4,14,71.5,21.5,0.59189822
+481,Bhavnagar,Gujarat,4,13,71.5,20.5,6.379e-05
+122,Bhilwara,Rajasthan,8,18,75.5,25.5,0.2833007
+122,Bhilwara,Rajasthan,7,18,74.5,25.5,0.7166993
+420,Bhind,Madhya Pradesh,12,19,79.5,26.5,0.07080957
+420,Bhind,Madhya Pradesh,11,19,78.5,26.5,0.90305944
+420,Bhind,Madhya Pradesh,11,18,78.5,25.5,0.02613099
+81,Bhiwani,Haryana,9,22,76.5,29.5,0.01662038
+81,Bhiwani,Haryana,9,21,76.5,28.5,0.45245115
+81,Bhiwani,Haryana,8,22,75.5,29.5,0.00709085
+81,Bhiwani,Haryana,8,21,75.5,28.5,0.52383761
+231,Bhojpur,Bihar,17,18,84.5,25.5,1.0
+444,Bhopal,Madhya Pradesh,10,16,77.5,23.5,1.0
+523,Bid,Maharashtra,9,12,76.5,19.5,0.11380358
+523,Bid,Maharashtra,9,11,76.5,18.5,0.30960567
+523,Bid,Maharashtra,8,12,75.5,19.5,0.23906863
+523,Bid,Maharashtra,8,11,75.5,18.5,0.30700884
+523,Bid,Maharashtra,7,12,74.5,19.5,0.00859575
+523,Bid,Maharashtra,7,11,74.5,18.5,0.02191754
+558,Bidar,Karnataka,10,11,77.5,18.5,0.37603372
+558,Bidar,Karnataka,10,10,77.5,17.5,0.44056084
+558,Bidar,Karnataka,9,11,76.5,18.5,0.02328529
+558,Bidar,Karnataka,9,10,76.5,17.5,0.16012015
+417,Bijapur,Chhattisgarh,14,12,81.5,19.5,0.06313391
+417,Bijapur,Chhattisgarh,14,11,81.5,18.5,0.13502004
+417,Bijapur,Chhattisgarh,13,12,80.5,19.5,0.27237411
+417,Bijapur,Chhattisgarh,13,11,80.5,18.5,0.52947194
+557,Bijapur,Karnataka,9,10,76.5,17.5,0.10035297
+557,Bijapur,Karnataka,9,9,76.5,16.5,0.35387099
+557,Bijapur,Karnataka,8,10,75.5,17.5,0.16020763
+557,Bijapur,Karnataka,8,9,75.5,16.5,0.38556841
+134,Bijnor,Uttar Pradesh,11,22,78.5,29.5,0.99917932
+134,Bijnor,Uttar Pradesh,10,22,77.5,29.5,0.00082068
+101,Bikaner,Rajasthan,7,22,74.5,29.5,4.782e-05
+101,Bikaner,Rajasthan,7,21,74.5,28.5,0.05569306
+101,Bikaner,Rajasthan,6,22,73.5,29.5,0.00258861
+101,Bikaner,Rajasthan,6,21,73.5,28.5,0.33657066
+101,Bikaner,Rajasthan,7,20,74.5,27.5,0.01886314
+101,Bikaner,Rajasthan,6,20,73.5,27.5,0.19937189
+101,Bikaner,Rajasthan,5,21,72.5,28.5,0.23911613
+101,Bikaner,Rajasthan,4,21,71.5,28.5,0.0048329
+101,Bikaner,Rajasthan,5,20,72.5,27.5,0.14037325
+101,Bikaner,Rajasthan,4,20,71.5,27.5,0.00254254
+406,Bilaspur,Chhattisgarh,15,16,82.5,23.5,0.02198702
+406,Bilaspur,Chhattisgarh,15,15,82.5,22.5,0.33620351
+406,Bilaspur,Chhattisgarh,14,16,81.5,23.5,0.0069258
+406,Bilaspur,Chhattisgarh,14,15,81.5,22.5,0.49247607
+406,Bilaspur,Chhattisgarh,15,14,82.5,21.5,0.09618916
+406,Bilaspur,Chhattisgarh,14,14,81.5,21.5,0.04621845
+30,Bilaspur,Himachal Pradesh,9,24,76.5,31.5,1.0
+334,Birbhum,West Bengal,21,17,88.5,24.5,0.00378173
+334,Birbhum,West Bengal,20,17,87.5,24.5,0.36180868
+334,Birbhum,West Bengal,20,16,87.5,23.5,0.6344096
+275,Bishnupur,Manipur,26,17,93.5,24.5,1.0
+355,Bokaro,Jharkhand,19,16,86.5,23.5,0.45851219
+355,Bokaro,Jharkhand,18,16,85.5,23.5,0.54148781
+319,Bongaigaon,Assam,23,19,90.5,26.5,1.0
+149,Budaun,Uttar Pradesh,12,21,79.5,28.5,0.22201746
+149,Budaun,Uttar Pradesh,12,20,79.5,27.5,0.22197734
+149,Budaun,Uttar Pradesh,11,21,78.5,28.5,0.50283167
+149,Budaun,Uttar Pradesh,11,20,78.5,27.5,0.05317353
+142,Bulandshahr,Uttar Pradesh,11,21,78.5,28.5,0.50951302
+142,Bulandshahr,Uttar Pradesh,10,21,77.5,28.5,0.49048698
+500,Buldana,Maharashtra,9,14,76.5,21.5,0.09341218
+500,Buldana,Maharashtra,9,13,76.5,20.5,0.80298151
+500,Buldana,Maharashtra,8,13,75.5,20.5,0.0144961
+500,Buldana,Maharashtra,9,12,76.5,19.5,0.0883939
+500,Buldana,Maharashtra,8,12,75.5,19.5,0.00071631
+121,Bundi,Rajasthan,9,18,76.5,25.5,0.21455139
+121,Bundi,Rajasthan,8,18,75.5,25.5,0.78538379
+121,Bundi,Rajasthan,8,17,75.5,24.5,6.482e-05
+467,Burhanpur,Madhya Pradesh,9,14,76.5,21.5,0.98814353
+467,Burhanpur,Madhya Pradesh,8,14,75.5,21.5,0.01185647
+232,Buxar,Bihar,17,18,84.5,25.5,0.72458259
+232,Buxar,Bihar,16,18,83.5,25.5,0.27541741
+316,Cachar,Assam,26,18,93.5,25.5,0.0123051
+316,Cachar,Assam,26,17,93.5,24.5,0.2176954
+316,Cachar,Assam,25,18,92.5,25.5,0.15418942
+316,Cachar,Assam,25,17,92.5,24.5,0.61581008
+95,Central,NCT of Delhi,10,21,77.5,28.5,1.0
+23,Chamba,Himachal Pradesh,9,26,76.5,33.5,0.13538451
+23,Chamba,Himachal Pradesh,9,25,76.5,32.5,0.77701128
+23,Chamba,Himachal Pradesh,8,25,75.5,32.5,0.08760421
+57,Chamoli,Uttarakhand,13,23,80.5,30.5,0.02333094
+57,Chamoli,Uttarakhand,12,24,79.5,31.5,0.0115923
+57,Chamoli,Uttarakhand,12,23,79.5,30.5,0.94785938
+57,Chamoli,Uttarakhand,12,22,79.5,29.5,0.01721739
+65,Champawat,Uttarakhand,13,22,80.5,29.5,0.68377808
+65,Champawat,Uttarakhand,12,22,79.5,29.5,0.31622192
+284,Champhai,Mizoram,26,17,93.5,24.5,0.02512498
+284,Champhai,Mizoram,26,16,93.5,23.5,0.97487502
+578,Chamrajnagar,Karnataka,10,5,77.5,12.5,0.36849268
+578,Chamrajnagar,Karnataka,10,4,77.5,11.5,0.24478042
+578,Chamrajnagar,Karnataka,9,5,76.5,12.5,0.03287911
+578,Chamrajnagar,Karnataka,9,4,76.5,11.5,0.3538478
+196,Chandauli,Uttar Pradesh,16,18,83.5,25.5,0.67164348
+196,Chandauli,Uttar Pradesh,16,17,83.5,24.5,0.32835652
+280,Chandel,Manipur,27,17,94.5,24.5,0.64636122
+280,Chandel,Manipur,27,16,94.5,23.5,0.07726453
+280,Chandel,Manipur,26,17,93.5,24.5,0.22788028
+280,Chandel,Manipur,26,16,93.5,23.5,0.04849396
+55,Chandigarh,Chandigarh,9,23,76.5,30.5,1.0
+509,Chandrapur,Maharashtra,12,13,79.5,20.5,0.59916255
+509,Chandrapur,Maharashtra,12,12,79.5,19.5,0.34339705
+509,Chandrapur,Maharashtra,11,13,78.5,20.5,0.03917278
+509,Chandrapur,Maharashtra,11,12,78.5,19.5,0.01826761
+253,Changlang,Arunanchal Pradesh,30,20,97.5,27.5,0.04518186
+253,Changlang,Arunanchal Pradesh,29,20,96.5,27.5,0.7071635
+253,Changlang,Arunanchal Pradesh,28,20,95.5,27.5,0.22770361
+253,Changlang,Arunanchal Pradesh,28,19,95.5,26.5,0.01995103
+347,Chatra,Jharkhand,18,17,85.5,24.5,0.26139702
+347,Chatra,Jharkhand,18,16,85.5,23.5,0.05553119
+347,Chatra,Jharkhand,17,17,84.5,24.5,0.60205384
+347,Chatra,Jharkhand,17,16,84.5,23.5,0.08101795
+603,Chennai,Tamil Nadu,13,6,80.5,13.5,0.95823769
+603,Chennai,Tamil Nadu,13,5,80.5,12.5,0.04176231
+425,Chhatarpur,Madhya Pradesh,13,18,80.5,25.5,0.16146775
+425,Chhatarpur,Madhya Pradesh,13,17,80.5,24.5,0.0300926
+425,Chhatarpur,Madhya Pradesh,12,18,79.5,25.5,0.14914606
+425,Chhatarpur,Madhya Pradesh,12,17,79.5,24.5,0.65862739
+425,Chhatarpur,Madhya Pradesh,11,17,78.5,24.5,0.0006662
+455,Chhindwara,Madhya Pradesh,12,15,79.5,22.5,0.24196369
+455,Chhindwara,Madhya Pradesh,12,14,79.5,21.5,0.10347168
+455,Chhindwara,Madhya Pradesh,11,15,78.5,22.5,0.39070158
+455,Chhindwara,Madhya Pradesh,11,14,78.5,21.5,0.26386304
+582,Chikkaballapura,Karnataka,11,6,78.5,13.5,0.24401508
+582,Chikkaballapura,Karnataka,10,6,77.5,13.5,0.75598492
+570,Chikmagalur,Karnataka,9,6,76.5,13.5,0.17857158
+570,Chikmagalur,Karnataka,8,6,75.5,13.5,0.81336883
+570,Chikmagalur,Karnataka,8,5,75.5,12.5,0.0080596
+320,Chirang,Assam,23,19,90.5,26.5,1.0
+566,Chitradurga,Karnataka,10,7,77.5,14.5,0.00085481
+566,Chitradurga,Karnataka,9,8,76.5,15.5,0.00213172
+566,Chitradurga,Karnataka,9,7,76.5,14.5,0.68056992
+566,Chitradurga,Karnataka,9,6,76.5,13.5,0.31644355
+171,Chitrakoot,Uttar Pradesh,14,18,81.5,25.5,0.60635011
+171,Chitrakoot,Uttar Pradesh,14,17,81.5,24.5,0.0529334
+171,Chitrakoot,Uttar Pradesh,13,18,80.5,25.5,0.30359096
+171,Chitrakoot,Uttar Pradesh,13,17,80.5,24.5,0.03712553
+126,Chittaurgarh,Rajasthan,8,18,75.5,25.5,0.0403333
+126,Chittaurgarh,Rajasthan,8,17,75.5,24.5,0.22433537
+126,Chittaurgarh,Rajasthan,7,18,74.5,25.5,0.16860792
+126,Chittaurgarh,Rajasthan,7,17,74.5,24.5,0.56672341
+554,Chittoor,Andhra Pradesh,13,6,80.5,13.5,0.00292723
+554,Chittoor,Andhra Pradesh,12,6,79.5,13.5,0.47642216
+554,Chittoor,Andhra Pradesh,11,6,78.5,13.5,0.44182082
+554,Chittoor,Andhra Pradesh,11,5,78.5,12.5,0.07882979
+274,Churachandpur,Manipur,26,17,93.5,24.5,0.98427094
+274,Churachandpur,Manipur,26,16,93.5,23.5,0.0142372
+274,Churachandpur,Manipur,25,17,92.5,24.5,0.00149186
+102,Churu,Rajasthan,8,21,75.5,28.5,0.24992828
+102,Churu,Rajasthan,7,21,74.5,28.5,0.52547744
+102,Churu,Rajasthan,7,20,74.5,27.5,0.19675536
+102,Churu,Rajasthan,6,20,73.5,27.5,0.02783892
+632,Coimbatore,Tamil Nadu,10,4,77.5,11.5,0.16464452
+632,Coimbatore,Tamil Nadu,10,3,77.5,10.5,0.26882234
+632,Coimbatore,Tamil Nadu,9,4,76.5,11.5,0.22776635
+632,Coimbatore,Tamil Nadu,9,3,76.5,10.5,0.33876679
+617,Cuddalore,Tamil Nadu,12,4,79.5,11.5,0.95527233
+617,Cuddalore,Tamil Nadu,11,4,78.5,11.5,0.04472767
+551,Y.s.r.,Andhra Pradesh,12,8,79.5,15.5,0.00958343
+551,Y.s.r.,Andhra Pradesh,12,7,79.5,14.5,0.22041696
+551,Y.s.r.,Andhra Pradesh,11,8,78.5,15.5,0.04650972
+551,Y.s.r.,Andhra Pradesh,11,7,78.5,14.5,0.61200027
+551,Y.s.r.,Andhra Pradesh,12,6,79.5,13.5,0.06963323
+551,Y.s.r.,Andhra Pradesh,11,6,78.5,13.5,0.0407166
+551,Y.s.r.,Andhra Pradesh,10,7,77.5,14.5,0.00113979
+381,Cuttack,Odisha,19,13,86.5,20.5,0.27214199
+381,Cuttack,Odisha,19,12,86.5,19.5,0.00121245
+381,Cuttack,Odisha,18,13,85.5,20.5,0.6937279
+381,Cuttack,Odisha,17,13,84.5,20.5,0.03291766
+496,Dadra & Nagar Haveli,Dadara & Nagar Havelli,6,13,73.5,20.5,0.82219474
+496,Dadra & Nagar Haveli,Dadara & Nagar Havelli,5,13,72.5,20.5,0.17780526
+416,Dakshin Bastar Dantewada,Chhattisgarh,14,12,81.5,19.5,0.11017725
+416,Dakshin Bastar Dantewada,Chhattisgarh,14,11,81.5,18.5,0.7741547
+416,Dakshin Bastar Dantewada,Chhattisgarh,13,11,80.5,18.5,0.01328128
+416,Dakshin Bastar Dantewada,Chhattisgarh,14,10,81.5,17.5,0.10105926
+416,Dakshin Bastar Dantewada,Chhattisgarh,13,10,80.5,17.5,0.00132751
+331,Dakshin Dinajpur,West Bengal,22,18,89.5,25.5,0.00161863
+331,Dakshin Dinajpur,West Bengal,21,18,88.5,25.5,0.99838137
+575,Dakshina Kannada,Karnataka,8,6,75.5,13.5,0.15579685
+575,Dakshina Kannada,Karnataka,8,5,75.5,12.5,0.69511939
+575,Dakshina Kannada,Karnataka,7,6,74.5,13.5,0.03952264
+575,Dakshina Kannada,Karnataka,7,5,74.5,12.5,0.10956112
+495,Daman,Daman & Diu,5,13,72.5,20.5,1.0
+428,Damoh,Madhya Pradesh,12,17,79.5,24.5,0.30640297
+428,Damoh,Madhya Pradesh,12,16,79.5,23.5,0.69359703
+215,Darbhanga,Bihar,19,19,86.5,26.5,0.3545067
+215,Darbhanga,Bihar,19,18,86.5,25.5,0.17447013
+215,Darbhanga,Bihar,18,19,85.5,26.5,0.44751862
+215,Darbhanga,Bihar,18,18,85.5,25.5,0.02350455
+327,Darjiling,West Bengal,21,20,88.5,27.5,0.40979687
+327,Darjiling,West Bengal,21,19,88.5,26.5,0.58958157
+327,Darjiling,West Bengal,20,20,87.5,27.5,0.00062156
+325,Darrang,Assam,25,19,92.5,26.5,0.548564
+325,Darrang,Assam,24,19,91.5,26.5,0.451436
+422,Datia,Madhya Pradesh,11,19,78.5,26.5,0.24124151
+422,Datia,Madhya Pradesh,11,18,78.5,25.5,0.75875849
+567,Davanagere,Karnataka,9,7,76.5,14.5,0.37666742
+567,Davanagere,Karnataka,9,6,76.5,13.5,0.01257362
+567,Davanagere,Karnataka,8,7,75.5,14.5,0.55815987
+567,Davanagere,Karnataka,8,6,75.5,13.5,0.05259908
+373,Debagarh,Odisha,18,14,85.5,21.5,0.12890266
+373,Debagarh,Odisha,17,14,84.5,21.5,0.87109734
+60,Dehradun,Uttarakhand,11,23,78.5,30.5,0.39760873
+60,Dehradun,Uttarakhand,11,22,78.5,29.5,0.01155083
+60,Dehradun,Uttarakhand,10,23,77.5,30.5,0.59084043
+350,Deoghar,Jharkhand,20,17,87.5,24.5,0.02466982
+350,Deoghar,Jharkhand,19,17,86.5,24.5,0.97533018
+190,Deoria,Uttar Pradesh,17,19,84.5,26.5,0.14929208
+190,Deoria,Uttar Pradesh,16,19,83.5,26.5,0.85070792
+437,Dewas,Madhya Pradesh,10,15,77.5,22.5,0.03399161
+437,Dewas,Madhya Pradesh,9,16,76.5,23.5,0.16223434
+437,Dewas,Madhya Pradesh,9,15,76.5,22.5,0.77091273
+437,Dewas,Madhya Pradesh,8,16,75.5,23.5,0.02387041
+437,Dewas,Madhya Pradesh,8,15,75.5,22.5,0.00899091
+291,Dhalai,Tripura,25,17,92.5,24.5,0.0353534
+291,Dhalai,Tripura,25,16,92.5,23.5,0.23121908
+291,Dhalai,Tripura,24,17,91.5,24.5,0.19505177
+291,Dhalai,Tripura,24,16,91.5,23.5,0.53837575
+412,Dhamtari,Chhattisgarh,15,13,82.5,20.5,0.13360458
+412,Dhamtari,Chhattisgarh,14,14,81.5,21.5,0.00346683
+412,Dhamtari,Chhattisgarh,14,13,81.5,20.5,0.86292859
+354,Dhanbad,Jharkhand,19,17,86.5,24.5,0.03378864
+354,Dhanbad,Jharkhand,19,16,86.5,23.5,0.96621136
+438,Dhar,Madhya Pradesh,8,16,75.5,23.5,0.04726586
+438,Dhar,Madhya Pradesh,8,15,75.5,22.5,0.61600419
+438,Dhar,Madhya Pradesh,7,15,74.5,22.5,0.33672995
+630,Dharmapuri,Tamil Nadu,11,5,78.5,12.5,0.50450207
+630,Dharmapuri,Tamil Nadu,11,4,78.5,11.5,0.21173195
+630,Dharmapuri,Tamil Nadu,10,5,77.5,12.5,0.20819627
+630,Dharmapuri,Tamil Nadu,10,4,77.5,11.5,0.07556971
+562,Dharwad,Karnataka,8,8,75.5,15.5,0.73871211
+562,Dharwad,Karnataka,7,8,74.5,15.5,0.26128789
+106,Dhaulpur,Rajasthan,11,19,78.5,26.5,0.14373452
+106,Dhaulpur,Rajasthan,10,19,77.5,26.5,0.85626548
+308,Dhemaji,Assam,28,20,95.5,27.5,0.27632833
+308,Dhemaji,Assam,27,20,94.5,27.5,0.72367167
+383,Dhenkanal,Odisha,19,13,86.5,20.5,0.00630145
+383,Dhenkanal,Odisha,18,14,85.5,21.5,0.19826628
+383,Dhenkanal,Odisha,18,13,85.5,20.5,0.7952834
+383,Dhenkanal,Odisha,17,14,84.5,21.5,0.00014887
+301,Dhubri,Assam,23,19,90.5,26.5,0.39402525
+301,Dhubri,Assam,23,18,90.5,25.5,0.06436026
+301,Dhubri,Assam,22,19,89.5,26.5,0.28434282
+301,Dhubri,Assam,22,18,89.5,25.5,0.25727167
+498,Dhule,Maharashtra,8,14,75.5,21.5,0.06932219
+498,Dhule,Maharashtra,7,14,74.5,21.5,0.55751192
+498,Dhule,Maharashtra,7,13,74.5,20.5,0.33640325
+498,Dhule,Maharashtra,6,14,73.5,21.5,0.01285789
+498,Dhule,Maharashtra,6,13,73.5,20.5,0.02390475
+257,Dibang Valley,Arunanchal Pradesh,29,22,96.5,29.5,0.15159952
+257,Dibang Valley,Arunanchal Pradesh,29,21,96.5,28.5,0.22353774
+257,Dibang Valley,Arunanchal Pradesh,28,22,95.5,29.5,0.23621188
+257,Dibang Valley,Arunanchal Pradesh,28,21,95.5,28.5,0.38865086
+310,Dibrugarh,Assam,28,20,95.5,27.5,0.6055863
+310,Dibrugarh,Assam,27,20,94.5,27.5,0.3944137
+612,Dindigul,Tamil Nadu,11,3,78.5,10.5,0.30463232
+612,Dindigul,Tamil Nadu,10,3,77.5,10.5,0.69536768
+453,Dindori,Madhya Pradesh,14,16,81.5,23.5,0.08656187
+453,Dindori,Madhya Pradesh,14,15,81.5,22.5,0.47277957
+453,Dindori,Madhya Pradesh,13,16,80.5,23.5,0.26486487
+453,Dindori,Madhya Pradesh,13,15,80.5,22.5,0.17579369
+494,Diu,Daman & Diu,4,13,71.5,20.5,0.05020755
+494,Diu,Daman & Diu,3,13,70.5,20.5,0.94979245
+16,Doda,Jammu & Kashmir,9,26,76.5,33.5,0.04036964
+16,Doda,Jammu & Kashmir,9,25,76.5,32.5,0.03351631
+16,Doda,Jammu & Kashmir,8,26,75.5,33.5,0.73194324
+16,Doda,Jammu & Kashmir,8,25,75.5,32.5,0.19417081
+485,Dohad,Gujarat,7,16,74.5,23.5,0.21417946
+485,Dohad,Gujarat,7,15,74.5,22.5,0.5371626
+485,Dohad,Gujarat,6,16,73.5,23.5,0.02884403
+485,Dohad,Gujarat,6,15,73.5,22.5,0.2198139
+362,Dumka,Jharkhand,20,17,87.5,24.5,0.90923544
+362,Dumka,Jharkhand,20,16,87.5,23.5,0.00235725
+362,Dumka,Jharkhand,19,17,86.5,24.5,0.08840731
+124,Dungarpur,Rajasthan,7,17,74.5,24.5,0.00138618
+124,Dungarpur,Rajasthan,7,16,74.5,23.5,0.25127506
+124,Dungarpur,Rajasthan,6,16,73.5,23.5,0.74733876
+409,Durg,Chhattisgarh,14,15,81.5,22.5,0.00161836
+409,Durg,Chhattisgarh,14,14,81.5,21.5,0.5886108
+409,Durg,Chhattisgarh,13,14,80.5,21.5,0.00029715
+409,Durg,Chhattisgarh,14,13,81.5,20.5,0.35920665
+409,Durg,Chhattisgarh,13,13,80.5,20.5,0.05026704
+265,Dimapur,Nagaland,26,18,93.5,25.5,1.0
+93,East,NCT of Delhi,10,21,77.5,28.5,1.0
+244,East,Sikkim,21,20,88.5,27.5,1.0
+294,East Garo Hills,Meghalaya,24,18,91.5,25.5,0.00474548
+294,East Garo Hills,Meghalaya,23,19,90.5,26.5,0.00379457
+294,East Garo Hills,Meghalaya,23,18,90.5,25.5,0.99145995
+545,East Godavari,Andhra Pradesh,15,10,82.5,17.5,0.3152746
+545,East Godavari,Andhra Pradesh,14,11,81.5,18.5,0.00023776
+545,East Godavari,Andhra Pradesh,14,10,81.5,17.5,0.36546432
+545,East Godavari,Andhra Pradesh,15,9,82.5,16.5,0.16952417
+545,East Godavari,Andhra Pradesh,14,9,81.5,16.5,0.14949916
+247,East Kameng,Arunanchal Pradesh,26,20,93.5,27.5,0.42386418
+247,East Kameng,Arunanchal Pradesh,26,19,93.5,26.5,0.04246649
+247,East Kameng,Arunanchal Pradesh,25,20,92.5,27.5,0.52506367
+247,East Kameng,Arunanchal Pradesh,25,19,92.5,26.5,0.00860566
+298,East Khasi Hills,Meghalaya,25,18,92.5,25.5,0.15341566
+298,East Khasi Hills,Meghalaya,24,18,91.5,25.5,0.84658434
+466,East Nimar,Madhya Pradesh,10,14,77.5,21.5,0.06789443
+466,East Nimar,Madhya Pradesh,9,15,76.5,22.5,0.37057521
+466,East Nimar,Madhya Pradesh,9,14,76.5,21.5,0.56153036
+251,East Siang,Arunanchal Pradesh,28,21,95.5,28.5,0.4855866
+251,East Siang,Arunanchal Pradesh,28,20,95.5,27.5,0.25304928
+251,East Siang,Arunanchal Pradesh,27,21,94.5,28.5,0.20291446
+251,East Siang,Arunanchal Pradesh,27,20,94.5,27.5,0.05844966
+595,Ernakulam,Kerala,9,3,76.5,10.5,0.66234592
+595,Ernakulam,Kerala,9,2,76.5,9.5,0.33765408
+610,Erode,Tamil Nadu,10,4,77.5,11.5,0.93481005
+610,Erode,Tamil Nadu,9,4,76.5,11.5,0.06518995
+201,Etah,Uttar Pradesh,12,20,79.5,27.5,0.2105673
+201,Etah,Uttar Pradesh,11,20,78.5,27.5,0.7894327
+161,Etawah,Uttar Pradesh,12,20,79.5,27.5,0.00057303
+161,Etawah,Uttar Pradesh,12,19,79.5,26.5,0.75190049
+161,Etawah,Uttar Pradesh,11,19,78.5,26.5,0.24752647
+177,Faizabad,Uttar Pradesh,15,19,82.5,26.5,0.50275073
+177,Faizabad,Uttar Pradesh,14,19,81.5,26.5,0.49724927
+88,Faridabad,Haryana,10,21,77.5,28.5,1.0
+45,Faridkot,Punjab,8,23,75.5,30.5,0.03029073
+45,Faridkot,Punjab,7,23,74.5,30.5,0.96970927
+159,Farrukhabad,Uttar Pradesh,12,20,79.5,27.5,1.0
+78,Fatehabad,Haryana,8,22,75.5,29.5,1.0
+40,Fatehgarh Sahib,Punjab,9,23,76.5,30.5,1.0
+172,Fatehpur,Uttar Pradesh,14,19,81.5,26.5,0.00851129
+172,Fatehpur,Uttar Pradesh,14,18,81.5,25.5,0.29951875
+172,Fatehpur,Uttar Pradesh,13,19,80.5,26.5,0.22408006
+172,Fatehpur,Uttar Pradesh,13,18,80.5,25.5,0.4678899
+147,Firozabad,Uttar Pradesh,11,20,78.5,27.5,0.89167031
+147,Firozabad,Uttar Pradesh,11,19,78.5,26.5,0.10832969
+43,Firozpur,Punjab,8,24,75.5,31.5,0.02336349
+43,Firozpur,Punjab,8,23,75.5,30.5,0.00740954
+43,Firozpur,Punjab,7,24,74.5,31.5,0.09793912
+43,Firozpur,Punjab,7,23,74.5,30.5,0.77168942
+43,Firozpur,Punjab,7,22,74.5,29.5,0.03601527
+43,Firozpur,Punjab,6,23,73.5,30.5,0.05741234
+43,Firozpur,Punjab,6,22,73.5,29.5,0.00617084
+561,Gadag,Karnataka,9,8,76.5,15.5,0.00732803
+561,Gadag,Karnataka,8,8,75.5,15.5,0.97379801
+561,Gadag,Karnataka,8,7,75.5,14.5,0.01887396
+389,Gajapati,Odisha,17,12,84.5,19.5,0.63448454
+389,Gajapati,Odisha,17,11,84.5,18.5,0.23973895
+389,Gajapati,Odisha,16,12,83.5,19.5,0.04446163
+389,Gajapati,Odisha,16,11,83.5,18.5,0.08131489
+11,Ganderbal,Jammu & Kashmir,8,27,75.5,34.5,0.80204774
+11,Ganderbal,Jammu & Kashmir,7,27,74.5,34.5,0.19795226
+473,Gandhinagar,Gujarat,6,16,73.5,23.5,0.00476705
+473,Gandhinagar,Gujarat,5,16,72.5,23.5,0.99491197
+473,Gandhinagar,Gujarat,5,15,72.5,22.5,0.00032098
+99,Ganganagar,Rajasthan,7,22,74.5,29.5,0.1005475
+99,Ganganagar,Rajasthan,6,23,73.5,30.5,0.02642359
+99,Ganganagar,Rajasthan,6,22,73.5,29.5,0.73418854
+99,Ganganagar,Rajasthan,7,21,74.5,28.5,0.00180933
+99,Ganganagar,Rajasthan,6,21,73.5,28.5,0.06336587
+99,Ganganagar,Rajasthan,5,22,72.5,29.5,0.00566502
+99,Ganganagar,Rajasthan,5,21,72.5,28.5,0.06800015
+388,Ganjam,Odisha,18,12,85.5,19.5,0.08931592
+388,Ganjam,Odisha,17,13,84.5,20.5,0.11827894
+388,Ganjam,Odisha,17,12,84.5,19.5,0.79164218
+388,Ganjam,Odisha,17,11,84.5,18.5,0.00076296
+508,Garhchiroli,Maharashtra,13,13,80.5,20.5,0.32244683
+508,Garhchiroli,Maharashtra,13,12,80.5,19.5,0.46120009
+508,Garhchiroli,Maharashtra,12,13,79.5,20.5,0.02584607
+508,Garhchiroli,Maharashtra,12,12,79.5,19.5,0.10974638
+508,Garhchiroli,Maharashtra,13,11,80.5,18.5,0.06975376
+508,Garhchiroli,Maharashtra,12,11,79.5,18.5,0.01100687
+346,Garhwa,Jharkhand,17,16,84.5,23.5,0.01084248
+346,Garhwa,Jharkhand,16,17,83.5,24.5,0.65309879
+346,Garhwa,Jharkhand,16,16,83.5,23.5,0.33605872
+61,Garhwal,Uttarakhand,12,23,79.5,30.5,0.07853015
+61,Garhwal,Uttarakhand,12,22,79.5,29.5,0.10404254
+61,Garhwal,Uttarakhand,11,23,78.5,30.5,0.2479043
+61,Garhwal,Uttarakhand,11,22,78.5,29.5,0.56952301
+141,Gautam Buddha Nagar,Uttar Pradesh,10,21,77.5,28.5,1.0
+236,Gaya,Bihar,18,18,85.5,25.5,0.02390825
+236,Gaya,Bihar,18,17,85.5,24.5,0.41356668
+236,Gaya,Bihar,17,18,84.5,25.5,0.02705247
+236,Gaya,Bihar,17,17,84.5,24.5,0.5354726
+140,Ghaziabad,Uttar Pradesh,11,21,78.5,28.5,0.1697215
+140,Ghaziabad,Uttar Pradesh,10,21,77.5,28.5,0.8302785
+195,Ghazipur,Uttar Pradesh,16,18,83.5,25.5,1.0
+349,Giridih,Jharkhand,19,17,86.5,24.5,0.62543995
+349,Giridih,Jharkhand,19,16,86.5,23.5,0.05312654
+349,Giridih,Jharkhand,18,17,85.5,24.5,0.30608089
+349,Giridih,Jharkhand,18,16,85.5,23.5,0.01535262
+302,Goalpara,Assam,24,19,91.5,26.5,0.02232224
+302,Goalpara,Assam,24,18,91.5,25.5,0.03728658
+302,Goalpara,Assam,23,19,90.5,26.5,0.72251933
+302,Goalpara,Assam,23,18,90.5,25.5,0.21787184
+351,Godda,Jharkhand,20,18,87.5,25.5,0.25595308
+351,Godda,Jharkhand,20,17,87.5,24.5,0.74404692
+313,Golaghat,Assam,27,19,94.5,26.5,0.16812501
+313,Golaghat,Assam,26,19,93.5,26.5,0.74907676
+313,Golaghat,Assam,26,18,93.5,25.5,0.08279823
+183,Gonda,Uttar Pradesh,15,20,82.5,27.5,0.34761803
+183,Gonda,Uttar Pradesh,15,19,82.5,26.5,0.17492762
+183,Gonda,Uttar Pradesh,14,20,81.5,27.5,0.34467814
+183,Gonda,Uttar Pradesh,14,19,81.5,26.5,0.13277621
+507,Gondiya,Maharashtra,13,14,80.5,21.5,0.56510755
+507,Gondiya,Maharashtra,13,13,80.5,20.5,0.28803292
+507,Gondiya,Maharashtra,12,14,79.5,21.5,0.09088401
+507,Gondiya,Maharashtra,12,13,79.5,20.5,0.05597551
+217,Gopalganj,Bihar,17,19,84.5,26.5,0.96223343
+217,Gopalganj,Bihar,16,19,83.5,26.5,0.03776657
+188,Gorakhpur,Uttar Pradesh,16,20,83.5,27.5,0.05938635
+188,Gorakhpur,Uttar Pradesh,16,19,83.5,26.5,0.94061365
+579,Gulbarga,Karnataka,10,10,77.5,17.5,0.329725
+579,Gulbarga,Karnataka,10,9,77.5,16.5,0.04312407
+579,Gulbarga,Karnataka,9,10,76.5,17.5,0.49844591
+579,Gulbarga,Karnataka,9,9,76.5,16.5,0.12870503
+366,Gumla,Jharkhand,18,15,85.5,22.5,0.00138482
+366,Gumla,Jharkhand,17,16,84.5,23.5,0.6736664
+366,Gumla,Jharkhand,17,15,84.5,22.5,0.32494878
+458,Guna,Madhya Pradesh,10,18,77.5,25.5,0.04900273
+458,Guna,Madhya Pradesh,10,17,77.5,24.5,0.76832658
+458,Guna,Madhya Pradesh,9,18,76.5,25.5,0.00931587
+458,Guna,Madhya Pradesh,9,17,76.5,24.5,0.14883578
+458,Guna,Madhya Pradesh,10,16,77.5,23.5,0.02451904
+548,Guntur,Andhra Pradesh,13,9,80.5,16.5,0.48916804
+548,Guntur,Andhra Pradesh,13,8,80.5,15.5,0.07433801
+548,Guntur,Andhra Pradesh,12,9,79.5,16.5,0.40412592
+548,Guntur,Andhra Pradesh,12,8,79.5,15.5,0.03236804
+35,Gurdaspur,Punjab,8,25,75.5,32.5,0.48197721
+35,Gurdaspur,Punjab,8,24,75.5,31.5,0.47215004
+35,Gurdaspur,Punjab,7,25,74.5,32.5,0.01209365
+35,Gurdaspur,Punjab,7,24,74.5,31.5,0.03377909
+86,Gurgaon,Haryana,10,21,77.5,28.5,0.39924856
+86,Gurgaon,Haryana,9,21,76.5,28.5,0.60075144
+421,Gwalior,Madhya Pradesh,11,19,78.5,26.5,0.3939088
+421,Gwalior,Madhya Pradesh,11,18,78.5,25.5,0.3496547
+421,Gwalior,Madhya Pradesh,10,19,77.5,26.5,0.12611286
+421,Gwalior,Madhya Pradesh,10,18,77.5,25.5,0.13032364
+318,Hailakandi,Assam,25,17,92.5,24.5,1.0
+28,Hamirpur,Himachal Pradesh,9,24,76.5,31.5,1.0
+168,Hamirpur,Uttar Pradesh,13,19,80.5,26.5,0.02026894
+168,Hamirpur,Uttar Pradesh,13,18,80.5,25.5,0.37902457
+168,Hamirpur,Uttar Pradesh,12,19,79.5,26.5,0.01784944
+168,Hamirpur,Uttar Pradesh,12,18,79.5,25.5,0.58285704
+100,Hanumangarh,Rajasthan,8,22,75.5,29.5,0.11390868
+100,Hanumangarh,Rajasthan,8,21,75.5,28.5,0.04846505
+100,Hanumangarh,Rajasthan,7,22,74.5,29.5,0.64507447
+100,Hanumangarh,Rajasthan,7,21,74.5,28.5,0.14866652
+100,Hanumangarh,Rajasthan,6,22,73.5,29.5,0.04388528
+341,Haora,West Bengal,21,15,88.5,22.5,0.67776904
+341,Haora,West Bengal,20,15,87.5,22.5,0.32223096
+448,Harda,Madhya Pradesh,10,15,77.5,22.5,0.68816677
+448,Harda,Madhya Pradesh,10,14,77.5,21.5,0.04303197
+448,Harda,Madhya Pradesh,9,15,76.5,22.5,0.26633585
+448,Harda,Madhya Pradesh,9,14,76.5,21.5,0.00246541
+155,Hardoi,Uttar Pradesh,13,20,80.5,27.5,0.68136881
+155,Hardoi,Uttar Pradesh,13,19,80.5,26.5,0.0332321
+155,Hardoi,Uttar Pradesh,12,20,79.5,27.5,0.28539908
+68,Hardwar,Uttarakhand,11,23,78.5,30.5,0.04457094
+68,Hardwar,Uttarakhand,11,22,78.5,29.5,0.44067981
+68,Hardwar,Uttarakhand,10,23,77.5,30.5,0.15600303
+68,Hardwar,Uttarakhand,10,22,77.5,29.5,0.35874622
+574,Hassan,Karnataka,9,6,76.5,13.5,0.34483223
+574,Hassan,Karnataka,9,5,76.5,12.5,0.33325235
+574,Hassan,Karnataka,8,6,75.5,13.5,0.11818532
+574,Hassan,Karnataka,8,5,75.5,12.5,0.20373011
+144,Mahamaya Nagar,Uttar Pradesh,11,20,78.5,27.5,0.83052857
+144,Mahamaya Nagar,Uttar Pradesh,10,20,77.5,27.5,0.16947143
+564,Haveri,Karnataka,8,8,75.5,15.5,0.10284727
+564,Haveri,Karnataka,8,7,75.5,14.5,0.89715273
+360,Hazaribagh,Jharkhand,18,17,85.5,24.5,0.45242431
+360,Hazaribagh,Jharkhand,18,16,85.5,23.5,0.54757569
+512,Hingoli,Maharashtra,10,13,77.5,20.5,0.00089467
+512,Hingoli,Maharashtra,10,12,77.5,19.5,0.73592843
+512,Hingoli,Maharashtra,9,13,76.5,20.5,0.00028064
+512,Hingoli,Maharashtra,9,12,76.5,19.5,0.26289626
+80,Hisar,Haryana,9,22,76.5,29.5,0.24230627
+80,Hisar,Haryana,9,21,76.5,28.5,0.00143608
+80,Hisar,Haryana,8,22,75.5,29.5,0.69946803
+80,Hisar,Haryana,8,21,75.5,28.5,0.05678962
+449,Hoshangabad,Madhya Pradesh,11,15,78.5,22.5,0.49722777
+449,Hoshangabad,Madhya Pradesh,10,15,77.5,22.5,0.50277223
+38,Hoshiarpur,Punjab,9,24,76.5,31.5,0.23148954
+38,Hoshiarpur,Punjab,8,25,75.5,32.5,0.04083939
+38,Hoshiarpur,Punjab,8,24,75.5,31.5,0.72767107
+338,Hugli,West Bengal,21,16,88.5,23.5,0.20139706
+338,Hugli,West Bengal,21,15,88.5,22.5,0.4408492
+338,Hugli,West Bengal,20,16,87.5,23.5,0.00142308
+338,Hugli,West Bengal,20,15,87.5,22.5,0.35633066
+536,Hyderabad,Andhra Pradesh,11,10,78.5,17.5,1.0
+596,Idukki,Kerala,10,3,77.5,10.5,0.19036917
+596,Idukki,Kerala,10,2,77.5,9.5,0.38638996
+596,Idukki,Kerala,9,3,76.5,10.5,0.18218111
+596,Idukki,Kerala,9,2,76.5,9.5,0.24105977
+278,Imphal East,Manipur,27,18,94.5,25.5,0.0089661
+278,Imphal East,Manipur,27,17,94.5,24.5,0.28925755
+278,Imphal East,Manipur,26,18,93.5,25.5,0.04351573
+278,Imphal East,Manipur,26,17,93.5,24.5,0.65826063
+277,Imphal West,Manipur,26,17,93.5,24.5,1.0
+439,Indore,Madhya Pradesh,9,15,76.5,22.5,0.11826203
+439,Indore,Madhya Pradesh,8,16,75.5,23.5,0.04512013
+439,Indore,Madhya Pradesh,8,15,75.5,22.5,0.83661784
+451,Jabalpur,Madhya Pradesh,13,16,80.5,23.5,0.43317613
+451,Jabalpur,Madhya Pradesh,13,15,80.5,22.5,0.00033095
+451,Jabalpur,Madhya Pradesh,12,16,79.5,23.5,0.47333531
+451,Jabalpur,Madhya Pradesh,12,15,79.5,22.5,0.09315762
+380,Jagatsinghapur,Odisha,19,13,86.5,20.5,0.99430993
+380,Jagatsinghapur,Odisha,19,12,86.5,19.5,0.00569007
+299,Jaintia Hills,Meghalaya,25,18,92.5,25.5,0.99833028
+299,Jaintia Hills,Meghalaya,24,18,91.5,25.5,0.00166972
+110,Jaipur,Rajasthan,9,20,76.5,27.5,0.1770445
+110,Jaipur,Rajasthan,9,19,76.5,26.5,0.09452811
+110,Jaipur,Rajasthan,8,20,75.5,27.5,0.25005462
+110,Jaipur,Rajasthan,8,19,75.5,26.5,0.46861034
+110,Jaipur,Rajasthan,7,19,74.5,26.5,0.00976243
+114,Jaisalmer,Rajasthan,5,20,72.5,27.5,0.02454887
+114,Jaisalmer,Rajasthan,4,20,71.5,27.5,0.23099907
+114,Jaisalmer,Rajasthan,5,19,72.5,26.5,0.01281445
+114,Jaisalmer,Rajasthan,4,19,71.5,26.5,0.17432183
+114,Jaisalmer,Rajasthan,3,21,70.5,28.5,0.00153379
+114,Jaisalmer,Rajasthan,3,20,70.5,27.5,0.24080864
+114,Jaisalmer,Rajasthan,2,20,69.5,27.5,0.04405876
+114,Jaisalmer,Rajasthan,3,19,70.5,26.5,0.21998121
+114,Jaisalmer,Rajasthan,2,19,69.5,26.5,0.05093339
+382,Jajapur,Odisha,19,14,86.5,21.5,0.07392754
+382,Jajapur,Odisha,19,13,86.5,20.5,0.68653423
+382,Jajapur,Odisha,18,14,85.5,21.5,0.13116686
+382,Jajapur,Odisha,18,13,85.5,20.5,0.10837137
+37,Jalandhar,Punjab,8,24,75.5,31.5,0.96932227
+37,Jalandhar,Punjab,8,23,75.5,30.5,0.03067773
+165,Jalaun,Uttar Pradesh,12,19,79.5,26.5,0.66717225
+165,Jalaun,Uttar Pradesh,12,18,79.5,25.5,0.31416583
+165,Jalaun,Uttar Pradesh,11,19,78.5,26.5,0.01029432
+165,Jalaun,Uttar Pradesh,11,18,78.5,25.5,0.0083676
+499,Jalgaon,Maharashtra,9,14,76.5,21.5,0.06948897
+499,Jalgaon,Maharashtra,9,13,76.5,20.5,0.02509246
+499,Jalgaon,Maharashtra,8,14,75.5,21.5,0.35875648
+499,Jalgaon,Maharashtra,8,13,75.5,20.5,0.44737166
+499,Jalgaon,Maharashtra,7,14,74.5,21.5,0.02011882
+499,Jalgaon,Maharashtra,7,13,74.5,20.5,0.07917162
+514,Jalna,Maharashtra,9,13,76.5,20.5,0.05846309
+514,Jalna,Maharashtra,9,12,76.5,19.5,0.36459466
+514,Jalna,Maharashtra,8,13,75.5,20.5,0.22773553
+514,Jalna,Maharashtra,8,12,75.5,19.5,0.34920671
+116,Jalor,Rajasthan,6,18,73.5,25.5,0.01341487
+116,Jalor,Rajasthan,5,18,72.5,25.5,0.49498115
+116,Jalor,Rajasthan,5,17,72.5,24.5,0.17224524
+116,Jalor,Rajasthan,4,18,71.5,25.5,0.06519638
+116,Jalor,Rajasthan,4,17,71.5,24.5,0.25416236
+328,Jalpaiguri,West Bengal,22,19,89.5,26.5,0.51220316
+328,Jalpaiguri,West Bengal,21,19,88.5,26.5,0.48779684
+21,Jammu,Jammu & Kashmir,8,25,75.5,32.5,0.10203852
+21,Jammu,Jammu & Kashmir,7,26,74.5,33.5,0.01293102
+21,Jammu,Jammu & Kashmir,7,25,74.5,32.5,0.88503046
+477,Jamnagar,Gujarat,3,15,70.5,22.5,0.43208165
+477,Jamnagar,Gujarat,3,14,70.5,21.5,0.03900456
+477,Jamnagar,Gujarat,2,15,69.5,22.5,0.39674146
+477,Jamnagar,Gujarat,2,14,69.5,21.5,0.12275099
+477,Jamnagar,Gujarat,1,15,68.5,22.5,0.00942134
+363,Jamtara,Jharkhand,20,17,87.5,24.5,0.1146972
+363,Jamtara,Jharkhand,20,16,87.5,23.5,0.28851475
+363,Jamtara,Jharkhand,19,17,86.5,24.5,0.29667327
+363,Jamtara,Jharkhand,19,16,86.5,23.5,0.30011478
+238,Jamui,Bihar,19,18,86.5,25.5,0.07478886
+238,Jamui,Bihar,19,17,86.5,24.5,0.85479264
+238,Jamui,Bihar,18,18,85.5,25.5,0.00245759
+238,Jamui,Bihar,18,17,85.5,24.5,0.06796091
+405,Janjgir-champa,Chhattisgarh,16,15,83.5,22.5,0.00472915
+405,Janjgir-champa,Chhattisgarh,16,14,83.5,21.5,0.1559595
+405,Janjgir-champa,Chhattisgarh,15,15,82.5,22.5,0.30227105
+405,Janjgir-champa,Chhattisgarh,15,14,82.5,21.5,0.5370403
+402,Jashpur,Chhattisgarh,17,16,84.5,23.5,0.03585467
+402,Jashpur,Chhattisgarh,17,15,84.5,22.5,0.22577906
+402,Jashpur,Chhattisgarh,16,16,83.5,23.5,0.18407794
+402,Jashpur,Chhattisgarh,16,15,83.5,22.5,0.55428833
+194,Jaunpur,Uttar Pradesh,16,18,83.5,25.5,0.02884012
+194,Jaunpur,Uttar Pradesh,15,19,82.5,26.5,0.09858637
+194,Jaunpur,Uttar Pradesh,15,18,82.5,25.5,0.87257351
+464,Jhabua,Madhya Pradesh,8,16,75.5,23.5,0.00362951
+464,Jhabua,Madhya Pradesh,8,15,75.5,22.5,0.00176878
+464,Jhabua,Madhya Pradesh,7,16,74.5,23.5,0.30657013
+464,Jhabua,Madhya Pradesh,7,15,74.5,22.5,0.68803157
+83,Jhajjar,Haryana,9,21,76.5,28.5,1.0
+129,Jhalawar,Rajasthan,9,17,76.5,24.5,0.68053705
+129,Jhalawar,Rajasthan,8,17,75.5,24.5,0.19497081
+129,Jhalawar,Rajasthan,8,16,75.5,23.5,0.12449214
+166,Jhansi,Uttar Pradesh,12,18,79.5,25.5,0.52065571
+166,Jhansi,Uttar Pradesh,11,18,78.5,25.5,0.47934429
+371,Jharsuguda,Odisha,17,15,84.5,22.5,0.01997122
+371,Jharsuguda,Odisha,17,14,84.5,21.5,0.38947872
+371,Jharsuguda,Odisha,16,14,83.5,21.5,0.59055006
+103,Jhunjhunun,Rajasthan,9,21,76.5,28.5,0.01366511
+103,Jhunjhunun,Rajasthan,8,21,75.5,28.5,0.65264075
+103,Jhunjhunun,Rajasthan,8,20,75.5,27.5,0.33369414
+113,Jodhpur,Rajasthan,6,20,73.5,27.5,0.0308812
+113,Jodhpur,Rajasthan,6,19,73.5,26.5,0.29792996
+113,Jodhpur,Rajasthan,5,20,72.5,27.5,0.25200326
+113,Jodhpur,Rajasthan,5,19,72.5,26.5,0.37259422
+113,Jodhpur,Rajasthan,6,18,73.5,25.5,0.00112949
+113,Jodhpur,Rajasthan,5,18,72.5,25.5,0.01712149
+113,Jodhpur,Rajasthan,4,20,71.5,27.5,0.02834037
+312,Jorhat,Assam,27,20,94.5,27.5,0.12206389
+312,Jorhat,Assam,27,19,94.5,26.5,0.81462201
+312,Jorhat,Assam,26,19,93.5,26.5,0.0633141
+479,Junagadh,Gujarat,4,14,71.5,21.5,0.02218361
+479,Junagadh,Gujarat,4,13,71.5,20.5,0.0659521
+479,Junagadh,Gujarat,3,14,70.5,21.5,0.75622736
+479,Junagadh,Gujarat,3,13,70.5,20.5,0.14596206
+479,Junagadh,Gujarat,2,14,69.5,21.5,0.00967488
+137,Jyotiba Phule Nagar,Uttar Pradesh,11,22,78.5,29.5,0.11719709
+137,Jyotiba Phule Nagar,Uttar Pradesh,11,21,78.5,28.5,0.88280291
+468,Kachchh,Gujarat,4,17,71.5,24.5,0.05380149
+468,Kachchh,Gujarat,4,16,71.5,23.5,0.08377144
+468,Kachchh,Gujarat,3,17,70.5,24.5,0.07995358
+468,Kachchh,Gujarat,3,16,70.5,23.5,0.2529833
+468,Kachchh,Gujarat,3,15,70.5,22.5,0.00765697
+468,Kachchh,Gujarat,2,17,69.5,24.5,0.06276234
+468,Kachchh,Gujarat,2,16,69.5,23.5,0.26851842
+468,Kachchh,Gujarat,1,17,68.5,24.5,0.01729211
+468,Kachchh,Gujarat,1,16,68.5,23.5,0.1272108
+468,Kachchh,Gujarat,2,15,69.5,22.5,0.04543743
+468,Kachchh,Gujarat,1,15,68.5,22.5,0.00061212
+233,Kaimur (bhabua),Bihar,16,18,83.5,25.5,0.51112497
+233,Kaimur (bhabua),Bihar,16,17,83.5,24.5,0.48887503
+73,Kaithal,Haryana,9,23,76.5,30.5,0.13930688
+73,Kaithal,Haryana,9,22,76.5,29.5,0.86069312
+395,Kalahandi,Odisha,16,13,83.5,20.5,0.30033955
+395,Kalahandi,Odisha,16,12,83.5,19.5,0.28978642
+395,Kalahandi,Odisha,15,13,82.5,20.5,0.05442842
+395,Kalahandi,Odisha,15,12,82.5,19.5,0.35544561
+321,Kamrup,Assam,24,19,91.5,26.5,0.68865623
+321,Kamrup,Assam,24,18,91.5,25.5,0.30310527
+321,Kamrup,Assam,23,19,90.5,26.5,0.0082385
+322,Kamrup Metropolitan,Assam,25,19,92.5,26.5,0.22280744
+322,Kamrup Metropolitan,Assam,24,19,91.5,26.5,0.64838326
+322,Kamrup Metropolitan,Assam,24,18,91.5,25.5,0.1288093
+604,Kancheepuram,Tamil Nadu,13,6,80.5,13.5,0.0497734
+604,Kancheepuram,Tamil Nadu,13,5,80.5,12.5,0.35481313
+604,Kancheepuram,Tamil Nadu,12,6,79.5,13.5,0.01312065
+604,Kancheepuram,Tamil Nadu,12,5,79.5,12.5,0.58229282
+390,Kandhamal,Odisha,17,13,84.5,20.5,0.40998659
+390,Kandhamal,Odisha,17,12,84.5,19.5,0.15581698
+390,Kandhamal,Odisha,16,13,83.5,20.5,0.23568076
+390,Kandhamal,Odisha,16,12,83.5,19.5,0.19851567
+24,Kangra,Himachal Pradesh,10,25,77.5,32.5,0.0188345
+24,Kangra,Himachal Pradesh,9,25,76.5,32.5,0.51803598
+24,Kangra,Himachal Pradesh,9,24,76.5,31.5,0.23288673
+24,Kangra,Himachal Pradesh,8,25,75.5,32.5,0.20481927
+24,Kangra,Himachal Pradesh,8,24,75.5,31.5,0.02542353
+413,Uttar Bastar Kanker,Chhattisgarh,14,13,81.5,20.5,0.5178231
+413,Uttar Bastar Kanker,Chhattisgarh,14,12,81.5,19.5,0.13083669
+413,Uttar Bastar Kanker,Chhattisgarh,13,13,80.5,20.5,0.21364077
+413,Uttar Bastar Kanker,Chhattisgarh,13,12,80.5,19.5,0.13769944
+160,Kannauj,Uttar Pradesh,13,19,80.5,26.5,0.00305937
+160,Kannauj,Uttar Pradesh,12,20,79.5,27.5,0.53306707
+160,Kannauj,Uttar Pradesh,12,19,79.5,26.5,0.46387356
+629,Kanniyakumari,Tamil Nadu,10,1,77.5,8.5,1.0
+589,Kannur,Kerala,8,5,75.5,12.5,0.49884623
+589,Kannur,Kerala,8,4,75.5,11.5,0.50115377
+163,Kanpur Dehat,Uttar Pradesh,13,19,80.5,26.5,0.17306754
+163,Kanpur Dehat,Uttar Pradesh,12,19,79.5,26.5,0.82693246
+164,Kanpur Nagar,Uttar Pradesh,13,19,80.5,26.5,0.92802641
+164,Kanpur Nagar,Uttar Pradesh,13,18,80.5,25.5,0.02292878
+164,Kanpur Nagar,Uttar Pradesh,12,19,79.5,26.5,0.04904481
+202,Kansiram Nagar,Uttar Pradesh,12,20,79.5,27.5,0.23466956
+202,Kansiram Nagar,Uttar Pradesh,11,21,78.5,28.5,0.01509364
+202,Kansiram Nagar,Uttar Pradesh,11,20,78.5,27.5,0.7502368
+36,Kapurthala,Punjab,8,24,75.5,31.5,0.99430544
+36,Kapurthala,Punjab,7,24,74.5,31.5,0.00569456
+314,Karbi Anglong,Assam,26,19,93.5,26.5,0.47808464
+314,Karbi Anglong,Assam,26,18,93.5,25.5,0.19574955
+314,Karbi Anglong,Assam,25,19,92.5,26.5,0.07391081
+314,Karbi Anglong,Assam,25,18,92.5,25.5,0.25225501
+4,Kargil,Jammu & Kashmir,10,26,77.5,33.5,0.18787895
+4,Kargil,Jammu & Kashmir,9,27,76.5,34.5,0.32717849
+4,Kargil,Jammu & Kashmir,9,26,76.5,33.5,0.29705906
+4,Kargil,Jammu & Kashmir,10,25,77.5,32.5,0.0079935
+4,Kargil,Jammu & Kashmir,9,25,76.5,32.5,7.7e-07
+4,Kargil,Jammu & Kashmir,8,27,75.5,34.5,0.17949257
+4,Kargil,Jammu & Kashmir,8,26,75.5,33.5,0.00039666
+317,Karimganj,Assam,25,17,92.5,24.5,1.0
+534,Karimnagar,Andhra Pradesh,13,11,80.5,18.5,0.0751817
+534,Karimnagar,Andhra Pradesh,12,12,79.5,19.5,0.00409014
+534,Karimnagar,Andhra Pradesh,12,11,79.5,18.5,0.58871452
+534,Karimnagar,Andhra Pradesh,12,10,79.5,17.5,0.00138665
+534,Karimnagar,Andhra Pradesh,11,12,78.5,19.5,0.01340464
+534,Karimnagar,Andhra Pradesh,11,11,78.5,18.5,0.31722235
+74,Karnal,Haryana,10,22,77.5,29.5,0.3034687
+74,Karnal,Haryana,9,22,76.5,29.5,0.6965313
+613,Karur,Tamil Nadu,11,4,78.5,11.5,0.04675894
+613,Karur,Tamil Nadu,11,3,78.5,10.5,0.61670607
+613,Karur,Tamil Nadu,10,4,77.5,11.5,0.04927002
+613,Karur,Tamil Nadu,10,3,77.5,10.5,0.28726498
+588,Kasaragod,Kerala,8,5,75.5,12.5,0.86440492
+588,Kasaragod,Kerala,7,5,74.5,12.5,0.13559508
+7,Kathua,Jammu & Kashmir,8,25,75.5,32.5,1.0
+212,Katihar,Bihar,21,18,88.5,25.5,0.03774479
+212,Katihar,Bihar,20,18,87.5,25.5,0.96225521
+450,Katni,Madhya Pradesh,13,17,80.5,24.5,0.05721711
+450,Katni,Madhya Pradesh,13,16,80.5,23.5,0.87409024
+450,Katni,Madhya Pradesh,12,16,79.5,23.5,0.06869265
+174,Kaushambi,Uttar Pradesh,14,18,81.5,25.5,1.0
+379,Kendrapara,Odisha,20,13,87.5,20.5,0.00555017
+379,Kendrapara,Odisha,19,13,86.5,20.5,0.99444983
+375,Kendujhar,Odisha,19,14,86.5,21.5,0.16687678
+375,Kendujhar,Odisha,18,15,85.5,22.5,0.06521779
+375,Kendujhar,Odisha,18,14,85.5,21.5,0.76790544
+223,Khagaria,Bihar,19,18,86.5,25.5,1.0
+541,Khammam,Andhra Pradesh,14,10,81.5,17.5,0.21090894
+541,Khammam,Andhra Pradesh,13,11,80.5,18.5,0.13384878
+541,Khammam,Andhra Pradesh,13,10,80.5,17.5,0.60029007
+541,Khammam,Andhra Pradesh,13,9,80.5,16.5,0.02986134
+541,Khammam,Andhra Pradesh,12,10,79.5,17.5,0.02509087
+483,Kheda,Gujarat,6,16,73.5,23.5,0.21983285
+483,Kheda,Gujarat,6,15,73.5,22.5,0.30912672
+483,Kheda,Gujarat,5,16,72.5,23.5,0.0261395
+483,Kheda,Gujarat,5,15,72.5,22.5,0.44490093
+153,Kheri,Uttar Pradesh,14,21,81.5,28.5,0.06506487
+153,Kheri,Uttar Pradesh,14,20,81.5,27.5,0.08975808
+153,Kheri,Uttar Pradesh,13,21,80.5,28.5,0.55770285
+153,Kheri,Uttar Pradesh,13,20,80.5,27.5,0.2874742
+386,Khordha,Odisha,19,13,86.5,20.5,0.01951842
+386,Khordha,Odisha,18,13,85.5,20.5,0.6615765
+386,Khordha,Odisha,18,12,85.5,19.5,0.30493685
+386,Khordha,Odisha,17,12,84.5,19.5,0.01396823
+365,Khunti,Jharkhand,18,16,85.5,23.5,0.49605511
+365,Khunti,Jharkhand,18,15,85.5,22.5,0.48446621
+365,Khunti,Jharkhand,17,16,84.5,23.5,0.00626327
+365,Khunti,Jharkhand,17,15,84.5,22.5,0.01321541
+34,Kinnaur,Himachal Pradesh,12,24,79.5,31.5,0.00028883
+34,Kinnaur,Himachal Pradesh,11,25,78.5,32.5,0.02814429
+34,Kinnaur,Himachal Pradesh,11,24,78.5,31.5,0.87467185
+34,Kinnaur,Himachal Pradesh,10,24,77.5,31.5,0.09689503
+269,Kiphire,Nagaland,28,18,95.5,25.5,0.0514867
+269,Kiphire,Nagaland,27,19,94.5,26.5,0.03804723
+269,Kiphire,Nagaland,27,18,94.5,25.5,0.91046607
+210,Kishanganj,Bihar,21,19,88.5,26.5,0.3497941
+210,Kishanganj,Bihar,20,19,87.5,26.5,0.64445322
+210,Kishanganj,Bihar,20,18,87.5,25.5,0.00575267
+18,Kishtwar,Jammu & Kashmir,9,27,76.5,34.5,6.09e-06
+18,Kishtwar,Jammu & Kashmir,9,26,76.5,33.5,0.4784788
+18,Kishtwar,Jammu & Kashmir,8,27,75.5,34.5,0.04945181
+18,Kishtwar,Jammu & Kashmir,8,26,75.5,33.5,0.47206331
+329,Koch Bihar,West Bengal,22,19,89.5,26.5,0.87398503
+329,Koch Bihar,West Bengal,22,18,89.5,25.5,0.00624249
+329,Koch Bihar,West Bengal,21,19,88.5,26.5,0.11977248
+576,Kodagu,Karnataka,9,5,76.5,12.5,0.11042042
+576,Kodagu,Karnataka,9,4,76.5,11.5,0.01663895
+576,Kodagu,Karnataka,8,5,75.5,12.5,0.84621732
+576,Kodagu,Karnataka,8,4,75.5,11.5,0.02672331
+348,Kodarma,Jharkhand,18,17,85.5,24.5,1.0
+270,Kohima,Nagaland,27,19,94.5,26.5,0.01030527
+270,Kohima,Nagaland,27,18,94.5,25.5,0.87385399
+270,Kohima,Nagaland,26,18,93.5,25.5,0.11584073
+300,Kokrajhar,Assam,23,19,90.5,26.5,0.73543203
+300,Kokrajhar,Assam,22,19,89.5,26.5,0.26456797
+581,Kolar,Karnataka,11,6,78.5,13.5,0.66849396
+581,Kolar,Karnataka,11,5,78.5,12.5,0.21323106
+581,Kolar,Karnataka,10,6,77.5,13.5,0.0579381
+581,Kolar,Karnataka,10,5,77.5,12.5,0.06033687
+282,Kolasib,Mizoram,25,17,92.5,24.5,0.9694789
+282,Kolasib,Mizoram,25,16,92.5,23.5,0.0305211
+530,Kolhapur,Maharashtra,7,9,74.5,16.5,0.63582736
+530,Kolhapur,Maharashtra,6,10,73.5,17.5,0.0347238
+530,Kolhapur,Maharashtra,6,9,73.5,16.5,0.22025268
+530,Kolhapur,Maharashtra,7,8,74.5,15.5,0.10919617
+342,Kolkata,West Bengal,21,15,88.5,22.5,1.0
+600,Kollam,Kerala,10,2,77.5,9.5,0.09138821
+600,Kollam,Kerala,10,1,77.5,8.5,0.2119578
+600,Kollam,Kerala,9,2,76.5,9.5,0.28414098
+600,Kollam,Kerala,9,1,76.5,8.5,0.41251301
+560,Koppal,Karnataka,9,9,76.5,16.5,0.00105649
+560,Koppal,Karnataka,9,8,76.5,15.5,0.82024757
+560,Koppal,Karnataka,8,9,75.5,16.5,5.338e-05
+560,Koppal,Karnataka,8,8,75.5,15.5,0.17864256
+398,Koraput,Odisha,16,12,83.5,19.5,0.04025721
+398,Koraput,Odisha,16,11,83.5,18.5,0.1572616
+398,Koraput,Odisha,15,12,82.5,19.5,0.19935211
+398,Koraput,Odisha,15,11,82.5,18.5,0.60312908
+404,Korba,Chhattisgarh,16,15,83.5,22.5,0.0735024
+404,Korba,Chhattisgarh,15,15,82.5,22.5,0.9264976
+400,Koriya,Chhattisgarh,15,16,82.5,23.5,0.76725669
+400,Koriya,Chhattisgarh,15,15,82.5,22.5,0.02321133
+400,Koriya,Chhattisgarh,14,16,81.5,23.5,0.20953198
+127,Kota,Rajasthan,9,18,76.5,25.5,0.43560043
+127,Kota,Rajasthan,9,17,76.5,24.5,0.24777205
+127,Kota,Rajasthan,8,18,75.5,25.5,0.12922308
+127,Kota,Rajasthan,8,17,75.5,24.5,0.18740443
+597,Kottayam,Kerala,9,2,76.5,9.5,1.0
+591,Kozhikode,Kerala,9,4,76.5,11.5,0.13331926
+591,Kozhikode,Kerala,8,4,75.5,11.5,0.86668074
+547,Krishna,Andhra Pradesh,14,9,81.5,16.5,0.25375544
+547,Krishna,Andhra Pradesh,13,10,80.5,17.5,0.06456297
+547,Krishna,Andhra Pradesh,13,9,80.5,16.5,0.61744406
+547,Krishna,Andhra Pradesh,14,8,81.5,15.5,0.01779311
+547,Krishna,Andhra Pradesh,13,8,80.5,15.5,0.04644441
+631,Krishnagiri,Tamil Nadu,11,5,78.5,12.5,0.50034383
+631,Krishnagiri,Tamil Nadu,10,5,77.5,12.5,0.49965617
+15,Kulgam,Jammu & Kashmir,8,26,75.5,33.5,0.30706171
+15,Kulgam,Jammu & Kashmir,7,26,74.5,33.5,0.69293829
+26,Kullu,Himachal Pradesh,10,25,77.5,32.5,0.37390038
+26,Kullu,Himachal Pradesh,10,24,77.5,31.5,0.6134192
+26,Kullu,Himachal Pradesh,9,25,76.5,32.5,0.01142342
+26,Kullu,Himachal Pradesh,9,24,76.5,31.5,0.001257
+1,Kupwara,Jammu & Kashmir,7,27,74.5,34.5,0.92008139
+1,Kupwara,Jammu & Kashmir,6,27,73.5,34.5,0.07991861
+552,Kurnool,Andhra Pradesh,11,9,78.5,16.5,0.03198498
+552,Kurnool,Andhra Pradesh,11,8,78.5,15.5,0.49111386
+552,Kurnool,Andhra Pradesh,10,8,77.5,15.5,0.46241807
+552,Kurnool,Andhra Pradesh,11,7,78.5,14.5,0.01404241
+552,Kurnool,Andhra Pradesh,9,8,76.5,15.5,0.00044068
+72,Kurukshetra,Haryana,10,23,77.5,30.5,0.08749288
+72,Kurukshetra,Haryana,10,22,77.5,29.5,0.03896145
+72,Kurukshetra,Haryana,9,23,76.5,30.5,0.59128261
+72,Kurukshetra,Haryana,9,22,76.5,29.5,0.28226306
+256,Kurung Kumey,Arunanchal Pradesh,27,20,94.5,27.5,0.00030779
+256,Kurung Kumey,Arunanchal Pradesh,26,21,93.5,28.5,0.41810388
+256,Kurung Kumey,Arunanchal Pradesh,26,20,93.5,27.5,0.45218114
+256,Kurung Kumey,Arunanchal Pradesh,25,21,92.5,28.5,0.09610945
+256,Kurung Kumey,Arunanchal Pradesh,25,20,92.5,27.5,0.03329774
+189,Kushinagar,Uttar Pradesh,17,20,84.5,27.5,0.01167087
+189,Kushinagar,Uttar Pradesh,17,19,84.5,26.5,0.33700674
+189,Kushinagar,Uttar Pradesh,16,20,83.5,27.5,0.19211273
+189,Kushinagar,Uttar Pradesh,16,19,83.5,26.5,0.45920966
+25,Lahul & Spiti,Himachal Pradesh,11,25,78.5,32.5,0.24525015
+25,Lahul & Spiti,Himachal Pradesh,10,25,77.5,32.5,0.50922963
+25,Lahul & Spiti,Himachal Pradesh,11,24,78.5,31.5,0.03710393
+25,Lahul & Spiti,Himachal Pradesh,10,24,77.5,31.5,0.0313368
+25,Lahul & Spiti,Himachal Pradesh,9,26,76.5,33.5,0.02298016
+25,Lahul & Spiti,Himachal Pradesh,9,25,76.5,32.5,0.15409934
+307,Lakhimpur,Assam,27,20,94.5,27.5,0.67949046
+307,Lakhimpur,Assam,27,19,94.5,26.5,0.02136722
+307,Lakhimpur,Assam,26,20,93.5,27.5,0.18065844
+307,Lakhimpur,Assam,26,19,93.5,26.5,0.11848388
+227,Lakhisarai,Bihar,19,18,86.5,25.5,0.81407636
+227,Lakhisarai,Bihar,19,17,86.5,24.5,0.02831502
+227,Lakhisarai,Bihar,18,18,85.5,25.5,0.15582127
+227,Lakhisarai,Bihar,18,17,85.5,24.5,0.00178735
+167,Lalitpur,Uttar Pradesh,11,18,78.5,25.5,0.09373307
+167,Lalitpur,Uttar Pradesh,11,17,78.5,24.5,0.90626693
+359,Latehar,Jharkhand,17,17,84.5,24.5,0.00799205
+359,Latehar,Jharkhand,17,16,84.5,23.5,0.98520346
+359,Latehar,Jharkhand,16,16,83.5,23.5,0.00680449
+524,Latur,Maharashtra,10,11,77.5,18.5,0.207308
+524,Latur,Maharashtra,9,11,76.5,18.5,0.75082001
+524,Latur,Maharashtra,9,10,76.5,17.5,0.04187199
+287,Lawangtlai,Mizoram,25,15,92.5,22.5,0.99735973
+287,Lawangtlai,Mizoram,25,14,92.5,21.5,0.00264027
+3,Leh (ladakh),Jammu & Kashmir,13,28,80.5,35.5,0.02200282
+3,Leh (ladakh),Jammu & Kashmir,13,27,80.5,34.5,0.00392753
+3,Leh (ladakh),Jammu & Kashmir,12,28,79.5,35.5,0.10920851
+3,Leh (ladakh),Jammu & Kashmir,12,27,79.5,34.5,0.08966286
+3,Leh (ladakh),Jammu & Kashmir,11,28,78.5,35.5,0.09498017
+3,Leh (ladakh),Jammu & Kashmir,11,27,78.5,34.5,0.1266237
+3,Leh (ladakh),Jammu & Kashmir,12,26,79.5,33.5,0.01672003
+3,Leh (ladakh),Jammu & Kashmir,12,25,79.5,32.5,0.03387669
+3,Leh (ladakh),Jammu & Kashmir,11,26,78.5,33.5,0.12496645
+3,Leh (ladakh),Jammu & Kashmir,11,25,78.5,32.5,0.05382038
+3,Leh (ladakh),Jammu & Kashmir,10,28,77.5,35.5,0.04378386
+3,Leh (ladakh),Jammu & Kashmir,10,27,77.5,34.5,0.12531008
+3,Leh (ladakh),Jammu & Kashmir,9,27,76.5,34.5,0.04197134
+3,Leh (ladakh),Jammu & Kashmir,10,26,77.5,33.5,0.09355691
+3,Leh (ladakh),Jammu & Kashmir,10,25,77.5,32.5,0.01357304
+3,Leh (ladakh),Jammu & Kashmir,9,26,76.5,33.5,0.00601564
+356,Lohardaga,Jharkhand,17,16,84.5,23.5,1.0
+259,Lohit,Arunanchal Pradesh,29,21,96.5,28.5,0.19340067
+259,Lohit,Arunanchal Pradesh,29,20,96.5,27.5,0.62297906
+259,Lohit,Arunanchal Pradesh,28,21,95.5,28.5,0.00175324
+259,Lohit,Arunanchal Pradesh,28,20,95.5,27.5,0.18186703
+268,Longleng,Nagaland,27,19,94.5,26.5,1.0
+258,Lower Dibang Valley,Arunanchal Pradesh,29,21,96.5,28.5,0.34988632
+258,Lower Dibang Valley,Arunanchal Pradesh,28,21,95.5,28.5,0.6096202
+258,Lower Dibang Valley,Arunanchal Pradesh,28,20,95.5,27.5,0.04049348
+255,Lower Subansiri,Arunanchal Pradesh,27,20,94.5,27.5,0.43310651
+255,Lower Subansiri,Arunanchal Pradesh,26,20,93.5,27.5,0.56689349
+157,Lucknow,Uttar Pradesh,14,20,81.5,27.5,0.01029982
+157,Lucknow,Uttar Pradesh,14,19,81.5,26.5,0.27817085
+157,Lucknow,Uttar Pradesh,13,20,80.5,27.5,0.1803691
+157,Lucknow,Uttar Pradesh,13,19,80.5,26.5,0.53116023
+41,Ludhiana,Punjab,9,24,76.5,31.5,0.00038438
+41,Ludhiana,Punjab,9,23,76.5,30.5,0.32078013
+41,Ludhiana,Punjab,8,24,75.5,31.5,0.00721114
+41,Ludhiana,Punjab,8,23,75.5,30.5,0.67162435
+286,Lunglei,Mizoram,26,16,93.5,23.5,0.01517105
+286,Lunglei,Mizoram,26,15,93.5,22.5,0.06988354
+286,Lunglei,Mizoram,25,16,92.5,23.5,0.42837965
+286,Lunglei,Mizoram,25,15,92.5,22.5,0.48656576
+213,Madhepura,Bihar,20,19,87.5,26.5,0.03607573
+213,Madhepura,Bihar,20,18,87.5,25.5,0.13520515
+213,Madhepura,Bihar,19,19,86.5,26.5,0.18336946
+213,Madhepura,Bihar,19,18,86.5,25.5,0.64534965
+207,Madhubani,Bihar,19,19,86.5,26.5,0.80082796
+207,Madhubani,Bihar,18,19,85.5,26.5,0.19917204
+623,Madurai,Tamil Nadu,11,3,78.5,10.5,0.25500638
+623,Madurai,Tamil Nadu,11,2,78.5,9.5,0.24090055
+623,Madurai,Tamil Nadu,10,3,77.5,10.5,0.07234331
+623,Madurai,Tamil Nadu,10,2,77.5,9.5,0.43174976
+187,Maharajganj,Uttar Pradesh,16,20,83.5,27.5,0.91710505
+187,Maharajganj,Uttar Pradesh,16,19,83.5,26.5,0.08289495
+411,Mahasamund,Chhattisgarh,16,14,83.5,21.5,0.16997998
+411,Mahasamund,Chhattisgarh,15,14,82.5,21.5,0.73219242
+411,Mahasamund,Chhattisgarh,15,13,82.5,20.5,0.09758305
+411,Mahasamund,Chhattisgarh,14,14,81.5,21.5,0.00024455
+538,Mahbubnagar,Andhra Pradesh,12,9,79.5,16.5,0.02819496
+538,Mahbubnagar,Andhra Pradesh,11,10,78.5,17.5,0.03898615
+538,Mahbubnagar,Andhra Pradesh,11,9,78.5,16.5,0.51470972
+538,Mahbubnagar,Andhra Pradesh,11,8,78.5,15.5,0.01993061
+538,Mahbubnagar,Andhra Pradesh,10,10,77.5,17.5,0.0367998
+538,Mahbubnagar,Andhra Pradesh,10,9,77.5,16.5,0.32751809
+538,Mahbubnagar,Andhra Pradesh,10,8,77.5,15.5,0.03386066
+636,Mahe,Puducherry,8,4,75.5,11.5,1.0
+84,Mahendragarh,Haryana,9,21,76.5,28.5,0.73687447
+84,Mahendragarh,Haryana,9,20,76.5,27.5,0.17121626
+84,Mahendragarh,Haryana,8,21,75.5,28.5,0.0686117
+84,Mahendragarh,Haryana,8,20,75.5,27.5,0.02329757
+471,Mahesana,Gujarat,5,17,72.5,24.5,0.03693583
+471,Mahesana,Gujarat,5,16,72.5,23.5,0.95332523
+471,Mahesana,Gujarat,4,16,71.5,23.5,0.00973894
+169,Mahoba,Uttar Pradesh,13,18,80.5,25.5,0.05352159
+169,Mahoba,Uttar Pradesh,12,18,79.5,25.5,0.94647841
+148,Mainpuri,Uttar Pradesh,12,20,79.5,27.5,0.55623656
+148,Mainpuri,Uttar Pradesh,12,19,79.5,26.5,0.03231765
+148,Mainpuri,Uttar Pradesh,11,20,78.5,27.5,0.38354287
+148,Mainpuri,Uttar Pradesh,11,19,78.5,26.5,0.02790292
+592,Malappuram,Kerala,9,4,76.5,11.5,0.61787642
+592,Malappuram,Kerala,9,3,76.5,10.5,0.15840783
+592,Malappuram,Kerala,8,4,75.5,11.5,0.11887411
+592,Malappuram,Kerala,8,3,75.5,10.5,0.10484165
+332,Maldah,West Bengal,21,18,88.5,25.5,0.47587379
+332,Maldah,West Bengal,21,17,88.5,24.5,0.17980487
+332,Maldah,West Bengal,20,18,87.5,25.5,0.29354704
+332,Maldah,West Bengal,20,17,87.5,24.5,0.0507743
+399,Malkangiri,Odisha,15,11,82.5,18.5,0.46532877
+399,Malkangiri,Odisha,15,10,82.5,17.5,0.00059695
+399,Malkangiri,Odisha,14,11,81.5,18.5,0.41669897
+399,Malkangiri,Odisha,14,10,81.5,17.5,0.1173753
+281,Mamit,Mizoram,25,17,92.5,24.5,0.1785663
+281,Mamit,Mizoram,25,16,92.5,23.5,0.8214337
+27,Mandi,Himachal Pradesh,10,24,77.5,31.5,0.4741308
+27,Mandi,Himachal Pradesh,9,25,76.5,32.5,0.04152791
+27,Mandi,Himachal Pradesh,9,24,76.5,31.5,0.48434129
+454,Mandla,Madhya Pradesh,14,15,81.5,22.5,0.06872335
+454,Mandla,Madhya Pradesh,13,16,80.5,23.5,0.08216947
+454,Mandla,Madhya Pradesh,13,15,80.5,22.5,0.84066016
+454,Mandla,Madhya Pradesh,12,16,79.5,23.5,0.00012219
+454,Mandla,Madhya Pradesh,12,15,79.5,22.5,0.00832483
+433,Mandsaur,Madhya Pradesh,8,17,75.5,24.5,0.77486351
+433,Mandsaur,Madhya Pradesh,8,16,75.5,23.5,0.15145588
+433,Mandsaur,Madhya Pradesh,7,17,74.5,24.5,0.04143536
+433,Mandsaur,Madhya Pradesh,7,16,74.5,23.5,0.03224526
+573,Mandya,Karnataka,10,5,77.5,12.5,0.22490012
+573,Mandya,Karnataka,9,6,76.5,13.5,0.01254883
+573,Mandya,Karnataka,9,5,76.5,12.5,0.76255105
+47,Mansa,Punjab,8,23,75.5,30.5,0.28592526
+47,Mansa,Punjab,8,22,75.5,29.5,0.71407474
+304,Marigaon,Assam,25,19,92.5,26.5,0.9852318
+304,Marigaon,Assam,24,19,91.5,26.5,0.0147682
+145,Mathura,Uttar Pradesh,10,20,77.5,27.5,1.0
+192,Mau,Uttar Pradesh,16,19,83.5,26.5,0.58068202
+192,Mau,Uttar Pradesh,16,18,83.5,25.5,0.41931798
+376,Mayurbhanj,Odisha,20,15,87.5,22.5,0.00148853
+376,Mayurbhanj,Odisha,20,14,87.5,21.5,0.02697868
+376,Mayurbhanj,Odisha,19,15,86.5,22.5,0.3334866
+376,Mayurbhanj,Odisha,19,14,86.5,21.5,0.57345713
+376,Mayurbhanj,Odisha,18,15,85.5,22.5,0.01667709
+376,Mayurbhanj,Odisha,18,14,85.5,21.5,0.04791197
+535,Medak,Andhra Pradesh,12,11,79.5,18.5,0.01292799
+535,Medak,Andhra Pradesh,11,11,78.5,18.5,0.22221286
+535,Medak,Andhra Pradesh,11,10,78.5,17.5,0.41810901
+535,Medak,Andhra Pradesh,10,11,77.5,18.5,0.10321878
+535,Medak,Andhra Pradesh,10,10,77.5,17.5,0.24353136
+138,Meerut,Uttar Pradesh,11,22,78.5,29.5,0.12149977
+138,Meerut,Uttar Pradesh,11,21,78.5,28.5,0.04726537
+138,Meerut,Uttar Pradesh,10,22,77.5,29.5,0.4846245
+138,Meerut,Uttar Pradesh,10,21,77.5,28.5,0.34661036
+87,Mewat,Haryana,10,21,77.5,28.5,0.24458123
+87,Mewat,Haryana,10,20,77.5,27.5,0.37491203
+87,Mewat,Haryana,9,21,76.5,28.5,0.18380028
+87,Mewat,Haryana,9,20,76.5,27.5,0.19670646
+199,Mirzapur,Uttar Pradesh,16,18,83.5,25.5,0.06625825
+199,Mirzapur,Uttar Pradesh,16,17,83.5,24.5,0.03456942
+199,Mirzapur,Uttar Pradesh,15,18,82.5,25.5,0.40852625
+199,Mirzapur,Uttar Pradesh,15,17,82.5,24.5,0.49064608
+42,Moga,Punjab,8,24,75.5,31.5,0.07530282
+42,Moga,Punjab,8,23,75.5,30.5,0.81590941
+42,Moga,Punjab,7,23,74.5,30.5,0.10878777
+262,Mokokchung,Nagaland,27,19,94.5,26.5,1.0
+261,Mon,Nagaland,28,20,95.5,27.5,0.00494205
+261,Mon,Nagaland,28,19,95.5,26.5,0.55340788
+261,Mon,Nagaland,27,19,94.5,26.5,0.44165007
+135,Moradabad,Uttar Pradesh,11,22,78.5,29.5,0.23548589
+135,Moradabad,Uttar Pradesh,11,21,78.5,28.5,0.76451411
+419,Morena,Madhya Pradesh,11,19,78.5,26.5,0.38369139
+419,Morena,Madhya Pradesh,10,19,77.5,26.5,0.60206451
+419,Morena,Madhya Pradesh,10,18,77.5,25.5,0.01424411
+44,Muktsar,Punjab,7,23,74.5,30.5,0.92762431
+44,Muktsar,Punjab,7,22,74.5,29.5,0.07237569
+519,Mumbai,Maharashtra,5,12,72.5,19.5,0.21641258
+519,Mumbai,Maharashtra,5,11,72.5,18.5,0.78358742
+518,Mumbai Suburban,Maharashtra,5,12,72.5,19.5,0.96498004
+518,Mumbai Suburban,Maharashtra,5,11,72.5,18.5,0.03501996
+226,Munger,Bihar,19,18,86.5,25.5,0.95724833
+226,Munger,Bihar,19,17,86.5,24.5,0.04275167
+333,Murshidabad,West Bengal,21,17,88.5,24.5,0.61917053
+333,Murshidabad,West Bengal,21,16,88.5,23.5,0.22238207
+333,Murshidabad,West Bengal,20,17,87.5,24.5,0.11142735
+333,Murshidabad,West Bengal,20,16,87.5,23.5,0.04702004
+133,Muzaffarnagar,Uttar Pradesh,11,22,78.5,29.5,0.04427927
+133,Muzaffarnagar,Uttar Pradesh,10,22,77.5,29.5,0.95572073
+216,Muzaffarpur,Bihar,18,19,85.5,26.5,0.81520679
+216,Muzaffarpur,Bihar,18,18,85.5,25.5,0.09454979
+216,Muzaffarpur,Bihar,17,19,84.5,26.5,0.08991572
+216,Muzaffarpur,Bihar,17,18,84.5,25.5,0.0003277
+577,Mysore,Karnataka,10,5,77.5,12.5,0.01593154
+577,Mysore,Karnataka,9,5,76.5,12.5,0.79954014
+577,Mysore,Karnataka,9,4,76.5,11.5,0.16578378
+577,Mysore,Karnataka,8,5,75.5,12.5,0.01874454
+397,Nabarangapur,Odisha,15,13,82.5,20.5,0.01134468
+397,Nabarangapur,Odisha,15,12,82.5,19.5,0.92475469
+397,Nabarangapur,Odisha,14,13,81.5,20.5,0.02125924
+397,Nabarangapur,Odisha,14,12,81.5,19.5,0.04264139
+336,Nadia,West Bengal,21,17,88.5,24.5,0.03294779
+336,Nadia,West Bengal,21,16,88.5,23.5,0.9094672
+336,Nadia,West Bengal,21,15,88.5,22.5,0.05758502
+305,Nagaon,Assam,26,19,93.5,26.5,0.11599722
+305,Nagaon,Assam,26,18,93.5,25.5,0.13646315
+305,Nagaon,Assam,25,19,92.5,26.5,0.67323792
+305,Nagaon,Assam,25,18,92.5,25.5,0.07430171
+112,Nagaur,Rajasthan,8,20,75.5,27.5,0.04223388
+112,Nagaur,Rajasthan,8,19,75.5,26.5,0.0075233
+112,Nagaur,Rajasthan,7,20,74.5,27.5,0.3408051
+112,Nagaur,Rajasthan,7,19,74.5,26.5,0.24261959
+112,Nagaur,Rajasthan,6,20,73.5,27.5,0.21694435
+112,Nagaur,Rajasthan,6,19,73.5,26.5,0.14987377
+505,Nagpur,Maharashtra,12,14,79.5,21.5,0.40706977
+505,Nagpur,Maharashtra,12,13,79.5,20.5,0.23075105
+505,Nagpur,Maharashtra,11,14,78.5,21.5,0.31424671
+505,Nagpur,Maharashtra,11,13,78.5,20.5,0.04793246
+66,Nainital,Uttarakhand,12,22,79.5,29.5,0.94916818
+66,Nainital,Uttarakhand,12,21,79.5,28.5,0.00141115
+66,Nainital,Uttarakhand,11,22,78.5,29.5,0.04942067
+229,Nalanda,Bihar,18,18,85.5,25.5,0.98864718
+229,Nalanda,Bihar,18,17,85.5,24.5,0.01135282
+323,Nalbari,Assam,24,19,91.5,26.5,1.0
+539,Nalgonda,Andhra Pradesh,13,10,80.5,17.5,0.00233484
+539,Nalgonda,Andhra Pradesh,13,9,80.5,16.5,0.01025195
+539,Nalgonda,Andhra Pradesh,12,10,79.5,17.5,0.39436373
+539,Nalgonda,Andhra Pradesh,12,9,79.5,16.5,0.33874315
+539,Nalgonda,Andhra Pradesh,11,10,78.5,17.5,0.1513007
+539,Nalgonda,Andhra Pradesh,11,9,78.5,16.5,0.10300563
+609,Namakkal,Tamil Nadu,11,4,78.5,11.5,0.74010351
+609,Namakkal,Tamil Nadu,10,4,77.5,11.5,0.25989649
+511,Nanded,Maharashtra,11,12,78.5,19.5,0.16968734
+511,Nanded,Maharashtra,10,12,77.5,19.5,0.40235026
+511,Nanded,Maharashtra,10,11,77.5,18.5,0.42524362
+511,Nanded,Maharashtra,9,11,76.5,18.5,0.00271878
+497,Nandurbar,Maharashtra,7,15,74.5,22.5,0.00284836
+497,Nandurbar,Maharashtra,7,14,74.5,21.5,0.77225869
+497,Nandurbar,Maharashtra,6,14,73.5,21.5,0.22486019
+497,Nandurbar,Maharashtra,6,13,73.5,20.5,3.275e-05
+415,Narayanpur,Chhattisgarh,14,13,81.5,20.5,0.01478584
+415,Narayanpur,Chhattisgarh,14,12,81.5,19.5,0.58608336
+415,Narayanpur,Chhattisgarh,13,13,80.5,20.5,0.01793449
+415,Narayanpur,Chhattisgarh,13,12,80.5,19.5,0.38119631
+487,Narmada,Gujarat,6,15,73.5,22.5,0.04078954
+487,Narmada,Gujarat,6,14,73.5,21.5,0.95921046
+452,Narsimhapur,Madhya Pradesh,12,16,79.5,23.5,0.2217262
+452,Narsimhapur,Madhya Pradesh,12,15,79.5,22.5,0.35285748
+452,Narsimhapur,Madhya Pradesh,11,16,78.5,23.5,0.12262463
+452,Narsimhapur,Madhya Pradesh,11,15,78.5,22.5,0.3027917
+516,Nashik,Maharashtra,7,13,74.5,20.5,0.47978189
+516,Nashik,Maharashtra,7,12,74.5,19.5,0.07892435
+516,Nashik,Maharashtra,6,13,73.5,20.5,0.30159427
+516,Nashik,Maharashtra,6,12,73.5,19.5,0.13969948
+490,Navsari,Gujarat,6,14,73.5,21.5,0.00623387
+490,Navsari,Gujarat,6,13,73.5,20.5,0.62875807
+490,Navsari,Gujarat,5,14,72.5,21.5,0.07991443
+490,Navsari,Gujarat,5,13,72.5,20.5,0.28509363
+237,Nawada,Bihar,19,17,86.5,24.5,0.01331439
+237,Nawada,Bihar,18,18,85.5,25.5,0.07319702
+237,Nawada,Bihar,18,17,85.5,24.5,0.9134886
+385,Nayagarh,Odisha,18,13,85.5,20.5,0.39815811
+385,Nayagarh,Odisha,18,12,85.5,19.5,0.10371009
+385,Nayagarh,Odisha,17,13,84.5,20.5,0.47240502
+385,Nayagarh,Odisha,17,12,84.5,19.5,0.02572678
+432,Neemuch,Madhya Pradesh,8,18,75.5,25.5,0.01876145
+432,Neemuch,Madhya Pradesh,8,17,75.5,24.5,0.69121828
+432,Neemuch,Madhya Pradesh,7,17,74.5,24.5,0.29002027
+550,Sri Potti Sriramulu Nellore,Andhra Pradesh,13,8,80.5,15.5,0.0002446
+550,Sri Potti Sriramulu Nellore,Andhra Pradesh,13,7,80.5,14.5,0.12362434
+550,Sri Potti Sriramulu Nellore,Andhra Pradesh,12,8,79.5,15.5,0.0450576
+550,Sri Potti Sriramulu Nellore,Andhra Pradesh,12,7,79.5,14.5,0.65067337
+550,Sri Potti Sriramulu Nellore,Andhra Pradesh,13,6,80.5,13.5,0.10152791
+550,Sri Potti Sriramulu Nellore,Andhra Pradesh,12,6,79.5,13.5,0.07887217
+94,New Delhi,NCT of Delhi,10,21,77.5,28.5,1.0
+533,Nizamabad,Andhra Pradesh,11,12,78.5,19.5,0.00015089
+533,Nizamabad,Andhra Pradesh,11,11,78.5,18.5,0.69016027
+533,Nizamabad,Andhra Pradesh,10,11,77.5,18.5,0.30968885
+91,North,NCT of Delhi,10,21,77.5,28.5,1.0
+241,North,Sikkim,21,21,88.5,28.5,0.06484661
+241,North,Sikkim,21,20,88.5,27.5,0.93515339
+337,North 24 Parganas,West Bengal,22,15,89.5,22.5,0.02393468
+337,North 24 Parganas,West Bengal,21,16,88.5,23.5,0.09703675
+337,North 24 Parganas,West Bengal,21,15,88.5,22.5,0.66380959
+337,North 24 Parganas,West Bengal,22,14,89.5,21.5,0.03377701
+337,North 24 Parganas,West Bengal,21,14,88.5,21.5,0.18144197
+315,Dima Hasao,Assam,26,18,93.5,25.5,0.55232603
+315,Dima Hasao,Assam,26,17,93.5,24.5,0.00378485
+315,Dima Hasao,Assam,25,18,92.5,25.5,0.44388913
+92,North East,NCT of Delhi,10,21,77.5,28.5,1.0
+585,North Goa,Goa,7,8,74.5,15.5,0.45200126
+585,North Goa,Goa,6,8,73.5,15.5,0.54799874
+292,North Tripura,Tripura,25,17,92.5,24.5,0.64699686
+292,North Tripura,Tripura,25,16,92.5,23.5,0.2505575
+292,North Tripura,Tripura,24,17,91.5,24.5,0.10244564
+90,North West,NCT of Delhi,10,21,77.5,28.5,0.85368426
+90,North West,NCT of Delhi,9,21,76.5,28.5,0.14631574
+394,Nuapada,Odisha,15,14,82.5,21.5,0.01485855
+394,Nuapada,Odisha,15,13,82.5,20.5,0.98421239
+394,Nuapada,Odisha,15,12,82.5,19.5,0.00092906
+525,Osmanabad,Maharashtra,9,11,76.5,18.5,0.27578453
+525,Osmanabad,Maharashtra,9,10,76.5,17.5,0.31814967
+525,Osmanabad,Maharashtra,8,11,75.5,18.5,0.37135112
+525,Osmanabad,Maharashtra,8,10,75.5,17.5,0.03471468
+353,Pakur,Jharkhand,20,17,87.5,24.5,1.0
+593,Palakkad,Kerala,9,4,76.5,11.5,0.20107631
+593,Palakkad,Kerala,9,3,76.5,10.5,0.79892369
+358,Palamu,Jharkhand,17,17,84.5,24.5,0.63819194
+358,Palamu,Jharkhand,17,16,84.5,23.5,0.13852423
+358,Palamu,Jharkhand,16,17,83.5,24.5,0.18572655
+358,Palamu,Jharkhand,16,16,83.5,23.5,0.03755729
+118,Pali,Rajasthan,7,19,74.5,26.5,0.11101697
+118,Pali,Rajasthan,7,18,74.5,25.5,0.01925485
+118,Pali,Rajasthan,6,19,73.5,26.5,0.12838295
+118,Pali,Rajasthan,6,18,73.5,25.5,0.65608274
+118,Pali,Rajasthan,6,17,73.5,24.5,0.04412171
+118,Pali,Rajasthan,5,18,72.5,25.5,0.04114076
+89,Palwal,Haryana,10,21,77.5,28.5,0.63930254
+89,Palwal,Haryana,10,20,77.5,27.5,0.36069746
+484,Panch Mahals,Gujarat,7,16,74.5,23.5,0.00170594
+484,Panch Mahals,Gujarat,6,16,73.5,23.5,0.41169524
+484,Panch Mahals,Gujarat,6,15,73.5,22.5,0.58659882
+69,Panchkula,Haryana,10,23,77.5,30.5,0.38237112
+69,Panchkula,Haryana,9,23,76.5,30.5,0.61762888
+75,Panipat,Haryana,10,22,77.5,29.5,0.34177593
+75,Panipat,Haryana,9,22,76.5,29.5,0.65822407
+426,Panna,Madhya Pradesh,13,18,80.5,25.5,0.01558039
+426,Panna,Madhya Pradesh,13,17,80.5,24.5,0.75080017
+426,Panna,Madhya Pradesh,12,17,79.5,24.5,0.17466607
+426,Panna,Madhya Pradesh,13,16,80.5,23.5,0.02354139
+426,Panna,Madhya Pradesh,12,16,79.5,23.5,0.03541199
+248,Papum Pare,Arunanchal Pradesh,27,20,94.5,27.5,0.05804049
+248,Papum Pare,Arunanchal Pradesh,26,20,93.5,27.5,0.89786712
+248,Papum Pare,Arunanchal Pradesh,26,19,93.5,26.5,0.04409239
+513,Parbhani,Maharashtra,10,12,77.5,19.5,0.03317343
+513,Parbhani,Maharashtra,10,11,77.5,18.5,0.00603361
+513,Parbhani,Maharashtra,9,12,76.5,19.5,0.81037403
+513,Parbhani,Maharashtra,9,11,76.5,18.5,0.15041893
+203,Pashchim Champaran,Bihar,17,20,84.5,27.5,0.56559641
+203,Pashchim Champaran,Bihar,17,19,84.5,26.5,0.37583353
+203,Pashchim Champaran,Bihar,16,20,83.5,27.5,0.05857006
+344,Pashchim Medinipur,West Bengal,20,15,87.5,22.5,0.74209422
+344,Pashchim Medinipur,West Bengal,20,14,87.5,21.5,0.07881055
+344,Pashchim Medinipur,West Bengal,19,15,86.5,22.5,0.17909523
+368,Pashchimi Singhbhum,Jharkhand,19,15,86.5,22.5,0.00653318
+368,Pashchimi Singhbhum,Jharkhand,18,15,85.5,22.5,0.98875883
+368,Pashchimi Singhbhum,Jharkhand,18,14,85.5,21.5,0.00438861
+368,Pashchimi Singhbhum,Jharkhand,17,15,84.5,22.5,0.00031938
+470,Patan,Gujarat,5,17,72.5,24.5,0.04058039
+470,Patan,Gujarat,5,16,72.5,23.5,0.2567434
+470,Patan,Gujarat,4,17,71.5,24.5,0.00165253
+470,Patan,Gujarat,4,16,71.5,23.5,0.70102368
+599,Pathanamthitta,Kerala,10,2,77.5,9.5,0.40374446
+599,Pathanamthitta,Kerala,9,2,76.5,9.5,0.59625554
+48,Patiala,Punjab,9,23,76.5,30.5,0.89060751
+48,Patiala,Punjab,9,22,76.5,29.5,0.10304931
+48,Patiala,Punjab,8,23,75.5,30.5,0.00114368
+48,Patiala,Punjab,8,22,75.5,29.5,0.0051995
+230,Patna,Bihar,19,18,86.5,25.5,0.01313469
+230,Patna,Bihar,18,18,85.5,25.5,0.62977778
+230,Patna,Bihar,17,18,84.5,25.5,0.35708754
+615,Perambalur,Tamil Nadu,12,4,79.5,11.5,0.23513064
+615,Perambalur,Tamil Nadu,11,4,78.5,11.5,0.76486936
+271,Peren,Nagaland,26,18,93.5,25.5,1.0
+266,Phek,Nagaland,27,18,94.5,25.5,1.0
+151,Pilibhit,Uttar Pradesh,13,21,80.5,28.5,0.40220396
+151,Pilibhit,Uttar Pradesh,12,21,79.5,28.5,0.59779604
+62,Pithoragarh,Uttarakhand,14,23,81.5,30.5,0.00352699
+62,Pithoragarh,Uttarakhand,13,23,80.5,30.5,0.64543275
+62,Pithoragarh,Uttarakhand,13,22,80.5,29.5,0.32903051
+62,Pithoragarh,Uttarakhand,12,23,79.5,30.5,0.00106901
+62,Pithoragarh,Uttarakhand,12,22,79.5,29.5,0.02094075
+478,Porbandar,Gujarat,3,14,70.5,21.5,0.0708505
+478,Porbandar,Gujarat,2,14,69.5,21.5,0.9291495
+549,Prakasam,Andhra Pradesh,13,9,80.5,16.5,0.01270938
+549,Prakasam,Andhra Pradesh,13,8,80.5,15.5,0.14386085
+549,Prakasam,Andhra Pradesh,12,9,79.5,16.5,0.10749302
+549,Prakasam,Andhra Pradesh,12,8,79.5,15.5,0.60782254
+549,Prakasam,Andhra Pradesh,13,7,80.5,14.5,0.00019795
+549,Prakasam,Andhra Pradesh,12,7,79.5,14.5,0.00269275
+549,Prakasam,Andhra Pradesh,11,9,78.5,16.5,0.01115698
+549,Prakasam,Andhra Pradesh,11,8,78.5,15.5,0.11406653
+131,Pratapgarh,Rajasthan,7,17,74.5,24.5,0.55135928
+131,Pratapgarh,Rajasthan,7,16,74.5,23.5,0.44864072
+173,Pratapgarh,Uttar Pradesh,15,19,82.5,26.5,0.05575243
+173,Pratapgarh,Uttar Pradesh,15,18,82.5,25.5,0.25304082
+173,Pratapgarh,Uttar Pradesh,14,19,81.5,26.5,0.11450863
+173,Pratapgarh,Uttar Pradesh,14,18,81.5,25.5,0.57669812
+621,Pudukkottai,Tamil Nadu,12,3,79.5,10.5,0.29058766
+621,Pudukkottai,Tamil Nadu,12,2,79.5,9.5,0.05608643
+621,Pudukkottai,Tamil Nadu,11,3,78.5,10.5,0.65234141
+621,Pudukkottai,Tamil Nadu,11,2,78.5,9.5,0.0009845
+12,Pulwama,Jammu & Kashmir,8,27,75.5,34.5,0.2040893
+12,Pulwama,Jammu & Kashmir,8,26,75.5,33.5,0.47301777
+12,Pulwama,Jammu & Kashmir,7,27,74.5,34.5,0.00609239
+12,Pulwama,Jammu & Kashmir,7,26,74.5,33.5,0.31680053
+5,Punch,Jammu & Kashmir,7,27,74.5,34.5,0.00175941
+5,Punch,Jammu & Kashmir,7,26,74.5,33.5,0.87480613
+5,Punch,Jammu & Kashmir,6,26,73.5,33.5,0.12343446
+521,Pune,Maharashtra,8,11,75.5,18.5,0.01632807
+521,Pune,Maharashtra,7,12,74.5,19.5,0.0402638
+521,Pune,Maharashtra,7,11,74.5,18.5,0.4387622
+521,Pune,Maharashtra,8,10,75.5,17.5,0.00538291
+521,Pune,Maharashtra,7,10,74.5,17.5,0.00738477
+521,Pune,Maharashtra,6,12,73.5,19.5,0.10556952
+521,Pune,Maharashtra,6,11,73.5,18.5,0.38630873
+204,Purba Champaran,Bihar,18,19,85.5,26.5,0.35921566
+204,Purba Champaran,Bihar,17,20,84.5,27.5,0.00304927
+204,Purba Champaran,Bihar,17,19,84.5,26.5,0.63773507
+345,Purba Medinipur,West Bengal,21,15,88.5,22.5,0.07887517
+345,Purba Medinipur,West Bengal,21,14,88.5,21.5,0.01340116
+345,Purba Medinipur,West Bengal,20,15,87.5,22.5,0.43617095
+345,Purba Medinipur,West Bengal,20,14,87.5,21.5,0.47155272
+357,Purbi Singhbhum,Jharkhand,19,16,86.5,23.5,0.00146056
+357,Purbi Singhbhum,Jharkhand,19,15,86.5,22.5,0.99853944
+387,Puri,Odisha,19,13,86.5,20.5,0.06687873
+387,Puri,Odisha,19,12,86.5,19.5,0.13093494
+387,Puri,Odisha,18,13,85.5,20.5,0.1670217
+387,Puri,Odisha,18,12,85.5,19.5,0.63516463
+211,Purnia,Bihar,20,19,87.5,26.5,0.08281722
+211,Purnia,Bihar,20,18,87.5,25.5,0.91679655
+211,Purnia,Bihar,19,18,86.5,25.5,0.00038622
+340,Puruliya,West Bengal,19,16,86.5,23.5,0.81652173
+340,Puruliya,West Bengal,19,15,86.5,22.5,0.10341206
+340,Puruliya,West Bengal,18,16,85.5,23.5,0.08006621
+158,Rae Bareli,Uttar Pradesh,14,19,81.5,26.5,0.74511684
+158,Rae Bareli,Uttar Pradesh,14,18,81.5,25.5,0.10496889
+158,Rae Bareli,Uttar Pradesh,13,19,80.5,26.5,0.14991427
+559,Raichur,Karnataka,10,9,77.5,16.5,0.3100679
+559,Raichur,Karnataka,10,8,77.5,15.5,0.04990158
+559,Raichur,Karnataka,9,9,76.5,16.5,0.35772008
+559,Raichur,Karnataka,9,8,76.5,15.5,0.28231045
+403,Raigarh,Chhattisgarh,16,15,83.5,22.5,0.60882125
+403,Raigarh,Chhattisgarh,16,14,83.5,21.5,0.36700226
+403,Raigarh,Chhattisgarh,15,15,82.5,22.5,0.00561008
+403,Raigarh,Chhattisgarh,15,14,82.5,21.5,0.0185664
+520,Raigarh,Maharashtra,6,12,73.5,19.5,0.08902502
+520,Raigarh,Maharashtra,6,11,73.5,18.5,0.72342115
+520,Raigarh,Maharashtra,5,11,72.5,18.5,0.13710337
+520,Raigarh,Maharashtra,6,10,73.5,17.5,0.05045045
+410,Raipur,Chhattisgarh,15,14,82.5,21.5,0.347303
+410,Raipur,Chhattisgarh,15,13,82.5,20.5,0.2988844
+410,Raipur,Chhattisgarh,14,14,81.5,21.5,0.26772568
+410,Raipur,Chhattisgarh,14,13,81.5,20.5,0.02984174
+410,Raipur,Chhattisgarh,15,12,82.5,19.5,0.05624517
+446,Raisen,Madhya Pradesh,11,16,78.5,23.5,0.55004717
+446,Raisen,Madhya Pradesh,11,15,78.5,22.5,0.07087681
+446,Raisen,Madhya Pradesh,10,16,77.5,23.5,0.29967134
+446,Raisen,Madhya Pradesh,10,15,77.5,22.5,0.07940468
+6,Rajouri,Jammu & Kashmir,7,26,74.5,33.5,1.0
+442,Rajgarh,Madhya Pradesh,10,17,77.5,24.5,0.02743597
+442,Rajgarh,Madhya Pradesh,10,16,77.5,23.5,0.16169491
+442,Rajgarh,Madhya Pradesh,9,17,76.5,24.5,0.25464043
+442,Rajgarh,Madhya Pradesh,9,16,76.5,23.5,0.55622869
+476,Rajkot,Gujarat,4,16,71.5,23.5,0.00391256
+476,Rajkot,Gujarat,4,15,71.5,22.5,0.16025758
+476,Rajkot,Gujarat,3,16,70.5,23.5,0.05222858
+476,Rajkot,Gujarat,3,15,70.5,22.5,0.45240879
+476,Rajkot,Gujarat,4,14,71.5,21.5,0.0278599
+476,Rajkot,Gujarat,3,14,70.5,21.5,0.30333259
+408,Rajnandgaon,Chhattisgarh,14,14,81.5,21.5,0.18098288
+408,Rajnandgaon,Chhattisgarh,14,13,81.5,20.5,0.00064509
+408,Rajnandgaon,Chhattisgarh,13,14,80.5,21.5,0.40220331
+408,Rajnandgaon,Chhattisgarh,13,13,80.5,20.5,0.41616873
+123,Rajsamand,Rajasthan,7,19,74.5,26.5,0.00235781
+123,Rajsamand,Rajasthan,7,18,74.5,25.5,0.2382467
+123,Rajsamand,Rajasthan,6,18,73.5,25.5,0.50498176
+123,Rajsamand,Rajasthan,7,17,74.5,24.5,0.0624186
+123,Rajsamand,Rajasthan,6,17,73.5,24.5,0.19199512
+584,Ramanagara,Karnataka,10,6,77.5,13.5,0.12248932
+584,Ramanagara,Karnataka,10,5,77.5,12.5,0.87751068
+626,Ramanathapuram,Tamil Nadu,12,2,79.5,9.5,0.05044322
+626,Ramanathapuram,Tamil Nadu,11,2,78.5,9.5,0.94955678
+17,Ramban,Jammu & Kashmir,8,26,75.5,33.5,1.0
+361,Ramgarh,Jharkhand,18,16,85.5,23.5,1.0
+136,Rampur,Uttar Pradesh,12,22,79.5,29.5,0.09442742
+136,Rampur,Uttar Pradesh,12,21,79.5,28.5,0.67072749
+136,Rampur,Uttar Pradesh,11,22,78.5,29.5,0.03105419
+136,Rampur,Uttar Pradesh,11,21,78.5,28.5,0.2037909
+364,Ranchi,Jharkhand,18,16,85.5,23.5,0.82445099
+364,Ranchi,Jharkhand,18,15,85.5,22.5,0.04258727
+364,Ranchi,Jharkhand,17,16,84.5,23.5,0.13296175
+537,Rangareddy,Andhra Pradesh,11,10,78.5,17.5,0.57477901
+537,Rangareddy,Andhra Pradesh,11,9,78.5,16.5,0.01769263
+537,Rangareddy,Andhra Pradesh,10,10,77.5,17.5,0.35548048
+537,Rangareddy,Andhra Pradesh,10,9,77.5,16.5,0.05204788
+434,Ratlam,Madhya Pradesh,8,16,75.5,23.5,0.6285919
+434,Ratlam,Madhya Pradesh,7,16,74.5,23.5,0.3714081
+528,Ratnagiri,Maharashtra,6,11,73.5,18.5,0.01463332
+528,Ratnagiri,Maharashtra,6,10,73.5,17.5,0.679874
+528,Ratnagiri,Maharashtra,6,9,73.5,16.5,0.30549268
+396,Rayagada,Odisha,17,12,84.5,19.5,0.0071755
+396,Rayagada,Odisha,16,12,83.5,19.5,0.94768098
+396,Rayagada,Odisha,16,11,83.5,18.5,0.00885911
+396,Rayagada,Odisha,15,12,82.5,19.5,0.03628441
+20,Reasi,Jammu & Kashmir,8,26,75.5,33.5,0.06857157
+20,Reasi,Jammu & Kashmir,8,25,75.5,32.5,0.00243768
+20,Reasi,Jammu & Kashmir,7,26,74.5,33.5,0.83387747
+20,Reasi,Jammu & Kashmir,7,25,74.5,32.5,0.09511328
+430,Rewa,Madhya Pradesh,15,17,82.5,24.5,0.09936121
+430,Rewa,Madhya Pradesh,14,18,81.5,25.5,0.10681223
+430,Rewa,Madhya Pradesh,14,17,81.5,24.5,0.79382656
+85,Rewari,Haryana,9,21,76.5,28.5,0.99105443
+85,Rewari,Haryana,9,20,76.5,27.5,0.00894557
+297,Ri Bhoi,Meghalaya,25,19,92.5,26.5,0.06289843
+297,Ri Bhoi,Meghalaya,25,18,92.5,25.5,0.28155076
+297,Ri Bhoi,Meghalaya,24,19,91.5,26.5,0.08136689
+297,Ri Bhoi,Meghalaya,24,18,91.5,25.5,0.57418393
+82,Rohtak,Haryana,9,22,76.5,29.5,0.21824774
+82,Rohtak,Haryana,9,21,76.5,28.5,0.78175226
+234,Rohtas,Bihar,17,18,84.5,25.5,0.37109429
+234,Rohtas,Bihar,17,17,84.5,24.5,0.15081903
+234,Rohtas,Bihar,16,18,83.5,25.5,0.14107279
+234,Rohtas,Bihar,16,17,83.5,24.5,0.33701389
+58,Rudraprayag,Uttarakhand,12,23,79.5,30.5,0.6559151
+58,Rudraprayag,Uttarakhand,11,23,78.5,30.5,0.3440849
+51,Rupnagar,Punjab,9,24,76.5,31.5,0.55429207
+51,Rupnagar,Punjab,9,23,76.5,30.5,0.44570793
+472,Sabar Kantha,Gujarat,6,17,73.5,24.5,0.11641691
+472,Sabar Kantha,Gujarat,6,16,73.5,23.5,0.64979913
+472,Sabar Kantha,Gujarat,5,17,72.5,24.5,0.02501638
+472,Sabar Kantha,Gujarat,5,16,72.5,23.5,0.20876759
+427,Sagar,Madhya Pradesh,12,17,79.5,24.5,0.06218235
+427,Sagar,Madhya Pradesh,12,16,79.5,23.5,0.2004624
+427,Sagar,Madhya Pradesh,11,17,78.5,24.5,0.30481123
+427,Sagar,Madhya Pradesh,11,16,78.5,23.5,0.43254403
+132,Saharanpur,Uttar Pradesh,10,23,77.5,30.5,0.40068997
+132,Saharanpur,Uttar Pradesh,10,22,77.5,29.5,0.59931003
+214,Saharsa,Bihar,19,19,86.5,26.5,0.06586085
+214,Saharsa,Bihar,19,18,86.5,25.5,0.93413915
+352,Sahibganj,Jharkhand,20,18,87.5,25.5,0.47062609
+352,Sahibganj,Jharkhand,20,17,87.5,24.5,0.52937391
+52,Sahibzada Ajit Singh Nagar,Punjab,9,23,76.5,30.5,1.0
+288,Saiha,Mizoram,26,15,93.5,22.5,0.53816432
+288,Saiha,Mizoram,26,14,93.5,21.5,0.00088751
+288,Saiha,Mizoram,25,15,92.5,22.5,0.45344062
+288,Saiha,Mizoram,25,14,92.5,21.5,0.00750755
+608,Salem,Tamil Nadu,11,4,78.5,11.5,0.69080257
+608,Salem,Tamil Nadu,10,4,77.5,11.5,0.30919743
+221,Samastipur,Bihar,19,18,86.5,25.5,0.313893
+221,Samastipur,Bihar,18,19,85.5,26.5,0.03145823
+221,Samastipur,Bihar,18,18,85.5,25.5,0.65464877
+22,Samba,Jammu & Kashmir,8,25,75.5,32.5,0.80417102
+22,Samba,Jammu & Kashmir,7,25,74.5,32.5,0.19582898
+372,Sambalpur,Odisha,17,15,84.5,22.5,0.05464799
+372,Sambalpur,Odisha,17,14,84.5,21.5,0.82273294
+372,Sambalpur,Odisha,16,14,83.5,21.5,0.10155459
+372,Sambalpur,Odisha,17,13,84.5,20.5,0.02106449
+531,Sangli,Maharashtra,8,10,75.5,17.5,0.21938768
+531,Sangli,Maharashtra,8,9,75.5,16.5,0.05812326
+531,Sangli,Maharashtra,7,10,74.5,17.5,0.47570449
+531,Sangli,Maharashtra,7,9,74.5,16.5,0.21518891
+531,Sangli,Maharashtra,6,10,73.5,17.5,0.03115368
+531,Sangli,Maharashtra,6,9,73.5,16.5,0.00044198
+53,Sangrur,Punjab,9,23,76.5,30.5,0.13216288
+53,Sangrur,Punjab,9,22,76.5,29.5,0.03693685
+53,Sangrur,Punjab,8,23,75.5,30.5,0.64581582
+53,Sangrur,Punjab,8,22,75.5,29.5,0.18508445
+186,Sant Kabir Nagar,Uttar Pradesh,16,20,83.5,27.5,0.096242
+186,Sant Kabir Nagar,Uttar Pradesh,16,19,83.5,26.5,0.56256383
+186,Sant Kabir Nagar,Uttar Pradesh,15,20,82.5,27.5,0.02625959
+186,Sant Kabir Nagar,Uttar Pradesh,15,19,82.5,26.5,0.31493458
+198,Sant Ravi Das Nagar(bhadohi),Uttar Pradesh,15,18,82.5,25.5,1.0
+369,Saraikela-kharsawan,Jharkhand,19,16,86.5,23.5,0.07958301
+369,Saraikela-kharsawan,Jharkhand,19,15,86.5,22.5,0.3285049
+369,Saraikela-kharsawan,Jharkhand,18,16,85.5,23.5,0.10496374
+369,Saraikela-kharsawan,Jharkhand,18,15,85.5,22.5,0.48694835
+219,Saran (chhapra),Bihar,18,19,85.5,26.5,0.00027845
+219,Saran (chhapra),Bihar,18,18,85.5,25.5,0.18519344
+219,Saran (chhapra),Bihar,17,19,84.5,26.5,0.24134035
+219,Saran (chhapra),Bihar,17,18,84.5,25.5,0.57318776
+527,Satara,Maharashtra,7,11,74.5,18.5,0.06527051
+527,Satara,Maharashtra,7,10,74.5,17.5,0.59712082
+527,Satara,Maharashtra,6,11,73.5,18.5,0.03128493
+527,Satara,Maharashtra,6,10,73.5,17.5,0.30632373
+429,Satna,Madhya Pradesh,14,17,81.5,24.5,0.25245289
+429,Satna,Madhya Pradesh,13,18,80.5,25.5,0.05476707
+429,Satna,Madhya Pradesh,13,17,80.5,24.5,0.6880675
+429,Satna,Madhya Pradesh,13,16,80.5,23.5,0.00471254
+445,Sehore,Madhya Pradesh,11,15,78.5,22.5,0.00510341
+445,Sehore,Madhya Pradesh,10,16,77.5,23.5,0.26745966
+445,Sehore,Madhya Pradesh,10,15,77.5,22.5,0.42802827
+445,Sehore,Madhya Pradesh,9,16,76.5,23.5,0.14736311
+445,Sehore,Madhya Pradesh,9,15,76.5,22.5,0.15204555
+272,Senapati,Manipur,27,18,94.5,25.5,0.48742506
+272,Senapati,Manipur,27,17,94.5,24.5,0.10575957
+272,Senapati,Manipur,26,18,93.5,25.5,0.27378485
+272,Senapati,Manipur,26,17,93.5,24.5,0.13303052
+456,Seoni,Madhya Pradesh,13,15,80.5,22.5,0.09467662
+456,Seoni,Madhya Pradesh,12,15,79.5,22.5,0.69976702
+456,Seoni,Madhya Pradesh,12,14,79.5,21.5,0.20555636
+285,Serchhip,Mizoram,26,16,93.5,23.5,0.35801277
+285,Serchhip,Mizoram,25,16,92.5,23.5,0.64198723
+460,Shahdol,Madhya Pradesh,14,17,81.5,24.5,0.16673388
+460,Shahdol,Madhya Pradesh,14,16,81.5,23.5,0.83326612
+39,Shahid Bhagat Singh Nagar,Punjab,9,24,76.5,31.5,0.70885276
+39,Shahid Bhagat Singh Nagar,Punjab,9,23,76.5,30.5,0.05669155
+39,Shahid Bhagat Singh Nagar,Punjab,8,24,75.5,31.5,0.23405123
+39,Shahid Bhagat Singh Nagar,Punjab,8,23,75.5,30.5,0.00040446
+152,Shahjahanpur,Uttar Pradesh,13,21,80.5,28.5,0.26376187
+152,Shahjahanpur,Uttar Pradesh,13,20,80.5,27.5,0.03940548
+152,Shahjahanpur,Uttar Pradesh,12,21,79.5,28.5,0.19771369
+152,Shahjahanpur,Uttar Pradesh,12,20,79.5,27.5,0.49911896
+436,Shajapur,Madhya Pradesh,10,16,77.5,23.5,0.00504547
+436,Shajapur,Madhya Pradesh,9,17,76.5,24.5,0.06581246
+436,Shajapur,Madhya Pradesh,9,16,76.5,23.5,0.79044997
+436,Shajapur,Madhya Pradesh,8,17,75.5,24.5,0.0017721
+436,Shajapur,Madhya Pradesh,8,16,75.5,23.5,0.13692
+228,Sheikhpura,Bihar,18,18,85.5,25.5,0.9798159
+228,Sheikhpura,Bihar,18,17,85.5,24.5,0.0201841
+205,Sheohar,Bihar,18,19,85.5,26.5,1.0
+418,Sheopur,Madhya Pradesh,10,19,77.5,26.5,0.13174403
+418,Sheopur,Madhya Pradesh,10,18,77.5,25.5,0.37131199
+418,Sheopur,Madhya Pradesh,9,19,76.5,26.5,0.02362124
+418,Sheopur,Madhya Pradesh,9,18,76.5,25.5,0.47332274
+33,Shimla,Himachal Pradesh,11,24,78.5,31.5,0.10096758
+33,Shimla,Himachal Pradesh,10,24,77.5,31.5,0.74645313
+33,Shimla,Himachal Pradesh,10,23,77.5,30.5,0.15246163
+33,Shimla,Himachal Pradesh,9,24,76.5,31.5,0.00011766
+568,Shimoga,Karnataka,8,7,75.5,14.5,0.39297624
+568,Shimoga,Karnataka,8,6,75.5,13.5,0.40624077
+568,Shimoga,Karnataka,7,7,74.5,14.5,0.14036442
+568,Shimoga,Karnataka,7,6,74.5,13.5,0.06041857
+423,Shivpuri,Madhya Pradesh,11,18,78.5,25.5,0.28602189
+423,Shivpuri,Madhya Pradesh,11,17,78.5,24.5,0.04014617
+423,Shivpuri,Madhya Pradesh,10,18,77.5,25.5,0.62181198
+423,Shivpuri,Madhya Pradesh,10,17,77.5,24.5,0.05201995
+181,Shrawasti,Uttar Pradesh,15,20,82.5,27.5,0.22412765
+181,Shrawasti,Uttar Pradesh,14,20,81.5,27.5,0.77587235
+13,Shupiyan,Jammu & Kashmir,8,26,75.5,33.5,0.02695544
+13,Shupiyan,Jammu & Kashmir,7,26,74.5,33.5,0.97304456
+311,Sivasagar,Assam,28,20,95.5,27.5,0.19822685
+311,Sivasagar,Assam,28,19,95.5,26.5,0.0319579
+311,Sivasagar,Assam,27,20,94.5,27.5,0.355908
+311,Sivasagar,Assam,27,19,94.5,26.5,0.41390725
+184,Siddharth Nagar,Uttar Pradesh,16,20,83.5,27.5,0.29108625
+184,Siddharth Nagar,Uttar Pradesh,15,20,82.5,27.5,0.70891375
+462,Sidhi,Madhya Pradesh,15,17,82.5,24.5,0.16996492
+462,Sidhi,Madhya Pradesh,15,16,82.5,23.5,0.08532157
+462,Sidhi,Madhya Pradesh,14,17,81.5,24.5,0.59395057
+462,Sidhi,Madhya Pradesh,14,16,81.5,23.5,0.15076294
+111,Sikar,Rajasthan,9,20,76.5,27.5,0.01250428
+111,Sikar,Rajasthan,8,21,75.5,28.5,0.03079591
+111,Sikar,Rajasthan,8,20,75.5,27.5,0.6972592
+111,Sikar,Rajasthan,7,21,74.5,28.5,0.0479694
+111,Sikar,Rajasthan,7,20,74.5,27.5,0.21147121
+367,Simdega,Jharkhand,18,15,85.5,22.5,0.05517842
+367,Simdega,Jharkhand,17,15,84.5,22.5,0.94482158
+529,Sindhudurg,Maharashtra,7,9,74.5,16.5,0.00733893
+529,Sindhudurg,Maharashtra,7,8,74.5,15.5,0.09244383
+529,Sindhudurg,Maharashtra,6,9,73.5,16.5,0.64497375
+529,Sindhudurg,Maharashtra,6,8,73.5,15.5,0.25524349
+463,Singrauli,Madhya Pradesh,15,17,82.5,24.5,0.77863883
+463,Singrauli,Madhya Pradesh,15,16,82.5,23.5,0.18636328
+463,Singrauli,Madhya Pradesh,14,17,81.5,24.5,0.03499789
+32,Sirmaur,Himachal Pradesh,10,24,77.5,31.5,0.00275532
+32,Sirmaur,Himachal Pradesh,10,23,77.5,30.5,0.99724468
+117,Sirohi,Rajasthan,6,18,73.5,25.5,0.0291455
+117,Sirohi,Rajasthan,6,17,73.5,24.5,0.09155393
+117,Sirohi,Rajasthan,5,18,72.5,25.5,0.14071602
+117,Sirohi,Rajasthan,5,17,72.5,24.5,0.73858455
+79,Sirsa,Haryana,8,22,75.5,29.5,0.35544728
+79,Sirsa,Haryana,7,22,74.5,29.5,0.64455272
+206,Sitamarhi,Bihar,18,19,85.5,26.5,1.0
+154,Sitapur,Uttar Pradesh,14,20,81.5,27.5,0.32363276
+154,Sitapur,Uttar Pradesh,13,20,80.5,27.5,0.67636724
+622,Sivaganga,Tamil Nadu,12,2,79.5,9.5,0.00042673
+622,Sivaganga,Tamil Nadu,11,3,78.5,10.5,0.33285598
+622,Sivaganga,Tamil Nadu,11,2,78.5,9.5,0.66671729
+218,Siwan,Bihar,17,19,84.5,26.5,0.93617268
+218,Siwan,Bihar,17,18,84.5,25.5,0.06382732
+31,Solan,Himachal Pradesh,10,24,77.5,31.5,0.06812621
+31,Solan,Himachal Pradesh,10,23,77.5,30.5,0.21485535
+31,Solan,Himachal Pradesh,9,24,76.5,31.5,0.52566679
+31,Solan,Himachal Pradesh,9,23,76.5,30.5,0.19135165
+526,Solapur,Maharashtra,9,11,76.5,18.5,0.00032969
+526,Solapur,Maharashtra,9,10,76.5,17.5,0.11214149
+526,Solapur,Maharashtra,8,11,75.5,18.5,0.25631533
+526,Solapur,Maharashtra,8,10,75.5,17.5,0.52632811
+526,Solapur,Maharashtra,7,11,74.5,18.5,0.0182916
+526,Solapur,Maharashtra,7,10,74.5,17.5,0.08659378
+392,Subarnapur,Odisha,17,14,84.5,21.5,0.03505523
+392,Subarnapur,Odisha,17,13,84.5,20.5,0.15401415
+392,Subarnapur,Odisha,16,14,83.5,21.5,0.31192662
+392,Subarnapur,Odisha,16,13,83.5,20.5,0.499004
+200,Sonbhadra,Uttar Pradesh,16,17,83.5,24.5,0.53174485
+200,Sonbhadra,Uttar Pradesh,16,16,83.5,23.5,0.03863452
+200,Sonbhadra,Uttar Pradesh,15,17,82.5,24.5,0.40102439
+200,Sonbhadra,Uttar Pradesh,15,16,82.5,23.5,0.02859623
+76,Sonipat,Haryana,10,22,77.5,29.5,0.14547353
+76,Sonipat,Haryana,10,21,77.5,28.5,0.153584
+76,Sonipat,Haryana,9,22,76.5,29.5,0.53584187
+76,Sonipat,Haryana,9,21,76.5,28.5,0.16510061
+306,Sonitpur,Assam,26,19,93.5,26.5,0.40342085
+306,Sonitpur,Assam,25,20,92.5,27.5,0.01161374
+306,Sonitpur,Assam,25,19,92.5,26.5,0.58496541
+98,South,NCT of Delhi,10,21,77.5,28.5,1.0
+243,South,Sikkim,21,20,88.5,27.5,1.0
+343,South 24 Parganas,West Bengal,21,15,88.5,22.5,0.64808984
+343,South 24 Parganas,West Bengal,21,14,88.5,21.5,0.35191016
+295,South Garo Hills,Meghalaya,23,18,90.5,25.5,1.0
+586,South Goa,Goa,7,8,74.5,15.5,0.72116601
+586,South Goa,Goa,7,7,74.5,14.5,0.09630308
+586,South Goa,Goa,6,8,73.5,15.5,0.1825309
+290,South Tripura,Tripura,24,16,91.5,23.5,0.98474513
+290,South Tripura,Tripura,24,15,91.5,22.5,0.01525487
+97,South West,NCT of Delhi,10,21,77.5,28.5,0.55805951
+97,South West,NCT of Delhi,9,21,76.5,28.5,0.44194049
+542,Srikakulam,Andhra Pradesh,17,12,84.5,19.5,0.03975799
+542,Srikakulam,Andhra Pradesh,17,11,84.5,18.5,0.3833096
+542,Srikakulam,Andhra Pradesh,16,12,83.5,19.5,0.00073179
+542,Srikakulam,Andhra Pradesh,16,11,83.5,18.5,0.57620062
+10,Srinagar,Jammu & Kashmir,8,27,75.5,34.5,0.27806747
+10,Srinagar,Jammu & Kashmir,7,27,74.5,34.5,0.71809395
+10,Srinagar,Jammu & Kashmir,7,26,74.5,33.5,0.00383859
+179,Sultanpur,Uttar Pradesh,15,19,82.5,26.5,0.49371519
+179,Sultanpur,Uttar Pradesh,15,18,82.5,25.5,0.00142658
+179,Sultanpur,Uttar Pradesh,14,19,81.5,26.5,0.50485823
+374,Sundargarh,Odisha,18,15,85.5,22.5,0.05344428
+374,Sundargarh,Odisha,18,14,85.5,21.5,0.11987651
+374,Sundargarh,Odisha,17,15,84.5,22.5,0.44467273
+374,Sundargarh,Odisha,17,14,84.5,21.5,0.17450078
+374,Sundargarh,Odisha,16,15,83.5,22.5,0.14097949
+374,Sundargarh,Odisha,16,14,83.5,21.5,0.06652621
+208,Supaul,Bihar,20,19,87.5,26.5,0.15927543
+208,Supaul,Bihar,19,19,86.5,26.5,0.84071215
+208,Supaul,Bihar,19,18,86.5,25.5,1.242e-05
+492,Surat,Gujarat,6,14,73.5,21.5,0.54326572
+492,Surat,Gujarat,6,13,73.5,20.5,0.06428883
+492,Surat,Gujarat,5,14,72.5,21.5,0.39244545
+475,Surendranagar,Gujarat,5,16,72.5,23.5,0.00098121
+475,Surendranagar,Gujarat,5,15,72.5,22.5,0.03743999
+475,Surendranagar,Gujarat,4,16,71.5,23.5,0.26988261
+475,Surendranagar,Gujarat,4,15,71.5,22.5,0.68604174
+475,Surendranagar,Gujarat,3,16,70.5,23.5,0.00289252
+475,Surendranagar,Gujarat,3,15,70.5,22.5,0.00276192
+401,Surguja,Chhattisgarh,17,16,84.5,23.5,0.01096207
+401,Surguja,Chhattisgarh,16,17,83.5,24.5,0.01244657
+401,Surguja,Chhattisgarh,16,16,83.5,23.5,0.53454141
+401,Surguja,Chhattisgarh,16,15,83.5,22.5,0.12661929
+401,Surguja,Chhattisgarh,15,16,82.5,23.5,0.24365633
+401,Surguja,Chhattisgarh,15,15,82.5,22.5,0.07177433
+273,Tamenglong,Manipur,26,18,93.5,25.5,0.42221143
+273,Tamenglong,Manipur,26,17,93.5,24.5,0.57778857
+50,Tarn Taran,Punjab,8,24,75.5,31.5,0.22429686
+50,Tarn Taran,Punjab,7,24,74.5,31.5,0.77570314
+245,Tawang,Arunanchal Pradesh,25,20,92.5,27.5,0.41934592
+245,Tawang,Arunanchal Pradesh,24,20,91.5,27.5,0.58065408
+59,Tehri Garhwal,Uttarakhand,12,23,79.5,30.5,0.00657914
+59,Tehri Garhwal,Uttarakhand,11,23,78.5,30.5,0.98641408
+59,Tehri Garhwal,Uttarakhand,10,23,77.5,30.5,0.00700678
+517,Thane,Maharashtra,6,13,73.5,20.5,0.03644826
+517,Thane,Maharashtra,6,12,73.5,19.5,0.63548681
+517,Thane,Maharashtra,5,13,72.5,20.5,0.060885
+517,Thane,Maharashtra,5,12,72.5,19.5,0.26624282
+517,Thane,Maharashtra,6,11,73.5,18.5,0.00037049
+517,Thane,Maharashtra,5,11,72.5,18.5,0.00056663
+620,Thanjavur,Tamil Nadu,12,4,79.5,11.5,0.08745923
+620,Thanjavur,Tamil Nadu,12,3,79.5,10.5,0.81940889
+620,Thanjavur,Tamil Nadu,11,3,78.5,10.5,0.09313188
+489,The Dangs,Gujarat,6,14,73.5,21.5,0.02966993
+489,The Dangs,Gujarat,6,13,73.5,20.5,0.97033007
+611,The Nilgiris,Tamil Nadu,10,4,77.5,11.5,0.0036088
+611,The Nilgiris,Tamil Nadu,9,4,76.5,11.5,0.9963912
+624,Theni,Tamil Nadu,10,3,77.5,10.5,0.32027621
+624,Theni,Tamil Nadu,10,2,77.5,9.5,0.67972379
+602,Thiruvallur,Tamil Nadu,13,6,80.5,13.5,0.47817274
+602,Thiruvallur,Tamil Nadu,12,6,79.5,13.5,0.50648614
+602,Thiruvallur,Tamil Nadu,12,5,79.5,12.5,0.01534112
+601,Thiruvananthapuram,Kerala,10,1,77.5,8.5,0.58224775
+601,Thiruvananthapuram,Kerala,9,1,76.5,8.5,0.41775225
+619,Thiruvarur,Tamil Nadu,12,4,79.5,11.5,0.00531426
+619,Thiruvarur,Tamil Nadu,12,3,79.5,10.5,0.99468574
+627,Thoothukkudi,Tamil Nadu,11,2,78.5,9.5,0.2611076
+627,Thoothukkudi,Tamil Nadu,11,1,78.5,8.5,0.248819
+627,Thoothukkudi,Tamil Nadu,10,2,77.5,9.5,0.15582574
+627,Thoothukkudi,Tamil Nadu,10,1,77.5,8.5,0.33424766
+276,Thoubal,Manipur,27,17,94.5,24.5,0.3418
+276,Thoubal,Manipur,26,17,93.5,24.5,0.6582
+594,Thrissur,Kerala,9,3,76.5,10.5,0.99069628
+594,Thrissur,Kerala,8,3,75.5,10.5,0.00930372
+424,Tikamgarh,Madhya Pradesh,12,18,79.5,25.5,0.11199928
+424,Tikamgarh,Madhya Pradesh,12,17,79.5,24.5,0.2730183
+424,Tikamgarh,Madhya Pradesh,11,18,78.5,25.5,0.36101803
+424,Tikamgarh,Madhya Pradesh,11,17,78.5,24.5,0.25396439
+309,Tinsukia,Assam,29,20,96.5,27.5,0.00109473
+309,Tinsukia,Assam,28,20,95.5,27.5,0.99890527
+254,Tirap,Arunanchal Pradesh,28,20,95.5,27.5,0.35895405
+254,Tirap,Arunanchal Pradesh,28,19,95.5,26.5,0.64104595
+614,Tiruchirappalli,Tamil Nadu,12,4,79.5,11.5,0.00172762
+614,Tiruchirappalli,Tamil Nadu,12,3,79.5,10.5,0.00032968
+614,Tiruchirappalli,Tamil Nadu,11,4,78.5,11.5,0.39155621
+614,Tiruchirappalli,Tamil Nadu,11,3,78.5,10.5,0.60638649
+628,Tirunelveli,Tamil Nadu,10,2,77.5,9.5,0.30472995
+628,Tirunelveli,Tamil Nadu,10,1,77.5,8.5,0.69527005
+633,Tiruppur,Tamil Nadu,10,4,77.5,11.5,0.29491903
+633,Tiruppur,Tamil Nadu,10,3,77.5,10.5,0.70508097
+606,Tiruvannamalai,Tamil Nadu,12,5,79.5,12.5,0.67420201
+606,Tiruvannamalai,Tamil Nadu,11,5,78.5,12.5,0.32423417
+606,Tiruvannamalai,Tamil Nadu,11,4,78.5,11.5,0.00156381
+120,Tonk,Rajasthan,9,19,76.5,26.5,0.07965157
+120,Tonk,Rajasthan,9,18,76.5,25.5,0.06811152
+120,Tonk,Rajasthan,8,19,75.5,26.5,0.60678047
+120,Tonk,Rajasthan,8,18,75.5,25.5,0.24545643
+267,Tuensang,Nagaland,28,19,95.5,26.5,0.27300938
+267,Tuensang,Nagaland,28,18,95.5,25.5,0.03699227
+267,Tuensang,Nagaland,27,19,94.5,26.5,0.63946726
+267,Tuensang,Nagaland,27,18,94.5,25.5,0.05053109
+571,Tumkur,Karnataka,10,7,77.5,14.5,0.12139633
+571,Tumkur,Karnataka,10,6,77.5,13.5,0.28613472
+571,Tumkur,Karnataka,9,7,76.5,14.5,0.00644472
+571,Tumkur,Karnataka,9,6,76.5,13.5,0.51956757
+571,Tumkur,Karnataka,10,5,77.5,12.5,0.03833941
+571,Tumkur,Karnataka,9,5,76.5,12.5,0.02811726
+130,Udaipur,Rajasthan,7,17,74.5,24.5,0.2326911
+130,Udaipur,Rajasthan,6,18,73.5,25.5,0.01165615
+130,Udaipur,Rajasthan,6,17,73.5,24.5,0.70540743
+130,Udaipur,Rajasthan,7,16,74.5,23.5,0.01151667
+130,Udaipur,Rajasthan,6,16,73.5,23.5,0.03872865
+326,Udalguri,Assam,25,19,92.5,26.5,0.53153696
+326,Udalguri,Assam,24,19,91.5,26.5,0.46846304
+19,Udhampur,Jammu & Kashmir,8,26,75.5,33.5,0.19816733
+19,Udhampur,Jammu & Kashmir,8,25,75.5,32.5,0.78214355
+19,Udhampur,Jammu & Kashmir,7,25,74.5,32.5,0.01968911
+67,Udham Singh Nagar,Uttarakhand,13,22,80.5,29.5,0.05303232
+67,Udham Singh Nagar,Uttarakhand,13,21,80.5,28.5,0.07119695
+67,Udham Singh Nagar,Uttarakhand,12,22,79.5,29.5,0.34080611
+67,Udham Singh Nagar,Uttarakhand,12,21,79.5,28.5,0.41375759
+67,Udham Singh Nagar,Uttarakhand,11,22,78.5,29.5,0.12120703
+569,Udupi,Karnataka,8,6,75.5,13.5,0.2190522
+569,Udupi,Karnataka,8,5,75.5,12.5,0.00093367
+569,Udupi,Karnataka,7,6,74.5,13.5,0.77955369
+569,Udupi,Karnataka,7,5,74.5,12.5,0.00046044
+435,Ujjain,Madhya Pradesh,9,16,76.5,23.5,0.13569497
+435,Ujjain,Madhya Pradesh,8,16,75.5,23.5,0.8276711
+435,Ujjain,Madhya Pradesh,8,15,75.5,22.5,0.03663393
+279,Ukhrul,Manipur,27,18,94.5,25.5,0.51559495
+279,Ukhrul,Manipur,27,17,94.5,24.5,0.48440505
+431,Umaria,Madhya Pradesh,14,17,81.5,24.5,0.00566026
+431,Umaria,Madhya Pradesh,14,16,81.5,23.5,0.46932754
+431,Umaria,Madhya Pradesh,13,17,80.5,24.5,0.01462324
+431,Umaria,Madhya Pradesh,13,16,80.5,23.5,0.51038896
+29,Una,Himachal Pradesh,9,24,76.5,31.5,0.96554151
+29,Una,Himachal Pradesh,8,24,75.5,31.5,0.03445849
+156,Unnao,Uttar Pradesh,14,19,81.5,26.5,0.00600587
+156,Unnao,Uttar Pradesh,13,20,80.5,27.5,0.00465667
+156,Unnao,Uttar Pradesh,13,19,80.5,26.5,0.98933746
+252,Upper Siang,Arunanchal Pradesh,28,22,95.5,29.5,0.05299015
+252,Upper Siang,Arunanchal Pradesh,28,21,95.5,28.5,0.3958217
+252,Upper Siang,Arunanchal Pradesh,27,22,94.5,29.5,0.26081613
+252,Upper Siang,Arunanchal Pradesh,27,21,94.5,28.5,0.29037202
+249,Upper Subansiri,Arunanchal Pradesh,27,21,94.5,28.5,0.31105708
+249,Upper Subansiri,Arunanchal Pradesh,27,20,94.5,27.5,0.15586766
+249,Upper Subansiri,Arunanchal Pradesh,26,21,93.5,28.5,0.53066184
+249,Upper Subansiri,Arunanchal Pradesh,26,20,93.5,27.5,0.00241342
+330,Uttar Dinajpur,West Bengal,21,19,88.5,26.5,0.31158521
+330,Uttar Dinajpur,West Bengal,21,18,88.5,25.5,0.52476417
+330,Uttar Dinajpur,West Bengal,20,19,87.5,26.5,0.04542845
+330,Uttar Dinajpur,West Bengal,20,18,87.5,25.5,0.11822217
+563,Uttara Kannada,Karnataka,8,8,75.5,15.5,0.00644462
+563,Uttara Kannada,Karnataka,8,7,75.5,14.5,0.03309975
+563,Uttara Kannada,Karnataka,7,8,74.5,15.5,0.29296801
+563,Uttara Kannada,Karnataka,7,7,74.5,14.5,0.65892673
+563,Uttara Kannada,Karnataka,7,6,74.5,13.5,0.0085609
+56,Uttarkashi,Uttarakhand,12,24,79.5,31.5,0.16072942
+56,Uttarkashi,Uttarakhand,12,23,79.5,30.5,0.08239501
+56,Uttarkashi,Uttarakhand,11,24,78.5,31.5,0.2758735
+56,Uttarkashi,Uttarakhand,11,23,78.5,30.5,0.43592947
+56,Uttarkashi,Uttarakhand,10,24,77.5,31.5,0.0297946
+56,Uttarkashi,Uttarakhand,10,23,77.5,30.5,0.015278
+486,Vadodara,Gujarat,7,15,74.5,22.5,0.10393609
+486,Vadodara,Gujarat,7,14,74.5,21.5,0.01517019
+486,Vadodara,Gujarat,6,15,73.5,22.5,0.736987
+486,Vadodara,Gujarat,6,14,73.5,21.5,0.10527985
+486,Vadodara,Gujarat,5,15,72.5,22.5,0.0385429
+486,Vadodara,Gujarat,5,14,72.5,21.5,8.398e-05
+220,Vaishali,Bihar,18,19,85.5,26.5,0.00576716
+220,Vaishali,Bihar,18,18,85.5,25.5,0.99423284
+491,Valsad,Gujarat,6,13,73.5,20.5,0.6706425
+491,Valsad,Gujarat,5,13,72.5,20.5,0.3293575
+197,Varanasi,Uttar Pradesh,16,18,83.5,25.5,0.281048
+197,Varanasi,Uttar Pradesh,15,18,82.5,25.5,0.718952
+605,Vellore,Tamil Nadu,12,6,79.5,13.5,0.1561135
+605,Vellore,Tamil Nadu,12,5,79.5,12.5,0.29860085
+605,Vellore,Tamil Nadu,11,6,78.5,13.5,0.04383688
+605,Vellore,Tamil Nadu,11,5,78.5,12.5,0.50144878
+443,Vidisha,Madhya Pradesh,11,17,78.5,24.5,0.05476846
+443,Vidisha,Madhya Pradesh,11,16,78.5,23.5,0.21515912
+443,Vidisha,Madhya Pradesh,10,17,77.5,24.5,0.30471934
+443,Vidisha,Madhya Pradesh,10,16,77.5,23.5,0.42535307
+607,Viluppuram,Tamil Nadu,13,5,80.5,12.5,4.258e-05
+607,Viluppuram,Tamil Nadu,12,5,79.5,12.5,0.42264858
+607,Viluppuram,Tamil Nadu,12,4,79.5,11.5,0.34845241
+607,Viluppuram,Tamil Nadu,11,5,78.5,12.5,0.01067742
+607,Viluppuram,Tamil Nadu,11,4,78.5,11.5,0.21817902
+625,Virudunagar,Tamil Nadu,12,2,79.5,9.5,0.02218339
+625,Virudunagar,Tamil Nadu,11,2,78.5,9.5,0.38831722
+625,Virudunagar,Tamil Nadu,10,2,77.5,9.5,0.58949939
+544,Visakhapatnam,Andhra Pradesh,16,11,83.5,18.5,0.05693294
+544,Visakhapatnam,Andhra Pradesh,16,10,83.5,17.5,0.13829506
+544,Visakhapatnam,Andhra Pradesh,15,11,82.5,18.5,0.27545999
+544,Visakhapatnam,Andhra Pradesh,15,10,82.5,17.5,0.52103598
+544,Visakhapatnam,Andhra Pradesh,14,11,81.5,18.5,0.0003343
+544,Visakhapatnam,Andhra Pradesh,14,10,81.5,17.5,0.00794172
+543,Vizianagaram,Andhra Pradesh,16,12,83.5,19.5,0.03934727
+543,Vizianagaram,Andhra Pradesh,16,11,83.5,18.5,0.88480598
+543,Vizianagaram,Andhra Pradesh,16,10,83.5,17.5,0.07584675
+540,Warangal,Andhra Pradesh,13,11,80.5,18.5,0.22386772
+540,Warangal,Andhra Pradesh,13,10,80.5,17.5,0.10116352
+540,Warangal,Andhra Pradesh,12,11,79.5,18.5,0.19913837
+540,Warangal,Andhra Pradesh,12,10,79.5,17.5,0.45113817
+540,Warangal,Andhra Pradesh,11,11,78.5,18.5,0.00087477
+540,Warangal,Andhra Pradesh,11,10,78.5,17.5,0.02381746
+504,Wardha,Maharashtra,12,13,79.5,20.5,0.08100657
+504,Wardha,Maharashtra,11,14,78.5,21.5,0.23723436
+504,Wardha,Maharashtra,11,13,78.5,20.5,0.68175906
+502,Washim,Maharashtra,10,13,77.5,20.5,0.71697015
+502,Washim,Maharashtra,10,12,77.5,19.5,0.03202059
+502,Washim,Maharashtra,9,13,76.5,20.5,0.19341968
+502,Washim,Maharashtra,9,12,76.5,19.5,0.05758958
+590,Wayanad,Kerala,9,4,76.5,11.5,0.72863046
+590,Wayanad,Kerala,8,4,75.5,11.5,0.27136954
+96,West,NCT of Delhi,10,21,77.5,28.5,0.86645203
+96,West,NCT of Delhi,9,21,76.5,28.5,0.13354797
+242,West,Sikkim,21,20,88.5,27.5,1.0
+293,West Garo Hills,Meghalaya,23,18,90.5,25.5,0.82302412
+293,West Garo Hills,Meghalaya,22,18,89.5,25.5,0.17697588
+546,West Godavari,Andhra Pradesh,14,10,81.5,17.5,0.35131735
+546,West Godavari,Andhra Pradesh,14,9,81.5,16.5,0.61004963
+546,West Godavari,Andhra Pradesh,13,10,80.5,17.5,0.02718086
+546,West Godavari,Andhra Pradesh,13,9,80.5,16.5,0.01145216
+246,West Kameng,Arunanchal Pradesh,25,20,92.5,27.5,0.92419614
+246,West Kameng,Arunanchal Pradesh,25,19,92.5,26.5,0.07580386
+296,West Khasi Hills,Meghalaya,24,18,91.5,25.5,0.82738071
+296,West Khasi Hills,Meghalaya,23,18,90.5,25.5,0.17261929
+440,West Nimar,Madhya Pradesh,9,15,76.5,22.5,0.11408927
+440,West Nimar,Madhya Pradesh,9,14,76.5,21.5,0.07729987
+440,West Nimar,Madhya Pradesh,8,15,75.5,22.5,0.28538214
+440,West Nimar,Madhya Pradesh,8,14,75.5,21.5,0.52322872
+250,West Siang,Arunanchal Pradesh,27,22,94.5,29.5,0.00331362
+250,West Siang,Arunanchal Pradesh,27,21,94.5,28.5,0.74869313
+250,West Siang,Arunanchal Pradesh,26,21,93.5,28.5,0.00282951
+250,West Siang,Arunanchal Pradesh,27,20,94.5,27.5,0.24516374
+289,West Tripura,Tripura,24,17,91.5,24.5,0.16218305
+289,West Tripura,Tripura,24,16,91.5,23.5,0.83781695
+264,Wokha,Nagaland,27,19,94.5,26.5,0.91778124
+264,Wokha,Nagaland,27,18,94.5,25.5,0.04703558
+264,Wokha,Nagaland,26,19,93.5,26.5,0.01720484
+264,Wokha,Nagaland,26,18,93.5,25.5,0.01797834
+580,Yadgir,Karnataka,10,9,77.5,16.5,0.43675559
+580,Yadgir,Karnataka,9,9,76.5,16.5,0.56324441
+510,Yavatmal,Maharashtra,12,13,79.5,20.5,0.00649503
+510,Yavatmal,Maharashtra,12,12,79.5,19.5,0.01767138
+510,Yavatmal,Maharashtra,11,13,78.5,20.5,0.39636927
+510,Yavatmal,Maharashtra,11,12,78.5,19.5,0.16650641
+510,Yavatmal,Maharashtra,10,13,77.5,20.5,0.19720994
+510,Yavatmal,Maharashtra,10,12,77.5,19.5,0.21574797
+263,Zunheboto,Nagaland,27,19,94.5,26.5,0.61178145
+263,Zunheboto,Nagaland,27,18,94.5,25.5,0.38821855
+407,Kabeerdham,Chhattisgarh,14,15,81.5,22.5,0.59432192
+407,Kabeerdham,Chhattisgarh,14,14,81.5,21.5,0.28945724
+407,Kabeerdham,Chhattisgarh,13,15,80.5,22.5,0.03019519
+407,Kabeerdham,Chhattisgarh,13,14,80.5,21.5,0.08602566
+71,Yamunanagar,Haryana,10,23,77.5,30.5,0.9628006
+71,Yamunanagar,Haryana,10,22,77.5,29.5,0.0371994
+77,Jind,Haryana,9,22,76.5,29.5,0.95135557
+77,Jind,Haryana,8,22,75.5,29.5,0.04864443
+109,Dausa,Rajasthan,10,20,77.5,27.5,0.00061057
+109,Dausa,Rajasthan,10,19,77.5,26.5,0.01590286
+109,Dausa,Rajasthan,9,20,76.5,27.5,0.27865368
+109,Dausa,Rajasthan,9,19,76.5,26.5,0.70483288
+107,Karauli,Rajasthan,10,19,77.5,26.5,0.43472112
+107,Karauli,Rajasthan,9,19,76.5,26.5,0.56527888
+108,Sawai Madhopur,Rajasthan,9,19,76.5,26.5,0.79501108
+108,Sawai Madhopur,Rajasthan,9,18,76.5,25.5,0.20390098
+108,Sawai Madhopur,Rajasthan,8,19,75.5,26.5,0.00108794
+240,Arwal,Bihar,17,18,84.5,25.5,1.0
+239,Jehanabad,Bihar,18,18,85.5,25.5,0.59217752
+239,Jehanabad,Bihar,18,17,85.5,24.5,0.00181061
+239,Jehanabad,Bihar,17,18,84.5,25.5,0.40197341
+239,Jehanabad,Bihar,17,17,84.5,24.5,0.00403846
+618,Nagappattinam,Tamil Nadu,12,4,79.5,11.5,0.45118197
+618,Nagappattinam,Tamil Nadu,12,3,79.5,10.5,0.54881803
+637,Karaikal,Puducherry,12,4,79.5,11.5,0.00519872
+637,Karaikal,Puducherry,12,3,79.5,10.5,0.99480128
+635,Puducherry,Puducherry,12,5,79.5,12.5,0.11780444
+635,Puducherry,Puducherry,12,4,79.5,11.5,0.88219556
+634,Yanam,Puducherry,15,9,82.5,16.5,1.0
+493,Tapi,Gujarat,7,14,74.5,21.5,0.10839364
+493,Tapi,Gujarat,6,14,73.5,21.5,0.72354629
+493,Tapi,Gujarat,6,13,73.5,20.5,0.16806008
+638,Nicobar,Andaman & Nicobar Island,26,1,93.5,8.5,0.22100561
+638,Nicobar,Andaman & Nicobar Island,25,2,92.5,9.5,0.09564934
+638,Nicobar,Andaman & Nicobar Island,26,0,93.5,7.5,0.68334505
+640,South Andaman,Andaman & Nicobar Island,26,5,93.5,12.5,0.04891576
+640,South Andaman,Andaman & Nicobar Island,26,4,93.5,11.5,0.021496
+640,South Andaman,Andaman & Nicobar Island,25,5,92.5,12.5,0.14674228
+640,South Andaman,Andaman & Nicobar Island,25,4,92.5,11.5,0.50023673
+640,South Andaman,Andaman & Nicobar Island,25,3,92.5,10.5,0.28260922
+639,North & Middle Andaman,Andaman & Nicobar Island,27,6,94.5,13.5,0.00244923
+639,North & Middle Andaman,Andaman & Nicobar Island,26,6,93.5,13.5,0.07586994
+639,North & Middle Andaman,Andaman & Nicobar Island,26,5,93.5,12.5,0.0001121
+639,North & Middle Andaman,Andaman & Nicobar Island,25,6,92.5,13.5,0.29569144
+639,North & Middle Andaman,Andaman & Nicobar Island,25,5,92.5,12.5,0.6258773
+587,Lakshadweep,Lakshadweep,7,4,74.5,11.5,0.21967717
+587,Lakshadweep,Lakshadweep,6,4,73.5,11.5,0.05188028
+587,Lakshadweep,Lakshadweep,6,3,73.5,10.5,0.05329823
+587,Lakshadweep,Lakshadweep,5,4,72.5,11.5,0.19254599
+587,Lakshadweep,Lakshadweep,4,5,71.5,12.5,0.07334801
+587,Lakshadweep,Lakshadweep,4,4,71.5,11.5,0.19599964
+587,Lakshadweep,Lakshadweep,5,3,72.5,10.5,0.15001942
+587,Lakshadweep,Lakshadweep,6,1,73.5,8.5,0.06323127
