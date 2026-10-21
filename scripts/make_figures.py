@@ -11,7 +11,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts import viz_style as V  # noqa: E402
-from scripts.common import FEATURES, HAZ, PRED, RES, ROOT, load_table  # noqa: E402
+from scripts.common import FEATURES, HAZ, PRED, RES, ROOT, load_table, run_label  # noqa: E402
 from scripts.evaluate import MODELS  # noqa: E402
 
 import matplotlib.pyplot as plt  # noqa: E402
@@ -276,7 +276,7 @@ def bigdata():
     ax.barh(k, [hd[i] / 1e6 for i in k], color=V.BLUE)
     for i, z in enumerate(k):
         ax.text(hd[z] / 1e6 + 8, i, f"{hd[z] / 1e6:,.1f} MB", va="center", fontsize=9)
-    ax.set_xlim(0, 900); ax.grid(axis="y", visible=False); ax.set_title("HDFS storage by zone (Colab run 2026-10-11)")
+    ax.set_xlim(0, 900); ax.grid(axis="y", visible=False); ax.set_title(f"HDFS storage by zone ({run_label()})")
     V.save(fig, FIG / "hdfs_storage.png")
     t = pd.read_csv(RES / "scalability_timings.csv").groupby("years").agg(rt=("runtime_s", "mean"), rec=("map_input_records", "first"))
     fig, ax = plt.subplots(figsize=(6, 3.6))
@@ -284,7 +284,7 @@ def bigdata():
     for yrs, r in t.iterrows():
         ax.text(r.rec / 1e6 + 0.15, r.rt, f"{yrs} yr: {r.rt:.0f} s", fontsize=9, va="center")
     ax.set(xlabel="District-day records (millions)", ylabel="Runtime (s)",
-           title="MapReduce scaling, single node (Colab run 2026-10-11)")
+           title=f"MapReduce scaling, single node ({run_label()})")
     V.save(fig, FIG / "mapreduce_scalability.png")
     km = json.loads((RES / "kmeans_regimes.json").read_text())
     fig, ax = plt.subplots(figsize=(5.6, 3.4))

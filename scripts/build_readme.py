@@ -6,9 +6,9 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from scripts.common import RES, ROOT  # noqa: E402
+from scripts.common import RES, ROOT, run_label  # noqa: E402
 
-REF = "Colab run 2026-10-11"
+REF = run_label()
 COLAB = "https://colab.research.google.com/github/deepankarkumar1310/hadoop-ml-algorithm-/blob/main/notebooks/Review2_Colab.ipynb"
 
 

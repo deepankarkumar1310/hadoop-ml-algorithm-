@@ -10,6 +10,8 @@ import json
 import numbers
 from pathlib import Path
 
+import sys
+
 import pandas as pd
 from pptx import Presentation
 from pptx.chart.data import CategoryChartData
@@ -20,6 +22,8 @@ from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.util import Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from scripts.common import run_label  # noqa: E402
 RES = ROOT / "results"
 TEMPLATE = ROOT / "docs" / "templates" / "Review_2_PPT.pptx"
 OUT = ROOT / "docs" / "Review2_Deck.pptx"
@@ -37,7 +41,7 @@ WHITE = RGBColor(0xFF, 0xFF, 0xFF)
 PEND = RGBColor(0xC0, 0x39, 0x2B)
 TITLE_FONT, BODY_FONT = "Times New Roman", "Calibri"
 PENDING = "PENDING"
-REF = "Colab run 2026-10-11"
+REF = run_label()
 
 
 def load(name):

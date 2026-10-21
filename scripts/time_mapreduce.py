@@ -66,6 +66,7 @@ def main():
     assert years, f"no district_day_*.csv in {HDFS_DIR}"
     print(f"HDFS has {len(years)} years: {years[0]}-{years[-1]}")
     env = environment()
+    env["run_date"] = time.strftime("%Y-%m-%d")
     os.makedirs("results", exist_ok=True)
     json.dump(env, open("results/environment.json", "w"), indent=2)
 

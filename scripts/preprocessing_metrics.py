@@ -42,7 +42,7 @@ m["district_day"] = {"years": int(len(man)), "rows": int(r),
                      "rain_missing_pct": float(man.rain_missing.sum() / r * 100),
                      "tmax_missing_pct": float(man.tmax_missing.sum() / r * 100),
                      "tmin_missing_pct": float(man.tmin_missing.sum() / r * 100),
-                     "source": "Colab run 2026-10-11 manifest"}
+                     "source": "district-day manifest"}
 # Final analysis table
 a = pd.read_csv(f"{O}/data/processed/analysis_table.csv")
 DEV = ["literacy_rate", "female_literacy_rate", "agri_worker_share", "mgnrega_days", "yield_variability"]

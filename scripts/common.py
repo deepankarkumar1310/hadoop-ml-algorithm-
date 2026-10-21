@@ -49,3 +49,10 @@ def get_folds(df, y):
 def index_of(df):
     pos = {c: i for i, c in enumerate(df.censuscode)}
     return lambda codes: np.array([pos[c] for c in codes])
+
+
+def run_label():
+    """'Colab run <date>' for the HDFS / MapReduce / Hive numbers (2026-10-11 = the earlier reference run)."""
+    p = RES / "environment.json"
+    d = json.loads(p.read_text()).get("run_date", "2026-10-11") if p.exists() else "2026-10-11"
+    return f"Colab run {d}"
