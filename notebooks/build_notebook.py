@@ -24,28 +24,28 @@ md("""
 **Research question.** Why do some economically developed Indian districts remain highly climate-vulnerable,
 while some less-developed districts are resilient?
 
-| Section | Content | Owner |
-|---|---|---|
-| 0 | Setup: Drive, repository, packages, tests | Sehjodh Grewal |
-| 1 | Data download: IMD 1991–2020 to Google Drive | Sehjodh Grewal |
-| 2 | Preprocessing + Table 1 + preprocessing error metrics | Sehjodh Grewal |
-| 3 | Big Data platform: Hadoop (HDFS + YARN), Hive, Spark | Deepankar |
-| 4 | HDFS load, listing, Table 2 | Deepankar |
-| 5 | MapReduce on YARN: local test, job, timings, correctness check | Deepankar |
-| 6 | Hive: 30-year baseline + join, check against pandas | Deepankar |
-| 7 | Spark k-means climate regimes + Table 3 | Deepankar |
-| 8 | A-CPN (proposed model): architecture, parameters, Table 4 | Devanshu Kumar |
-| 9 | Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) + MLP; A-CPN ablation | Tanmay Singh (comparison), Devanshu Kumar (ablation) |
-| 10 | Table 5 (comparison, metrics, preprocessing before/after) and Table 6 (ablation, climate push) | Tanmay Singh (Table 5), Devanshu Kumar (Table 6) |
-| 11 | Visualisations (only after every table), one subsection per owner | each owner |
-| 12 | Build the slides; appendix to show code | Tanmay Singh |
+| Section | Content |
+|---|---|
+| 0 | Setup: Drive, repository, packages, tests |
+| 1 | Data download: IMD 1991–2020 to Google Drive |
+| 2 | Preprocessing + Table 1 + preprocessing error metrics |
+| 3 | Big Data platform: Hadoop (HDFS + YARN), Hive, Spark |
+| 4 | HDFS load, listing, Table 2 |
+| 5 | MapReduce on YARN: local test, job, timings, correctness check |
+| 6 | Hive: 30-year baseline + join, check against pandas |
+| 7 | Spark k-means climate regimes + Table 3 |
+| 8 | A-CPN (proposed model): architecture, parameters, Table 4 |
+| 9 | Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) + MLP; A-CPN ablation |
+| 10 | Table 5 (comparison, metrics, preprocessing before/after) and Table 6 (ablation, climate push) |
+| 11 | Visualisations (only after every table) |
+| 12 | Build the slides; appendix to show code |
 
 **Fast path:** to show only the models, run section 0 and then sections 8–12; they use the committed
 `data/processed/analysis_table.csv`. Single-node pseudo-distributed Hadoop (replication 1): no multi-machine
 speed-up is claimed.
 """)
 
-md("## 0. Setup  *(owner: Sehjodh Grewal)*")
+md("## 0. Setup")
 code(f"""
 import os, subprocess, sys
 IN_COLAB = 'google.colab' in sys.modules
@@ -73,7 +73,7 @@ code("""
 """)
 
 md("""
-## 1. Dataset and IMD download  *(owner: Sehjodh Grewal)*
+## 1. Dataset and IMD download
 
 | Dataset | Source | Year | Format | Role |
 |---|---|---|---|---|
@@ -90,7 +90,7 @@ code("""
 """)
 
 md("""
-## 2. Preprocessing and preprocessing results  *(owner: Sehjodh Grewal)*
+## 2. Preprocessing and preprocessing results
 
 P1 Census rates · P2 NDAP↔Census matching · P3 development score and quadrants · P4 grid→district area weights ·
 P5 district-day table (missing stays missing) · P6 Chennai orientation gate · P7 standardisation on training folds only.
@@ -124,7 +124,7 @@ pm
 """)
 
 md("""
-## 3. Big Data platform  *(owner: Deepankar)*
+## 3. Big Data platform
 
 | Tool | Where | What it does | Why chosen |
 |---|---|---|---|
@@ -152,7 +152,7 @@ load_env('hadoop/setup_hadoop.sh')
 !hdfs dfsadmin -report | head -12
 """)
 
-md("## 4. HDFS load and Table 2  *(owner: Deepankar)*")
+md("## 4. HDFS load and Table 2")
 code("""
 !bash hadoop/load_hdfs.sh "$IMD_DIR" data/staging/district_day
 !hdfs dfs -put -f data/processed/analysis_table.csv /project/processed/
@@ -161,7 +161,7 @@ code("""
 """)
 
 md("""
-## 5. MapReduce on YARN  *(owner: Deepankar)*
+## 5. MapReduce on YARN
 
 **Map:** each district-day row → key (censuscode, year). **Reduce:** sort the days by date and compute 7 yearly
 indices (rain total, heavy-rain days, max 5-day rain, longest dry spell, mean Tmax, hot days, tropical nights).
@@ -182,7 +182,7 @@ code("""
 !python3 scripts/colab_checks.py --check mapreduce
 """)
 
-md("## 6. Hive: 30-year baseline + join, checked against pandas  *(owner: Deepankar)*")
+md("## 6. Hive: 30-year baseline + join, checked against pandas")
 code("""
 load_env('hive/setup_hive.sh')
 !cd /opt/hive-metastore && hive --hivevar start=$START --hivevar end=$END -f $OLDPWD/hive/project.hql 2>/dev/null
@@ -192,7 +192,7 @@ load_env('hive/setup_hive.sh')
 !cat results/hive_check.json
 """)
 
-md("## 7. Spark k-means climate regimes + Table 3  *(owner: Deepankar)*")
+md("## 7. Spark k-means climate regimes + Table 3")
 code("""
 load_env('spark/setup_spark.sh')
 !python3 spark/kmeans_regimes.py --input hdfs://localhost:9000/project/processed/analysis_table.csv --output hdfs://localhost:9000/project/processed/climate_regimes 2>&1 | grep -E "k=|chosen"
@@ -208,7 +208,7 @@ display(pd.DataFrame([
 """)
 
 md("""
-## 8. Proposed model: A-CPN (Attentive Climate Push Network)  *(owner: Devanshu Kumar)*
+## 8. Proposed model: A-CPN (Attentive Climate Push Network)
 
 `logit = development baseline (linear, 5 features) + climate push (attention → KAN → residual MLP, 8 hazard features)`.
 MC Dropout gives the uncertainty of each district's push; split conformal prediction gives 90% prediction sets.
@@ -228,7 +228,7 @@ if RERUN_MODELS:
 print(open('results/table4_model_card.json').read())
 """)
 
-md("## 9. Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) and a standard MLP  *(owner: Tanmay Singh; A-CPN ablation run: Devanshu Kumar)*")
+md("## 9. Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) and a standard MLP")
 code("""
 if RERUN_MODELS:
     !python3 spark/train_baselines.py 2>&1 | grep -E "folds done|districts read"
@@ -237,7 +237,7 @@ if RERUN_MODELS:
     !python3 scripts/train_acpn.py --ablation
 """)
 
-md("## 10. Tables 5 and 6  *(owners: Tanmay Singh for Table 5, Devanshu Kumar for Table 6)*")
+md("## 10. Tables 5 and 6")
 code("""
 !python3 scripts/evaluate.py > /dev/null
 t5 = pd.read_csv('results/table5_comparison.csv')
@@ -259,18 +259,18 @@ def show(*names):
     for f in names:
         print(f); display(Image(f'figures/{f}.png'))
 """)
-md("### 11a. Preprocessing figures  *(owner: Sehjodh Grewal)*")
+md("### 11a. Preprocessing figures")
 code("show('prep_quality_before_after', 'prep_feature_scaling', 'prep_retention', 'prep_feature_signal', 'prep_correlation')")
-md("### 11b. HDFS storage  *(owner: Deepankar)*")
+md("### 11b. HDFS storage")
 code("show('hdfs_storage')")
-md("### 11c. MapReduce and Spark k-means  *(owner: Deepankar)*")
+md("### 11c. MapReduce and Spark k-means")
 code("show('mapreduce_scalability', 'kmeans_silhouette')")
-md("### 11d. Models  *(owners: Tanmay Singh for comparison and preprocessing gain; Devanshu Kumar for A-CPN training, attention, ablation, climate push)*")
+md("### 11d. Models")
 code("show('roc_curves', 'comparison_bars', 'fold_boxplots', 'confusion_matrices', 'calibration', 'loso_by_state', "
      "'acpn_training_curve', 'prep_model_gain', 'ablation', 'attention_importance', 'climate_push_by_quadrant', "
      "'climate_push_map')")
 
-md("## 12. Slides and appendix  *(owner: Tanmay Singh)*")
+md("## 12. Slides and appendix")
 code("""
 !python3 scripts/build_deck.py
 """)
