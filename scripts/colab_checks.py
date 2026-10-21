@@ -1,14 +1,15 @@
 """Two preprocessing error checks that need the raw IMD grids (run in Colab after MapReduce).
 
-1. MapReduce vs pandas: the 7 yearly indices recomputed with an independent vectorised pandas
+1. MapReduce vs pandas (Tanmay, notebook section 5): the 7 yearly indices recomputed with an independent vectorised pandas
    implementation from the same district-day staging files; RMSE / MAE / max error per index.
-2. Area-weighted vs nearest-cell: annual rainfall per district from our area-weighted aggregation
+2. Area-weighted vs nearest-cell (Sehjodh, notebook section 2): annual rainfall per district from our area-weighted aggregation
    compared with the naive method (take the single grid cell with the largest overlap).
    This is the size of the error the naive method would have introduced.
 
 Writes results/preprocessing_colab_checks.json (read by the slide builder).
 
-Usage: python3 scripts/colab_checks.py --staging data/staging/district_day --imd-dir <imd> --year 2020
+Usage: python3 scripts/colab_checks.py --check aggregation --imd-dir <imd> --year 2020
+       python3 scripts/colab_checks.py --check mapreduce
 """
 import argparse
 import glob
@@ -58,11 +59,22 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--staging", default="data/staging/district_day")
     ap.add_argument("--mr", default="data/processed/district_year_indices.csv")
-    ap.add_argument("--imd-dir", required=True)
+    ap.add_argument("--imd-dir", default="data/imd")
+    ap.add_argument("--check", choices=["mapreduce", "aggregation", "all"], default="all")
     ap.add_argument("--year", type=int, default=2020)
     a = ap.parse_args()
-    res = {}
+    out = Path("results/preprocessing_colab_checks.json")
+    res = json.loads(out.read_text()) if out.exists() else {}
 
+    if a.check in ("mapreduce", "all"):
+        mapreduce_check(a, res)
+    if a.check in ("aggregation", "all"):
+        aggregation_check(a, res)
+    out.write_text(json.dumps(res, indent=2))
+    print(json.dumps(res, indent=2))
+
+
+def mapreduce_check(a, res):
     mr = pd.read_csv(a.mr, header=None, names=MR_COLS)
     pdx = pandas_indices(a.staging)
     m = mr.merge(pdx, on=["censuscode", "year"], suffixes=("_mr", "_pd"))
@@ -78,6 +90,8 @@ def main():
                                   "rmse_max": max(v["rmse"] for v in per.values()),
                                   "mae_max": max(v["mae"] for v in per.values())}
 
+
+def aggregation_check(a, res):
     w = pd.read_csv("data/processed/grid_district_weights_rain.csv")
     nlat, nlon = GRID["rain"]
     grid = read_grd(os.path.join(a.imd_dir, "rain", f"{a.year}.grd"), "rain", a.year, nlat, nlon)
@@ -92,8 +106,6 @@ def main():
     res["area_vs_nearest_cell"] = {"year": a.year, "districts": int(len(diff)),
                                    "rmse_mm": float(np.sqrt((diff ** 2).mean())), "mae_mm": float(diff.abs().mean()),
                                    "mean_abs_pct": float((diff.abs() / area[diff.index]).mean() * 100)}
-    Path("results/preprocessing_colab_checks.json").write_text(json.dumps(res, indent=2))
-    print(json.dumps(res, indent=2))
 
 
 if __name__ == "__main__":

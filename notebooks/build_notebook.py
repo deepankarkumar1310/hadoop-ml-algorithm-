@@ -37,7 +37,7 @@ while some less-developed districts are resilient?
 | 8 | A-CPN (proposed model): architecture, parameters, Table 4 | Devanshu Kumar |
 | 9 | Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) + MLP | Devanshu Kumar |
 | 10 | Tables 5 and 6: comparison, metrics, ablation, climate push, preprocessing before/after | Devanshu Kumar |
-| 11 | Visualisations (only after every table) | each owner |
+| 11 | Visualisations (only after every table), one subsection per owner | each owner |
 | 12 | Build the slides; appendix to show code | Tanmay Singh |
 
 **Fast path:** to show only the models, run section 0 and then sections 8–12; they use the committed
@@ -100,6 +100,8 @@ code("""
 !python3 scripts/match_districts.py | tail -8
 !python3 scripts/build_integrated_table.py | tail -5
 !python3 scripts/build_district_day.py --imd-dir "$IMD_DIR" --out-dir data/staging/district_day --start $START --end $END
+# error check: our area-weighted aggregation vs the naive nearest-cell method
+!python3 scripts/colab_checks.py --check aggregation --imd-dir "$IMD_DIR" --year $END
 """)
 code("""
 # TABLE 1 + preprocessing error metrics (each step checked against a reference)
@@ -176,8 +178,8 @@ code("""
 # scalability: 1 / 10 / 30 years, 2 repeats each (single node)
 !python3 scripts/time_mapreduce.py --years 1 10 30 --repeats 2
 !cat results/scalability_timings.csv
-# preprocessing error checks that need the raw grids: MapReduce vs pandas, area-weighted vs nearest-cell
-!python3 scripts/colab_checks.py --imd-dir "$IMD_DIR" --year $END
+# correctness check: the 7 MapReduce indices recomputed independently in pandas
+!python3 scripts/colab_checks.py --check mapreduce
 """)
 
 md("## 6. Hive: 30-year baseline + join, checked against pandas  *(owner: Tanmay Singh)*")
@@ -231,7 +233,7 @@ code("""
 if RERUN_MODELS:
     !python3 spark/train_baselines.py 2>&1 | grep -E "folds done|districts read"
     !python3 scripts/train_mlp.py
-    !python3 scripts/train_acpn.py --raw        # preprocessing before/after experiment
+    !python3 scripts/train_acpn.py --raw        # effect of preprocessing on the models (raw vs preprocessed features)
     !python3 scripts/train_acpn.py --ablation
 """)
 
@@ -249,16 +251,24 @@ print('Preprocessing before vs after (raw vs preprocessed features)'); display(p
 print('TABLE 6b - climate push'); print(open('results/table6_climate_push.json').read()[:3000])
 """)
 
-md("## 11. Visualisations (only after every table)  *(each owner)*")
+md("## 11. Visualisations (only after every table)")
 code("""
 !python3 scripts/make_figures.py > /dev/null
 from IPython.display import Image, display
-for f in ['prep_retention', 'prep_quality_before_after', 'prep_feature_scaling', 'prep_model_gain', 'prep_feature_signal',
-          'prep_correlation', 'hdfs_storage', 'mapreduce_scalability', 'kmeans_silhouette', 'roc_curves', 'comparison_bars',
-          'fold_boxplots', 'confusion_matrices', 'calibration', 'loso_by_state', 'acpn_training_curve', 'ablation',
-          'attention_importance', 'climate_push_by_quadrant', 'climate_push_map']:
-    print(f); display(Image(f'figures/{f}.png'))
+def show(*names):
+    for f in names:
+        print(f); display(Image(f'figures/{f}.png'))
 """)
+md("### 11a. Preprocessing figures  *(owner: Sehjodh Grewal)*")
+code("show('prep_quality_before_after', 'prep_feature_scaling', 'prep_retention', 'prep_feature_signal', 'prep_correlation')")
+md("### 11b. HDFS storage  *(owner: Deepankar)*")
+code("show('hdfs_storage')")
+md("### 11c. MapReduce and Spark k-means  *(owner: Tanmay Singh)*")
+code("show('mapreduce_scalability', 'kmeans_silhouette')")
+md("### 11d. Models: comparison, preprocessing gain, ablation, climate push  *(owner: Devanshu Kumar)*")
+code("show('roc_curves', 'comparison_bars', 'fold_boxplots', 'confusion_matrices', 'calibration', 'loso_by_state', "
+     "'acpn_training_curve', 'prep_model_gain', 'ablation', 'attention_importance', 'climate_push_by_quadrant', "
+     "'climate_push_map')")
 
 md("## 12. Slides and appendix  *(owner: Tanmay Singh)*")
 code("""

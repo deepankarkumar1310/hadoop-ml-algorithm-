@@ -343,7 +343,7 @@ bullets(s, 0.4, 1.3, 9.2, 1.75, [
      "MGNREGA days, yield variability (NDAP 2021)"),
     ("8 hazard variables: ", "annual rain, rain variability, max 5-day rain, heavy-rain days, longest dry "
      "spell, mean Tmax, hot days, tropical nights"),
-    ("Scale: ", f"~212 million gridded climate values; {tot_bytes / 1e9:.2f} GB in HDFS ({REF})")], size=15, space=3)
+    ("Scale: ", "~212 million gridded climate values (30 years of daily IMD grids)")], size=15, space=3)
 table(s, 0.4, 3.2, 9.2, [
     ["Dataset", "Source", "Year", "Format", "Size", "Role"],
     ["Climate Vulnerability Index + indicators", "NITI Aayog NDAP 7160", "2021", "CSV", "699 × 79", "Outcome + 2 dev vars"],
@@ -445,12 +445,15 @@ bullets(s, 0.4, 5.85, 9.2, 1.1, [
 owner(s, "Deepankar")
 
 # ================================================================= 8 PROCESSING
+cc = load("preprocessing_colab_checks.json") or {}
+_m = cc.get("mapreduce_vs_pandas")
+mr_check = (f"RMSE ≤ {_m['rmse_max']:.2g}, MAE ≤ {_m['mae_max']:.2g}" if _m else PENDING)
 km_txt = PENDING if kmeans is None else f"k = {kmeans['k']}, silhouette {kmeans['silhouette']:.3f}"
 s = new_slide("Big Data Processing: MapReduce, Hive, Spark",
               "MapReduce does the heaviest step, 7 million daily rows to 19,200 district-years, because the work "
               "splits by district and year. Hive does the averaging and the join in SQL, and its output matched "
-              "pandas exactly. Spark is used for k-means climate regimes and the MLlib baselines because it "
-              "works in memory.", size=24)
+              "pandas exactly. Spark k-means finds the climate regimes because it works in memory. The last row "
+              "checks the MapReduce output against an independent pandas recomputation.", size=24)
 table(s, 0.4, 1.3, 9.2, [
     ["Job", "Input", "Output", "Result", "Why this tool"],
     ["MapReduce (Hadoop Streaming)", f"{int(mr30.map_input_records):,} district-day rows",
@@ -461,7 +464,7 @@ table(s, 0.4, 1.3, 9.2, [
     ["Hive baseline + join", "19,200 rows + dev table", f"{hive['hive_rows']}-district table, 8 hazard vars",
      f"identical to pandas (max diff {hive['max_abs_diff']})", "Averages + joins are SQL"],
     ["Spark k-means", "8 hazard vars", "climate regimes (k by silhouette)", km_txt, "In-memory iterative algorithm"],
-    ["Spark MLlib", "469 districts × 13 features", "4 baseline models", "see Table 5", "Distributed standard models"]],
+    ["MapReduce correctness", "same district-days", "7 indices recomputed in pandas", mr_check, "Independent check of the job"]],
     [1.75, 1.75, 2.0, 1.75, 1.95], size=12, row_h=0.72)
 textbox(s, 0.4, 5.85, 9.2, 0.9, f"MapReduce and Hive values: {REF} (2 vCPU, 12.7 GB RAM). Single node: "
         "throughput rises with input size, but no multi-machine speed-up is claimed.", 13, color=GREY)
@@ -510,21 +513,15 @@ owner(s, "Sehjodh Grewal")
 
 # ================================================================= 11 PREPROCESSING ERROR METRICS
 c_, gr, gt, dd = pm["census"], pm["grid_rain"], pm["grid_temp"], pm["district_day"]
-cc = load("preprocessing_colab_checks.json")
-if cc:
-    _m, _a = cc["mapreduce_vs_pandas"], cc["area_vs_nearest_cell"]
-    mr_row = ["MapReduce vs pandas", f"{_m['rows_compared']:,} district-years", "7 indices recomputed",
-              f"RMSE ≤ {_m['rmse_max']:.2g}, MAE ≤ {_m['mae_max']:.2g}"]
-    nc_row = ["Area-weighted vs nearest-cell", f"naive method, {_a['year']}", f"{_a['districts']} districts",
-              f"RMSE {_a['rmse_mm']:.0f} mm ({_a['mean_abs_pct']:.1f}%) avoided"]
-else:
-    mr_row = ["MapReduce vs pandas", "same district-days", PENDING, "RMSE / MAE: PENDING"]
-    nc_row = ["Area-weighted vs nearest-cell", "naive method", PENDING, "RMSE: PENDING"]
+_a = cc.get("area_vs_nearest_cell")
+nc_row = (["Area-weighted vs nearest-cell", f"naive method, {_a['year']}", f"{_a['districts']} districts",
+           f"RMSE {_a['rmse_mm']:.0f} mm ({_a['mean_abs_pct']:.1f}%) avoided"] if _a else
+          ["Area-weighted vs nearest-cell", "naive method", PENDING, "RMSE: PENDING"])
 s = new_slide("Preprocessing Error Metrics: Before vs After",
               "Each preprocessing step is checked against a reference. Census totals reproduce the official "
               "figures, grid weights sum to one within rounding, missing climate cells stay missing instead of "
-              "becoming zero, and the final table has no missing, duplicate or out-of-range values. Two checks "
-              "need the raw IMD grids and will be filled by the Colab run.", size=24)
+              "becoming zero, and the final table has no missing, duplicate or out-of-range values. The last check "
+              "needs the raw IMD grids and is filled by the Colab run.", size=24)
 table(s, 0.4, 1.25, 9.2, [
     ["Check", "Before / reference", "After / measured", "Error"],
     ["Census population", "official 1,210,854,977", f"{c_['population']:,}", f"{c_['population_abs_error']} ({c_['population_pct_error']:.3f}%)"],
@@ -534,36 +531,10 @@ table(s, 0.4, 1.25, 9.2, [
     ["Grid weights Σw = 1", f"{gr['pairs']:,} rain / {gt['pairs']:,} temp pairs", f"max |Σw−1| {gr['max_abs_sum_error']:.0e} / {gt['max_abs_sum_error']:.0e}", f"RMSE {gr['rmse_sum_error']:.1e}"],
     ["District-day missing cells", f"rain {dd['rain_missing_pct']:.2f}%, Tmax {dd['tmax_missing_pct']:.2f}%", "kept as NaN, weights renormalised", "0 zero-filled"],
     ["Final table quality", "—", f"{ft['duplicate_censuscodes']} duplicates, {ft['out_of_range_values']} out of range", f"{ft['outliers_abs_z_gt3']} outlier cells flagged, kept"],
-    ["Hive vs pandas", f"{hive['pandas_rows']} rows", f"{hive['hive_rows']} rows", f"max diff {hive['max_abs_diff']}"],
-    mr_row, nc_row],
-    [2.15, 2.55, 2.5, 2.0], size=11, row_h=0.47)
-textbox(s, 0.4, 6.5, 9.2, 0.45, f"Computed {pm['computed'].split(' ')[0]} from project data; district-day and Hive "
-        f"values from the {REF}. PENDING rows need the raw IMD grids (Colab).", 11, color=GREY)
-owner(s, "Sehjodh Grewal")
-
-# ================================================================= 12 PREPROCESSING IMPROVEMENT
-ba = load("preprocessing_before_after.csv")
-rows = [["Model", "AUC before", "AUC after", "AUC gain", "F1 before", "F1 after", "F1 gain"]]
-for m, _ in MODELS:
-    rows.append([m] + [g(ba.assign(auc_gain=ba.auc_gain.round(3) + 0.0, f1_gain=ba.f1_gain.round(3) + 0.0)
-                         if ba is not None else None, m, c, f) for c, f in (("auc_before", "{:.3f}"), ("auc_after", "{:.3f}"), ("auc_gain", "{:+.3f}"),
-                                                   ("f1_before", "{:.3f}"), ("f1_after", "{:.3f}"), ("f1_gain", "{:+.3f}"))])
-if ba is not None:
-    big = ba.sort_values("auc_gain", ascending=False).iloc[0]
-    acp_gain = ba[ba.model == "A-CPN (proposed)"].auc_gain.iloc[0]
-    ba_note = (f"largest gain {SHORTN[big.model]} {big.auc_gain:+.3f} ROC-AUC, A-CPN {acp_gain:+.3f}. RF and GBT ignore feature "
-               "scale, and Spark's LR and Linear SVM standardise internally, so their before/after runs are equal.")
-else:
-    ba_note = PENDING
-s = new_slide("Preprocessing Improvement: Before vs After",
-              "To measure what preprocessing buys, every model is trained twice on the same districts and folds: once on "
-              "the raw features exactly as they come, and once on the preprocessed features. The gain column is the "
-              "improvement. The neural models gain the most. Random Forest and GBT do not depend on scale, and Spark's "
-              "Logistic Regression and Linear SVM standardise features internally, so those four do not change.", size=24)
-table(s, 0.4, 1.3, 9.2, rows, [2.3, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15], size=12, row_h=0.58, highlight=(1,))
-bullets(s, 0.4, 5.55, 9.2, 1.4, [
-    ("Before: ", "raw features (rain in mm, days, %, °C on very different scales); After: preprocessed, same 25 folds"),
-    ("Result: ", ba_note)], size=15, space=4)
+    nc_row],
+    [2.15, 2.55, 2.5, 2.0], size=12, row_h=0.52)
+textbox(s, 0.4, 6.5, 9.2, 0.45, f"Computed {pm['computed'].split(' ')[0]} from project data; district-day values from the {REF}. "
+        "The nearest-cell check needs the raw IMD grids (Colab).", 11, color=GREY)
 owner(s, "Sehjodh Grewal")
 
 # ================================================================= 13 MODEL CARD
@@ -614,6 +585,31 @@ s = new_slide("Comparison with Existing Classifier Models",
               "larger than one standard deviation, and we report a baseline that beats A-CPN as it is.", size=24)
 table(s, 0.4, 1.3, 9.2, rows, [2.25, 1.7, 1.05, 1.05, 1.05, 1.0, 1.1], size=12, row_h=0.55, highlight=(1,))
 bullets(s, 0.4, 5.3, 9.2, 1.7, cmp_items, size=15, space=3)
+owner(s, "Devanshu Kumar")
+
+# ================================================================= EFFECT OF PREPROCESSING ON THE MODELS (Devanshu)
+ba = load("preprocessing_before_after.csv")
+rows = [["Model", "AUC before", "AUC after", "AUC gain", "F1 before", "F1 after", "F1 gain"]]
+for m, _ in MODELS:
+    rows.append([m] + [g(ba.assign(auc_gain=ba.auc_gain.round(3) + 0.0, f1_gain=ba.f1_gain.round(3) + 0.0)
+                         if ba is not None else None, m, c, f) for c, f in (("auc_before", "{:.3f}"), ("auc_after", "{:.3f}"), ("auc_gain", "{:+.3f}"),
+                                                   ("f1_before", "{:.3f}"), ("f1_after", "{:.3f}"), ("f1_gain", "{:+.3f}"))])
+if ba is not None:
+    big = ba.sort_values("auc_gain", ascending=False).iloc[0]
+    acp_gain = ba[ba.model == "A-CPN (proposed)"].auc_gain.iloc[0]
+    ba_note = (f"largest gain {SHORTN[big.model]} {big.auc_gain:+.3f} ROC-AUC, A-CPN {acp_gain:+.3f}. RF and GBT ignore feature "
+               "scale, and Spark's LR and Linear SVM standardise internally, so their before/after runs are equal.")
+else:
+    ba_note = PENDING
+s = new_slide("Effect of Preprocessing on the Models",
+              "To measure what preprocessing buys, every model is trained twice on the same districts and folds: once on "
+              "the raw features exactly as they come, and once on the preprocessed features. The gain column is the "
+              "improvement. The neural models gain the most. Random Forest and GBT do not depend on scale, and Spark's "
+              "Logistic Regression and Linear SVM standardise features internally, so those four do not change.", size=24)
+table(s, 0.4, 1.3, 9.2, rows, [2.3, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15], size=12, row_h=0.58, highlight=(1,))
+bullets(s, 0.4, 5.55, 9.2, 1.4, [
+    ("Before: ", "raw features (rain in mm, days, %, °C on very different scales); After: preprocessed, same 25 folds"),
+    ("Result: ", ba_note)], size=15, space=4)
 owner(s, "Devanshu Kumar")
 
 # ================================================================= 15 DETAILED METRICS
@@ -704,7 +700,10 @@ FIG = ROOT / "figures"
 
 def fig_slide(title, notes, left, right, cap_l, cap_r, who, size=28, stacked=False):
     s = new_slide(title, notes, size)
-    if stacked:
+    if right is None:
+        fig_or_panel(s, 0.4, 1.35, 9.2, 5.0, FIG / left, cap_l, "PENDING")
+        textbox(s, 0.4, 6.45, 9.2, 0.5, cap_l, 12, color=GREY, align=PP_ALIGN.CENTER)
+    elif stacked:
         fig_or_panel(s, 0.4, 1.3, 9.2, 2.65, FIG / left, cap_l, "PENDING")
         fig_or_panel(s, 0.4, 4.05, 9.2, 2.65, FIG / right, cap_r, "PENDING")
         textbox(s, 0.4, 6.72, 9.2, 0.32, f"Top: {cap_l}.  Bottom: {cap_r}.", 12, color=GREY, align=PP_ALIGN.CENTER)
@@ -723,18 +722,21 @@ fig_slide("Preprocessing: Before vs After (Figures)",
           "prep_quality_before_after.png", "prep_feature_scaling.png",
           "Data-quality problems before vs after", "Feature scales before (raw) vs after (standardised)",
           "Sehjodh Grewal", size=26, stacked=True)
-fig_slide("Preprocessing Improvement (Figures)",
-          "Top: ROC-AUC of every model on raw versus preprocessed features, with the gain written above each pair. "
-          "Bottom: how many districts survive each preprocessing stage when nothing is imputed.",
-          "prep_model_gain.png", "prep_retention.png",
-          "Model ROC-AUC before vs after preprocessing", "District retention 640 → 469",
+fig_slide("Preprocessing Results (Figures)",
+          "Top: how many districts survive each preprocessing stage when nothing is imputed. Bottom: how much "
+          "signal each preprocessed feature carries on its own, before any model is trained.",
+          "prep_retention.png", "prep_feature_signal.png",
+          "District retention 640 → 469", "Single-feature ROC-AUC (blue development, orange hazard)",
           "Sehjodh Grewal", size=26, stacked=True)
-fig_slide("Big Data Results (Figures)",
-          "Top: HDFS storage by zone, dominated by the 30 years of rainfall grids. Bottom: MapReduce runtime against "
-          "input size for 1, 10 and 30 years on a single node; both measured in the earlier Colab run.",
-          "hdfs_storage.png", "mapreduce_scalability.png",
-          f"HDFS storage by zone ({REF})", f"MapReduce scaling, single node ({REF})", "Tanmay Singh",
-          stacked=True)
+fig_slide("HDFS Storage (Figure)",
+          "HDFS storage by zone, measured with hdfs dfs -du. The 30 years of rainfall grids dominate; the "
+          "staging zone holds the 7 million district-day rows that MapReduce reads.",
+          "hdfs_storage.png", None, f"HDFS storage by zone ({REF})", None, "Deepankar")
+fig_slide("MapReduce & Spark Results (Figures)",
+          "Left: MapReduce runtime against input size for 1, 10 and 30 years on a single node. Right: the "
+          "silhouette score used to choose the number of Spark k-means climate regimes.",
+          "mapreduce_scalability.png", "kmeans_silhouette.png",
+          f"MapReduce scaling, single node ({REF})", "Spark k-means: silhouette by k", "Tanmay Singh")
 fig_slide("Results of Classification (Figures)",
           "Top: ROC and precision-recall curves for A-CPN and the five baselines, pooled over the 25 folds. Bottom: "
           "mean and standard deviation of four metrics for every model.",
@@ -746,6 +748,12 @@ fig_slide("Confusion Matrix & Stability (Figures)",
           "folds for every model, which shows how stable each model is.",
           "confusion_acpn.png", "fold_boxplots.png",
           "A-CPN confusion matrix (25 folds)", "ROC-AUC per fold, all models", "Devanshu Kumar", size=26)
+fig_slide("Preprocessing Gain & Ablation (Figures)",
+          "Top: ROC-AUC of every model on raw versus preprocessed features, with the gain above each pair. "
+          "Bottom: the ablation, removing one A-CPN component at a time.",
+          "prep_model_gain.png", "ablation.png",
+          "Model ROC-AUC before vs after preprocessing", "Ablation: one component removed at a time",
+          "Devanshu Kumar", size=26, stacked=True)
 fig_slide("Climate-Push Visualisation",
           "Left: the climate push of every district by group, with the group mean. Right: an India map of the "
           "climate push, so the panel can see where climate drives vulnerability beyond development.",
@@ -770,7 +778,6 @@ bullets(s, 0.4, 1.3, 5.0, 5.6, [
     ("Anomalies are common: ", f"{ar['anomalies']}/469 districts ({ar['anomaly_share'] * 100:.1f}%)"),
     ("Anomaly A: ", "≈2× tropical nights (91 vs 45 per year)"),
     ("Anomaly B: ", "drier (863 vs 1078 mm annual rain)"),
-    ("A-CPN result: ", acpn_finding),
     ("Limitations: ", "2011 Census vs 2021 index; 1° temperature grid; single-node Hadoop; 469 districts")],
     size=15, space=10)
 cd = CategoryChartData()

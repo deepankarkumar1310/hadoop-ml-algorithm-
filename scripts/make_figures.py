@@ -33,6 +33,7 @@ def preds(m, setting="scaled"):
 
 
 def preprocessing(df, X):
+    """Sehjodh: retention, data quality, feature scaling, correlation, feature signal."""
     pm = json.loads((RES / "preprocessing_metrics.json").read_text())
     ar = json.loads((RES / "analysis_results.json").read_text())
     # P1 retention funnel
@@ -77,19 +78,6 @@ def preprocessing(df, X):
     axs[0].set_xscale("symlog", linthresh=1)
     V.save(fig, FIG / "prep_feature_scaling.png")
 
-    # P4 model performance before vs after preprocessing
-    ba = pd.read_csv(RES / "preprocessing_before_after.csv")
-    fig, ax = plt.subplots(figsize=(8.5, 3.8))
-    x = np.arange(len(ba))
-    ax.bar(x - 0.19, ba.auc_before, 0.38, color=V.RED, label="Before: raw features")
-    ax.bar(x + 0.19, ba.auc_after, 0.38, color=V.AQUA, label="After: preprocessed")
-    for i, r in ba.iterrows():
-        ax.text(i + 0.19, r.auc_after + 0.01, f"{round(r.auc_gain, 3) + 0.0:+.3f}", ha="center", fontsize=9, color=V.INK)
-    ax.set_xticks(x, [SHORT[m] for m in ba.model]); ax.set_ylim(0.4, 0.95); ax.axhline(0.5, color=V.MUTED, lw=0.8, ls=":")
-    ax.set_ylabel("ROC-AUC (25 folds)"); ax.legend(loc="upper right"); ax.grid(axis="x", visible=False)
-    ax.set_title("Model ROC-AUC before vs after preprocessing (label = gain)")
-    V.save(fig, FIG / "prep_model_gain.png")
-
     # P5 correlation heatmap, P6 feature signal
     fig, ax = plt.subplots(figsize=(6.6, 5.6))
     c = np.corrcoef(X.T)
@@ -107,7 +95,23 @@ def preprocessing(df, X):
     V.save(fig, FIG / "prep_feature_signal.png")
 
 
+def preprocessing_gain():
+    """Devanshu: model ROC-AUC on raw vs preprocessed features."""
+    ba = pd.read_csv(RES / "preprocessing_before_after.csv")
+    fig, ax = plt.subplots(figsize=(8.5, 3.8))
+    x = np.arange(len(ba))
+    ax.bar(x - 0.19, ba.auc_before, 0.38, color=V.RED, label="Before: raw features")
+    ax.bar(x + 0.19, ba.auc_after, 0.38, color=V.AQUA, label="After: preprocessed")
+    for i, r in ba.iterrows():
+        ax.text(i + 0.19, r.auc_after + 0.01, f"{round(r.auc_gain, 3) + 0.0:+.3f}", ha="center", fontsize=9, color=V.INK)
+    ax.set_xticks(x, [SHORT[m] for m in ba.model]); ax.set_ylim(0.4, 0.95); ax.axhline(0.5, color=V.MUTED, lw=0.8, ls=":")
+    ax.set_ylabel("ROC-AUC (25 folds)"); ax.legend(loc="upper right"); ax.grid(axis="x", visible=False)
+    ax.set_title("Model ROC-AUC before vs after preprocessing (label = gain)")
+    V.save(fig, FIG / "prep_model_gain.png")
+
+
 def classifier(df):
+    """Devanshu: ROC/PR, confusion, comparison, stability, calibration, LOSO, training curve, ablation."""
     t5 = pd.read_csv(RES / "table5_comparison.csv")
     fm = pd.read_csv(RES / "fold_metrics.csv")
     # C1 ROC + C2 PR
@@ -218,6 +222,7 @@ def classifier(df):
 
 
 def explanation(df):
+    """Devanshu: climate push by group, attention, India map."""
     e = pd.read_csv(RES / "district_explanations.csv")
     # climate push by quadrant
     order = ["High dev / Low vul", "Low dev / High vul", "High dev / High vul", "Low dev / Low vul"]
@@ -269,7 +274,8 @@ def explanation(df):
     V.save(fig, FIG / "climate_push_map.png")
 
 
-def bigdata():
+def platform():
+    """Deepankar: HDFS storage by zone (Table 2)."""
     hd = json.loads((RES / "hdfs_usage_bytes.json").read_text())
     fig, ax = plt.subplots(figsize=(7, 3.4))
     k = sorted(hd, key=hd.get)
@@ -278,6 +284,10 @@ def bigdata():
         ax.text(hd[z] / 1e6 + 8, i, f"{hd[z] / 1e6:,.1f} MB", va="center", fontsize=9)
     ax.set_xlim(0, 900); ax.grid(axis="y", visible=False); ax.set_title(f"HDFS storage by zone ({run_label()})")
     V.save(fig, FIG / "hdfs_storage.png")
+
+
+def processing():
+    """Tanmay: MapReduce scaling and Spark k-means silhouette."""
     t = pd.read_csv(RES / "scalability_timings.csv").groupby("years").agg(rt=("runtime_s", "mean"), rec=("map_input_records", "first"))
     fig, ax = plt.subplots(figsize=(6, 3.6))
     ax.plot(t.rec / 1e6, t.rt, marker="o", color=V.ORANGE)
@@ -299,10 +309,12 @@ def main():
     V.apply()
     FIG.mkdir(exist_ok=True)
     df, X, _ = load_table()
-    preprocessing(df, X)
-    classifier(df)
-    explanation(df)
-    bigdata()
+    preprocessing(df, X)       # Sehjodh Grewal
+    platform()                 # Deepankar
+    processing()               # Tanmay Singh
+    preprocessing_gain()       # Devanshu Kumar
+    classifier(df)             # Devanshu Kumar
+    explanation(df)            # Devanshu Kumar
 
 
 if __name__ == "__main__":

@@ -8,28 +8,28 @@
       "name": "Sehjodh Grewal",
       "reg_no": "RA2411031010081",
       "role": "Data acquisition & preprocessing",
-      "responsibilities": "Data download, Census rates, district matching, grid weights, grid-to-district conversion, Table 1, preprocessing error metrics",
+      "responsibilities": "Data download, Census rates, district matching, variable selection, grid weights, grid-to-district-day, orientation check, data-quality error metrics (Table 1)",
       "completion": "100% (estimate)"
     },
     {
       "name": "Deepankar",
       "reg_no": "RA2411031010103",
       "role": "Big Data platform & storage",
-      "responsibilities": "Hadoop/YARN/Hive/Spark setup in Colab, HDFS zones, data loading, storage report (Table 2), repo and notebook integration",
+      "responsibilities": "Hadoop/YARN/Hive/Spark installation and configuration in Colab, cluster health checks, HDFS zone design, data loading, storage report (Table 2), repository and notebook structure",
       "completion": "90% (estimate: fresh Colab run pending)"
     },
     {
       "name": "Tanmay Singh",
       "reg_no": "RA2411031010118",
       "role": "Big Data processing jobs",
-      "responsibilities": "MapReduce, Hive queries, Spark k-means climate regimes, processing results (Table 3), slide assembly",
+      "responsibilities": "MapReduce mapper/reducer and timings, MapReduce correctness check, Hive queries and pandas check, Spark k-means climate regimes (Table 3), slide assembly",
       "completion": "90% (estimate: fresh MapReduce/Hive run pending)"
     },
     {
       "name": "Devanshu Kumar",
       "reg_no": "RA2411031010102",
       "role": "Models & comparison",
-      "responsibilities": "A-CPN design and training, 5 comparison models, metrics, ablation, climate-push analysis (Tables 4-6)",
+      "responsibilities": "A-CPN design and training, 5 comparison models (Spark MLlib + MLP), metrics, effect of preprocessing on the models, ablation, climate-push analysis (Tables 4-6)",
       "completion": "95% (estimate: all models run; tuning next)"
     }
   ]
