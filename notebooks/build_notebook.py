@@ -31,12 +31,12 @@ while some less-developed districts are resilient?
 | 2 | Preprocessing + Table 1 + preprocessing error metrics | Sehjodh Grewal |
 | 3 | Big Data platform: Hadoop (HDFS + YARN), Hive, Spark | Deepankar |
 | 4 | HDFS load, listing, Table 2 | Deepankar |
-| 5 | MapReduce on YARN: local test, job, timings | Tanmay Singh |
-| 6 | Hive: 30-year baseline + join, check against pandas | Tanmay Singh |
-| 7 | Spark k-means climate regimes + Table 3 | Tanmay Singh |
+| 5 | MapReduce on YARN: local test, job, timings, correctness check | Deepankar |
+| 6 | Hive: 30-year baseline + join, check against pandas | Deepankar |
+| 7 | Spark k-means climate regimes + Table 3 | Deepankar |
 | 8 | A-CPN (proposed model): architecture, parameters, Table 4 | Devanshu Kumar |
-| 9 | Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) + MLP | Devanshu Kumar |
-| 10 | Tables 5 and 6: comparison, metrics, ablation, climate push, preprocessing before/after | Devanshu Kumar |
+| 9 | Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) + MLP; A-CPN ablation | Tanmay Singh (comparison), Devanshu Kumar (ablation) |
+| 10 | Table 5 (comparison, metrics, preprocessing before/after) and Table 6 (ablation, climate push) | Tanmay Singh (Table 5), Devanshu Kumar (Table 6) |
 | 11 | Visualisations (only after every table), one subsection per owner | each owner |
 | 12 | Build the slides; appendix to show code | Tanmay Singh |
 
@@ -161,7 +161,7 @@ code("""
 """)
 
 md("""
-## 5. MapReduce on YARN  *(owner: Tanmay Singh)*
+## 5. MapReduce on YARN  *(owner: Deepankar)*
 
 **Map:** each district-day row → key (censuscode, year). **Reduce:** sort the days by date and compute 7 yearly
 indices (rain total, heavy-rain days, max 5-day rain, longest dry spell, mean Tmax, hot days, tropical nights).
@@ -182,7 +182,7 @@ code("""
 !python3 scripts/colab_checks.py --check mapreduce
 """)
 
-md("## 6. Hive: 30-year baseline + join, checked against pandas  *(owner: Tanmay Singh)*")
+md("## 6. Hive: 30-year baseline + join, checked against pandas  *(owner: Deepankar)*")
 code("""
 load_env('hive/setup_hive.sh')
 !cd /opt/hive-metastore && hive --hivevar start=$START --hivevar end=$END -f $OLDPWD/hive/project.hql 2>/dev/null
@@ -192,7 +192,7 @@ load_env('hive/setup_hive.sh')
 !cat results/hive_check.json
 """)
 
-md("## 7. Spark k-means climate regimes + Table 3  *(owner: Tanmay Singh)*")
+md("## 7. Spark k-means climate regimes + Table 3  *(owner: Deepankar)*")
 code("""
 load_env('spark/setup_spark.sh')
 !python3 spark/kmeans_regimes.py --input hdfs://localhost:9000/project/processed/analysis_table.csv --output hdfs://localhost:9000/project/processed/climate_regimes 2>&1 | grep -E "k=|chosen"
@@ -228,7 +228,7 @@ if RERUN_MODELS:
 print(open('results/table4_model_card.json').read())
 """)
 
-md("## 9. Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) and a standard MLP  *(owner: Devanshu Kumar)*")
+md("## 9. Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) and a standard MLP  *(owner: Tanmay Singh; A-CPN ablation run: Devanshu Kumar)*")
 code("""
 if RERUN_MODELS:
     !python3 spark/train_baselines.py 2>&1 | grep -E "folds done|districts read"
@@ -237,7 +237,7 @@ if RERUN_MODELS:
     !python3 scripts/train_acpn.py --ablation
 """)
 
-md("## 10. Tables 5 and 6  *(owner: Devanshu Kumar)*")
+md("## 10. Tables 5 and 6  *(owners: Tanmay Singh for Table 5, Devanshu Kumar for Table 6)*")
 code("""
 !python3 scripts/evaluate.py > /dev/null
 t5 = pd.read_csv('results/table5_comparison.csv')
@@ -263,9 +263,9 @@ md("### 11a. Preprocessing figures  *(owner: Sehjodh Grewal)*")
 code("show('prep_quality_before_after', 'prep_feature_scaling', 'prep_retention', 'prep_feature_signal', 'prep_correlation')")
 md("### 11b. HDFS storage  *(owner: Deepankar)*")
 code("show('hdfs_storage')")
-md("### 11c. MapReduce and Spark k-means  *(owner: Tanmay Singh)*")
+md("### 11c. MapReduce and Spark k-means  *(owner: Deepankar)*")
 code("show('mapreduce_scalability', 'kmeans_silhouette')")
-md("### 11d. Models: comparison, preprocessing gain, ablation, climate push  *(owner: Devanshu Kumar)*")
+md("### 11d. Models  *(owners: Tanmay Singh for comparison and preprocessing gain; Devanshu Kumar for A-CPN training, attention, ablation, climate push)*")
 code("show('roc_curves', 'comparison_bars', 'fold_boxplots', 'confusion_matrices', 'calibration', 'loso_by_state', "
      "'acpn_training_curve', 'prep_model_gain', 'ablation', 'attention_importance', 'climate_push_by_quadrant', "
      "'climate_push_map')")
