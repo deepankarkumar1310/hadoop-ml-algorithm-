@@ -283,13 +283,13 @@ s1.notes_slide.notes_text_frame.text = (
     "climate data and a novel deep-learning model, A-CPN, to explain each district.")
 
 # ================================================================= 2 CONTENTS
-s = new_slide("Contents", "This is the order we follow, as required for Review 2: dataset, model, "
-              "architecture, preprocessing and its results, classification, comparison, team plan, "
-              "references, photo and the Colab link.")
-items = ["Dataset", "Proposed Model (A-CPN)", "Overall System Architecture Diagram",
-         "Preprocessing (Big Data analysis and its steps)", "Results of Preprocessing",
-         "Classification (proposed model)", "Results of Classification using proposed model",
-         "Comparison with the existing classifier models", "Plan of Action / Member Tasks", "References",
+s = new_slide("Contents", "We present in the order the work was done: Sehjodh the dataset and preprocessing, "
+              "Deepankar the Big Data pipeline, Devanshu the novel model, and Tanmay the comparison with existing "
+              "models. Each part shows its tables first and then its figures.")
+items = ["Dataset", "Preprocessing (Big Data analysis and its steps)", "Results of Preprocessing",
+         "Overall System Architecture Diagram", "Proposed Model (A-CPN)", "Classification (proposed model)",
+         "Comparison with the existing classifier models", "Results of Classification using proposed model",
+         "Plan of Action / Member Tasks", "References",
          "Geotagged photo taken during Review 2 presentation", "Google Colab Implementation link"]
 for i, it in enumerate(items):
     col, row = divmod(i, 6)
@@ -879,6 +879,31 @@ table(s, 0.4, 2.75, 9.2, [
     ["12 Slides", "Builds this deck from results/", "Tanmay"]],
     [2.7, 5.0, 1.5], size=12, row_h=0.55)
 owner(s, "Tanmay Singh")
+
+# ----------------------------------------------------------------- order: by who did the work
+ORDER = [
+    # Sehjodh Grewal: dataset and preprocessing
+    "Beyond Development", "Contents", "Problem Statement & Objectives", "Dataset",
+    "Preprocessing: Big Data Analysis Steps", "Results of Preprocessing", "Preprocessing Error Metrics: Before vs After",
+    "Preprocessing: Before vs After (Figures)", "Preprocessing Results (Figures)",
+    # Deepankar: Big Data pipeline
+    "Overall System Architecture Diagram", "Big Data Platform & HDFS Storage", "Big Data Processing: MapReduce, Hive, Spark",
+    "HDFS Storage (Figure)", "MapReduce & Spark Results (Figures)",
+    # Devanshu Kumar: novel deep-learning model
+    "Proposed Model: A-CPN", "Classification: A-CPN Model Card", "Ablation Study", "Climate-Push Analysis: What It Explains",
+    "A-CPN Training & Attention (Figures)", "Ablation (Figure)", "Climate-Push Visualisation",
+    # Tanmay Singh: comparison with existing models and visualisation
+    "Comparison with Existing Classifier Models", "Effect of Preprocessing on the Models", "Detailed Classifier Metrics",
+    "Confusion Matrix, CIs and Significance", "Results of Classification (Figures)", "Confusion Matrices & Stability (Figures)",
+    "Effect of Preprocessing (Figure)", "Key Findings", "Plan of Action / Member Tasks", "References",
+    "Geotagged Photo: Review 2", "Google Colab Implementation Link"]
+_ids = list(prs.slides._sldIdLst)
+_title = {sid: prs.slides[i].shapes.title.text_frame.text for i, sid in enumerate(_ids)}
+_pos = lambda sid: next(k for k, t in enumerate(ORDER) if _title[sid].startswith(t))  # noqa: E731
+assert len(ORDER) == len(_ids), (len(ORDER), len(_ids))
+for sid in sorted(_ids, key=_pos):
+    prs.slides._sldIdLst.remove(sid)
+    prs.slides._sldIdLst.append(sid)
 
 # ----------------------------------------------------------------- save
 cp = prs.core_properties
