@@ -1,0 +1,65 @@
+{
+  "area_vs_nearest_cell": {
+    "year": 2020,
+    "districts": 636,
+    "rmse_mm": 286.9036266248581,
+    "mae_mm": 151.72684802809752,
+    "mean_abs_pct": 11.07641470179221
+  },
+  "mapreduce_vs_pandas": {
+    "rows_compared": 19200,
+    "per_index": {
+      "annual_rain_mm": {
+        "rmse": 1.4256094932378078e-13,
+        "mae": 7.087272767261219e-14,
+        "max_abs": 1.8189894035458565e-12,
+        "n": 19080,
+        "blank_mismatch": 0
+      },
+      "heavy_rain_days": {
+        "rmse": 0.0,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "n": 19080,
+        "blank_mismatch": 0
+      },
+      "rx5day_mm": {
+        "rmse": 1.9100835256468023e-14,
+        "mae": 9.09755615821273e-15,
+        "max_abs": 2.2737367544323206e-13,
+        "n": 19080,
+        "blank_mismatch": 0
+      },
+      "max_dry_spell": {
+        "rmse": 0.0,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "n": 19080,
+        "blank_mismatch": 0
+      },
+      "mean_tmax": {
+        "rmse": 0.002897297823882699,
+        "mae": 0.0025108091355776265,
+        "max_abs": 0.005000000000006111,
+        "n": 18738,
+        "blank_mismatch": 0
+      },
+      "hot_days": {
+        "rmse": 0.0,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "n": 18738,
+        "blank_mismatch": 0
+      },
+      "tropical_nights": {
+        "rmse": 0.0,
+        "mae": 0.0,
+        "max_abs": 0.0,
+        "n": 18806,
+        "blank_mismatch": 0
+      }
+    },
+    "rmse_max": 0.002897297823882699,
+    "mae_max": 0.0025108091355776265
+  }
+}

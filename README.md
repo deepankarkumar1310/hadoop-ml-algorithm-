@@ -27,9 +27,9 @@ Where each tool is used and why: [`docs/BIG_DATA_TOOLS.md`](docs/BIG_DATA_TOOLS.
 
 | Tool | Job | Result |
 |---|---|---|
-| HDFS | raw / staging / processed zones | 1.08 GB stored (Colab run 2026-10-11) |
-| MapReduce on YARN | 7,013,120 district-day rows → 19,200 district-year indices | 53 / 132 / 306 s for 1 / 10 / 30 years (Colab run 2026-10-11) |
-| Hive | 30-year baseline + join → 469-district table | identical to pandas, max difference 0.0 (Colab run 2026-10-11) |
+| HDFS | raw / staging / processed zones | 1.08 GB stored (Colab run 2026-10-22) |
+| MapReduce on YARN | 7,013,120 district-day rows → 19,200 district-year indices | 55 / 140 / 333 s for 1 / 10 / 30 years (Colab run 2026-10-22) |
+| Hive | 30-year baseline + join → 469-district table | identical to pandas, max difference 0.0 (Colab run 2026-10-22) |
 | Spark | k-means climate regimes; MLlib baselines | k = 2 (silhouette 0.651); see Table 5 |
 
 ## 3. Preprocessing results
@@ -43,48 +43,48 @@ Grid weights sum to 1 within 7e-08. Final table: 0 missing, 0 duplicates,
 
 | Model | AUC raw | AUC preprocessed | Gain |
 |---|---|---|---|
-| A-CPN (proposed) | 0.74 | 0.761 | +0.021 |
+| A-CPN (proposed) | 0.737 | 0.76 | +0.023 |
 | Logistic Regression | 0.747 | 0.747 | +0.000 |
 | Random Forest | 0.805 | 0.804 | -0.000 |
 | Gradient-Boosted Trees | 0.811 | 0.811 | -0.000 |
 | Linear SVM | 0.755 | 0.755 | +0.000 |
-| Standard MLP | 0.758 | 0.784 | +0.026 |
+| Standard MLP | 0.759 | 0.784 | +0.025 |
 
 ## 4. Proposed model: A-CPN (Attentive Climate Push Network)
 `logit = linear development baseline (5 features) + climate push (feature attention → KAN layer → residual MLP, 8 features)`,
 with MC Dropout uncertainty and split conformal prediction sets. 1,775 parameters,
-1.3 s per fold on CPU; conformal coverage 91.2% (target 90%).
+2.0 s per fold on CPU; conformal coverage 91.2% (target 90%).
 Code: `models/acpn.py`. Feature attention, KAN layers, residual blocks and conformal prediction are existing techniques;
 their combination into a development-anchored network that outputs a per-district climate push is the contribution.
 
 ## 5. Comparison with 5 models (Table 5; same 25 folds + leave-one-state-out)
 | Model | Tool | ROC-AUC | Bal. acc. | Accuracy | F1 | LOSO AUC | 95% CI | p vs A-CPN |
 |---|---|---|---|---|---|---|---|---|
-| A-CPN (proposed) | Novel DL · PyTorch | 0.761 ± 0.045 | 0.702 | 0.701 | 0.693 | 0.693 | 0.711 – 0.811 | — |
-| Logistic Regression | Spark MLlib | 0.747 ± 0.042 | 0.691 | 0.692 | 0.701 | 0.661 | 0.700 – 0.793 | 0.594 |
-| Random Forest | Spark MLlib | 0.804 ± 0.036 | 0.715 | 0.715 | 0.708 | 0.706 | 0.764 – 0.845 | 0.049 |
-| Gradient-Boosted Trees | Spark MLlib | 0.811 ± 0.034 | 0.726 | 0.725 | 0.724 | 0.698 | 0.773 – 0.849 | 0.073 |
-| Linear SVM | Spark MLlib | 0.755 ± 0.039 | 0.696 | 0.696 | 0.708 | 0.691 | 0.711 – 0.798 | 0.826 |
-| Standard MLP | PyTorch | 0.784 ± 0.038 | 0.701 | 0.701 | 0.696 | 0.711 | 0.741 – 0.827 | 0.330 |
+| A-CPN (proposed) | Novel DL · PyTorch | 0.760 ± 0.045 | 0.701 | 0.701 | 0.693 | 0.694 | 0.711 – 0.810 | — |
+| Logistic Regression | Spark MLlib | 0.747 ± 0.042 | 0.691 | 0.692 | 0.701 | 0.661 | 0.700 – 0.793 | 0.602 |
+| Random Forest | Spark MLlib | 0.804 ± 0.036 | 0.715 | 0.715 | 0.708 | 0.706 | 0.764 – 0.845 | 0.047 |
+| Gradient-Boosted Trees | Spark MLlib | 0.811 ± 0.034 | 0.726 | 0.725 | 0.724 | 0.698 | 0.773 – 0.849 | 0.071 |
+| Linear SVM | Spark MLlib | 0.755 ± 0.039 | 0.696 | 0.696 | 0.708 | 0.691 | 0.711 – 0.798 | 0.835 |
+| Standard MLP | PyTorch | 0.784 ± 0.037 | 0.699 | 0.699 | 0.692 | 0.71 | 0.743 – 0.825 | 0.311 |
 
-Best ROC-AUC: **Gradient-Boosted Trees (0.811)**. A-CPN: 0.761. Results are reported as measured;
+Best ROC-AUC: **Gradient-Boosted Trees (0.811)**. A-CPN: 0.760. Results are reported as measured;
 A-CPN's contribution is the per-district explanation below.
 
 ## 6. Ablation and climate push (Table 6)
 | Variant | ROC-AUC | Change |
 |---|---|---|
-| Full A-CPN | 0.761 | +0.000 |
+| Full A-CPN | 0.76 | +0.000 |
 | Without feature attention | 0.774 | +0.013 |
 | Without KAN layer (plain MLP) | 0.784 | +0.023 |
 | Without residual block | 0.756 | -0.005 |
 | Climate only (no development baseline) | 0.757 | -0.004 |
-| Development only (no climate push) | 0.67 | -0.091 |
+| Development only (no climate push) | 0.67 | -0.090 |
 | Linear climate part (no deep layers) | 0.733 | -0.028 |
 
-Mean climate push: Anomaly A (developed yet vulnerable) +0.31 vs expected developed
--0.53 (p = 9.21e-07); Anomaly B (less developed yet
-resilient) -0.98 vs expected less-developed +0.81
-(p = 3.06e-18).
+Mean climate push: Anomaly A (developed yet vulnerable) +0.32 vs expected developed
+-0.53 (p = 6.31e-07); Anomaly B (less developed yet
+resilient) -0.99 vs expected less-developed +0.81
+(p = 2.46e-18).
 
 All tables: `results/`. Figures (made only after the tables): `figures/`.
 
@@ -103,4 +103,4 @@ The full Hadoop / MapReduce / Hive pipeline (IMD download, HDFS, YARN) runs in t
 
 ## Limitations
 2011 Census development data against a 2021 index; 1° temperature grid; single-node Hadoop (no multi-machine
-speed-up is claimed); 469 districts. HDFS, MapReduce and Hive figures are from the Colab run 2026-10-11 until the notebook is re-run.
+speed-up is claimed); 469 districts. HDFS, MapReduce and Hive figures are from the Colab run 2026-10-22 until the notebook is re-run.

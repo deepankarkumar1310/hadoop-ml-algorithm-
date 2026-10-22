@@ -584,7 +584,9 @@ s = new_slide("Comparison with Existing Classifier Models",
               "leave-one-state-out split. Values are means over folds. We call a model best only if its lead is "
               "larger than one standard deviation, and we report a baseline that beats A-CPN as it is.", size=24)
 table(s, 0.4, 1.3, 9.2, rows, [2.25, 1.7, 1.05, 1.05, 1.05, 1.0, 1.1], size=12, row_h=0.55, highlight=(1,))
-bullets(s, 0.4, 5.3, 9.2, 1.7, cmp_items, size=15, space=3)
+bullets(s, 0.4, 5.3, 9.2, 1.4, cmp_items, size=15, space=3)
+textbox(s, 0.4, 6.7, 9.2, 0.35, f"A-CPN and MLP: {REF}. Spark MLlib models: same code, data and folds, run with "
+        "Spark 3.5.3 on 2026-10-21.", 10, color=GREY)
 owner(s, "Tanmay Singh")
 
 # ================================================================= EFFECT OF PREPROCESSING ON THE MODELS (Devanshu)

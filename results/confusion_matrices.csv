@@ -1,7 +1,7 @@
 model,tp,tn,fp,fn
-A-CPN (proposed),798,846,314,387
+A-CPN (proposed),798,845,315,387
 Logistic Regression,851,771,389,334
 Random Forest,816,860,300,369
 Gradient-Boosted Trees,851,850,310,334
 Linear SVM,869,764,396,316
-Standard MLP,806,838,322,379
+Standard MLP,799,840,320,386

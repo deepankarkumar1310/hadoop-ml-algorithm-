@@ -4,5 +4,6 @@
   "cpu_count": 2,
   "mem_mb": 12975,
   "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
-  "mode": "single-node pseudo-distributed, HDFS replication 1"
+  "mode": "single-node pseudo-distributed, HDFS replication 1",
+  "run_date": "2026-10-22"
 }

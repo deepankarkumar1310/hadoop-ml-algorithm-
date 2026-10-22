@@ -45,7 +45,7 @@
     "rain_missing_pct": 0.625,
     "tmax_missing_pct": 0.3674541430918051,
     "tmin_missing_pct": 0.3649445610512867,
-    "source": "Colab run 2026-10-11 manifest"
+    "source": "district-day manifest"
   },
   "final_table": {
     "rows": 469,
@@ -73,5 +73,5 @@
     "max_dry_spell": 0.512
   },
   "rain_snr_median": 3.98,
-  "computed": "2026-10-21 from project data"
+  "computed": "2026-10-22 from project data"
 }
