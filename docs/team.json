@@ -16,21 +16,21 @@
       "reg_no": "RA2411031010103",
       "role": "Big Data Pipeline",
       "responsibilities": "Set up Hadoop (HDFS + YARN), Hive and Spark in Colab; HDFS zones and data loading; storage report (Table 2); MapReduce yearly climate indices and scalability; Hive 30-year baseline and join; Spark k-means climate regimes (Table 3)",
-      "completion": "Completed"
+      "completion": "In progress (full 1901–2024 rainfall in HDFS for Review 3)"
     },
     {
       "name": "Devanshu Kumar",
       "reg_no": "RA2411031010102",
       "role": "Novel Deep Learning Model",
       "responsibilities": "Design and train A-CPN (attention, KAN layer, residual MLP, development baseline); MC Dropout and conformal uncertainty; model card (Table 4); ablation; climate-push analysis (Table 6)",
-      "completion": "Completed"
+      "completion": "In progress (A-CPN tuning)"
     },
     {
       "name": "Tanmay Singh",
       "reg_no": "RA2411031010118",
       "role": "Comparative ML & Visualization",
       "responsibilities": "Compare A-CPN with Logistic Regression, Random Forest, GBT, Linear SVM (Spark MLlib) and MLP on the same folds; all metrics, confidence intervals, significance; effect of preprocessing on the models (Table 5); result figures; slides",
-      "completion": "Completed"
+      "completion": "In progress (Spark MLlib re-run in Colab; final report)"
     }
   ]
 }
