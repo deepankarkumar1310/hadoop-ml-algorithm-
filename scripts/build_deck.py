@@ -582,6 +582,8 @@ if cmp5 is not None:
     beats = cmp5[(cmp5.roc_auc < acp.roc_auc) & (cmp5.model != acp.model)].model.map(lambda x: SHORTN.get(x, x)).tolist()
     cmp_items = [("Result: ", verdict),
                  ("B-ACPN is higher than: ", ", ".join(beats) if beats else "none of the baselines"),
+                 ("Significant (p < 0.05): ", (", ".join(SHORTN[m] for m in sig[sig.p_value < 0.05].model) or "none")
+                  + "; not significant: " + (", ".join(SHORTN[m] for m in sig[sig.p_value >= 0.05].model) or "none")),
                  ("B-ACPN's added value: ", "a per-district climate push, attention and uncertainty, which the baselines do not give")]
 else:
     cmp_items = [("Result: ", PENDING)]
@@ -590,7 +592,7 @@ s = new_slide("Comparison with Existing Classifier Models",
               "leave-one-state-out split. Values are means over folds. We call a model best only if its lead is "
               "larger than one standard deviation, and we report a baseline that beats B-ACPN as it is.", size=24)
 table(s, 0.4, 1.3, 9.2, rows, [2.25, 1.7, 1.05, 1.05, 1.05, 1.0, 1.1], size=12, row_h=0.55, highlight=(1,))
-bullets(s, 0.4, 5.3, 9.2, 1.4, cmp_items, size=15, space=3)
+bullets(s, 0.4, 5.3, 9.2, 1.4, cmp_items, size=13, space=2)
 textbox(s, 0.4, 6.7, 9.2, 0.35, f"B-ACPN and MLP: local CPU run 2026-10-22. Spark MLlib models: same data and folds, Spark 3.5.3 on 2026-10-21.", 10, color=GREY)
 owner(s, "Tanmay Singh")
 

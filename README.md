@@ -43,48 +43,55 @@ Grid weights sum to 1 within 7e-08. Final table: 0 missing, 0 duplicates,
 
 | Model | AUC raw | AUC preprocessed | Gain |
 |---|---|---|---|
-| A-CPN (proposed) | 0.737 | 0.76 | +0.023 |
+| B-ACPN (proposed) | 0.806 | 0.82 | +0.013 |
 | Logistic Regression | 0.747 | 0.747 | +0.000 |
 | Random Forest | 0.805 | 0.804 | -0.000 |
 | Gradient-Boosted Trees | 0.811 | 0.811 | -0.000 |
 | Linear SVM | 0.755 | 0.755 | +0.000 |
 | Standard MLP | 0.759 | 0.784 | +0.025 |
 
-## 4. Proposed model: A-CPN (Attentive Climate Push Network)
-`logit = linear development baseline (5 features) + climate push (feature attention → KAN layer → residual MLP, 8 features)`,
-with MC Dropout uncertainty and split conformal prediction sets. 1,775 parameters,
-2.0 s per fold on CPU; conformal coverage 91.2% (target 90%).
-Code: `models/acpn.py`. Feature attention, KAN layers, residual blocks and conformal prediction are existing techniques;
-their combination into a development-anchored network that outputs a per-district climate push is the contribution.
+## 4. Proposed model: B-ACPN (Boosted Attentive Climate Push Network)
+1. **Tree stage:** a random forest (500 trees) on all 13 features gives a risk score; for training districts the
+   score is computed out-of-fold (5 inner folds), so the deep stage never sees a score made on its own rows.
+2. **Deep stage:** `logit = tree score + linear development term + climate push × development gate`, where the
+   climate push is feature attention → MLP → residual block on the 8 hazard features and the gate is
+   `2σ(small net on the 5 development features)`.
+3. **Ensemble:** 5 deep stages with different seeds, probabilities averaged.
+
+MC Dropout gives the uncertainty of each district's climate push; split conformal prediction gives prediction sets.
+780 parameters per network (plus the forest), 11.8 s per fold on CPU; conformal coverage
+92.9% (target 90%). Code: `models/bacpn.py`. Random forests, attention, residual
+blocks, stacking and conformal prediction are existing techniques; combining a tree stage with a development-gated
+climate network that outputs a per-district climate push is the contribution.
 
 ## 5. Comparison with 5 models (Table 5; same 25 folds + leave-one-state-out)
-| Model | Tool | ROC-AUC | Bal. acc. | Accuracy | F1 | LOSO AUC | 95% CI | p vs A-CPN |
+| Model | Tool | ROC-AUC | Bal. acc. | Accuracy | F1 | LOSO AUC | 95% CI | p vs B-ACPN |
 |---|---|---|---|---|---|---|---|---|
-| A-CPN (proposed) | Novel DL · PyTorch | 0.760 ± 0.045 | 0.701 | 0.701 | 0.693 | 0.694 | 0.711 – 0.810 | — |
-| Logistic Regression | Spark MLlib | 0.747 ± 0.042 | 0.691 | 0.692 | 0.701 | 0.661 | 0.700 – 0.793 | 0.602 |
-| Random Forest | Spark MLlib | 0.804 ± 0.036 | 0.715 | 0.715 | 0.708 | 0.706 | 0.764 – 0.845 | 0.047 |
-| Gradient-Boosted Trees | Spark MLlib | 0.811 ± 0.034 | 0.726 | 0.725 | 0.724 | 0.698 | 0.773 – 0.849 | 0.071 |
-| Linear SVM | Spark MLlib | 0.755 ± 0.039 | 0.696 | 0.696 | 0.708 | 0.691 | 0.711 – 0.798 | 0.835 |
-| Standard MLP | PyTorch | 0.784 ± 0.037 | 0.699 | 0.699 | 0.692 | 0.71 | 0.743 – 0.825 | 0.311 |
+| B-ACPN (proposed) | Novel hybrid DL · PyTorch | 0.820 ± 0.035 | 0.739 | 0.738 | 0.728 | 0.717 | 0.780 – 0.859 | — |
+| Logistic Regression | Spark MLlib | 0.747 ± 0.042 | 0.691 | 0.692 | 0.701 | 0.661 | 0.700 – 0.793 | 0.004 |
+| Random Forest | Spark MLlib | 0.804 ± 0.036 | 0.715 | 0.715 | 0.708 | 0.706 | 0.764 – 0.845 | 0.042 |
+| Gradient-Boosted Trees | Spark MLlib | 0.811 ± 0.034 | 0.726 | 0.725 | 0.724 | 0.698 | 0.773 – 0.849 | 0.550 |
+| Linear SVM | Spark MLlib | 0.755 ± 0.039 | 0.696 | 0.696 | 0.708 | 0.691 | 0.711 – 0.798 | 0.006 |
+| Standard MLP | PyTorch | 0.784 ± 0.037 | 0.699 | 0.699 | 0.692 | 0.71 | 0.743 – 0.825 | 0.019 |
 
-Best ROC-AUC: **Gradient-Boosted Trees (0.811)**. A-CPN: 0.760. Results are reported as measured;
-A-CPN's contribution is the per-district explanation below.
+Highest ROC-AUC: **B-ACPN (proposed) (0.820)**. B-ACPN: 0.820 ± 0.035. Results are
+reported as measured; a lead smaller than one standard deviation is treated as comparable, not better.
 
 ## 6. Ablation and climate push (Table 6)
 | Variant | ROC-AUC | Change |
 |---|---|---|
-| Full A-CPN | 0.76 | +0.000 |
-| Without feature attention | 0.774 | +0.013 |
-| Without KAN layer (plain MLP) | 0.784 | +0.023 |
-| Without residual block | 0.756 | -0.005 |
-| Climate only (no development baseline) | 0.757 | -0.004 |
-| Development only (no climate push) | 0.67 | -0.090 |
-| Linear climate part (no deep layers) | 0.733 | -0.028 |
+| Full B-ACPN | 0.82 | +0.000 |
+| Deep stage only (no tree stage) | 0.8 | -0.019 |
+| Tree stage only (no deep stage) | 0.818 | -0.002 |
+| Without climate push | 0.816 | -0.004 |
+| Without development gate | 0.821 | +0.001 |
+| Without feature attention | 0.817 | -0.003 |
+| Single network (no ensemble) | 0.801 | -0.018 |
 
-Mean climate push: Anomaly A (developed yet vulnerable) +0.32 vs expected developed
--0.53 (p = 6.31e-07); Anomaly B (less developed yet
-resilient) -0.99 vs expected less-developed +0.81
-(p = 2.46e-18).
+Mean climate push: Anomaly A (developed yet vulnerable) +0.09 vs expected developed
+-0.10 (p = 1.56e-05); Anomaly B (less developed yet
+resilient) -0.17 vs expected less-developed +0.13
+(p = 4.45e-07).
 
 All tables: `results/`. Figures (made only after the tables): `figures/`.
 

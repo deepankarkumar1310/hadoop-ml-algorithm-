@@ -1,5 +1,5 @@
 model,tp,tn,fp,fn
-A-CPN (proposed),798,845,315,387
+B-ACPN (proposed),829,902,258,356
 Logistic Regression,851,771,389,334
 Random Forest,816,860,300,369
 Gradient-Boosted Trees,851,850,310,334

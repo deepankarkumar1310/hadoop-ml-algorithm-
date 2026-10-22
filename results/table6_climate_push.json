@@ -2,74 +2,74 @@
   "by_quadrant": {
     "High dev / High vul": {
       "n": 92,
-      "push": 0.3166866882143478,
-      "push_sd": 1.3415773338593746,
-      "share_positive": 0.5434782608695652,
-      "factor": "max dry spell"
+      "push": 0.09354718764521738,
+      "push_sd": 0.29631175035734675,
+      "share_positive": 0.8152173913043478,
+      "factor": "heavy rain days"
     },
     "High dev / Low vul": {
       "n": 143,
-      "push": -0.532524995675063,
-      "push_sd": 1.1708611301071816,
-      "share_positive": 0.26573426573426573,
-      "factor": "max dry spell"
+      "push": -0.10291154841818181,
+      "push_sd": 0.35469322404740933,
+      "share_positive": 0.45454545454545453,
+      "factor": "heavy rain days"
     },
     "Low dev / High vul": {
       "n": 145,
-      "push": 0.8122562042193103,
-      "push_sd": 1.4286577258649953,
-      "share_positive": 0.7241379310344828,
-      "factor": "hot days"
+      "push": 0.1252739455065517,
+      "push_sd": 0.37537238163423,
+      "share_positive": 0.8620689655172413,
+      "factor": "heavy rain days"
     },
     "Low dev / Low vul": {
       "n": 89,
-      "push": -0.9926610377943819,
-      "push_sd": 1.3753455822038583,
-      "share_positive": 0.19101123595505617,
-      "factor": "annual rain mm"
+      "push": -0.1693230084638652,
+      "push_sd": 0.48658549033128784,
+      "share_positive": 0.4606741573033708,
+      "factor": "heavy rain days"
     }
   },
   "by_regime": {
     "0": {
       "n": 95,
-      "push": -0.9876338008294738,
-      "factor": "max dry spell"
+      "push": -0.24242505084357893,
+      "factor": "rain variability"
     },
     "1": {
       "n": 374,
-      "push": 0.20384927609916043,
-      "factor": "annual rain mm"
+      "push": 0.05351696260659358,
+      "factor": "heavy rain days"
     }
   },
-  "anomaly_A_mean_push": 0.3166866882143478,
-  "expected_high_dev_low_vul_mean_push": -0.532524995675063,
-  "anomaly_B_mean_push": -0.9926610377943819,
-  "expected_low_dev_high_vul_mean_push": 0.8122562042193103,
-  "anomaly_A_vs_expected_p": 6.312254684036058e-07,
-  "anomaly_B_vs_expected_p": 2.460489322017296e-18,
+  "anomaly_A_mean_push": 0.09354718764521738,
+  "expected_high_dev_low_vul_mean_push": -0.10291154841818181,
+  "anomaly_B_mean_push": -0.1693230084638652,
+  "expected_low_dev_high_vul_mean_push": 0.1252739455065517,
+  "anomaly_A_vs_expected_p": 1.5610009947335478e-05,
+  "anomaly_B_vs_expected_p": 4.453386383404979e-07,
   "top_climate": [
-    "Khagaria (Bihar) +3.34",
-    "Madhepura (Bihar) +3.30",
-    "Maldah (West Bengal) +3.18",
-    "Sahebganj (Jharkhand) +3.12",
-    "Saharsa (Bihar) +3.07"
+    "Kishanganj (Bihar) +0.98",
+    "Kodagu (Karnataka) +0.68",
+    "Sahebganj (Jharkhand) +0.67",
+    "Medinipur East (West Bengal) +0.65",
+    "Purnia (Bihar) +0.57"
   ],
   "top_development": [
-    "Mahoba (Uttar Pradesh) 2%",
-    "Kannur (Kerala) 2%",
-    "Deogarh (Odisha) 4%",
-    "Kanpur Dehat (Uttar Pradesh) 4%",
-    "Kandhamal (Odisha) 5%"
+    "Ariyalur (Tamil Nadu) 0%",
+    "Davangere (Karnataka) 0%",
+    "Ahmadabad (Gujarat) 1%",
+    "Thiruvallur (Tamil Nadu) 1%",
+    "Panchkula (Haryana) 1%"
   ],
-  "mean_push_mc_sd": 0.5357699164840085,
+  "mean_push_mc_sd": 0.5395772017799574,
   "attention_mean": {
-    "annual_rain_mm": 0.15841619474093813,
-    "rain_variability": 0.07460786255931769,
-    "rx5day_mm": 0.07803504994264392,
-    "heavy_rain_days": 0.08758790550042646,
-    "max_dry_spell": 0.17072075938848613,
-    "mean_tmax": 0.1596183050528785,
-    "hot_days": 0.1797152192447761,
-    "tropical_nights": 0.09129870285799574
+    "annual_rain_mm": 0.12973329921151386,
+    "rain_variability": 0.12224697074584222,
+    "rx5day_mm": 0.11260810352707888,
+    "heavy_rain_days": 0.14058447850277184,
+    "max_dry_spell": 0.13425829378464818,
+    "mean_tmax": 0.1265103316665245,
+    "hot_days": 0.12768629520724947,
+    "tropical_nights": 0.10637222804093817
   }
 }

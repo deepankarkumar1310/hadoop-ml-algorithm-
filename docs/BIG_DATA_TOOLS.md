@@ -20,7 +20,7 @@ MapReduce/YARN ── 7,013,120 district-day rows → 19,200 district-year rows
   Spark ───────── k-means climate regimes + MLlib baseline models
       │
       ▼
- A-CPN (PyTorch) ─ proposed model, compared with the Spark baselines
+ B-ACPN (RF + PyTorch) ─ proposed model, compared with the Spark baselines
 ```
 
 ## 1. HDFS (Hadoop Distributed File System)
@@ -54,8 +54,8 @@ MapReduce/YARN ── 7,013,120 district-day rows → 19,200 district-year rows
 | | |
 |---|---|
 | **Where** | `spark/setup_spark.sh`, `spark/kmeans_regimes.py`, `spark/train_baselines.py`; sections 7 and 9 |
-| **What it does** | (a) k-means on the 8 standardised hazard variables → climate regimes (k by silhouette, k = 2..8); (b) distributed training of LogisticRegression, RandomForest (200 trees), GBT (100 iterations, depth 3) and LinearSVC on the same folds as A-CPN |
-| **Purpose** | Find natural climate zones (to check that the A-CPN climate push follows real climate patterns) and train the comparison models |
+| **What it does** | (a) k-means on the 8 standardised hazard variables → climate regimes (k by silhouette, k = 2..8); (b) distributed training of LogisticRegression, RandomForest (200 trees), GBT (100 iterations, depth 3) and LinearSVC on the same folds as B-ACPN |
+| **Purpose** | Find natural climate zones (to check that the B-ACPN climate push follows real climate patterns) and train the comparison models |
 | **Why chosen** | In-memory execution suits iterative algorithms (k-means, model fitting); MLlib provides the standard models; Spark reads HDFS directly |
 | **Evidence** | `results/kmeans_regimes.json`, `results/table5_comparison.csv` |
 
@@ -65,4 +65,4 @@ Allocates CPU and memory to the MapReduce tasks and runs them (`hadoop/setup_had
 ## What is not distributed, and why
 - **Grid → district-day** (`scripts/build_district_day.py`) runs in Python/NumPy because it needs polygon geometry;
   its output is loaded into HDFS for MapReduce.
-- **A-CPN** is trained in PyTorch: with 469 districts, distributed training brings no benefit.
+- **B-ACPN** is trained with scikit-learn (random-forest stage) and PyTorch (deep stage): with 469 districts, distributed training brings no benefit.
