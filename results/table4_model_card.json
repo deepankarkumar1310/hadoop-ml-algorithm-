@@ -1,11 +1,13 @@
 {
-  "parameters": 1775,
-  "train_time": "2.0 s per fold",
-  "train_time_full_s": 2.79,
-  "epochs_full": 64,
-  "predict_ms_per_district": 0.0237,
-  "hardware": "x86_64 CPU, torch 2.11.0+cpu",
+  "parameters": 780,
+  "ensemble": 5,
+  "trees": 500,
+  "train_time": "11.8 s per fold",
+  "train_time_full_s": 12.78,
+  "epochs_full": 54,
+  "predict_ms_per_district": 2.6195,
+  "hardware": "x86_64 CPU, torch 2.14.1+cu130",
   "conformal_target": 0.9,
-  "conformal_coverage_mean": 0.912,
-  "conformal_avg_set_size": 1.575
+  "conformal_coverage_mean": 0.929,
+  "conformal_avg_set_size": 1.51
 }
