@@ -1,4 +1,4 @@
-"""Tests for A-CPN, the MLP baseline and the shared evaluation folds."""
+"""Tests for B-ACPN, A-CPN (its deep-stage building blocks), the MLP baseline and the shared folds."""
 import sys
 from pathlib import Path
 
@@ -77,3 +77,25 @@ def test_folds_are_disjoint_and_complete(data):
     for r in range(5):
         tests = sum((folds["cv"][r * 5 + k]["test"] for k in range(5)), [])
         assert sorted(tests) == sorted(df.censuscode)
+
+
+@pytest.mark.parametrize("arch", [{}, {"use_attention": False}, {"use_gate": False}, {"use_climate": False}])
+def test_bacpn_deep_stage_variants(arch):
+    from models.bacpn import DeepStage
+    logit, b, c, a = DeepStage(**arch).eval()(torch.randn(4, 14))
+    assert logit.shape == b.shape == c.shape == (4,)
+    assert torch.allclose(logit, b + c)
+    if not arch.get("use_climate", True):
+        assert torch.all(c == 0)
+
+
+def test_bacpn_fit_predict_explain(data):
+    from models.bacpn import BACPNClassifier
+    df, X, y = data
+    m = BACPNClassifier(seeds=(42, 1), n_trees=50, mc_passes=4).fit(X[:300], y[:300])
+    p = m.predict_proba(X[300:])
+    assert p.shape == (169, 2) and np.allclose(p.sum(1), 1)
+    e = m.explain(X[300:])
+    assert e["push"].shape == (169,) and e["attention"].shape == (169, 8)
+    assert np.allclose(m.predict_proba(X[300:]), p)  # deterministic inference after MC Dropout
+    assert m.conformal_sets(X[300:]).shape == (169, 2)

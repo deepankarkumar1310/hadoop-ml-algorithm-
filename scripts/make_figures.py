@@ -22,7 +22,7 @@ from sklearn.metrics import precision_recall_curve, roc_auc_score, roc_curve  # 
 
 FIG = ROOT / "figures"
 COL = dict(zip(MODELS, [V.ORANGE, "#104281", "#3987e5", V.AQUA, V.MUTED, "#a32323"]))
-SHORT = {"A-CPN (proposed)": "A-CPN", "Logistic Regression": "LR", "Random Forest": "RF",
+SHORT = {"B-ACPN (proposed)": "B-ACPN", "Logistic Regression": "LR", "Random Forest": "RF",
          "Gradient-Boosted Trees": "GBT", "Linear SVM": "Lin. SVM", "Standard MLP": "MLP"}
 NICE = lambda s: s.replace("_", " ")  # noqa: E731
 
@@ -120,7 +120,7 @@ def classifier(df):
         d = preds(m)
         fpr, tpr, _ = roc_curve(d.label, d.score)
         pr, rc, _ = precision_recall_curve(d.label, d.score)
-        lw = 3 if m.startswith("A-CPN") else 1.6
+        lw = 3 if m.startswith("B-ACPN") else 1.6
         axs[0].plot(fpr, tpr, color=COL[m], lw=lw, label=f"{SHORT[m]} (AUC {roc_auc_score(d.label, d.score):.3f})")
         axs[1].plot(rc, pr, color=COL[m], lw=lw, label=SHORT[m])
     axs[0].plot([0, 1], [0, 1], color=V.MUTED, ls=":", lw=1)
@@ -140,10 +140,10 @@ def classifier(df):
                 ax.text(j, i, f"{mat[i, j]}", ha="center", va="center", fontsize=12,
                         color="white" if mat[i, j] > mat.max() * 0.6 else V.INK)
         ax.set_xticks([0, 1], ["Pred Low", "Pred High"]); ax.set_yticks([0, 1], ["True Low", "True High"])
-        ax.set_title(SHORT[m], color=V.ORANGE if m.startswith("A-CPN") else V.INK)
+        ax.set_title(SHORT[m], color=V.ORANGE if m.startswith("B-ACPN") else V.INK)
     fig.suptitle("Confusion matrices (summed over 25 test folds)", x=0.02, ha="left", fontweight="bold")
     V.save(fig, FIG / "confusion_matrices.png")
-    r = cm.loc["A-CPN (proposed)"]; mat = np.array([[r.tn, r.fp], [r.fn, r.tp]])
+    r = cm.loc["B-ACPN (proposed)"]; mat = np.array([[r.tn, r.fp], [r.fn, r.tp]])
     fig, ax = plt.subplots(figsize=(4.6, 4.2))
     ax.imshow(mat, cmap=V.SEQUENTIAL); ax.grid(False)
     for i in range(2):
@@ -151,7 +151,7 @@ def classifier(df):
             ax.text(j, i, f"{mat[i, j]}\n({mat[i, j] / mat.sum():.0%})", ha="center", va="center", fontsize=13,
                     color="white" if mat[i, j] > mat.max() * 0.6 else V.INK)
     ax.set_xticks([0, 1], ["Predicted Low", "Predicted High"]); ax.set_yticks([0, 1], ["True Low", "True High"])
-    ax.set_title("A-CPN confusion matrix (25 folds)")
+    ax.set_title("B-ACPN confusion matrix (25 folds)")
     V.save(fig, FIG / "confusion_acpn.png")
 
     # C4 comparison bars with error bars + C5 box plots
@@ -180,7 +180,7 @@ def classifier(df):
         if d.prob.isna().any():
             continue
         fp, mp = calibration_curve(d.label, d.prob, n_bins=8, strategy="quantile")
-        ax.plot(mp, fp, marker="o", ms=3, color=COL[m], lw=3 if m.startswith("A-CPN") else 1.4, label=SHORT[m])
+        ax.plot(mp, fp, marker="o", ms=3, color=COL[m], lw=3 if m.startswith("B-ACPN") else 1.4, label=SHORT[m])
     ax.plot([0, 1], [0, 1], color=V.MUTED, ls=":")
     ax.set(xlabel="Predicted probability", ylabel="Observed share High", title="Calibration (Linear SVM has no probabilities)")
     ax.legend(fontsize=8)
@@ -189,11 +189,11 @@ def classifier(df):
     # C7 LOSO by state
     ls = pd.read_csv(RES / "loso_by_state.csv")
     piv = ls.pivot(index="state", columns="model", values="accuracy")
-    order = piv["A-CPN (proposed)"].sort_values().index
+    order = piv["B-ACPN (proposed)"].sort_values().index
     fig, ax = plt.subplots(figsize=(8, 6))
-    best = t5[~t5.model.str.startswith("A-CPN")].sort_values("loso_auc").model.iloc[-1]
+    best = t5[~t5.model.str.startswith("B-ACPN")].sort_values("loso_auc").model.iloc[-1]
     y = np.arange(len(order))
-    ax.barh(y + 0.2, piv.loc[order, "A-CPN (proposed)"], 0.4, color=V.ORANGE, label="A-CPN")
+    ax.barh(y + 0.2, piv.loc[order, "B-ACPN (proposed)"], 0.4, color=V.ORANGE, label="B-ACPN")
     ax.barh(y - 0.2, piv.loc[order, best], 0.4, color=COL[best], label=SHORT[best])
     n = ls[ls.model == best].set_index("state").n
     ax.set_yticks(y, [f"{s} (n={n[s]})" for s in order], fontsize=8)
@@ -208,16 +208,16 @@ def classifier(df):
     ax.plot(h.epoch, h.val_loss, color=V.ORANGE, label="Validation loss")
     best_ep = h.val_loss.idxmin()
     ax.axvline(best_ep, color=V.MUTED, ls=":"); ax.text(best_ep + 1, h.val_loss.max(), f"best epoch {best_ep}", fontsize=8)
-    ax.set(xlabel="Epoch", ylabel="Weighted BCE", title="A-CPN training curve (early stopping)"); ax.legend()
+    ax.set(xlabel="Epoch", ylabel="Weighted BCE", title="B-ACPN training curve (first network, early stopping)"); ax.legend()
     V.save(fig, FIG / "acpn_training_curve.png")
     ab = pd.read_csv(RES / "table6_ablation.csv")
     fig, ax = plt.subplots(figsize=(8, 4))
     ax.barh(ab.model[::-1], ab.roc_auc[::-1], xerr=ab.roc_auc_sd[::-1], capsize=3,
-            color=[V.ORANGE if m == "Full A-CPN" else "#9ec5f4" for m in ab.model[::-1]])
+            color=[V.ORANGE if m == "Full B-ACPN" else "#9ec5f4" for m in ab.model[::-1]])
     for i, (v, s) in enumerate(zip(ab.roc_auc[::-1], ab.roc_auc_sd[::-1])):
         ax.text(v + s + 0.005, i, f"{v:.3f}", va="center", fontsize=9)
     ax.set_xlim(0.5, 0.95); ax.set_xlabel("ROC-AUC (25 folds)"); ax.grid(axis="y", visible=False)
-    ax.set_title("Ablation: removing one A-CPN component at a time")
+    ax.set_title("Ablation: removing one B-ACPN component at a time")
     V.save(fig, FIG / "ablation.png")
 
 
@@ -238,7 +238,7 @@ def explanation(df):
         ax.text(i + 0.33, v.mean(), f"{v.mean():+.2f}", va="center", fontsize=9, fontweight="bold")
     ax.axhline(0, color=V.MUTED, lw=1)
     ax.set_xticks(range(4), names, fontsize=9); ax.set_ylabel("Climate push (log-odds)")
-    ax.set_title("A-CPN climate push by group (bar = mean)"); ax.grid(axis="x", visible=False)
+    ax.set_title("B-ACPN climate push by group (bar = mean)"); ax.grid(axis="x", visible=False)
     V.save(fig, FIG / "climate_push_by_quadrant.png")
 
     # attention importance
@@ -246,7 +246,7 @@ def explanation(df):
     fig, ax = plt.subplots(figsize=(6, 3.8))
     ax.barh([NICE(a.replace("att_", "")) for a in att.index], att.values, color=V.ORANGE)
     ax.axvline(1 / 8, color=V.MUTED, ls=":"); ax.grid(axis="y", visible=False)
-    ax.set_title("A-CPN feature attention (mean weight; dotted = equal)")
+    ax.set_title("B-ACPN feature attention (mean weight; dotted = equal)")
     V.save(fig, FIG / "attention_importance.png")
 
     # India map of the climate push
@@ -270,7 +270,7 @@ def explanation(df):
     pc.set_array(np.array(vals)); pc.set_clim(-lim, lim)
     ax.add_collection(pc); ax.autoscale_view(); ax.set_aspect("equal"); ax.axis("off")
     cb = fig.colorbar(pc, shrink=0.6); cb.set_label("Climate push (red = climate adds risk)")
-    ax.set_title("A-CPN climate push per district (grey = not in the 469)")
+    ax.set_title("B-ACPN climate push per district (grey = not in the 469)")
     V.save(fig, FIG / "climate_push_map.png")
 
 

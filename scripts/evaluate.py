@@ -18,8 +18,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.common import HAZ, PRED, RES, ROOT, load_table  # noqa: E402
 from scripts.train_acpn import VARIANTS  # noqa: E402
 
-MODELS = ["A-CPN (proposed)", "Logistic Regression", "Random Forest", "Gradient-Boosted Trees", "Linear SVM", "Standard MLP"]
-TOOL = {"A-CPN (proposed)": "Novel DL · PyTorch", "Standard MLP": "PyTorch"}
+MODELS = ["B-ACPN (proposed)", "Logistic Regression", "Random Forest", "Gradient-Boosted Trees", "Linear SVM", "Standard MLP"]
+TOOL = {"B-ACPN (proposed)": "Novel hybrid DL · PyTorch", "Standard MLP": "PyTorch"}
 N, K = 469, 5  # districts, folds per repeat (for the corrected resampled t-test)
 
 
@@ -78,7 +78,7 @@ def main():
 
     # Table 5 + full metrics + confusion + significance
     t5, full, conf, sig = [], [], [], []
-    ref = folds_m["A-CPN (proposed)"].sort_values("fold").roc_auc.to_numpy()
+    ref = folds_m["B-ACPN (proposed)"].sort_values("fold").roc_auc.to_numpy()
     for m in MODELS:
         f = folds_m[m].sort_values("fold")
         mean, sd = f.mean(numeric_only=True), f.std(numeric_only=True)
@@ -94,7 +94,7 @@ def main():
         full.append(row)
         conf.append({"model": m, **{c: int(f[c].sum()) for c in ("tp", "tn", "fp", "fn")}})
         lo, hi = corrected_ci_and_p(f.roc_auc)
-        p = np.nan if m.startswith("A-CPN") else corrected_ci_and_p(ref, f.roc_auc.to_numpy())
+        p = np.nan if m.startswith("B-ACPN") else corrected_ci_and_p(ref, f.roc_auc.to_numpy())
         sig.append({"model": m, "auc_mean": f.roc_auc.mean(), "auc_ci": f"{lo:.3f} – {hi:.3f}",
                     "ci_low": lo, "ci_high": hi, "p_value": p})
     pd.DataFrame(t5).to_csv(RES / "table5_comparison.csv", index=False)
@@ -119,11 +119,11 @@ def main():
     pd.DataFrame(ls).to_csv(RES / "loso_by_state.csv", index=False)
 
     # Ablation (Table 6a)
-    full_auc = folds_m["A-CPN (proposed)"].roc_auc
-    ab = [{"model": "Full A-CPN", "roc_auc": full_auc.mean(), "roc_auc_sd": full_auc.std(),
-           "f1": folds_m["A-CPN (proposed)"].f1.mean(), "delta": 0.0}]
+    full_auc = folds_m["B-ACPN (proposed)"].roc_auc
+    ab = [{"model": "Full B-ACPN", "roc_auc": full_auc.mean(), "roc_auc_sd": full_auc.std(),
+           "f1": folds_m["B-ACPN (proposed)"].f1.mean(), "delta": 0.0}]
     for v in VARIANTS:
-        if v == "Full A-CPN":
+        if v == "Full B-ACPN":
             continue
         f, _ = per_fold(PRED / f"ablation__{v}.csv")
         ab.append({"model": v, "roc_auc": f.roc_auc.mean(), "roc_auc_sd": f.roc_auc.std(), "f1": f.f1.mean(),

@@ -35,12 +35,12 @@ def main():
                         "ROC-AUC": [f"{a:.3f} ± {s:.3f}" for a, s in zip(t5.roc_auc, t5.roc_auc_sd)],
                         "Bal. acc.": t5.bal_acc.round(3), "Accuracy": t5.accuracy.round(3), "F1": t5.f1.round(3),
                         "LOSO AUC": t5.loso_auc.round(3), "95% CI": [sig.loc[m, "auc_ci"] for m in t5.model],
-                        "p vs A-CPN": [sig.loc[m, "p_value_fmt"] for m in t5.model]})
+                        "p vs B-ACPN": [sig.loc[m, "p_value_fmt"] for m in t5.model]})
     abv = pd.DataFrame({"Variant": ab.model, "ROC-AUC": ab.roc_auc.round(3), "Change": ab.delta.map("{:+.3f}".format)})
     bav = pd.DataFrame({"Model": ba.model, "AUC raw": ba.auc_before.round(3), "AUC preprocessed": ba.auc_after.round(3),
                         "Gain": ba.auc_gain.map("{:+.3f}".format)})
     best = t5.sort_values("roc_auc").iloc[-1]
-    a = t5[t5.model == "A-CPN (proposed)"].iloc[0]
+    a = t5[t5.model == "B-ACPN (proposed)"].iloc[0]
     q = push["by_quadrant"]
     text = f"""# Beyond Development: Explaining Climate Resilience Across Indian Districts
 
@@ -87,18 +87,25 @@ Grid weights sum to 1 within {pm['grid_rain']['max_abs_sum_error']:.0e}. Final t
 
 {md_table(bav)}
 
-## 4. Proposed model: A-CPN (Attentive Climate Push Network)
-`logit = linear development baseline (5 features) + climate push (feature attention → KAN layer → residual MLP, 8 features)`,
-with MC Dropout uncertainty and split conformal prediction sets. {card['parameters']:,} parameters,
-{card['train_time']} on CPU; conformal coverage {card['conformal_coverage_mean']:.1%} (target 90%).
-Code: `models/acpn.py`. Feature attention, KAN layers, residual blocks and conformal prediction are existing techniques;
-their combination into a development-anchored network that outputs a per-district climate push is the contribution.
+## 4. Proposed model: B-ACPN (Boosted Attentive Climate Push Network)
+1. **Tree stage:** a random forest (500 trees) on all 13 features gives a risk score; for training districts the
+   score is computed out-of-fold (5 inner folds), so the deep stage never sees a score made on its own rows.
+2. **Deep stage:** `logit = tree score + linear development term + climate push × development gate`, where the
+   climate push is feature attention → MLP → residual block on the 8 hazard features and the gate is
+   `2σ(small net on the 5 development features)`.
+3. **Ensemble:** 5 deep stages with different seeds, probabilities averaged.
+
+MC Dropout gives the uncertainty of each district's climate push; split conformal prediction gives prediction sets.
+{card['parameters']:,} parameters per network (plus the forest), {card['train_time']} on CPU; conformal coverage
+{card['conformal_coverage_mean']:.1%} (target 90%). Code: `models/bacpn.py`. Random forests, attention, residual
+blocks, stacking and conformal prediction are existing techniques; combining a tree stage with a development-gated
+climate network that outputs a per-district climate push is the contribution.
 
 ## 5. Comparison with 5 models (Table 5; same 25 folds + leave-one-state-out)
 {md_table(t5v)}
 
-Best ROC-AUC: **{best.model} ({best.roc_auc:.3f})**. A-CPN: {a.roc_auc:.3f}. Results are reported as measured;
-A-CPN's contribution is the per-district explanation below.
+Highest ROC-AUC: **{best.model} ({best.roc_auc:.3f})**. B-ACPN: {a.roc_auc:.3f} ± {a.roc_auc_sd:.3f}. Results are
+reported as measured; a lead smaller than one standard deviation is treated as comparable, not better.
 
 ## 6. Ablation and climate push (Table 6)
 {md_table(abv)}

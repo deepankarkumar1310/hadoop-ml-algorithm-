@@ -1,7 +1,7 @@
 """Build the Review 2 slide deck on the SRM template.
 
 Every number comes from results/*.json|csv. Numbers that do not exist yet
-(A-CPN, Spark MLlib baselines, k-means regimes, ablation, climate push) are
+(B-ACPN, Spark MLlib baselines, k-means regimes, ablation, climate push) are
 written as PENDING and filled in automatically once results/ contains them.
 
 Usage: python scripts/build_deck.py
@@ -250,8 +250,8 @@ def g(df, model, col, fmt="{:.3f}"):
 
 
 SHORTN = {"Logistic Regression": "LR", "Random Forest": "RF", "Gradient-Boosted Trees": "GBT",
-          "Linear SVM": "Linear SVM", "Standard MLP": "MLP", "A-CPN (proposed)": "A-CPN"}
-MODELS = [("A-CPN (proposed)", "Novel DL · PyTorch"), ("Logistic Regression", "Spark MLlib"),
+          "Linear SVM": "Linear SVM", "Standard MLP": "MLP", "B-ACPN (proposed)": "B-ACPN"}
+MODELS = [("B-ACPN (proposed)", "Novel hybrid DL · PyTorch"), ("Logistic Regression", "Spark MLlib"),
           ("Random Forest", "Spark MLlib"), ("Gradient-Boosted Trees", "Spark MLlib"),
           ("Linear SVM", "Spark MLlib"), ("Standard MLP", "PyTorch")]
 
@@ -280,13 +280,13 @@ for i, (txt, b) in enumerate(lines):
 s1.notes_slide.notes_text_frame.text = (
     "Good morning. Our project asks why some developed Indian districts remain highly climate-vulnerable "
     "while some less-developed districts are resilient. We built a Big Data pipeline over 30 years of IMD "
-    "climate data and a novel deep-learning model, A-CPN, to explain each district.")
+    "climate data and a novel hybrid deep-learning model, B-ACPN, to explain each district.")
 
 # ================================================================= 2 CONTENTS
 s = new_slide("Contents", "This is the order we follow, as required for Review 2: dataset, model, "
               "architecture, preprocessing and its results, classification, comparison, team plan, "
               "references, photo and the Colab link.")
-items = ["Dataset", "Proposed Model (A-CPN)", "Overall System Architecture Diagram",
+items = ["Dataset", "Proposed Model (B-ACPN)", "Overall System Architecture Diagram",
          "Preprocessing (Big Data analysis and its steps)", "Results of Preprocessing",
          "Classification (proposed model)", "Results of Classification using proposed model",
          "Comparison with the existing classifier models", "Plan of Action / Member Tasks", "References",
@@ -316,7 +316,7 @@ box(s, 0.4, 1.35, 9.2, 0.95, "Why do some developed Indian districts remain high
 textbox(s, 0.4, 2.5, 4.6, 0.4, "Objectives", 18, True, NAVY)
 bullets(s, 0.4, 2.95, 4.65, 3.9, [
     ("Big Data pipeline ", "over 30 years (1991–2020) of IMD daily climate data: HDFS, MapReduce, Hive, Spark"),
-    ("Novel deep-learning model ", "A-CPN (Attentive Climate Push Network)"),
+    ("Novel deep-learning model ", "B-ACPN (Boosted Attentive Climate Push Network)"),
     ("Compare ", "with 5 existing ML models on identical folds"),
     ("Explain ", "each district as climate-driven or development-driven")], size=15)
 textbox(s, 5.3, 2.5, 4.3, 0.4, "469 districts, median splits", 18, True, NAVY)
@@ -355,32 +355,32 @@ table(s, 0.4, 3.2, 9.2, [
 owner(s, "Sehjodh Grewal")
 
 # ================================================================= 5 PROPOSED MODEL
-s = new_slide("Proposed Model: A-CPN", "A-CPN splits each district's risk into two parts. A linear development "
-              "baseline says how vulnerable the district should be from development alone. A deep climate "
-              "network learns a climate push that raises or lowers that risk. Attention shows which climate "
-              "factor drives the push, and MC Dropout with conformal prediction says how certain we are.")
+s = new_slide("Proposed Model: B-ACPN", "B-ACPN works in two stages. A random forest first gives a tree risk "
+              "score. A deep network then starts from that score and learns what the trees miss: a development "
+              "term and a climate push gated by development level. Five networks are averaged, attention shows "
+              "which climate factor drives the push, and MC Dropout with conformal prediction says how certain we are.")
 bullets(s, 0.4, 1.3, 9.2, 2.2, [
-    ("Attentive Climate Push Network: ", "a novel deep-learning model combining recent techniques"),
-    ("Development baseline: ", "linear layer on the 5 development features (interpretable)"),
-    ("Climate push: ", "feature attention → KAN layer → residual MLP on the 8 IMD hazard features"),
-    ("Output: ", "p = σ(baseline + climate push); push > 0 means climate adds risk beyond development"),
+    ("Tree stage: ", "random forest (500 trees) on all 13 features → risk score, out-of-fold for training rows"),
+    ("Deep stage: ", "tree score + linear development term + climate push (attention → MLP → residual block)"),
+    ("Development gate: ", "climate push × 2σ(gate(development)): how strongly climate acts at that level"),
+    ("Output: ", "ensemble of 5 networks; push > 0 means climate adds risk beyond development"),
     ("Uncertainty: ", "MC Dropout + conformal prediction; index never used as input (no circularity)")],
     size=15, space=3)
-box(s, 0.4, 4.0, 1.75, 0.8, "Development", sub="5 features", size=13)
+box(s, 0.4, 4.0, 1.75, 0.8, "All 13 features", sub="dev + climate", size=13)
 box(s, 0.4, 5.55, 1.75, 0.8, "Climate (IMD)", sub="8 features", fill=TINT_T, line=TEAL, size=13)
-box(s, 2.55, 4.0, 2.2, 0.8, "Linear baseline", sub="interpretable", size=13)
-box(s, 2.55, 5.55, 2.2, 0.8, "Attention → KAN → Residual MLP", fill=TINT_T, line=TEAL, size=12)
-box(s, 5.15, 4.0, 1.3, 0.8, "Baseline", sub="b", size=13)
+box(s, 2.55, 4.0, 2.2, 0.8, "Random forest", sub="tree stage, 500 trees", size=13)
+box(s, 2.55, 5.55, 2.2, 0.8, "Attention → MLP → Residual × dev gate", fill=TINT_T, line=TEAL, size=12)
+box(s, 5.15, 4.0, 1.3, 0.8, "Tree + dev", sub="b", size=13)
 box(s, 5.15, 5.55, 1.3, 0.8, "Climate push", sub="c (+/−)", fill=TINT_T, line=TEAL, size=13)
 box(s, 6.85, 4.75, 0.8, 0.8, "+", fill=WHITE, shape=MSO_SHAPE.OVAL, size=24)
-box(s, 8.0, 4.0, 1.6, 0.8, "σ(b + c)", sub="High / Low", fill=HILITE, line=ORANGE, size=14)
+box(s, 8.0, 4.0, 1.6, 0.8, "σ(b + c) × 5", sub="ensemble mean", fill=HILITE, line=ORANGE, size=14)
 box(s, 8.0, 5.55, 1.6, 0.8, "Uncertainty", sub="MC Dropout + conformal", fill=TINT_O, line=ORANGE, size=12, sub_size=10)
 for y in (4.4, 5.95):
     arrow(s, 2.15, y, 2.55, y); arrow(s, 4.75, y, 5.15, y)
 arrow(s, 6.45, 4.4, 6.9, 4.95); arrow(s, 6.45, 5.95, 6.9, 5.35)
 arrow(s, 7.65, 5.15, 8.0, 4.5); arrow(s, 8.8, 4.8, 8.8, 5.55)
-box(s, 0.4, 6.55, 9.2, 0.45, "Novelty: recent techniques (attention, KAN, residual blocks, conformal prediction) combined "
-    "into a development-anchored network for district climate vulnerability", WHITE, TEAL, 12, False, TEAL)
+box(s, 0.4, 6.55, 9.2, 0.45, "Novelty: a tree stage boosted by a development-gated attentive climate network (with uncertainty) "
+    "that separates each district's climate push from its tree/development baseline", WHITE, TEAL, 12, False, TEAL)
 owner(s, "Devanshu Kumar")
 
 # ================================================================= 6 ARCHITECTURE
@@ -388,12 +388,12 @@ s = new_slide("Overall System Architecture Diagram",
               "Data flows top-left to bottom-right. Raw sources land in the HDFS raw zone; Python converts the "
               "IMD grids to district-day rows in staging; MapReduce on YARN aggregates 7 million daily rows to "
               "yearly indices; Hive builds the 30-year baseline and joins development data; Spark finds climate "
-              "regimes and trains the MLlib baselines; A-CPN is trained in PyTorch and compared.")
+              "regimes and trains the MLlib baselines; B-ACPN (random forest + PyTorch) is trained and compared.")
 row1 = [("Sources", "NDAP · Census · IMD · DataMeet", LIGHT, NAVY), ("HDFS raw zone", "/project/raw", TINT_T, TEAL),
         ("Grid → district", "Python (NumPy, shapely)", LIGHT, NAVY), ("HDFS staging", "7.0 M district-day rows", TINT_T, TEAL)]
 row2 = [("MapReduce on YARN", "→ 19,200 district-years", TINT_O, ORANGE), ("Hive", "30-yr baseline + join", TINT_O, ORANGE),
         ("Spark", "k-means + MLlib", TINT_O, ORANGE)]
-row3 = [("A-CPN", "PyTorch", HILITE, ORANGE), ("Comparison tables", "Tables 1–6", LIGHT, NAVY),
+row3 = [("B-ACPN", "RF + PyTorch", HILITE, ORANGE), ("Comparison tables", "Tables 1–6", LIGHT, NAVY),
         ("Report / slides", "results/ · figures/", LIGHT, NAVY)]
 bw, bh = 1.95, 1.0
 for i, (a, b_, f, l) in enumerate(row1):
@@ -541,20 +541,19 @@ owner(s, "Sehjodh Grewal")
 pc = PENDING if card is None else f"{card['parameters']:,}"
 tt = PENDING if card is None else card["train_time"]
 cov = PENDING if card is None else f"{card['conformal_coverage_mean']:.1%} coverage (target 90%), avg set size {card['conformal_avg_set_size']:.2f}"
-s = new_slide("Classification: A-CPN Model Card",
-              "Table 4 lists the full A-CPN specification. The development part is deliberately linear so the "
-              "baseline is readable; the climate part is a small deep network sized for 469 districts. Every "
-              "model, including A-CPN, uses the same 25 folds plus leave-one-state-out.")
+s = new_slide("Classification: B-ACPN Model Card",
+              "Table 4 lists the full B-ACPN specification. The tree stage gives a strong first score; the deep "
+              "stage is small, sized for 469 districts, and learns the development and climate corrections. Every "
+              "model, including B-ACPN, uses the same 25 folds plus leave-one-state-out.")
 table(s, 0.4, 1.25, 9.2, [
     ["Component", "Specification"],
-    ["Development baseline", "Linear(5 → 1) on the 5 development features"],
-    ["Feature attention", "8 climate features → softmax attention weights (which factor matters)"],
-    ["KAN layer", "Kolmogorov–Arnold layer (8 → 16), learnable cubic B-spline per edge"],
-    ["Residual MLP", "Linear(16→16) → BatchNorm → ReLU → Dropout 0.3, skip connection → Linear(16→1)"],
-    ["Output", "p = σ(development baseline + climate push)"],
+    ["Tree stage", "Random forest, 500 trees, min leaf 2, all 13 features; out-of-fold (5 inner folds) score for training rows"],
+    ["Deep stage: baseline", "tree log-odds + Linear(5 → 1) on the 5 development features"],
+    ["Deep stage: climate push", "attention (8) → Linear(8→16), ReLU, Dropout 0.3 → residual block → Linear(16→1)"],
+    ["Development gate", "push × 2σ(Linear(5→4), tanh, Linear(4→1)); ensemble of 5 seeds, probabilities averaged"],
     ["Uncertainty", f"MC Dropout (50 passes) + split conformal: {cov}"],
     ["Loss / optimiser", "Class-weighted BCE; AdamW lr 3e-3, weight decay 1e-3, batch 64, early stopping (patience 30)"],
-    ["Parameters / train time", f"{pc} trainable / {tt} (CPU)"],
+    ["Parameters / train time", f"{pc} trainable per network (+ 500 trees) / {tt} (CPU)"],
     ["Validation", "Repeated stratified 5-fold × 5 (25 folds) + leave-one-state-out"],
     ["Target", "High vs Low vulnerability (median of 2021 index); index never an input"]],
     [2.3, 6.9], size=12, row_h=0.52)
@@ -567,26 +566,32 @@ for m, typ in MODELS:
 if cmp5 is not None:
     srt = cmp5.sort_values("roc_auc", ascending=False).reset_index(drop=True)
     best = srt.iloc[0]
-    acp = cmp5[cmp5.model == "A-CPN (proposed)"].iloc[0]
-    rank = int(srt.index[srt.model == "A-CPN (proposed)"][0]) + 1
+    acp = cmp5[cmp5.model == "B-ACPN (proposed)"].iloc[0]
+    rank = int(srt.index[srt.model == "B-ACPN (proposed)"][0]) + 1
     gap = best.roc_auc - acp.roc_auc
-    verdict = ("A-CPN has the best ROC-AUC" if rank == 1 else
-               f"{best.model} is best (ROC-AUC {best.roc_auc:.3f}); A-CPN ranks {rank} of 6 "
-               f"({acp.roc_auc:.3f}, gap {gap:.3f} {'>' if gap > acp.roc_auc_sd else '<'} 1 SD = {acp.roc_auc_sd:.3f})")
+    second = srt[srt.model != acp.model].iloc[0]
+    lead = acp.roc_auc - second.roc_auc
+    if rank == 1:
+        verdict = (f"B-ACPN has the highest ROC-AUC ({acp.roc_auc:.3f}); next is {SHORTN[second.model]} "
+                   f"({second.roc_auc:.3f}), lead {lead:+.3f} " +
+                   ("> 1 SD, so B-ACPN is best" if lead > acp.roc_auc_sd else
+                    f"< 1 SD ({acp.roc_auc_sd:.3f}), so the top models are comparable"))
+    else:
+        verdict = (f"{best.model} is highest (ROC-AUC {best.roc_auc:.3f}); B-ACPN ranks {rank} of 6 "
+                   f"({acp.roc_auc:.3f}, gap {gap:.3f} {'>' if gap > acp.roc_auc_sd else '<'} 1 SD = {acp.roc_auc_sd:.3f})")
     beats = cmp5[(cmp5.roc_auc < acp.roc_auc) & (cmp5.model != acp.model)].model.map(lambda x: SHORTN.get(x, x)).tolist()
     cmp_items = [("Result: ", verdict),
-                 ("A-CPN is higher than: ", ", ".join(beats) if beats else "none of the baselines"),
-                 ("A-CPN's added value: ", "a per-district climate push, attention and uncertainty, which the baselines do not give")]
+                 ("B-ACPN is higher than: ", ", ".join(beats) if beats else "none of the baselines"),
+                 ("B-ACPN's added value: ", "a per-district climate push, attention and uncertainty, which the baselines do not give")]
 else:
     cmp_items = [("Result: ", PENDING)]
 s = new_slide("Comparison with Existing Classifier Models",
-              "Table 5 compares A-CPN with five existing models on exactly the same 25 folds and the same "
+              "Table 5 compares B-ACPN with five existing models on exactly the same 25 folds and the same "
               "leave-one-state-out split. Values are means over folds. We call a model best only if its lead is "
-              "larger than one standard deviation, and we report a baseline that beats A-CPN as it is.", size=24)
+              "larger than one standard deviation, and we report a baseline that beats B-ACPN as it is.", size=24)
 table(s, 0.4, 1.3, 9.2, rows, [2.25, 1.7, 1.05, 1.05, 1.05, 1.0, 1.1], size=12, row_h=0.55, highlight=(1,))
 bullets(s, 0.4, 5.3, 9.2, 1.4, cmp_items, size=15, space=3)
-textbox(s, 0.4, 6.7, 9.2, 0.35, f"A-CPN and MLP: {REF}. Spark MLlib models: same code, data and folds, run with "
-        "Spark 3.5.3 on 2026-10-21.", 10, color=GREY)
+textbox(s, 0.4, 6.7, 9.2, 0.35, f"B-ACPN and MLP: local CPU run 2026-10-22. Spark MLlib models: same data and folds, Spark 3.5.3 on 2026-10-21.", 10, color=GREY)
 owner(s, "Tanmay Singh")
 
 # ================================================================= EFFECT OF PREPROCESSING ON THE MODELS (Devanshu)
@@ -598,8 +603,8 @@ for m, _ in MODELS:
                                                    ("f1_before", "{:.3f}"), ("f1_after", "{:.3f}"), ("f1_gain", "{:+.3f}"))])
 if ba is not None:
     big = ba.sort_values("auc_gain", ascending=False).iloc[0]
-    acp_gain = ba[ba.model == "A-CPN (proposed)"].auc_gain.iloc[0]
-    ba_note = (f"largest gain {SHORTN[big.model]} {big.auc_gain:+.3f} ROC-AUC, A-CPN {acp_gain:+.3f}. RF and GBT ignore feature "
+    acp_gain = ba[ba.model == "B-ACPN (proposed)"].auc_gain.iloc[0]
+    ba_note = (f"largest gain {SHORTN[big.model]} {big.auc_gain:+.3f} ROC-AUC, B-ACPN {acp_gain:+.3f}. RF and GBT ignore feature "
                "scale, and Spark's LR and Linear SVM standardise internally, so their before/after runs are equal.")
 else:
     ba_note = PENDING
@@ -631,13 +636,13 @@ bullets(s, 0.4, 5.75, 9.2, 1.2, [
 owner(s, "Tanmay Singh")
 
 # ================================================================= 16 CONFUSION / CI / SIGNIFICANCE
-rows = [["Model", "TP", "TN", "FP", "FN", "ROC-AUC 95% CI", "p vs A-CPN"]]
+rows = [["Model", "TP", "TN", "FP", "FN", "ROC-AUC 95% CI", "p vs B-ACPN"]]
 for m, _ in MODELS:
     rows.append([m] + [g(conf, m, c, "{:.0f}") for c in ("tp", "tn", "fp", "fn")] +
-                [g(sig, m, "auc_ci"), "—" if m.startswith("A-CPN") else g(sig, m, "p_value_fmt")])
+                [g(sig, m, "auc_ci"), "—" if m.startswith("B-ACPN") else g(sig, m, "p_value_fmt")])
 s = new_slide("Confusion Matrix, CIs and Significance",
               "Confusion counts are summed over all 25 test folds. The 95% confidence interval shows how certain each "
-              "ROC-AUC is, and the corrected paired test tells us whether a difference from A-CPN is real or "
+              "ROC-AUC is, and the corrected paired test tells us whether a difference from B-ACPN is real or "
               "could be noise from the folds; p below 0.05 means a real difference.", size=26)
 table(s, 0.4, 1.3, 9.2, rows, [2.3, 0.8, 0.8, 0.8, 0.8, 1.9, 1.3], size=12, row_h=0.6, highlight=(1,))
 bullets(s, 0.4, 5.65, 9.2, 1.3, [
@@ -647,21 +652,21 @@ bullets(s, 0.4, 5.65, 9.2, 1.3, [
 owner(s, "Tanmay Singh")
 
 # ================================================================= 17 ABLATION
-VAR = ["Full A-CPN", "Without feature attention", "Without KAN layer (plain MLP)", "Without residual block",
-       "Climate only (no development baseline)", "Development only (no climate push)", "Linear climate part (no deep layers)"]
+VAR = ["Full B-ACPN", "Deep stage only (no tree stage)", "Tree stage only (no deep stage)", "Without climate push",
+       "Without development gate", "Without feature attention", "Single network (no ensemble)"]
 rows = [["Variant", "ROC-AUC", "Change vs full", "p vs full"]]
 for v in VAR:
-    rows.append([v, g(abl, v, "roc_auc"), "—" if v == "Full A-CPN" else g(abl, v, "delta", "{:+.3f}"),
-                 "—" if v == "Full A-CPN" else g(abl, v, "p_value")])
+    rows.append([v, g(abl, v, "roc_auc"), "—" if v == "Full B-ACPN" else g(abl, v, "delta", "{:+.3f}"),
+                 "—" if v == "Full B-ACPN" else g(abl, v, "p_value")])
 if abl is not None:
-    fa = abl[abl.model == "Full A-CPN"].iloc[0]
+    fa = abl[abl.model == "Full B-ACPN"].iloc[0]
     hurt = abl[(abl.delta < -fa.roc_auc_sd)].model.tolist()
-    nohelp = abl[(abl.model != "Full A-CPN") & (abl.delta >= -fa.roc_auc_sd)].model.tolist()
+    nohelp = abl[(abl.model != "Full B-ACPN") & (abl.delta >= -fa.roc_auc_sd)].model.tolist()
     ab_items = [("Removal hurts by more than 1 SD: ", ", ".join(hurt) if hurt else "no single component"),
                 ("Within 1 SD (no clear accuracy gain): ", ", ".join(nohelp) if nohelp else "none")]
 else:
     ab_items = [("Result: ", PENDING)]
-s = new_slide("Ablation Study", "Each row removes one part of A-CPN and re-runs it on the same folds. If "
+s = new_slide("Ablation Study", "Each row removes one part of B-ACPN and re-runs it on the same folds. If "
               "accuracy drops by more than one standard deviation, that part helps prediction; if not, the part is "
               "kept only for what it explains, and we say so.")
 table(s, 0.4, 1.3, 9.2, rows, [4.6, 1.5, 1.6, 1.5], size=13, row_h=0.52, highlight=(1,))
@@ -739,23 +744,22 @@ fig_slide("MapReduce & Spark Results (Figures)",
           "silhouette score used to choose the number of Spark k-means climate regimes.",
           "mapreduce_scalability.png", "kmeans_silhouette.png",
           f"MapReduce scaling, single node ({REF})", "Spark k-means: silhouette by k", "Deepankar")
-fig_slide("A-CPN Training & Attention (Figures)",
-          "Left: A-CPN training and validation loss; training stops at the best validation epoch. Right: the mean "
+fig_slide("B-ACPN Training & Attention (Figures)",
+          "Left: B-ACPN deep-stage training and validation loss; training stops at the best validation epoch. Right: the mean "
           "attention weight of each climate feature, showing which hazards drive the climate push.",
           "acpn_training_curve.png", "attention_importance.png",
-          "A-CPN training curve (early stopping)", "Feature attention (mean weight)", "Devanshu Kumar")
+          "B-ACPN deep stage: training curve (early stopping)", "Feature attention (mean weight)", "Devanshu Kumar")
 fig_slide("Ablation (Figure)",
-          "Each bar is A-CPN with one component removed, on the same 25 folds. Removing the climate push costs the "
-          "most; removing attention or the KAN layer does not lower accuracy, so those parts are kept for the "
-          "explanation they give.",
-          "ablation.png", None, "Ablation: one A-CPN component removed at a time", None, "Devanshu Kumar")
+          "Each bar is B-ACPN with one component removed, on the same 25 folds. A drop larger than one standard "
+          "deviation means the part helps accuracy; parts within one SD are kept for the explanation they give.",
+          "ablation.png", None, "Ablation: one B-ACPN component removed at a time", None, "Devanshu Kumar")
 fig_slide("Climate-Push Visualisation",
           "Left: the climate push of every district by group, with the group mean. Right: an India map of the "
           "climate push, so the panel can see where climate drives vulnerability beyond development.",
           "climate_push_by_quadrant.png", "climate_push_map.png",
           "Climate push by group (bar = mean)", "Climate push per district (469)", "Devanshu Kumar")
 fig_slide("Results of Classification (Figures)",
-          "Top: ROC and precision-recall curves for A-CPN and the five baselines, pooled over the 25 folds. Bottom: "
+          "Top: ROC and precision-recall curves for B-ACPN and the five baselines, pooled over the 25 folds. Bottom: "
           "mean and standard deviation of four metrics for every model.",
           "roc_curves.png", "comparison_bars.png",
           "ROC and precision-recall curves (25 folds)", "Comparison: mean ± SD over 25 folds",
@@ -774,7 +778,7 @@ fig_slide("Effect of Preprocessing (Figure)",
 # ================================================================= 20 KEY FINDINGS
 rg = ar["regression"]
 if cmp5 is not None and push:
-    _a = cmp5[cmp5.model == "A-CPN (proposed)"].iloc[0]
+    _a = cmp5[cmp5.model == "B-ACPN (proposed)"].iloc[0]
     _b = cmp5.sort_values("roc_auc").iloc[-1]
     acpn_finding = (f"ROC-AUC {_a.roc_auc:.3f} vs best {SHORTN[_b.model]} {_b.roc_auc:.3f}; climate push "
                     f"Anomaly A {push['anomaly_A_mean_push']:+.2f} vs expected {push['expected_high_dev_low_vul_mean_push']:+.2f}")
@@ -820,7 +824,7 @@ rows = [["Member", "Role", "Key Responsibilities", "Status"]]
 for mbr in team["members"]:
     rows.append([mbr["name"], mbr["role"], mbr["responsibilities"], mbr["completion"]])
 table(s, 0.4, 1.25, 9.2, rows, [1.6, 1.8, 4.4, 1.6], size=11, row_h=0.9)
-textbox(s, 0.4, 6.45, 9.2, 0.55, "Next (Review 3): full 1901–2024 rainfall in HDFS and re-timing; A-CPN tuning; "
+textbox(s, 0.4, 6.45, 9.2, 0.55, "Next (Review 3): full 1901–2024 rainfall in HDFS and re-timing; B-ACPN tuning; "
         "comparison with CEEW / DST district rankings; final report.", 12, color=INK)
 owner(s, "Tanmay Singh")
 
@@ -833,7 +837,8 @@ refs = [
     "A. K. Srivastava et al., Atmospheric Science Letters 10, 2009 (IMD gridded temperature).",
     "H.-T. Cheng et al., Wide & Deep Learning for Recommender Systems, DLRS 2016.",
     "S. Ö. Arık and T. Pfister, TabNet: Attentive Interpretable Tabular Learning, AAAI 2021.",
-    "Z. Liu et al., KAN: Kolmogorov–Arnold Networks, arXiv:2404.19756, 2024.",
+    "L. Breiman, Random Forests, Machine Learning 45, 2001.",
+    "D. H. Wolpert, Stacked Generalization, Neural Networks 5, 1992.",
     "K. He et al., Deep Residual Learning for Image Recognition, CVPR 2016.",
     "Y. Gal and Z. Ghahramani, Dropout as a Bayesian Approximation, ICML 2016.",
     "A. N. Angelopoulos and S. Bates, A Gentle Introduction to Conformal Prediction, arXiv:2107.07511, 2021.",
@@ -843,7 +848,7 @@ refs = [
     "M. Zaharia et al., Apache Spark: A Unified Engine for Big Data Processing, CACM 59(11), 2016.",
     "X. Meng et al., MLlib: Machine Learning in Apache Spark, JMLR 17, 2016.",
     "DataMeet, Community Created Maps of India."]
-s = new_slide("References", "These are the data sources, the papers behind each A-CPN component, and the "
+s = new_slide("References", "These are the data sources, the papers behind each B-ACPN component, and the "
               "Big Data tools we used.")
 tb = s.shapes.add_textbox(Inches(0.4), Inches(1.3), Inches(9.2), Inches(5.7))
 tf = tb.text_frame; tf.word_wrap = True
@@ -876,7 +881,7 @@ table(s, 0.4, 2.75, 9.2, [
     ["0–2 Setup, data, preprocessing", "Install, IMD download to Drive, Table 1 + error metrics", "Sehjodh"],
     ["3–4 Hadoop + HDFS", "Cluster start, health report, HDFS load, Table 2", "Deepankar"],
     ["5–7 MapReduce, Hive, Spark", "YARN job + timings, Hive check, k-means regimes, Table 3", "Tanmay"],
-    ["8–10 A-CPN + comparison", "Model card, 5 baselines, Tables 4–6, ablation", "Devanshu"],
+    ["8–10 B-ACPN + comparison", "Model card, 5 baselines, Tables 4–6, ablation", "Devanshu"],
     ["11 Visualisations", "All figures, only after every table", "Each owner"],
     ["12 Slides", "Builds this deck from results/", "Tanmay"]],
     [2.7, 5.0, 1.5], size=12, row_h=0.55)

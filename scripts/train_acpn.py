@@ -1,9 +1,9 @@
-"""Train and evaluate A-CPN (and its ablation variants) on the shared folds.
+"""Train and evaluate the proposed model B-ACPN (and its ablation variants) on the shared folds.
 
 Writes out-of-fold predictions to results/predictions/, per-district explanations
 (baseline, climate push, attention, MC Dropout SD) to results/district_explanations.csv,
 conformal coverage to results/conformal.csv, the model card to results/table4_model_card.json,
-and a final model trained on all 469 districts to models/saved/acpn_full.pt.
+and a final model trained on all 469 districts to models/saved/bacpn_full.joblib.
 
 Usage: python scripts/train_acpn.py [--ablation] [--raw]
 """
@@ -19,18 +19,39 @@ import pandas as pd
 import torch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from models.acpn import ACPNClassifier  # noqa: E402
+import joblib  # noqa: E402
+from models.bacpn import BACPNClassifier  # noqa: E402
 from scripts.common import HAZ, PRED, RES, ROOT, get_folds, index_of, load_table  # noqa: E402
 
+NAME = "B-ACPN (proposed)"
 VARIANTS = {
-    "Full A-CPN": {},
+    "Full B-ACPN": {},
+    "Deep stage only (no tree stage)": {"use_trees": False},
+    "Tree stage only (no deep stage)": {"trees_only": True},
+    "Without climate push": {"use_climate": False},
+    "Without development gate": {"use_gate": False},
     "Without feature attention": {"use_attention": False},
-    "Without KAN layer (plain MLP)": {"use_kan": False},
-    "Without residual block": {"use_residual": False},
-    "Climate only (no development baseline)": {"use_dev": False},
-    "Development only (no climate push)": {"use_climate": False},
-    "Linear climate part (no deep layers)": {"linear_climate": True},
+    "Single network (no ensemble)": {"seeds": (42,)},
 }
+
+
+class TreesOnly:
+    """Ablation: the tree stage alone (same forest as inside B-ACPN)."""
+
+    def fit(self, X, y):
+        t0 = time.perf_counter()
+        self.m = BACPNClassifier()._forest().fit(X, y)
+        self.train_time_ = time.perf_counter() - t0
+        return self
+
+    def predict_proba(self, X):
+        return self.m.predict_proba(X)
+
+
+def make(arch, standardize=True):
+    if arch.get("trees_only"):
+        return TreesOnly()
+    return BACPNClassifier(standardize=standardize, **arch)
 
 
 def run(df, X, y, folds, arch, standardize=True, explain=False, kinds=("cv", "loso")):
@@ -39,7 +60,7 @@ def run(df, X, y, folds, arch, standardize=True, explain=False, kinds=("cv", "lo
     for kind in kinds:
         for f in folds[kind]:
             tr, te = idx(f["train"]), idx(f["test"])
-            m = ACPNClassifier(standardize=standardize, **arch).fit(X[tr], y[tr])
+            m = make(arch, standardize).fit(X[tr], y[tr])
             t0 = time.perf_counter()
             p = m.predict_proba(X[te])[:, 1]
             pt = (time.perf_counter() - t0) / len(te)
@@ -71,12 +92,12 @@ def main():
 
     if a.raw:
         pred, _, _ = run(df, X, y, folds, {}, standardize=False, kinds=("cv",))
-        pred.to_csv(PRED / "A-CPN (proposed)__raw.csv", index=False)
-        print("raw A-CPN done")
+        pred.to_csv(PRED / f"{NAME}__raw.csv", index=False)
+        print("raw B-ACPN done")
         return
     if a.ablation:
         for name, arch in VARIANTS.items():
-            if name == "Full A-CPN":
+            if name == "Full B-ACPN":
                 continue
             pred, _, _ = run(df, X, y, folds, arch, kinds=("cv",))
             pred.to_csv(PRED / f"ablation__{name}.csv", index=False)
@@ -84,20 +105,19 @@ def main():
         return
 
     pred, expl, conf = run(df, X, y, folds, {}, explain=True)
-    pred.to_csv(PRED / "A-CPN (proposed)__scaled.csv", index=False)
+    pred.to_csv(PRED / f"{NAME}__scaled.csv", index=False)
     expl.to_csv(RES / "district_explanations_folds.csv", index=False)
     conf.to_csv(RES / "conformal.csv", index=False)
 
     # final model on all districts: saved for the model card and for predictions
     t0 = time.perf_counter()
-    full = ACPNClassifier().fit(X, y)
+    full = BACPNClassifier().fit(X, y)
     secs = time.perf_counter() - t0
     out = ROOT / "models" / "saved"
     out.mkdir(parents=True, exist_ok=True)
-    torch.save({"state_dict": full.net_.state_dict(), "mu": full.mu_, "sd": full.sd_,
-                "push_offset": full.push_offset_, "qhat": full.qhat_}, out / "acpn_full.pt")
+    joblib.dump(full, out / "bacpn_full.joblib", compress=3)
     cv_times = pred[pred.kind == "cv"].groupby("fold").train_time.first()
-    card = {"parameters": full.n_params(), "train_time": f"{cv_times.mean():.1f} s per fold",
+    card = {"parameters": full.n_params(), "ensemble": len(full.seeds), "trees": full.n_trees, "train_time": f"{cv_times.mean():.1f} s per fold",
             "train_time_full_s": round(secs, 2), "epochs_full": len(full.history_),
             "predict_ms_per_district": round(pred.predict_time.mean() * 1000, 4),
             "hardware": f"{platform.processor() or platform.machine()} CPU, torch {torch.__version__}",
