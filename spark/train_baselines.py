@@ -1,4 +1,4 @@
-"""BD5: Spark MLlib baselines M1-M4 on the identical folds used for A-CPN.
+"""BD5: Spark MLlib baselines M1-M4 on the identical folds used for B-ACPN.
 
   M1 LogisticRegression   M2 RandomForestClassifier (200 trees)
   M3 GBTClassifier (100 iterations, depth 3)   M4 LinearSVC (AUC from rawPrediction)
