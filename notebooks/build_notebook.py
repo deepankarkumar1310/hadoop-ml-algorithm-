@@ -58,7 +58,10 @@ if IN_COLAB:
     if not os.path.isdir(REPO_DIR):
         subprocess.run(['git', 'clone', '{REPO}', REPO_DIR], check=True)
     os.chdir(REPO_DIR)
-    print(subprocess.run(['git', 'pull', '--ff-only'], capture_output=True, text=True).stdout.strip())
+    # always use the latest main branch (files the notebook regenerates are replaced; Drive data is untouched)
+    subprocess.run(['git', 'fetch', '-q', 'origin', 'main'], check=True)
+    subprocess.run(['git', 'checkout', '-q', '-f', '-B', 'main', 'origin/main'], check=True)
+    print(subprocess.run(['git', 'log', '-1', '--format=repo at %h %s'], capture_output=True, text=True).stdout.strip())
 else:
     os.chdir(os.path.dirname(os.getcwd()) if os.path.basename(os.getcwd()) == 'notebooks' else os.getcwd())
     IMD_DIR = 'data/imd'
