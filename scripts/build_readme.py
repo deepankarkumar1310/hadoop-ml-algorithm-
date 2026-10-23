@@ -21,6 +21,7 @@ def md_table(df):
 
 def main():
     pm = json.loads((RES / "preprocessing_metrics.json").read_text())
+    cc = json.loads((RES / "preprocessing_colab_checks.json").read_text())
     hd = json.loads((RES / "hdfs_usage_bytes.json").read_text())
     km = json.loads((RES / "kmeans_regimes.json").read_text())
     card = json.loads((RES / "table4_model_card.json").read_text())
@@ -37,8 +38,10 @@ def main():
                         "LOSO AUC": t5.loso_auc.round(3), "95% CI": [sig.loc[m, "auc_ci"] for m in t5.model],
                         "p vs B-ACPN": [sig.loc[m, "p_value_fmt"] for m in t5.model]})
     abv = pd.DataFrame({"Variant": ab.model, "ROC-AUC": ab.roc_auc.round(3), "Change": ab.delta.map("{:+.3f}".format)})
-    bav = pd.DataFrame({"Model": ba.model, "AUC raw": ba.auc_before.round(3), "AUC preprocessed": ba.auc_after.round(3),
-                        "Gain": ba.auc_gain.map("{:+.3f}".format)})
+    bav = pd.DataFrame({"Model": ba.model,
+                        **{f"{n} {w}": ba[f"{c}_{k}"].map(lambda v: "n/a" if pd.isna(v) else f"{v:.3f}")
+                           for c, n in (("acc", "Accuracy"), ("f1", "F1"), ("rmse", "RMSE"), ("auc", "ROC-AUC"))
+                           for k, w in (("before", "raw"), ("after", "prep."))}})
     best = t5.sort_values("roc_auc").iloc[-1]
     a = t5[t5.model == "B-ACPN (proposed)"].iloc[0]
     q = push["by_quadrant"]
@@ -83,7 +86,10 @@ Districts 640 → {pm['matching']['matched']} matched → 589 with index → {pm
 Grid weights sum to 1 within {pm['grid_rain']['max_abs_sum_error']:.0e}. Final table: 0 missing, 0 duplicates,
 0 out-of-range values. Class balance {pm['final_table']['class_high']} High / {pm['final_table']['class_low']} Low.
 
-**Preprocessing before vs after** (same models and folds, raw vs preprocessed features):
+**Preprocessing before vs after** (same models and folds, raw vs preprocessed features; RMSE = error of the predicted
+probability, lower is better; Linear SVM gives no probabilities). Data level: area-weighted grid → district
+aggregation vs nearest grid cell differs by RMSE {cc['area_vs_nearest_cell']['rmse_mm']:.0f} mm
+({cc['area_vs_nearest_cell']['mean_abs_pct']:.1f}% mean absolute difference, {cc['area_vs_nearest_cell']['year']}).
 
 {md_table(bav)}
 
@@ -124,8 +130,8 @@ python -m pytest tests -q
 python scripts/preprocessing_metrics.py
 python spark/kmeans_regimes.py
 python spark/train_baselines.py
-python scripts/train_acpn.py && python scripts/train_mlp.py
-python scripts/train_acpn.py --raw && python scripts/train_acpn.py --ablation
+python scripts/train_bacpn.py && python scripts/train_mlp.py
+python scripts/train_bacpn.py --raw && python scripts/train_bacpn.py --ablation
 python scripts/evaluate.py && python scripts/make_figures.py && python scripts/build_deck.py
 ```
 The full Hadoop / MapReduce / Hive pipeline (IMD download, HDFS, YARN) runs in the Colab notebook.

@@ -5,7 +5,7 @@ Writes out-of-fold predictions to results/predictions/, per-district explanation
 conformal coverage to results/conformal.csv, the model card to results/table4_model_card.json,
 and a final model trained on all 469 districts to models/saved/bacpn_full.joblib.
 
-Usage: python scripts/train_acpn.py [--ablation] [--raw]
+Usage: python scripts/train_bacpn.py [--ablation] [--raw]
 """
 import argparse
 import json
@@ -125,7 +125,7 @@ def main():
             "conformal_avg_set_size": round(conf.avg_set_size.mean(), 3)}
     (RES / "table4_model_card.json").write_text(json.dumps(card, indent=2))
     hist = pd.DataFrame(full.history_, columns=["train_loss", "val_loss"])
-    hist.to_csv(RES / "acpn_training_curve.csv", index_label="epoch")
+    hist.to_csv(RES / "bacpn_training_curve.csv", index_label="epoch")
     print(json.dumps(card, indent=2))
 
 

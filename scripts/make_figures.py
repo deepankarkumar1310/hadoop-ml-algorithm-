@@ -96,17 +96,30 @@ def preprocessing(df, X):
 
 
 def preprocessing_gain():
-    """Tanmay: model ROC-AUC on raw vs preprocessed features."""
+    """Tanmay: model accuracy, F1, ROC-AUC and RMSE on raw vs preprocessed features."""
     ba = pd.read_csv(RES / "preprocessing_before_after.csv")
-    fig, ax = plt.subplots(figsize=(8.5, 3.8))
+    panels = [("acc", "Accuracy", "higher is better"), ("f1", "F1 score", "higher is better"),
+              ("auc", "ROC-AUC", "higher is better"), ("rmse", "RMSE of predicted probability", "lower is better")]
+    fig, axs = plt.subplots(2, 2, figsize=(11, 6.8), gridspec_kw=dict(hspace=0.45, wspace=0.18))
     x = np.arange(len(ba))
-    ax.bar(x - 0.19, ba.auc_before, 0.38, color=V.RED, label="Before: raw features")
-    ax.bar(x + 0.19, ba.auc_after, 0.38, color=V.AQUA, label="After: preprocessed")
-    for i, r in ba.iterrows():
-        ax.text(i + 0.19, r.auc_after + 0.01, f"{round(r.auc_gain, 3) + 0.0:+.3f}", ha="center", fontsize=9, color=V.INK)
-    ax.set_xticks(x, [SHORT[m] for m in ba.model]); ax.set_ylim(0.4, 0.95); ax.axhline(0.5, color=V.MUTED, lw=0.8, ls=":")
-    ax.set_ylabel("ROC-AUC (25 folds)"); ax.legend(loc="upper right"); ax.grid(axis="x", visible=False)
-    ax.set_title("Model ROC-AUC before vs after preprocessing (label = gain)")
+    for ax, (c, name, note) in zip(axs.flat, panels):
+        bef, aft = ba[f"{c}_before"], ba[f"{c}_after"]
+        ax.bar(x - 0.19, bef, 0.38, color=V.RED, label="Before: raw features")
+        ax.bar(x + 0.19, aft, 0.38, color=V.AQUA, label="After: preprocessed")
+        for i in range(len(ba)):
+            if pd.notna(aft[i]):
+                ax.text(i, max(aft[i], bef[i]) + 0.008, f"{round(aft[i] - bef[i], 3) + 0.0:+.3f}", ha="center", fontsize=8,
+                        color=V.INK)
+            else:
+                ax.text(i, 0.02, "n/a", ha="center", fontsize=8, color=V.MUTED)
+        vals = pd.concat([bef, aft]).dropna()
+        lo = 0.0 if c == "rmse" else 0.5
+        ax.set_ylim(lo, vals.max() * 1.08 if c == "rmse" else 0.9)
+        ax.set_xticks(x, [SHORT[m] for m in ba.model], fontsize=9); ax.grid(axis="x", visible=False)
+        ax.set_title(f"{name} ({note}; label = change)", fontsize=10)
+    axs[0, 0].legend(loc="upper right", fontsize=8)
+    fig.suptitle("Models before vs after preprocessing (25 folds; Linear SVM gives no probabilities, so no RMSE)",
+                 fontsize=11, fontweight="bold")
     V.save(fig, FIG / "prep_model_gain.png")
 
 
@@ -152,7 +165,7 @@ def classifier(df):
                     color="white" if mat[i, j] > mat.max() * 0.6 else V.INK)
     ax.set_xticks([0, 1], ["Predicted Low", "Predicted High"]); ax.set_yticks([0, 1], ["True Low", "True High"])
     ax.set_title("B-ACPN confusion matrix (25 folds)")
-    V.save(fig, FIG / "confusion_acpn.png")
+    V.save(fig, FIG / "confusion_bacpn.png")
 
     # C4 comparison bars with error bars + C5 box plots
     fig, ax = plt.subplots(figsize=(10, 4.2))
@@ -202,14 +215,14 @@ def classifier(df):
     V.save(fig, FIG / "loso_by_state.png")
 
     # C8 training curve, C9 ablation
-    h = pd.read_csv(RES / "acpn_training_curve.csv")
+    h = pd.read_csv(RES / "bacpn_training_curve.csv")
     fig, ax = plt.subplots(figsize=(6, 3.8))
     ax.plot(h.epoch, h.train_loss, color=V.BLUE, label="Training loss")
     ax.plot(h.epoch, h.val_loss, color=V.ORANGE, label="Validation loss")
     best_ep = h.val_loss.idxmin()
     ax.axvline(best_ep, color=V.MUTED, ls=":"); ax.text(best_ep + 1, h.val_loss.max(), f"best epoch {best_ep}", fontsize=8)
     ax.set(xlabel="Epoch", ylabel="Weighted BCE", title="B-ACPN training curve (first network, early stopping)"); ax.legend()
-    V.save(fig, FIG / "acpn_training_curve.png")
+    V.save(fig, FIG / "bacpn_training_curve.png")
     ab = pd.read_csv(RES / "table6_ablation.csv")
     fig, ax = plt.subplots(figsize=(8, 4))
     ax.barh(ab.model[::-1], ab.roc_auc[::-1], xerr=ab.roc_auc_sd[::-1], capsize=3,

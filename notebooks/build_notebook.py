@@ -1,6 +1,6 @@
 """Generate notebooks/Review2_Colab.ipynb (run from the repository root).
 
-Review 2 order: dataset -> Big Data pipeline -> preprocessing results -> A-CPN -> comparison ->
+Review 2 order: dataset -> Big Data pipeline -> preprocessing results -> B-ACPN -> comparison ->
 tables; every figure comes after every table. Sections 8-10 also work on their own (fast path)
 from the committed data/processed/analysis_table.csv.
 """
@@ -34,9 +34,9 @@ while some less-developed districts are resilient?
 | 5 | MapReduce on YARN: local test, job, timings, correctness check |
 | 6 | Hive: 30-year baseline + join, check against pandas |
 | 7 | Spark k-means climate regimes + Table 3 |
-| 8 | A-CPN (proposed model): architecture, parameters, Table 4 |
-| 9 | Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) + MLP; A-CPN ablation |
-| 10 | Table 5 (comparison, metrics, preprocessing before/after) and Table 6 (ablation, climate push) |
+| 8 | B-ACPN (proposed model): architecture, parameters, Table 4 |
+| 9 | Comparison models: Spark MLlib (LR, RF, GBT, Linear SVM) + MLP; B-ACPN ablation |
+| 10 | Table 5 (comparison, metrics; accuracy, F1, RMSE, ROC-AUC before/after preprocessing) and Table 6 (ablation, climate push) |
 | 11 | Visualisations (only after every table) |
 | 12 | Build the slides; appendix to show code |
 
@@ -208,23 +208,29 @@ display(pd.DataFrame([
 """)
 
 md("""
-## 8. Proposed model: A-CPN (Attentive Climate Push Network)
+## 8. Proposed model: B-ACPN (Boosted Attentive Climate Push Network)
 
-`logit = development baseline (linear, 5 features) + climate push (attention → KAN → residual MLP, 8 hazard features)`.
+1. **Tree stage:** a random forest (500 trees) on all 13 features gives a first risk score (out-of-fold for the
+   training districts, so the deep stage never sees a score the forest made on its own training rows).
+2. **Deep stage:** `logit = tree score + development term (linear, 5 features) + climate push × development gate`,
+   where the climate push is attention → MLP → residual block on the 8 hazard features.
+3. **Ensemble:** 5 deep stages with different seeds, probabilities averaged.
+
 MC Dropout gives the uncertainty of each district's push; split conformal prediction gives 90% prediction sets.
 The vulnerability index is only the target, never an input.
 """)
 code("""
 import sys; sys.path.insert(0, '.')
-from models.acpn import ACPN
-net = ACPN()
-print(net)
-print('trainable parameters:', sum(p.numel() for p in net.parameters() if p.requires_grad))
-# True = retrain every model here (~1 hour on 2 vCPU, mostly the Spark baselines);
+from models.bacpn import DeepStage
+net = DeepStage()
+print('Tree stage: RandomForestClassifier(500 trees, min_samples_leaf=2), all 13 features')
+print('Deep stage (one of 5 in the ensemble):'); print(net)
+print('trainable parameters per deep stage:', sum(p.numel() for p in net.parameters() if p.requires_grad))
+# True = retrain every model here (about 2-3 hours on 2 vCPU: B-ACPN, its ablation and the Spark baselines);
 # False = show the committed results in results/ (produced by the same scripts)
-RERUN_MODELS = True
+RERUN_MODELS = False
 if RERUN_MODELS:
-    !python3 scripts/train_acpn.py
+    !python3 scripts/train_bacpn.py
 print(open('results/table4_model_card.json').read())
 """)
 
@@ -233,8 +239,8 @@ code("""
 if RERUN_MODELS:
     !python3 spark/train_baselines.py 2>&1 | grep -E "folds done|districts read"
     !python3 scripts/train_mlp.py
-    !python3 scripts/train_acpn.py --raw        # effect of preprocessing on the models (raw vs preprocessed features)
-    !python3 scripts/train_acpn.py --ablation
+    !python3 scripts/train_bacpn.py --raw        # effect of preprocessing on the models (raw vs preprocessed features)
+    !python3 scripts/train_bacpn.py --ablation
 """)
 
 md("## 10. Tables 5 and 6")
@@ -245,9 +251,11 @@ print('TABLE 5 - comparison (mean over 25 folds; LOSO = leave-one-state-out)')
 display(t5[['model', 'tool', 'roc_auc', 'roc_auc_sd', 'bal_acc', 'accuracy', 'f1', 'loso_auc', 'train_time']].round(3))
 print('Detailed metrics'); display(pd.read_csv('results/classifier_metrics_full.csv').round(3))
 print('Confusion matrices (summed over 25 folds)'); display(pd.read_csv('results/confusion_matrices.csv'))
-print('95% CI and corrected paired t-test vs A-CPN'); display(pd.read_csv('results/significance.csv').round(4))
+print('95% CI and corrected paired t-test vs B-ACPN'); display(pd.read_csv('results/significance.csv').round(4))
 print('TABLE 6a - ablation'); display(pd.read_csv('results/table6_ablation.csv').round(3))
-print('Preprocessing before vs after (raw vs preprocessed features)'); display(pd.read_csv('results/preprocessing_before_after.csv').round(3))
+ba = pd.read_csv('results/preprocessing_before_after.csv')
+print('Preprocessing before vs after (raw vs preprocessed features): accuracy, F1, RMSE (lower is better), ROC-AUC')
+display(ba[['model', 'acc_before', 'acc_after', 'f1_before', 'f1_after', 'rmse_before', 'rmse_after', 'auc_before', 'auc_after']].round(3))
 print('TABLE 6b - climate push'); print(open('results/table6_climate_push.json').read()[:3000])
 """)
 
@@ -267,7 +275,7 @@ md("### 11c. MapReduce and Spark k-means")
 code("show('mapreduce_scalability', 'kmeans_silhouette')")
 md("### 11d. Models")
 code("show('roc_curves', 'comparison_bars', 'fold_boxplots', 'confusion_matrices', 'calibration', 'loso_by_state', "
-     "'acpn_training_curve', 'prep_model_gain', 'ablation', 'attention_importance', 'climate_push_by_quadrant', "
+     "'bacpn_training_curve', 'prep_model_gain', 'ablation', 'attention_importance', 'climate_push_by_quadrant', "
      "'climate_push_map')")
 
 md("## 12. Slides and appendix")
@@ -278,7 +286,7 @@ code("""
 # appendix: show any source file during the review
 !cat mapreduce/mapper.py mapreduce/reducer.py
 !cat hive/project.hql
-!cat models/acpn.py
+!cat models/bacpn.py
 """)
 
 nb = nbf.v4.new_notebook(cells=cells, metadata={

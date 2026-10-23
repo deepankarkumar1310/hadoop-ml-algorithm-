@@ -1,14 +1,14 @@
 """M5 comparison model: standard MLP (13 -> 64 -> 32 -> 16 -> 1) in PyTorch.
 
-Same training loop as A-CPN (class-weighted BCE, AdamW, early stopping), but no development / climate
-split, no attention, no KAN and no residual block - it shows what the A-CPN structure adds."""
+Same training loop as the B-ACPN deep stage (class-weighted BCE, AdamW, early stopping), but no tree stage,
+no development / climate split, no attention, no gate and no ensemble - it shows what the B-ACPN structure adds."""
 import time
 
 import numpy as np
 import torch
 from torch import nn
 
-from models.acpn import train_torch
+from models.layers import train_torch
 
 
 class MLP(nn.Module):

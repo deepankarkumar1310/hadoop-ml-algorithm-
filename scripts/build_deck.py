@@ -598,27 +598,32 @@ owner(s, "Tanmay Singh")
 
 # ================================================================= EFFECT OF PREPROCESSING ON THE MODELS (Devanshu)
 ba = load("preprocessing_before_after.csv")
-rows = [["Model", "AUC before", "AUC after", "AUC gain", "F1 before", "F1 after", "F1 gain"]]
+PREP_COLS = [("acc", "Accuracy"), ("f1", "F1 score"), ("rmse", "RMSE"), ("auc", "ROC-AUC")]
+rows = [["Model"] + [f"{n} {w}" for _, n in PREP_COLS for w in ("before", "after")]]
 for m, _ in MODELS:
-    rows.append([m] + [g(ba.assign(auc_gain=ba.auc_gain.round(3) + 0.0, f1_gain=ba.f1_gain.round(3) + 0.0)
-                         if ba is not None else None, m, c, f) for c, f in (("auc_before", "{:.3f}"), ("auc_after", "{:.3f}"), ("auc_gain", "{:+.3f}"),
-                                                   ("f1_before", "{:.3f}"), ("f1_after", "{:.3f}"), ("f1_gain", "{:+.3f}"))])
+    rows.append([SHORTN[m] if ba is not None else m] +
+                [g(ba, m, f"{c}_{w}") for c, _ in PREP_COLS for w in ("before", "after")])
 if ba is not None:
-    big = ba.sort_values("auc_gain", ascending=False).iloc[0]
-    acp_gain = ba[ba.model == "B-ACPN (proposed)"].auc_gain.iloc[0]
-    ba_note = (f"largest gain {SHORTN[big.model]} {big.auc_gain:+.3f} ROC-AUC, B-ACPN {acp_gain:+.3f}. RF and GBT ignore feature "
-               "scale, and Spark's LR and Linear SVM standardise internally, so their before/after runs are equal.")
+    acp = ba[ba.model == "B-ACPN (proposed)"].iloc[0]
+    neural = ba[ba.model.isin(["B-ACPN (proposed)", "Standard MLP"])]
+    worse = [f"{SHORTN[r.model]} accuracy {r.acc_before:.3f} → {r.acc_after:.3f}"
+             for r in neural.itertuples() if r.acc_after < r.acc_before - 0.0005]
+    ba_note = (f"B-ACPN accuracy {acp.acc_before:.3f} → {acp.acc_after:.3f}, F1 {acp.f1_before:.3f} → {acp.f1_after:.3f}, "
+               f"RMSE {acp.rmse_before:.3f} → {acp.rmse_after:.3f} (lower is better), ROC-AUC {acp.auc_before:.3f} → "
+               f"{acp.auc_after:.3f}." + (f" Not every metric improves: {'; '.join(worse)}." if worse else "") +
+               " RF and GBT ignore feature scale, and Spark's LR and Linear SVM standardise internally, so they do not change.")
 else:
     ba_note = PENDING
 s = new_slide("Effect of Preprocessing on the Models",
               "To measure what preprocessing buys, every model is trained twice on the same districts and folds: once on "
-              "the raw features exactly as they come, and once on the preprocessed features. The gain column is the "
-              "improvement. The neural models gain the most. Random Forest and GBT do not depend on scale, and Spark's "
+              "the raw features exactly as they come, and once on the preprocessed features. We compare accuracy, F1, "
+              "RMSE and ROC-AUC before and after. The neural models gain the most. Random Forest and GBT do not depend on scale, and Spark's "
               "Logistic Regression and Linear SVM standardise features internally, so those four do not change.", size=24)
-table(s, 0.4, 1.3, 9.2, rows, [2.3, 1.15, 1.15, 1.15, 1.15, 1.15, 1.15], size=12, row_h=0.58, highlight=(1,))
-bullets(s, 0.4, 5.55, 9.2, 1.4, [
+table(s, 0.4, 1.3, 9.2, rows, [1.2] + [1.0] * 8, size=11, row_h=0.55, highlight=(1,))
+bullets(s, 0.4, 5.25, 9.2, 1.6, [
     ("Before: ", "raw features (rain in mm, days, %, °C on very different scales); After: preprocessed, same 25 folds"),
-    ("Result: ", ba_note)], size=15, space=4)
+    ("RMSE: ", "error of the predicted probability against the true class (Linear SVM gives no probabilities: n/a)"),
+    ("Result: ", ba_note)], size=12, space=2)
 owner(s, "Tanmay Singh")
 
 # ================================================================= 15 DETAILED METRICS
@@ -749,7 +754,7 @@ fig_slide("MapReduce & Spark Results (Figures)",
 fig_slide("B-ACPN Training & Attention (Figures)",
           "Left: B-ACPN deep-stage training and validation loss; training stops at the best validation epoch. Right: the mean "
           "attention weight of each climate feature, showing which hazards drive the climate push.",
-          "acpn_training_curve.png", "attention_importance.png",
+          "bacpn_training_curve.png", "attention_importance.png",
           "B-ACPN deep stage: training curve (early stopping)", "Feature attention (mean weight)", "Devanshu Kumar")
 fig_slide("Ablation (Figure)",
           "Each bar is B-ACPN with one component removed, on the same 25 folds. A drop larger than one standard "
@@ -772,9 +777,9 @@ fig_slide("Confusion Matrices & Stability (Figures)",
           "confusion_matrices.png", "fold_boxplots.png",
           "Confusion matrices, all models", "ROC-AUC per fold, all models", "Tanmay Singh", size=26, stacked=True)
 fig_slide("Effect of Preprocessing (Figure)",
-          "ROC-AUC of every model on raw versus preprocessed features, with the gain written above each pair. The "
-          "neural models gain; tree models and Spark's internally standardised models do not change.",
-          "prep_model_gain.png", None, "Model ROC-AUC before vs after preprocessing (label = gain)", None,
+          "Accuracy, F1, ROC-AUC and RMSE of every model on raw versus preprocessed features, with the change written "
+          "above each pair. The neural models change; tree models and Spark's internally standardised models do not.",
+          "prep_model_gain.png", None, "Accuracy, F1, ROC-AUC and RMSE before vs after preprocessing", None,
           "Tanmay Singh")
 
 # ================================================================= 20 KEY FINDINGS
@@ -782,10 +787,10 @@ rg = ar["regression"]
 if cmp5 is not None and push:
     _a = cmp5[cmp5.model == "B-ACPN (proposed)"].iloc[0]
     _b = cmp5.sort_values("roc_auc").iloc[-1]
-    acpn_finding = (f"ROC-AUC {_a.roc_auc:.3f} vs best {SHORTN[_b.model]} {_b.roc_auc:.3f}; climate push "
+    bacpn_finding = (f"ROC-AUC {_a.roc_auc:.3f} vs best {SHORTN[_b.model]} {_b.roc_auc:.3f}; climate push "
                     f"Anomaly A {push['anomaly_A_mean_push']:+.2f} vs expected {push['expected_high_dev_low_vul_mean_push']:+.2f}")
 else:
-    acpn_finding = PENDING
+    bacpn_finding = PENDING
 s = new_slide("Key Findings", "Development explains only 13% of the variation in vulnerability; adding climate "
               "raises that to 33%, and state alone explains 48%. Anomaly A districts have about twice as many "
               "tropical nights, and Anomaly B districts are drier. Limitations are listed honestly.")
@@ -896,4 +901,4 @@ cp.title = "Beyond Development: Explaining Climate Resilience Across Indian Dist
 cp.subject, cp.keywords, cp.comments = "Big Data Review 2", "", ""
 OUT.parent.mkdir(parents=True, exist_ok=True)
 prs.save(str(OUT))
-print(f"saved {OUT} with {len(prs.slides)} slides")
+print(f"saved {OUT.relative_to(ROOT)} with {len(prs.slides)} slides")

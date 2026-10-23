@@ -39,16 +39,19 @@ Districts 640 → 602 matched → 589 with index → 469 complete
 Grid weights sum to 1 within 7e-08. Final table: 0 missing, 0 duplicates,
 0 out-of-range values. Class balance 237 High / 232 Low.
 
-**Preprocessing before vs after** (same models and folds, raw vs preprocessed features):
+**Preprocessing before vs after** (same models and folds, raw vs preprocessed features; RMSE = error of the predicted
+probability, lower is better; Linear SVM gives no probabilities). Data level: area-weighted grid → district
+aggregation vs nearest grid cell differs by RMSE 287 mm
+(11.1% mean absolute difference, 2020).
 
-| Model | AUC raw | AUC preprocessed | Gain |
-|---|---|---|---|
-| B-ACPN (proposed) | 0.806 | 0.82 | +0.013 |
-| Logistic Regression | 0.747 | 0.747 | +0.000 |
-| Random Forest | 0.805 | 0.804 | -0.000 |
-| Gradient-Boosted Trees | 0.811 | 0.811 | -0.000 |
-| Linear SVM | 0.755 | 0.755 | +0.000 |
-| Standard MLP | 0.759 | 0.784 | +0.025 |
+| Model | Accuracy raw | Accuracy prep. | F1 raw | F1 prep. | RMSE raw | RMSE prep. | ROC-AUC raw | ROC-AUC prep. |
+|---|---|---|---|---|---|---|---|---|
+| B-ACPN (proposed) | 0.735 | 0.738 | 0.726 | 0.728 | 0.422 | 0.417 | 0.806 | 0.820 |
+| Logistic Regression | 0.692 | 0.692 | 0.701 | 0.701 | 0.454 | 0.454 | 0.747 | 0.747 |
+| Random Forest | 0.715 | 0.715 | 0.708 | 0.708 | 0.427 | 0.427 | 0.805 | 0.804 |
+| Gradient-Boosted Trees | 0.726 | 0.725 | 0.724 | 0.724 | 0.432 | 0.433 | 0.811 | 0.811 |
+| Linear SVM | 0.696 | 0.696 | 0.708 | 0.708 | n/a | n/a | 0.755 | 0.755 |
+| Standard MLP | 0.711 | 0.699 | 0.678 | 0.692 | 0.445 | 0.440 | 0.759 | 0.784 |
 
 ## 4. Proposed model: B-ACPN (Boosted Attentive Climate Push Network)
 1. **Tree stage:** a random forest (500 trees) on all 13 features gives a risk score; for training districts the
@@ -102,8 +105,8 @@ python -m pytest tests -q
 python scripts/preprocessing_metrics.py
 python spark/kmeans_regimes.py
 python spark/train_baselines.py
-python scripts/train_acpn.py && python scripts/train_mlp.py
-python scripts/train_acpn.py --raw && python scripts/train_acpn.py --ablation
+python scripts/train_bacpn.py && python scripts/train_mlp.py
+python scripts/train_bacpn.py --raw && python scripts/train_bacpn.py --ablation
 python scripts/evaluate.py && python scripts/make_figures.py && python scripts/build_deck.py
 ```
 The full Hadoop / MapReduce / Hive pipeline (IMD download, HDFS, YARN) runs in the Colab notebook.

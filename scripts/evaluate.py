@@ -16,7 +16,7 @@ from sklearn.metrics import (accuracy_score, average_precision_score, balanced_a
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.common import HAZ, PRED, RES, ROOT, load_table  # noqa: E402
-from scripts.train_acpn import VARIANTS  # noqa: E402
+from scripts.train_bacpn import VARIANTS  # noqa: E402
 
 MODELS = ["B-ACPN (proposed)", "Logistic Regression", "Random Forest", "Gradient-Boosted Trees", "Linear SVM", "Standard MLP"]
 TOOL = {"B-ACPN (proposed)": "Novel hybrid DL · PyTorch", "Standard MLP": "PyTorch"}
@@ -43,7 +43,8 @@ def fold_metrics(d):
          "train_time": d.train_time.iloc[0], "predict_time": d.predict_time.iloc[0]}
     if d.prob.notna().all():
         p = d.prob.to_numpy().clip(1e-7, 1 - 1e-7)
-        m.update(log_loss=log_loss(y, p, labels=[0, 1]), brier=brier_score_loss(y, p), ece=ece(y, p))
+        m.update(log_loss=log_loss(y, p, labels=[0, 1]), brier=brier_score_loss(y, p), ece=ece(y, p),
+                 rmse=float(np.sqrt(np.mean((p - y) ** 2))), mae=float(np.mean(np.abs(p - y))))
     return m
 
 
@@ -87,7 +88,7 @@ def main():
                    **{f"{c}_sd": sd[c] for c in ("roc_auc", "bal_acc", "accuracy", "f1")},
                    "loso_auc": loso_auc(preds[m]), "train_time": mean.train_time})
         row = {"model": m}
-        for c in ("precision", "recall", "specificity", "mcc", "kappa", "pr_auc", "log_loss", "brier", "ece",
+        for c in ("precision", "recall", "specificity", "mcc", "kappa", "pr_auc", "log_loss", "brier", "ece", "rmse", "mae",
                   "macro_f1", "predict_time"):
             row[c] = mean.get(c, np.nan)
             row[f"{c}_sd"] = sd.get(c, np.nan)
@@ -138,10 +139,14 @@ def main():
         aft = folds_m[m]
         ba.append({"model": m, "auc_before": raw.roc_auc.mean(), "auc_after": aft.roc_auc.mean(),
                    "f1_before": raw.f1.mean(), "f1_after": aft.f1.mean(),
-                   "acc_before": raw.accuracy.mean(), "acc_after": aft.accuracy.mean()})
+                   "acc_before": raw.accuracy.mean(), "acc_after": aft.accuracy.mean(),
+                   **{f"{c}_{w}": (f[c].mean() if c in f else np.nan) for c in ("rmse", "mae")
+                      for w, f in (("before", raw), ("after", aft))}})
     ba = pd.DataFrame(ba)
     ba["auc_gain"] = ba.auc_after - ba.auc_before
     ba["f1_gain"] = ba.f1_after - ba.f1_before
+    ba["acc_gain"] = ba.acc_after - ba.acc_before
+    ba["rmse_change"] = ba.rmse_after - ba.rmse_before  # negative = lower error after preprocessing
     ba.to_csv(RES / "preprocessing_before_after.csv", index=False)
 
     # Climate push analysis (out-of-fold, averaged over the 5 repeats)

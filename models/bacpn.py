@@ -23,7 +23,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import StratifiedKFold
 from torch import nn
 
-from models.acpn import FeatureAttention, ResidualBlock, train_torch
+from models.layers import FeatureAttention, ResidualBlock, train_torch
 
 DEV_DIM, HAZ_DIM = 5, 8
 
