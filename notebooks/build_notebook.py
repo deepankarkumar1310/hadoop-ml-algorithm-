@@ -223,7 +223,8 @@ MC Dropout gives the uncertainty of each district's push; split conformal predic
 The vulnerability index is only the target, never an input.
 """)
 code("""
-import sys; sys.path.insert(0, '.')
+import sys, json, pandas as pd; sys.path.insert(0, '.')
+from IPython.display import display
 from models.bacpn import DeepStage
 net = DeepStage()
 print('Tree stage: RandomForestClassifier(500 trees, min_samples_leaf=2), all 13 features')
