@@ -886,9 +886,9 @@ textbox(s, 0.4, 2.2, 9.2, 0.35, "GitHub:  https://github.com/deepankarkumar1310/
 table(s, 0.4, 2.75, 9.2, [
     ["Notebook section", "What it shows", "Owner"],
     ["0–2 Setup, data, preprocessing", "Install, IMD download to Drive, Table 1 + error metrics", "Sehjodh"],
-    ["3–4 Hadoop + HDFS", "Cluster start, health report, HDFS load, Table 2", "Deepankar"],
-    ["5–7 MapReduce, Hive, Spark", "YARN job + timings, Hive check, k-means regimes, Table 3", "Tanmay"],
-    ["8–10 B-ACPN + comparison", "Model card, 5 baselines, Tables 4–6, ablation", "Devanshu"],
+    ["3–7 Hadoop, HDFS, MapReduce, Hive, Spark", "Cluster, HDFS load (Table 2), YARN job + timings, Hive, k-means (Table 3)", "Deepankar"],
+    ["8 B-ACPN (proposed model)", "Architecture, model card (Table 4), ablation, climate push (Table 6)", "Devanshu"],
+    ["9–10 Comparison", "5 existing models, all metrics, preprocessing before/after (Table 5)", "Tanmay"],
     ["11 Visualisations", "All figures, only after every table", "Each owner"],
     ["12 Slides", "Builds this deck from results/", "Tanmay"]],
     [2.7, 5.0, 1.5], size=12, row_h=0.55)
