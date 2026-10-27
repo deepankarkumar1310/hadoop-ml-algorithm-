@@ -1,6 +1,6 @@
 """Two preprocessing error checks that need the raw IMD grids (run in Colab after MapReduce).
 
-1. MapReduce vs pandas (Tanmay, notebook section 5): the 7 yearly indices recomputed with an independent vectorised pandas
+1. MapReduce vs pandas (Deepankar, notebook section 5): the 7 yearly indices recomputed with an independent vectorised pandas
    implementation from the same district-day staging files; RMSE / MAE / max error per index.
 2. Area-weighted vs nearest-cell (Sehjodh, notebook section 2): annual rainfall per district from our area-weighted aggregation
    compared with the naive method (take the single grid cell with the largest overlap).
