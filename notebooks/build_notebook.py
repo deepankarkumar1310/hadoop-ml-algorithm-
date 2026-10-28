@@ -283,6 +283,15 @@ display(pd.DataFrame([agg])[keys].round(4))
 print('MapReduce vs independent pandas, per climate index'); display(mr.astype(float).round(6))
 """)
 
+md("### 10c. All classification metrics before vs after preprocessing")
+code("""
+import pandas as pd
+ba = pd.read_csv('results/preprocessing_before_after.csv').set_index('model')
+ks = ['acc', 'precision', 'recall', 'f1', 'specificity', 'auc', 'log_loss', 'mcc', 'kappa', 'bal_acc', 'rmse']
+display(pd.DataFrame({k: [f"{ba.loc[m, k + '_before']:.3f} -> {ba.loc[m, k + '_after']:.3f}" for m in ba.index] for k in ks},
+                     index=ba.index).T)
+""")
+
 md("## 11. Visualisations (only after every table)")
 code("""
 !python3 scripts/make_figures.py > /dev/null

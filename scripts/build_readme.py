@@ -77,6 +77,13 @@ def main():
     clsv = pd.DataFrame([{"Metric": n, "Full form": f, "B-ACPN": f"{src.loc['B-ACPN (proposed)', k]:.3f}",
                           **{m.split(' (')[0]: ("n/a" if pd.isna(src.loc[m, k]) else f"{src.loc[m, k]:.3f}")
                              for m in t5.model if not m.startswith("B-ACPN")}} for n, f, k, src in clsn])
+    bam = [("Accuracy", "acc"), ("Precision", "precision"), ("Recall", "recall"), ("F1", "f1"),
+           ("Specificity", "specificity"), ("ROC-AUC", "auc"), ("Log loss ↓", "log_loss"), ("MCC", "mcc"),
+           ("Cohen's kappa", "kappa"), ("Balanced acc.", "bal_acc"), ("RMSE ↓", "rmse")]
+    bai = ba.set_index("model")
+    allba = pd.DataFrame([{"Metric": n, **{m.split(" (")[0]: ("n/a" if pd.isna(bai.loc[m, f"{k}_before"]) else
+                                                             f"{bai.loc[m, f'{k}_before']:.3f} → {bai.loc[m, f'{k}_after']:.3f}")
+                                         for m in bai.index}} for n, k in bam])
     best = t5.sort_values("roc_auc").iloc[-1]
     a = t5[t5.model == "B-ACPN (proposed)"].iloc[0]
     q = push["by_quadrant"]
@@ -152,6 +159,11 @@ climate network that outputs a per-district climate push is the contribution.
 
 Highest ROC-AUC: **{best.model} ({best.roc_auc:.3f})**. B-ACPN: {a.roc_auc:.3f} ± {a.roc_auc_sd:.3f}. Results are
 reported as measured; a lead smaller than one standard deviation is treated as comparable, not better.
+
+**All classification metrics before → after preprocessing** (raw vs preprocessed features, same 25 folds;
+↓ = lower is better):
+
+{md_table(allba)}
 
 **Classification performance metrics** (mean over the same 25 folds):
 

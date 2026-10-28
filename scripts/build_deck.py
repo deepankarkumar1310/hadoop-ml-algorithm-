@@ -761,6 +761,43 @@ else:
 textbox(s, 0.4, 6.5, 9.2, 0.45, _cls_note + " Lower is better only for log loss.", 11, color=INK)
 owner(s, "Tanmay Singh")
 
+# ================================================================= ALL CLASSIFICATION METRICS BEFORE vs AFTER PREPROCESSING
+BA_METRICS = [("Accuracy", "acc", True), ("Precision", "precision", True), ("Recall", "recall", True),
+              ("F1-score", "f1", True), ("Specificity", "specificity", True), ("ROC-AUC", "auc", True),
+              ("Log loss", "log_loss", False), ("MCC", "mcc", True), ("Cohen's kappa", "kappa", True),
+              ("Balanced acc.", "bal_acc", True), ("RMSE", "rmse", False)]
+rows = [["Metric"] + [SHORTN[m] for m, _ in MODELS]]
+_better = {m: [0, 0, 0] for m, _ in MODELS}  # improved, unchanged, worse
+for name, k, hi in BA_METRICS:
+    r = [name + ("" if hi else " ↓")]
+    for m, _ in MODELS:
+        if ba is None:
+            r.append(PENDING); continue
+        b0, b1 = ba.set_index("model").loc[m, [f"{k}_before", f"{k}_after"]]
+        if pd.isna(b0) or pd.isna(b1):
+            r.append("n/a"); continue
+        r.append(f"{b0:.3f} → {b1:.3f}")
+        d = (round(b1, 3) - round(b0, 3)) * (1 if hi else -1)
+        d = 0 if abs(d) < 5e-4 else d
+        _better[m][0 if d > 0 else (1 if d == 0 else 2)] += 1
+    rows.append(r)
+s = new_slide("Classification Metrics: Before vs After",
+              "Every classification metric for every model, trained on the raw features (before) and on the "
+              "preprocessed features (after), on the same 25 folds. Arrows read before → after; for log loss and "
+              "RMSE lower is better. B-ACPN improves or stays equal on all of them. The standard MLP gains recall, "
+              "ROC-AUC and F1 but loses precision and specificity. Tree models and Spark's internally standardised "
+              "models do not change.", size=22)
+table(s, 0.4, 1.25, 9.2, rows, [1.45] + [1.29] * 6, size=10, row_h=0.42, highlight=())
+if ba is not None:
+    _a = _better["B-ACPN (proposed)"]; _m = _better["Standard MLP"]
+    _note = (f"B-ACPN: {_a[0]} of {sum(_a)} metrics improve, {_a[1]} unchanged, {_a[2]} worse. "
+             f"MLP: {_m[0]} improve, {_m[1]} unchanged, {_m[2]} worse. ↓ = lower is better. "
+             "Linear SVM gives no probabilities (n/a).")
+else:
+    _note = PENDING
+textbox(s, 0.4, 6.4, 9.2, 0.5, _note, 11, color=INK)
+owner(s, "Tanmay Singh")
+
 # ================================================================= 17 ABLATION
 VAR = ["Full B-ACPN", "Deep stage only (no tree stage)", "Tree stage only (no deep stage)", "Without climate push",
        "Without development gate", "Without feature attention", "Single network (no ensemble)"]

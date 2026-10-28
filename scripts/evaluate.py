@@ -140,7 +140,9 @@ def main():
         ba.append({"model": m, "auc_before": raw.roc_auc.mean(), "auc_after": aft.roc_auc.mean(),
                    "f1_before": raw.f1.mean(), "f1_after": aft.f1.mean(),
                    "acc_before": raw.accuracy.mean(), "acc_after": aft.accuracy.mean(),
-                   **{f"{c}_{w}": (f[c].mean() if c in f else np.nan) for c in ("rmse", "mae")
+                   **{f"{c}_{w}": (f[c].mean() if c in f else np.nan)
+                      for c in ("rmse", "mae", "precision", "recall", "specificity", "log_loss", "mcc", "kappa",
+                                "bal_acc", "pr_auc", "brier")
                       for w, f in (("before", raw), ("after", aft))}})
     ba = pd.DataFrame(ba)
     ba["auc_gain"] = ba.auc_after - ba.auc_before
