@@ -54,18 +54,18 @@ aggregation vs nearest grid cell differs by RMSE 287 mm
 | Standard MLP | 0.711 | 0.699 | 0.678 | 0.692 | 0.445 | 0.440 | 0.759 | 0.784 |
 
 **Preprocessing performance metrics** (reference = our area-weighted value / independent pandas recomputation;
-PENDING = needs the raw IMD grids, filled by Colab section 10b):
+computed in Colab section 10b from the raw IMD grids; MAPE skips zero actual values, NRMSE = RMSE / range):
 
 | Metric | Full form | Nearest cell vs area-weighted rain (mm) | MapReduce vs pandas (worst of 7 indices) |
 |---|---|---|---|
 | RMSE | Root Mean Square Error | 286.9 | 0.002897 |
 | MSE | Mean Squared Error | 8.231e+04 | 8.394e-06 |
 | MAE | Mean Absolute Error | 151.7 | 0.002511 |
-| MAPE (%) | Mean Absolute Percentage Error | 11.08 | PENDING |
-| R² | Coefficient of Determination | PENDING | PENDING |
-| NRMSE | RMSE / range of actual values | PENDING | PENDING |
-| MedAE | Median Absolute Error | PENDING | PENDING |
-| Bias / ME | Mean Error (pred − actual) | PENDING | PENDING |
+| MAPE (%) | Mean Absolute Percentage Error | 11.08 | 0.008168 |
+| R² | Coefficient of Determination | 0.9042 | 0.999999 |
+| NRMSE | RMSE / range of actual values | 0.03405 | 0.0001877 |
+| MedAE | Median Absolute Error | 86.99 | 0.002493 |
+| Bias / ME | Mean Error (pred − actual) | 5.045 | -2.209e-05 |
 
 ## 4. Proposed model: B-ACPN (Boosted Attentive Climate Push Network)
 1. **Tree stage:** a random forest (500 trees) on all 13 features gives a risk score; for training districts the

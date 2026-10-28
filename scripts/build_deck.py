@@ -571,7 +571,7 @@ def _pf(v, kind):
     if kind == "pct":
         return f"{v:.2f}%"
     if kind == "r2":
-        return f"{v:.4f}"
+        return f"{v:.6f}" if 0.9999 < v < 1 else f"{v:.4f}"
     if abs(v) != 0 and (abs(v) < 1e-3 or abs(v) >= 1e5):
         return f"{v:.1e}"
     return f"{v:,.3f}" if abs(v) < 10 else f"{v:,.1f}"
@@ -601,7 +601,9 @@ textbox(s, 0.4, 6.05, 9.2, 0.9,
         f"Left: {_n_a.get('districts', PENDING)} districts, year {_n_a.get('year', PENDING)}, in mm; large values are "
         f"the error the naive method would make. Right: {_n_m.get('rows_compared', PENDING):,} district-years × 7 indices; "
         "values near 0 (and R² near 1) mean MapReduce matches. MAPE skips zero actual values; NRMSE uses the range. "
-        f"Source: {REF}. PENDING = not yet computed (needs the raw IMD grids in Colab).", 10, color=GREY)
+        f"Computed in Colab section 10b (2026-10-28) from the IMD and MapReduce data of the {REF}." +
+        (" PENDING = not yet computed (needs the raw IMD grids in Colab)." if PENDING in sum(rows, []) else ""),
+        10, color=GREY)
 owner(s, "Sehjodh Grewal")
 
 # ================================================================= 13 MODEL CARD

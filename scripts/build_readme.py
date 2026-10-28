@@ -44,7 +44,9 @@ def main():
                            for k, w in (("before", "raw"), ("after", "prep."))}})
     def prep_row(d, k):
         v = (d or {}).get(k)
-        return "PENDING" if v is None else ("n/a" if pd.isna(v) else f"{v:.4g}")
+        if v is None:
+            return "PENDING"
+        return "n/a" if pd.isna(v) else (f"{v:.6f}" if k == "r2" and 0.9999 < v < 1 else f"{v:.4g}")
     agg = dict((cc.get("area_vs_nearest_cell") or {}).get("metrics", {}))
     if not agg and cc.get("area_vs_nearest_cell"):
         o = cc["area_vs_nearest_cell"]
@@ -127,7 +129,7 @@ aggregation vs nearest grid cell differs by RMSE {cc['area_vs_nearest_cell']['rm
 {md_table(bav)}
 
 **Preprocessing performance metrics** (reference = our area-weighted value / independent pandas recomputation;
-PENDING = needs the raw IMD grids, filled by Colab section 10b):
+computed in Colab section 10b from the raw IMD grids; MAPE skips zero actual values, NRMSE = RMSE / range):
 
 {md_table(prepv)}
 
