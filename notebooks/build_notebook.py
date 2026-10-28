@@ -271,9 +271,11 @@ nearest-cell vs our area-weighted rainfall (the error our method avoids) and Map
 recomputation (is MapReduce correct). Needs the IMD grids on Drive and the MapReduce output from section 5.
 """)
 code("""
-import json, pandas as pd
+import os, json, pandas as pd
 from IPython.display import display
-!python3 scripts/colab_checks.py --check all --imd-dir "$IMD_DIR" --year $END
+# recompute when the raw IMD grids are available (Colab + Drive); otherwise show the saved Colab results
+if os.path.exists(f"{os.environ.get('IMD_DIR', 'data/imd')}/rain/{os.environ.get('END', '2020')}.grd"):
+    !python3 scripts/colab_checks.py --check all --imd-dir "$IMD_DIR" --year $END
 cc = json.load(open('results/preprocessing_colab_checks.json'))
 keys = ['rmse', 'mse', 'mae', 'mape_pct', 'r2', 'nrmse', 'medae', 'bias']
 agg = cc['area_vs_nearest_cell']['metrics']
