@@ -1,10 +1,11 @@
 """Two preprocessing error checks that need the raw IMD grids (run in Colab after MapReduce).
 
 1. MapReduce vs pandas (Deepankar, notebook section 5): the 7 yearly indices recomputed with an independent vectorised pandas
-   implementation from the same district-day staging files; RMSE / MAE / max error per index.
+   implementation from the same district-day staging files; RMSE, MSE, MAE, MAPE, R², NRMSE, MedAE, bias and max error
+   per index.
 2. Area-weighted vs nearest-cell (Sehjodh, notebook section 2): annual rainfall per district from our area-weighted aggregation
    compared with the naive method (take the single grid cell with the largest overlap).
-   This is the size of the error the naive method would have introduced.
+   This is the size of the error the naive method would have introduced (same 8 metrics).
 
 Writes results/preprocessing_colab_checks.json (read by the slide builder).
 
@@ -74,6 +75,23 @@ def main():
     print(json.dumps(res, indent=2))
 
 
+def reg_metrics(ref, pred):
+    """The 8 preprocessing error metrics of `pred` against the reference `ref` (both 1-D, no NaN).
+
+    MAPE skips reference values of 0; NRMSE = RMSE / (max - min of the reference); bias = mean(pred - ref)."""
+    ref, pred = np.asarray(ref, dtype=float), np.asarray(pred, dtype=float)
+    d = pred - ref
+    mse = float((d ** 2).mean())
+    nz = ref != 0
+    span = float(ref.max() - ref.min())
+    sst = float(((ref - ref.mean()) ** 2).sum())
+    return {"n": int(len(d)), "rmse": float(np.sqrt(mse)), "mse": mse, "mae": float(np.abs(d).mean()),
+            "mape_pct": float((np.abs(d[nz]) / np.abs(ref[nz])).mean() * 100) if nz.any() else float("nan"),
+            "r2": float(1 - (d ** 2).sum() / sst) if sst > 0 else float("nan"),
+            "nrmse": float(np.sqrt(mse) / span) if span > 0 else float("nan"),
+            "medae": float(np.median(np.abs(d))), "bias": float(d.mean())}
+
+
 def mapreduce_check(a, res):
     mr = pd.read_csv(a.mr, header=None, names=MR_COLS)
     pdx = pandas_indices(a.staging)
@@ -83,8 +101,7 @@ def mapreduce_check(a, res):
         x, y = m[f"{c}_mr"], m[f"{c}_pd"]
         ok = x.notna() & y.notna()
         diff = (x[ok] - y[ok]).to_numpy()
-        per[c] = {"rmse": float(np.sqrt((diff ** 2).mean())), "mae": float(np.abs(diff).mean()),
-                  "max_abs": float(np.abs(diff).max()), "n": int(ok.sum()),
+        per[c] = {**reg_metrics(y[ok], x[ok]), "max_abs": float(np.abs(diff).max()),
                   "blank_mismatch": int((x.isna() != y.isna()).sum())}
     res["mapreduce_vs_pandas"] = {"rows_compared": len(m), "per_index": per,
                                   "rmse_max": max(v["rmse"] for v in per.values()),
@@ -105,7 +122,9 @@ def aggregation_check(a, res):
     diff = (near - area).dropna()
     res["area_vs_nearest_cell"] = {"year": a.year, "districts": int(len(diff)),
                                    "rmse_mm": float(np.sqrt((diff ** 2).mean())), "mae_mm": float(diff.abs().mean()),
-                                   "mean_abs_pct": float((diff.abs() / area[diff.index]).mean() * 100)}
+                                   "mean_abs_pct": float((diff.abs() / area[diff.index]).mean() * 100),
+                                   # reference = our area-weighted value, prediction = naive nearest cell
+                                   "metrics": reg_metrics(area[diff.index], near[diff.index])}
 
 
 if __name__ == "__main__":

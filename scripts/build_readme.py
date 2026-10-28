@@ -42,6 +42,39 @@ def main():
                         **{f"{n} {w}": ba[f"{c}_{k}"].map(lambda v: "n/a" if pd.isna(v) else f"{v:.3f}")
                            for c, n in (("acc", "Accuracy"), ("f1", "F1"), ("rmse", "RMSE"), ("auc", "ROC-AUC"))
                            for k, w in (("before", "raw"), ("after", "prep."))}})
+    def prep_row(d, k):
+        v = (d or {}).get(k)
+        return "PENDING" if v is None else ("n/a" if pd.isna(v) else f"{v:.4g}")
+    agg = dict((cc.get("area_vs_nearest_cell") or {}).get("metrics", {}))
+    if not agg and cc.get("area_vs_nearest_cell"):
+        o = cc["area_vs_nearest_cell"]
+        agg = {"rmse": o["rmse_mm"], "mse": o["rmse_mm"] ** 2, "mae": o["mae_mm"], "mape_pct": o["mean_abs_pct"]}
+    per = (cc.get("mapreduce_vs_pandas") or {}).get("per_index", {})
+    mrw = {}
+    for k in ("rmse", "mae", "mse", "mape_pct", "nrmse", "medae"):
+        vals = [v[k] if k in v else (v["rmse"] ** 2 if k == "mse" else None) for v in per.values()]
+        if vals and all(x is not None for x in vals):
+            mrw[k] = max(x for x in vals if not pd.isna(x)) if any(not pd.isna(x) for x in vals) else float("nan")
+    if per and all("r2" in v for v in per.values()):
+        mrw["r2"] = min(v["r2"] for v in per.values() if not pd.isna(v["r2"]))
+    if per and all("bias" in v for v in per.values()):
+        mrw["bias"] = max((v["bias"] for v in per.values()), key=abs)
+    names = [("RMSE", "Root Mean Square Error", "rmse"), ("MSE", "Mean Squared Error", "mse"),
+             ("MAE", "Mean Absolute Error", "mae"), ("MAPE (%)", "Mean Absolute Percentage Error", "mape_pct"),
+             ("R²", "Coefficient of Determination", "r2"), ("NRMSE", "RMSE / range of actual values", "nrmse"),
+             ("MedAE", "Median Absolute Error", "medae"), ("Bias / ME", "Mean Error (pred − actual)", "bias")]
+    prepv = pd.DataFrame([{"Metric": n, "Full form": f, "Nearest cell vs area-weighted rain (mm)": prep_row(agg, k),
+                           "MapReduce vs pandas (worst of 7 indices)": prep_row(mrw, k)} for n, f, k in names])
+    full = pd.read_csv(RES / "classifier_metrics_full.csv").set_index("model")
+    t5i = t5.set_index("model")
+    clsn = [("Accuracy", "Classification Accuracy", "accuracy", t5i), ("Precision", "Positive Predictive Value", "precision", full),
+            ("Recall", "Sensitivity / True Positive Rate", "recall", full), ("F1-score", "Harmonic mean of precision and recall", "f1", t5i),
+            ("Specificity", "True Negative Rate", "specificity", full), ("ROC-AUC", "Area Under the ROC Curve", "roc_auc", t5i),
+            ("Log loss", "Cross-Entropy Loss (lower is better)", "log_loss", full), ("MCC", "Matthews Correlation Coefficient", "mcc", full),
+            ("Cohen's kappa", "Cohen's Kappa Coefficient", "kappa", full), ("Balanced accuracy", "Average class recall", "bal_acc", t5i)]
+    clsv = pd.DataFrame([{"Metric": n, "Full form": f, "B-ACPN": f"{src.loc['B-ACPN (proposed)', k]:.3f}",
+                          **{m.split(' (')[0]: ("n/a" if pd.isna(src.loc[m, k]) else f"{src.loc[m, k]:.3f}")
+                             for m in t5.model if not m.startswith("B-ACPN")}} for n, f, k, src in clsn])
     best = t5.sort_values("roc_auc").iloc[-1]
     a = t5[t5.model == "B-ACPN (proposed)"].iloc[0]
     q = push["by_quadrant"]
@@ -93,6 +126,11 @@ aggregation vs nearest grid cell differs by RMSE {cc['area_vs_nearest_cell']['rm
 
 {md_table(bav)}
 
+**Preprocessing performance metrics** (reference = our area-weighted value / independent pandas recomputation;
+PENDING = needs the raw IMD grids, filled by Colab section 10b):
+
+{md_table(prepv)}
+
 ## 4. Proposed model: B-ACPN (Boosted Attentive Climate Push Network)
 1. **Tree stage:** a random forest (500 trees) on all 13 features gives a risk score; for training districts the
    score is computed out-of-fold (5 inner folds), so the deep stage never sees a score made on its own rows.
@@ -112,6 +150,10 @@ climate network that outputs a per-district climate push is the contribution.
 
 Highest ROC-AUC: **{best.model} ({best.roc_auc:.3f})**. B-ACPN: {a.roc_auc:.3f} ± {a.roc_auc_sd:.3f}. Results are
 reported as measured; a lead smaller than one standard deviation is treated as comparable, not better.
+
+**Classification performance metrics** (mean over the same 25 folds):
+
+{md_table(clsv)}
 
 ## 6. Ablation and climate push (Table 6)
 {md_table(abv)}

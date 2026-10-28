@@ -537,6 +537,73 @@ textbox(s, 0.4, 6.5, 9.2, 0.45, f"Computed {pm['computed'].split(' ')[0]} from p
         "The nearest-cell check needs the raw IMD grids (Colab).", 11, color=GREY)
 owner(s, "Sehjodh Grewal")
 
+# ================================================================= 12 PREPROCESSING PERFORMANCE METRICS
+def _prep_vals(d, worst=False):
+    """8 error metrics of one preprocessing check; worst=True takes the worst of the 7 MapReduce indices."""
+    if not d:
+        return {}
+    if worst:
+        per = list(d["per_index"].values())
+        out = {k: max(v[k] for v in per) for k in ("rmse", "mae") if all(k in v for v in per)}
+        for k in ("mse", "mape_pct", "nrmse", "medae"):
+            if all(k in v for v in per):
+                out[k] = max(v[k] for v in per if pd.notna(v[k])) if any(pd.notna(v[k]) for v in per) else float("nan")
+        if all("r2" in v for v in per):
+            out["r2"] = min(v["r2"] for v in per if pd.notna(v["r2"]))
+        if all("bias" in v for v in per):
+            out["bias"] = max((v["bias"] for v in per), key=abs)
+        if "mse" not in out and "rmse" in out:
+            out["mse"] = out["rmse"] ** 2
+        return out
+    m = dict(d.get("metrics", {}))
+    m.setdefault("rmse", d.get("rmse_mm")); m.setdefault("mae", d.get("mae_mm"))
+    m.setdefault("mape_pct", d.get("mean_abs_pct"))
+    if m.get("rmse") is not None:
+        m.setdefault("mse", m["rmse"] ** 2)
+    return {k: v for k, v in m.items() if v is not None}
+
+
+def _pf(v, kind):
+    if v is None:
+        return PENDING
+    if pd.isna(v):
+        return "n/a"
+    if kind == "pct":
+        return f"{v:.2f}%"
+    if kind == "r2":
+        return f"{v:.4f}"
+    if abs(v) != 0 and (abs(v) < 1e-3 or abs(v) >= 1e5):
+        return f"{v:.1e}"
+    return f"{v:,.3f}" if abs(v) < 10 else f"{v:,.1f}"
+
+
+pa = _prep_vals(cc.get("area_vs_nearest_cell"))
+pmr = _prep_vals(cc.get("mapreduce_vs_pandas"), worst=True)
+PREP_METRICS = [("RMSE", "Root Mean Square Error", "Square root of the average squared error", "rmse", "num"),
+                ("MSE", "Mean Squared Error", "Average squared difference, actual vs computed", "mse", "num"),
+                ("MAE", "Mean Absolute Error", "Average absolute difference", "mae", "num"),
+                ("MAPE", "Mean Absolute Percentage Error", "Error as a percentage of the actual value", "mape_pct", "pct"),
+                ("R²", "Coefficient of Determination", "How much of the variation is reproduced (1 = all)", "r2", "r2"),
+                ("NRMSE", "Normalised RMSE", "RMSE divided by the range of the actual values", "nrmse", "num"),
+                ("MedAE", "Median Absolute Error", "Median error; not driven by a few extreme values", "medae", "num"),
+                ("Bias / ME", "Mean Error", "Systematic over- (+) or under- (−) estimation", "bias", "num")]
+rows = [["Metric", "Full form", "Purpose", "Nearest cell vs our area-weighted rain", "MapReduce vs independent pandas"]]
+for short, full_, purpose, k, kind in PREP_METRICS:
+    rows.append([short, full_, purpose, _pf(pa.get(k), kind), _pf(pmr.get(k), kind)])
+s = new_slide("Preprocessing Performance Metrics",
+              "Eight error metrics for the two preprocessing steps that have an exact reference. Left: annual "
+              "rainfall per district from the naive nearest-cell method against our area-weighted method, i.e. the "
+              "error our method avoids. Right: the seven MapReduce climate indices against an independent pandas "
+              "recomputation (worst of the seven), i.e. whether MapReduce is correct.", size=26)
+table(s, 0.4, 1.25, 9.2, rows, [1.0, 2.0, 2.9, 1.65, 1.65], size=11, row_h=0.52)
+_n_a, _n_m = (cc.get("area_vs_nearest_cell") or {}), (cc.get("mapreduce_vs_pandas") or {})
+textbox(s, 0.4, 6.05, 9.2, 0.9,
+        f"Left: {_n_a.get('districts', PENDING)} districts, year {_n_a.get('year', PENDING)}, in mm; large values are "
+        f"the error the naive method would make. Right: {_n_m.get('rows_compared', PENDING):,} district-years × 7 indices; "
+        "values near 0 (and R² near 1) mean MapReduce matches. MAPE skips zero actual values; NRMSE uses the range. "
+        f"Source: {REF}. PENDING = not yet computed (needs the raw IMD grids in Colab).", 10, color=GREY)
+owner(s, "Sehjodh Grewal")
+
 # ================================================================= 13 MODEL CARD
 pc = PENDING if card is None else f"{card['parameters']:,}"
 tt = PENDING if card is None else card["train_time"]
@@ -656,6 +723,40 @@ bullets(s, 0.4, 5.65, 9.2, 1.3, [
     ("TP/TN/FP/FN: ", "summed over the 25 test folds (High = positive class)"),
     ("Significance: ", "corrected resampled t-test (Nadeau–Bengio) on paired fold ROC-AUC; p < 0.05 = real difference")],
     size=15, space=3)
+owner(s, "Tanmay Singh")
+
+# ================================================================= CLASSIFICATION PERFORMANCE METRICS
+CLS_METRICS = [("Accuracy", "Classification Accuracy", "Share of districts classified correctly", "accuracy", cmp5, True),
+               ("Precision", "Positive Predictive Value", "Of districts predicted High, share truly High", "precision", full, True),
+               ("Recall", "Sensitivity / True Positive Rate", "Of truly High districts, share found", "recall", full, True),
+               ("F1-score", "Harmonic mean of precision and recall", "Balances precision and recall", "f1", cmp5, True),
+               ("Specificity", "True Negative Rate", "Of truly Low districts, share found", "specificity", full, True),
+               ("ROC-AUC", "Area Under the ROC Curve", "Ability to separate High from Low", "roc_auc", cmp5, True),
+               ("Log loss", "Cross-Entropy Loss", "Quality of predicted probabilities (lower is better)", "log_loss", full, False),
+               ("MCC", "Matthews Correlation Coefficient", "Uses all four confusion-matrix cells", "mcc", full, True),
+               ("Cohen's kappa", "Cohen's Kappa Coefficient", "Agreement with true labels, corrected for chance", "kappa", full, True),
+               ("Balanced acc.", "Average class recall", "Accuracy that is fair to both classes", "bal_acc", cmp5, True)]
+rows = [["Metric", "Full form", "Purpose", "B-ACPN", "Best other model"]]
+for short, full_, purpose, k, src, hi in CLS_METRICS:
+    if src is None:
+        rows.append([short, full_, purpose, PENDING, PENDING]); continue
+    sv = src.set_index("model")[k].dropna()
+    others = sv.drop("B-ACPN (proposed)", errors="ignore")
+    bo = others.idxmax() if hi else others.idxmin()
+    rows.append([short, full_, purpose, f"{sv['B-ACPN (proposed)']:.3f}", f"{SHORTN[bo]} {others[bo]:.3f}"])
+s = new_slide("Classification Performance Metrics",
+              "All ten classification metrics, with what each one measures, for the proposed model and the best of "
+              "the five existing models on that metric. Values are means over the same 25 folds; the full per-model "
+              "values are in the comparison and detailed-metrics tables.", size=26)
+table(s, 0.4, 1.25, 9.2, rows, [1.35, 2.35, 3.0, 1.0, 1.5], size=11, row_h=0.47, highlight=())
+if cmp5 is not None and full is not None:
+    _bm = [r[0] for r in rows[1:] if r[3] != PENDING and
+           ((float(r[3]) >= float(r[4].split()[-1])) == next(c[5] for c in CLS_METRICS if c[0] == r[0]))]
+    _cls_note = (f"B-ACPN is best on {len(_bm)} of 10 ({', '.join(_bm)}); not best on "
+                 f"{', '.join(r[0] for r in rows[1:] if r[0] not in _bm) or 'none'}.")
+else:
+    _cls_note = PENDING
+textbox(s, 0.4, 6.5, 9.2, 0.45, _cls_note + " Lower is better only for log loss.", 11, color=INK)
 owner(s, "Tanmay Singh")
 
 # ================================================================= 17 ABLATION

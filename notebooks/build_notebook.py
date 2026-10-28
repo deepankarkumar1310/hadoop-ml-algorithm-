@@ -263,6 +263,24 @@ display(ba[['model', 'acc_before', 'acc_after', 'f1_before', 'f1_after', 'rmse_b
 print('TABLE 6b - climate push'); print(open('results/table6_climate_push.json').read()[:3000])
 """)
 
+md("""
+### 10b. Preprocessing performance metrics
+
+RMSE, MSE, MAE, MAPE, R², NRMSE, MedAE and bias for the two preprocessing steps with an exact reference:
+nearest-cell vs our area-weighted rainfall (the error our method avoids) and MapReduce vs an independent pandas
+recomputation (is MapReduce correct). Needs the IMD grids on Drive and the MapReduce output from section 5.
+""")
+code("""
+!python3 scripts/colab_checks.py --check all --imd-dir "$IMD_DIR" --year $END > /dev/null
+cc = json.load(open('results/preprocessing_colab_checks.json'))
+keys = ['rmse', 'mse', 'mae', 'mape_pct', 'r2', 'nrmse', 'medae', 'bias']
+agg = cc['area_vs_nearest_cell']['metrics']
+mr = pd.DataFrame(cc['mapreduce_vs_pandas']['per_index']).T[keys]
+print('Nearest cell vs area-weighted annual rainfall (mm), year', cc['area_vs_nearest_cell']['year'])
+display(pd.DataFrame([agg])[keys].round(4))
+print('MapReduce vs independent pandas, per climate index'); display(mr.astype(float).round(6))
+""")
+
 md("## 11. Visualisations (only after every table)")
 code("""
 !python3 scripts/make_figures.py > /dev/null

@@ -53,6 +53,20 @@ aggregation vs nearest grid cell differs by RMSE 287 mm
 | Linear SVM | 0.696 | 0.696 | 0.708 | 0.708 | n/a | n/a | 0.755 | 0.755 |
 | Standard MLP | 0.711 | 0.699 | 0.678 | 0.692 | 0.445 | 0.440 | 0.759 | 0.784 |
 
+**Preprocessing performance metrics** (reference = our area-weighted value / independent pandas recomputation;
+PENDING = needs the raw IMD grids, filled by Colab section 10b):
+
+| Metric | Full form | Nearest cell vs area-weighted rain (mm) | MapReduce vs pandas (worst of 7 indices) |
+|---|---|---|---|
+| RMSE | Root Mean Square Error | 286.9 | 0.002897 |
+| MSE | Mean Squared Error | 8.231e+04 | 8.394e-06 |
+| MAE | Mean Absolute Error | 151.7 | 0.002511 |
+| MAPE (%) | Mean Absolute Percentage Error | 11.08 | PENDING |
+| R² | Coefficient of Determination | PENDING | PENDING |
+| NRMSE | RMSE / range of actual values | PENDING | PENDING |
+| MedAE | Median Absolute Error | PENDING | PENDING |
+| Bias / ME | Mean Error (pred − actual) | PENDING | PENDING |
+
 ## 4. Proposed model: B-ACPN (Boosted Attentive Climate Push Network)
 1. **Tree stage:** a random forest (500 trees) on all 13 features gives a risk score; for training districts the
    score is computed out-of-fold (5 inner folds), so the deep stage never sees a score made on its own rows.
@@ -79,6 +93,21 @@ climate network that outputs a per-district climate push is the contribution.
 
 Highest ROC-AUC: **B-ACPN (proposed) (0.820)**. B-ACPN: 0.820 ± 0.035. Results are
 reported as measured; a lead smaller than one standard deviation is treated as comparable, not better.
+
+**Classification performance metrics** (mean over the same 25 folds):
+
+| Metric | Full form | B-ACPN | Logistic Regression | Random Forest | Gradient-Boosted Trees | Linear SVM | Standard MLP |
+|---|---|---|---|---|---|---|---|
+| Accuracy | Classification Accuracy | 0.738 | 0.692 | 0.715 | 0.725 | 0.696 | 0.699 |
+| Precision | Positive Predictive Value | 0.765 | 0.688 | 0.735 | 0.736 | 0.689 | 0.719 |
+| Recall | Sensitivity / True Positive Rate | 0.700 | 0.718 | 0.689 | 0.718 | 0.733 | 0.674 |
+| F1-score | Harmonic mean of precision and recall | 0.728 | 0.701 | 0.708 | 0.724 | 0.708 | 0.692 |
+| Specificity | True Negative Rate | 0.778 | 0.665 | 0.742 | 0.733 | 0.659 | 0.724 |
+| ROC-AUC | Area Under the ROC Curve | 0.820 | 0.747 | 0.804 | 0.811 | 0.755 | 0.784 |
+| Log loss | Cross-Entropy Loss (lower is better) | 0.516 | 0.611 | 0.539 | 0.570 | n/a | 0.579 |
+| MCC | Matthews Correlation Coefficient | 0.482 | 0.386 | 0.434 | 0.454 | 0.396 | 0.404 |
+| Cohen's kappa | Cohen's Kappa Coefficient | 0.477 | 0.383 | 0.430 | 0.451 | 0.392 | 0.398 |
+| Balanced accuracy | Average class recall | 0.739 | 0.691 | 0.715 | 0.726 | 0.696 | 0.699 |
 
 ## 6. Ablation and climate push (Table 6)
 | Variant | ROC-AUC | Change |
