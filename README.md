@@ -38,6 +38,8 @@ Districts 640 → 602 matched → 589 with index → 469 complete
 (error 0), literacy 72.9819% vs official 72.98%.
 Grid weights sum to 1 within 7e-08. Final table: 0 missing, 0 duplicates,
 0 out-of-range values. Class balance 237 High / 232 Low.
+Signal: rainfall signal-to-noise ratio (30-year mean ÷ year-to-year SD) median 3.98; best
+single-feature ROC-AUC 0.674 (agricultural-worker share).
 
 **Preprocessing before vs after** (same models and folds, raw vs preprocessed features; RMSE = error of the predicted
 probability, lower is better; Linear SVM gives no probabilities). Data level: area-weighted grid → district

@@ -493,7 +493,9 @@ ft = pm["final_table"]
 s = new_slide("Results of Preprocessing",
               "Districts are kept only when every variable is real, which takes us from 640 Census districts to "
               "469 complete ones in 21 states. Census totals match the official figures. On the right, each "
-              "feature's single-variable ROC-AUC shows how much signal it carries before any model is trained.")
+              "feature's single-variable ROC-AUC shows how much signal it carries before any model is trained, and "
+              "the rainfall signal-to-noise ratio shows the 30-year average is about four times larger than its "
+              "year-to-year variation.")
 textbox(s, 0.4, 1.25, 4.9, 0.4, "Table 1: retention and validation", 15, True, NAVY)
 table(s, 0.4, 1.7, 4.9, [
     ["Stage / check", "Value"],
@@ -504,8 +506,9 @@ table(s, 0.4, 1.7, 4.9, [
     ["National literacy", f"{pm['census']['literacy_pct']:.2f}%"],
     ["Class balance High / Low", f"{ft['class_high']} / {ft['class_low']}"],
     ["NDAP columns >50% empty", f"{pm['ndap']['cols_over_half_empty']} of {pm['ndap']['cols']}"],
-    ["Sample skew", "UP 70, MP 49, Bihar 38, Rajasthan 33"]],
-    [2.6, 2.3], size=12, row_h=0.47, highlight=(4,))
+    ["Sample skew", "UP 70, MP 49, Bihar 38, Rajasthan 33"],
+    ["Rainfall signal-to-noise (median)", f"{pm['rain_snr_median']:.2f} (mean ÷ year-to-year SD)"]],
+    [2.6, 2.3], size=12, row_h=0.43, highlight=(4,))
 textbox(s, 5.55, 1.25, 4.05, 0.4, "Feature signal (single-feature ROC-AUC)", 15, True, NAVY)
 sig_rows = [["Feature", "AUC"]] + [[k.replace("_", " "), f"{v:.3f}"] for k, v in pm["feature_signal_auc"].items()]
 table(s, 5.55, 1.7, 4.05, sig_rows, [2.9, 1.0], size=11, row_h=0.36, first_bold=False)

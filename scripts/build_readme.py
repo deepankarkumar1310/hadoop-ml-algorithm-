@@ -127,6 +127,8 @@ Districts 640 → {pm['matching']['matched']} matched → 589 with index → {pm
 (error {pm['census']['population_abs_error']}), literacy {pm['census']['literacy_pct']:.4f}% vs official 72.98%.
 Grid weights sum to 1 within {pm['grid_rain']['max_abs_sum_error']:.0e}. Final table: 0 missing, 0 duplicates,
 0 out-of-range values. Class balance {pm['final_table']['class_high']} High / {pm['final_table']['class_low']} Low.
+Signal: rainfall signal-to-noise ratio (30-year mean ÷ year-to-year SD) median {pm['rain_snr_median']:.2f}; best
+single-feature ROC-AUC {max(pm['feature_signal_auc'].values()):.3f} (agricultural-worker share).
 
 **Preprocessing before vs after** (same models and folds, raw vs preprocessed features; RMSE = error of the predicted
 probability, lower is better; Linear SVM gives no probabilities). Data level: area-weighted grid → district
