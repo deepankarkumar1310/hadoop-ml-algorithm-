@@ -283,13 +283,13 @@ s1.notes_slide.notes_text_frame.text = (
     "climate data and a novel hybrid deep-learning model, B-ACPN, to explain each district.")
 
 # ================================================================= 2 CONTENTS
-s = new_slide("Contents", "This is the order we follow, as required for Review 2: dataset, model, "
-              "architecture, preprocessing and its results, classification, comparison, team plan, "
-              "references, photo and the Colab link.")
-items = ["Dataset", "Proposed Model (B-ACPN)", "Overall System Architecture Diagram",
-         "Preprocessing (Big Data analysis and its steps)", "Results of Preprocessing",
-         "Classification (proposed model)", "Results of Classification using proposed model",
-         "Comparison with the existing classifier models", "Plan of Action / Member Tasks", "References",
+s = new_slide("Contents", "The deck runs in three parts, each with its own tables and figures: preprocessing "
+              "first, then the Big Data tools, then the proposed model and the comparison with existing models, "
+              "followed by the key findings, team plan, references, photo and the Colab link.")
+items = ["Dataset", "Preprocessing: steps, results and error metrics", "Effect of preprocessing on the models",
+         "Big Data tools: architecture, HDFS, MapReduce, Hive, Spark", "Proposed Model (B-ACPN)",
+         "Ablation and climate-push results", "Comparison with the existing classifier models",
+         "Key findings", "Plan of Action / Member Tasks", "References",
          "Geotagged photo taken during Review 2 presentation", "Google Colab Implementation link"]
 for i, it in enumerate(items):
     col, row = divmod(i, 6)
@@ -1043,5 +1043,42 @@ cp.author = cp.last_modified_by = "Deepankar"
 cp.title = "Beyond Development: Explaining Climate Resilience Across Indian Districts - Review 2"
 cp.subject, cp.keywords, cp.comments = "Big Data Review 2", "", ""
 OUT.parent.mkdir(parents=True, exist_ok=True)
+# Final order: intro → preprocessing → Big Data tools → ML models → visualisations → closing.
+# Slides are built in the original order above and moved here by title.
+ORDER = ["Beyond Development", "Contents", "Problem Statement", "Dataset",
+         # 1. preprocessing: steps, results, error metrics, figures, effect on the models
+         "Preprocessing: Big Data Analysis Steps", "Results of Preprocessing", "Preprocessing Error Metrics",
+         "Preprocessing Performance Metrics", "Preprocessing: Before vs After (Figures)",
+         "Preprocessing Results (Figures)", "Effect of Preprocessing on the Models",
+         "Classification Metrics: Before vs After", "Effect of Preprocessing (Figure)",
+         # 2. Big Data tools
+         "Overall System Architecture", "Big Data Platform", "Big Data Processing", "HDFS Storage (Figure)",
+         "MapReduce & Spark Results",
+         # 3. ML models: proposed model, then comparison with existing models
+         "Proposed Model", "Classification: B-ACPN Model Card", "Ablation Study", "Climate-Push Analysis",
+         "B-ACPN Training & Attention", "Ablation (Figure)", "Climate-Push Visualisation",
+         "Comparison with Existing", "Detailed Classifier Metrics", "Confusion Matrix, CIs",
+         "Classification Performance Metrics", "Results of Classification (Figures)", "Confusion Matrices & Stability",
+         # closing
+         "Key Findings", "Plan of Action", "References", "Geotagged Photo", "Google Colab Implementation"]
+
+
+def _title(sl):
+    return next((sh.text_frame.text for sh in sl.shapes if sh.has_text_frame and sh.text_frame.text.strip()), "")
+
+
+_ids = prs.slides._sldIdLst
+_els = list(_ids)
+_titles = [_title(sl) for sl in prs.slides]
+_new = []
+for key in ORDER:
+    hit = [i for i, t in enumerate(_titles) if t.startswith(key) and i not in _new]
+    assert len(hit) == 1, (key, hit)
+    _new.append(hit[0])
+assert sorted(_new) == list(range(len(_els))), "every slide must appear exactly once"
+for el in _els:
+    _ids.remove(el)
+for i in _new:
+    _ids.append(_els[i])
 prs.save(str(OUT))
 print(f"saved {OUT.relative_to(ROOT)} with {len(prs.slides)} slides")
