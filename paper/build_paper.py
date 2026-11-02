@@ -13,8 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 RES, PAPER = ROOT / "results", ROOT / "paper"
 
 DEPT = "Department of Networking and Communications,"
-EMAILS = {"FACULTY": "PENDING", "SEHJODH": "PENDING", "DEVANSHU": "PENDING", "DEEPANKAR": "PENDING",
-          "TANMAY": "PENDING"}
+EMAILS = {"FACULTY": "PENDING", "SEHJODH": "sg2827@srmist.edu.in", "DEVANSHU": "PENDING",
+          "DEEPANKAR": "dz9629@srmist.edu.in", "TANMAY": "ts4494@srmist.edu.in"}
 
 SHORT = {"B-ACPN (proposed)": "B-ACPN (ours)", "Logistic Regression": "Logistic regression",
          "Random Forest": "Random forest", "Gradient-Boosted Trees": "Gradient-boosted trees",
