@@ -12,3 +12,6 @@ data/processed/integrated_district_hive.csv
 spark-warehouse/
 metastore_db/
 derby.log
+paper/*.aux
+paper/*.log
+paper/*.out
