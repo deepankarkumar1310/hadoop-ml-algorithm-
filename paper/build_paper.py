@@ -12,7 +12,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 RES, PAPER = ROOT / "results", ROOT / "paper"
 
-DEPT = "Department: PENDING"
+DEPT = "Department of Networking and Communications,"
 EMAILS = {"FACULTY": "PENDING", "SEHJODH": "PENDING", "DEVANSHU": "PENDING", "DEEPANKAR": "PENDING",
           "TANMAY": "PENDING"}
 
