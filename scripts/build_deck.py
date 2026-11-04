@@ -1043,22 +1043,27 @@ cp.author = cp.last_modified_by = "Deepankar"
 cp.title = "Beyond Development: Explaining Climate Resilience Across Indian Districts - Review 2"
 cp.subject, cp.keywords, cp.comments = "Big Data Review 2", "", ""
 OUT.parent.mkdir(parents=True, exist_ok=True)
-# Final order: intro → preprocessing → Big Data tools → ML models → visualisations → closing.
+# Final order: intro → preprocessing → Big Data tools → ML models → closing; inside each part a figure follows its table.
 # Slides are built in the original order above and moved here by title.
 ORDER = ["Beyond Development", "Contents", "Problem Statement", "Dataset",
-         # 1. preprocessing: steps, results, error metrics, figures, effect on the models
-         "Preprocessing: Big Data Analysis Steps", "Results of Preprocessing", "Preprocessing Error Metrics",
-         "Preprocessing Performance Metrics", "Preprocessing: Before vs After (Figures)",
-         "Preprocessing Results (Figures)", "Effect of Preprocessing on the Models",
-         "Classification Metrics: Before vs After", "Effect of Preprocessing (Figure)",
+         # 1. preprocessing: each table followed by the figure that shows it
+         "Preprocessing: Big Data Analysis Steps",
+         "Results of Preprocessing", "Preprocessing Results (Figures)",
+         "Preprocessing Error Metrics", "Preprocessing: Before vs After (Figures)",
+         "Preprocessing Performance Metrics",
+         "Effect of Preprocessing on the Models", "Classification Metrics: Before vs After",
+         "Effect of Preprocessing (Figure)",
          # 2. Big Data tools
-         "Overall System Architecture", "Big Data Platform", "Big Data Processing", "HDFS Storage (Figure)",
-         "MapReduce & Spark Results",
-         # 3. ML models: proposed model, then comparison with existing models
-         "Proposed Model", "Classification: B-ACPN Model Card", "Ablation Study", "Climate-Push Analysis",
-         "B-ACPN Training & Attention", "Ablation (Figure)", "Climate-Push Visualisation",
-         "Comparison with Existing", "Detailed Classifier Metrics", "Confusion Matrix, CIs",
-         "Classification Performance Metrics", "Results of Classification (Figures)", "Confusion Matrices & Stability",
+         "Overall System Architecture",
+         "Big Data Platform", "HDFS Storage (Figure)",
+         "Big Data Processing", "MapReduce & Spark Results",
+         # 3. ML models: proposed model (tables, then their figures), then the comparison
+         "Proposed Model", "Classification: B-ACPN Model Card", "B-ACPN Training & Attention",
+         "Ablation Study", "Ablation (Figure)",
+         "Climate-Push Analysis", "Climate-Push Visualisation",
+         "Comparison with Existing", "Results of Classification (Figures)",
+         "Detailed Classifier Metrics", "Confusion Matrix, CIs", "Confusion Matrices & Stability",
+         "Classification Performance Metrics",
          # closing
          "Key Findings", "Plan of Action", "References", "Geotagged Photo", "Google Colab Implementation"]
 
