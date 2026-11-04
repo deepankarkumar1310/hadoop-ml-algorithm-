@@ -404,8 +404,7 @@ row2 = [("HDFS staging", ["7.0 M district-day rows"], TINT_T, TEAL),
         ("Spark", ["k-means + MLlib"], TINT_O, ORANGE)]
 row3 = [("Standardise", ["training folds only"], TINT_P, PURPLE),
         ("B-ACPN + 5 baselines", ["RF + PyTorch · MLlib"], HILITE, ORANGE),
-        ("Comparison tables", ["25 folds + LOSO"], LIGHT, NAVY),
-        ("Report / slides", ["results/ · figures/"], LIGHT, NAVY)]
+        ("Comparison tables", ["25 folds + LOSO"], LIGHT, NAVY)]
 bw, bh, gap = 1.95, 1.0, 2.42
 xs = [0.4 + i * gap for i in range(4)]
 ys = (1.35, 2.75, 4.15)
@@ -422,7 +421,7 @@ for k, (a, b_, f, l) in enumerate(row2):
 arrow(s, xs[0] + bw / 2, ys[1] + bh, xs[0] + bw / 2, ys[2])
 for i, (a, b_, f, l) in enumerate(row3):
     box(s, xs[i], ys[2], bw, bh, a, f, l, 13, sub=b_, sub_size=10)
-    if i < 3:
+    if i < len(row3) - 1:
         arrow(s, xs[i] + bw, ys[2] + bh / 2, xs[i + 1], ys[2] + bh / 2)
 textbox(s, 0.4, 5.55, 9.2, 0.4, "Legend:", 12, True, GREY)
 for i, (lab, f, l) in enumerate([("Preprocessing", TINT_P, PURPLE), ("Storage (HDFS)", TINT_T, TEAL),
