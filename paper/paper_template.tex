@@ -22,6 +22,9 @@
 }
 \makeatother
 
+% compact "where" list of the symbols under each equation
+\newenvironment{symlist}{\par\vspace{-2pt}\noindent\footnotesize where:\par\begin{list}{}{\setlength{\leftmargin}{4.4em}\setlength{\labelwidth}{4.1em}\setlength{\labelsep}{0.3em}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\topsep}{1pt}\renewcommand{\makelabel}[1]{##1\hfil}}}{\end{list}\vspace{2pt}}
+
 \begin{document}
 
 \title{Beyond Development: Explaining Climate Resilience Across Indian Districts with a Hadoop Pipeline and a Boosted Attentive Climate Push Network}
@@ -111,10 +114,19 @@ Table~\ref{tab:data} lists the sources. The outcome is the 2021 district climate
 Census counts were converted to rates and checked against national totals: the population matches the official figure exactly and national literacy differs by @@LIT_ERR@@ percentage points. NDAP and Census districts were matched inside state clusters (Andhra Pradesh with Telangana, Jammu and Kashmir with Ladakh) by exact name, an alias table and fuzzy matching; @@MATCHED@@ of @@NDAP_N@@ NDAP districts were matched with no duplicate codes, and two wrong fuzzy matches were found by hand and blocked. NDAP is sparse (@@NDAP_MISS@@\% of all cells empty), so we kept only the five development variables that are well covered and dropped districts with missing values instead of imputing them, leaving @@N_DIST@@ complete districts.
 
 Grid values were turned into district values with area weights. The weight of grid cell $c$ for district $d$ is
+\par\noindent\begin{minipage}{\columnwidth}
 \begin{equation}
 w_{c,d} = \frac{A(c \cap d)\cos\varphi_c}{\sum_{c'} A(c' \cap d)\cos\varphi_{c'}},
 \end{equation}
-where $A(c \cap d)$ is the share of the cell inside the district, computed in an equal-area projection, and $\varphi_c$ is the latitude of the cell centre. The weights of every district sum to one within $10^{-7}$. Daily district values are weighted means over the cells with data that day; IMD missing codes stay missing and are never set to zero. An automatic check confirms the grid orientation: Chennai's rainfall must peak in the north-east monsoon (October--December). The result is a table of @@MR_IN@@ district-day rows.
+\begin{symlist}
+\item[$w_{c,d}$] area weight of grid cell $c$ for district $d$;
+\item[$A(c \cap d)$] share of cell $c$ lying inside district $d$, computed in an equal-area projection;
+\item[$\varphi_c$] latitude of the centre of cell $c$ (cells shrink towards the north);
+\item[$c'$] any grid cell overlapping district $d$; the sum makes the weights add up to one.
+\end{symlist}
+\end{minipage}\par
+
+The weights of every district sum to one within $10^{-7}$. Daily district values are weighted means over the cells with data that day; IMD missing codes stay missing and are never set to zero. An automatic check confirms the grid orientation: Chennai's rainfall must peak in the north-east monsoon (October--December). The result is a table of @@MR_IN@@ district-day rows.
 
 Table~\ref{tab:prep} evaluates the two preprocessing steps that have an exact reference with eight error metrics. Replacing our area-weighted rainfall by the naive nearest-cell value would cause an RMSE of @@AGG_RMSE@@ mm and a MAPE of @@AGG_MAPE@@\% per district; the MapReduce indices agree with an independent pandas recomputation to rounding error.
 
@@ -154,22 +166,55 @@ HDFS holds three zones: \emph{raw} for the untouched sources, \emph{staging} for
 Let $\mathbf{x}_i = (\mathbf{d}_i, \mathbf{h}_i)$ be the five development and eight hazard variables of district $i$ and $y_i \in \{0,1\}$ its vulnerability class. B-ACPN (Fig.~\ref{fig:model}) has three parts.
 
 \emph{Tree stage.} A random forest \cite{breiman2001} with 500 trees and a minimum leaf size of two is trained on all 13 features. For training districts its probability is computed out-of-fold over five inner folds, so the next stage never sees a score that the forest produced on its own training rows. The tree score is the log-odds
+\par\noindent\begin{minipage}{\columnwidth}
 \begin{equation}
 s_i = \log\frac{\hat p^{\,\text{RF}}_i}{1-\hat p^{\,\text{RF}}_i}.
 \end{equation}
+\begin{symlist}
+\item[$s_i$] tree score (log-odds) of district $i$;
+\item[$\hat p^{\,\text{RF}}_i$] random-forest probability that district $i$ is highly vulnerable (out-of-fold for training districts).
+\end{symlist}
+\end{minipage}\par
+
 
 \emph{Deep stage.} A small network starts from $s_i$ and adds a development term and a climate push:
+\par\noindent\begin{minipage}{\columnwidth}
 \begin{align}
 b_i &= s_i + \mathbf{w}^{\top}\mathbf{d}_i + \beta, \\
 \mathbf{a}_i &= \operatorname{softmax}\!\big(W_2 \tanh(W_1 \mathbf{h}_i)\big),\quad \tilde{\mathbf{h}}_i = 8\,\mathbf{a}_i \odot \mathbf{h}_i, \\
 c_i &= f_\theta(\tilde{\mathbf{h}}_i)\cdot 2\,\sigma\!\big(g_\phi(\mathbf{d}_i)\big).
 \end{align}
+\begin{symlist}
+\item[$b_i$] baseline logit of district $i$ (tree score plus development term);
+\item[$\mathbf{d}_i$] the five standardised development features of district $i$;
+\item[$\mathbf{w}, \beta$] learned weights and bias of the development term;
+\item[$\mathbf{h}_i$] the eight standardised climate-hazard features of district $i$;
+\item[$W_1, W_2$] learned weight matrices of the attention network;
+\item[$\mathbf{a}_i$] attention weights over the eight hazards (they sum to one);
+\item[$\tilde{\mathbf{h}}_i$] attention-weighted hazards (the factor 8 keeps the mean weight at one);
+\item[$\odot$] element-wise product;
+\item[$c_i$] climate push of district $i$ ($>0$: climate adds risk, $<0$: climate protects);
+\item[$f_\theta$] climate network (MLP with a residual block) with parameters $\theta$;
+\item[$g_\phi$] development-gate network with parameters $\phi$;
+\item[$\sigma$] sigmoid function, $\sigma(x) = 1/(1+e^{-x})$.
+\end{symlist}
+\end{minipage}\par
+
 Here $\mathbf{a}_i$ are attention weights over the hazards, $f_\theta$ is a linear layer (8$\rightarrow$16) with ReLU and dropout 0.3, a residual block \cite{he2016} (linear, batch normalisation, ReLU, dropout, skip connection) and a bias-free output layer, and the development gate $2\sigma(g_\phi)$, with $g_\phi$ a 5$\rightarrow$4$\rightarrow$1 tanh network, scales the push between 0 and 2. A positive push means that climate adds risk beyond what the trees and development explain.
 
 \emph{Ensemble.} Five deep stages with different seeds are averaged:
+\par\noindent\begin{minipage}{\columnwidth}
 \begin{equation}
 \hat p_i = \frac{1}{M}\sum_{m=1}^{M}\sigma\big(b^{(m)}_i + c^{(m)}_i\big),\qquad M = 5.
 \end{equation}
+\begin{symlist}
+\item[$\hat p_i$] final predicted probability that district $i$ is highly vulnerable;
+\item[$M$] number of deep stages in the ensemble;
+\item[$b^{(m)}_i$] baseline of district $i$ from deep stage $m$;
+\item[$c^{(m)}_i$] climate push of district $i$ from deep stage $m$.
+\end{symlist}
+\end{minipage}\par
+
 
 \begin{figure}[t]
 \centering
@@ -195,10 +240,20 @@ Here $\mathbf{a}_i$ are attention weights over the hazards, $f_\theta$ is a line
 
 \subsection{Training}
 Each network minimises the class-weighted binary cross-entropy
+\par\noindent\begin{minipage}{\columnwidth}
 \begin{equation}
 \mathcal{L} = -\frac{1}{n}\sum_{i} \omega_{y_i}\big[y_i\log \hat p_i + (1-y_i)\log(1-\hat p_i)\big]
 \end{equation}
-with AdamW (learning rate $3\times10^{-3}$, weight decay $10^{-3}$, batch 64) for at most 300 epochs, stopping after 30 epochs without improvement on a stratified 15\% validation split. Features are standardised on the training rows of each fold only. Each network has @@N_PARAMS@@ trainable parameters, and one fold trains in @@TRAIN_TIME@@ on a CPU. Algorithm~\ref{alg:train} summarises the procedure.
+\begin{symlist}
+\item[$\mathcal{L}$] training loss (class-weighted binary cross-entropy);
+\item[$n$] number of training districts;
+\item[$y_i$] true class of district $i$ (1 = High, 0 = Low vulnerability);
+\item[$\omega_{y_i}$] class weight, $0.5$ divided by the share of class $y_i$ in the training set;
+\item[$\hat p_i$] predicted probability of high vulnerability for district $i$.
+\end{symlist}
+\end{minipage}\par
+
+The loss is minimised with AdamW (learning rate $3\times10^{-3}$, weight decay $10^{-3}$, batch 64) for at most 300 epochs, stopping after 30 epochs without improvement on a stratified 15\% validation split. Features are standardised on the training rows of each fold only. Each network has @@N_PARAMS@@ trainable parameters, and one fold trains in @@TRAIN_TIME@@ on a CPU. Algorithm~\ref{alg:train} summarises the procedure.
 
 \begin{algorithm}[t]
 \caption{Training B-ACPN on one fold}
@@ -225,10 +280,19 @@ For each district we run the deep stages 50 times with dropout active and report
 \section{Experiments and Results}
 \subsection{Protocol}
 All six models use the same splits: repeated stratified five-fold cross-validation with five repeats (25 train/test splits, seed 42) and leave-one-state-out (LOSO) over the 21 states. The five existing models are logistic regression, a random forest (200 trees), gradient-boosted trees (100 iterations, depth 3) and a linear SVM, all trained with Spark MLlib, and a standard multilayer perceptron (13--64--32--16--1) trained with the same loop as B-ACPN. We report means over the 25 folds. Because repeated folds share training data, we compare models with the corrected resampled $t$-test of Nadeau and Bengio \cite{nadeau2003}, which inflates the variance of the paired differences to
+\par\noindent\begin{minipage}{\columnwidth}
 \begin{equation}
 \hat\sigma^2_{c} = \Big(\frac{1}{J} + \frac{n_{\text{test}}}{n_{\text{train}}}\Big)\hat\sigma^2,\qquad J = 25,
 \end{equation}
-and use the same correction for 95\% confidence intervals.
+\begin{symlist}
+\item[$\hat\sigma^2$] sample variance of the 25 paired per-fold ROC-AUC differences;
+\item[$\hat\sigma^2_{c}$] corrected variance used for the $t$-statistic;
+\item[$J$] number of train/test splits (folds);
+\item[$\frac{n_{\text{test}}}{n_{\text{train}}}$] ratio of test to training districts ($1/4$ for five-fold CV).
+\end{symlist}
+\end{minipage}\par
+
+We use the same correction for 95\% confidence intervals.
 
 \subsection{Comparison with existing models}
 Table~\ref{tab:cmp} gives the main comparison. B-ACPN has the highest ROC-AUC, balanced accuracy, accuracy, F1 and LOSO AUC. Its lead over gradient-boosted trees is smaller than one standard deviation and not significant (p = @@P_GBT@@), so we regard the two as comparable; against the other four models the difference is significant at the 5\% level. Fig.~\ref{fig:roc} shows the pooled ROC and precision--recall curves.
