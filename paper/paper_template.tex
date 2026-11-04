@@ -332,6 +332,16 @@ Fig.~\ref{fig:push} and Table~\ref{tab:push} show the out-of-fold climate push p
 
 @@TABLE_PUSH@@
 
+\subsection{Interactive dashboard}
+To make the explanations usable outside the code, we built a browser dashboard (Fig.~\ref{fig:dash}) that reads the out-of-fold results directly. A user searches for any of the @@N_DIST@@ districts and sees its group, baseline, climate push with its Monte Carlo Dropout uncertainty, the dominant climate factor and the attention weights of all eight hazards, next to the most climate-driven districts and the mean push of each group. The page is a single static HTML file generated from the results, so it runs offline and always shows the same numbers as the tables.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{dashboard.png}
+\caption{Climate Push Explorer dashboard built on the B-ACPN results, here showing Kishanganj (Bihar), the most climate-driven district.}
+\label{fig:dash}
+\end{figure}
+
 \subsection{Pipeline scaling}
 On the single node, MapReduce took @@T1@@, @@T10@@ and @@T30@@ s for 1, 10 and 30 years of input (two runs each). Runtime grows almost linearly with input, while throughput rises from about 4,300 to 21,000 records per second as the fixed job start-up cost is shared over more data.
 
