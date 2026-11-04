@@ -39,6 +39,8 @@ TINT_O = RGBColor(0xFC, 0xEB, 0xDD)
 HILITE = RGBColor(0xFF, 0xF4, 0xCC)
 WHITE = RGBColor(0xFF, 0xFF, 0xFF)
 PEND = RGBColor(0xC0, 0x39, 0x2B)
+PURPLE = RGBColor(0x6A, 0x3D, 0x9A)
+TINT_P = RGBColor(0xEF, 0xE8, 0xF6)
 TITLE_FONT, BODY_FONT = "Times New Roman", "Calibri"
 PENDING = "PENDING"
 REF = run_label()
@@ -111,9 +113,9 @@ def box(slide, x, y, w, h, text, fill=LIGHT, line=NAVY, size=13, bold=True, colo
     for m in ("margin_left", "margin_right", "margin_top", "margin_bottom"):
         setattr(tf, m, Inches(0.04))
     write(tf, text, size, bold, color, PP_ALIGN.CENTER)
-    if sub:
+    for line in ([sub] if isinstance(sub, str) else (sub or [])):
         p = tf.add_paragraph(); p.alignment = PP_ALIGN.CENTER
-        r = p.add_run(); r.text = sub; style_run(r, sub_size, color=GREY)
+        r = p.add_run(); r.text = line; style_run(r, sub_size, color=GREY)
     return s
 
 
@@ -385,36 +387,48 @@ owner(s, "Devanshu Kumar")
 
 # ================================================================= 6 ARCHITECTURE
 s = new_slide("Overall System Architecture Diagram",
-              "Data flows top-left to bottom-right. Raw sources land in the HDFS raw zone; Python converts the "
-              "IMD grids to district-day rows in staging; MapReduce on YARN aggregates 7 million daily rows to "
-              "yearly indices; Hive builds the 30-year baseline and joins development data; Spark finds climate "
-              "regimes and trains the MLlib baselines; B-ACPN (random forest + PyTorch) is trained and compared.")
-row1 = [("Sources", "NDAP · Census · IMD · DataMeet", LIGHT, NAVY), ("HDFS raw zone", "/project/raw", TINT_T, TEAL),
-        ("Grid → district", "Python (NumPy, shapely)", LIGHT, NAVY), ("HDFS staging", "7.0 M district-day rows", TINT_T, TEAL)]
-row2 = [("MapReduce on YARN", "→ 19,200 district-years", TINT_O, ORANGE), ("Hive", "30-yr baseline + join", TINT_O, ORANGE),
-        ("Spark", "k-means + MLlib", TINT_O, ORANGE)]
-row3 = [("B-ACPN", "RF + PyTorch", HILITE, ORANGE), ("Comparison tables", "Tables 1–6", LIGHT, NAVY),
-        ("Report / slides", "results/ · figures/", LIGHT, NAVY)]
-bw, bh = 1.95, 1.0
+              "Data flows in a snake: left to right, right to left, then left to right. Preprocessing first turns Census "
+              "counts into rates, matches NDAP and Census districts and keeps only complete variables (no imputation). "
+              "Raw sources land in the HDFS raw zone; area weights convert the IMD grids to district-day rows in "
+              "staging, keeping missing days as missing. MapReduce on YARN aggregates 7 million daily rows to yearly "
+              "indices; Hive builds the 30-year baseline and joins development data; Spark finds climate regimes and "
+              "trains the MLlib baselines. Features are standardised on training folds only before B-ACPN and the five "
+              "baselines are trained and compared.")
+row1 = [("Sources", ["NDAP · Census", "IMD · DataMeet"], LIGHT, NAVY),
+        ("Preprocessing", ["Census rates · matching", "no imputation"], TINT_P, PURPLE),
+        ("HDFS raw zone", ["/project/raw"], TINT_T, TEAL),
+        ("Grid → district", ["area weights · NaN kept", "Chennai check"], TINT_P, PURPLE)]
+row2 = [("HDFS staging", ["7.0 M district-day rows"], TINT_T, TEAL),
+        ("MapReduce on YARN", ["→ 19,200 district-years"], TINT_O, ORANGE),
+        ("Hive", ["30-yr baseline + join"], TINT_O, ORANGE),
+        ("Spark", ["k-means + MLlib"], TINT_O, ORANGE)]
+row3 = [("Standardise", ["training folds only"], TINT_P, PURPLE),
+        ("B-ACPN + 5 baselines", ["RF + PyTorch · MLlib"], HILITE, ORANGE),
+        ("Comparison tables", ["25 folds + LOSO"], LIGHT, NAVY),
+        ("Report / slides", ["results/ · figures/"], LIGHT, NAVY)]
+bw, bh, gap = 1.95, 1.0, 2.42
+xs = [0.4 + i * gap for i in range(4)]
+ys = (1.35, 2.75, 4.15)
 for i, (a, b_, f, l) in enumerate(row1):
-    box(s, 0.4 + i * 2.4, 1.45, bw, bh, a, f, l, 14, sub=b_, sub_size=11)
+    box(s, xs[i], ys[0], bw, bh, a, f, l, 13, sub=b_, sub_size=10)
     if i < 3:
-        arrow(s, 0.4 + i * 2.4 + bw, 1.95, 0.4 + (i + 1) * 2.4, 1.95)
-arrow(s, 8.6, 2.45, 8.6, 2.85)
-for i, (a, b_, f, l) in enumerate(row2):
-    xx = 7.6 - i * 2.95
-    box(s, xx, 2.85, 2.1, bh, a, f, l, 14, sub=b_, sub_size=11)
-    if i < 2:
-        arrow(s, xx, 3.35, xx - 0.85, 3.35)
-arrow(s, 2.3, 3.85, 2.3, 4.25)
+        arrow(s, xs[i] + bw, ys[0] + bh / 2, xs[i + 1], ys[0] + bh / 2)
+arrow(s, xs[3] + bw / 2, ys[0] + bh, xs[3] + bw / 2, ys[1])
+for k, (a, b_, f, l) in enumerate(row2):
+    i = 3 - k
+    box(s, xs[i], ys[1], bw, bh, a, f, l, 13, sub=b_, sub_size=10)
+    if k < 3:
+        arrow(s, xs[i], ys[1] + bh / 2, xs[i - 1] + bw, ys[1] + bh / 2)
+arrow(s, xs[0] + bw / 2, ys[1] + bh, xs[0] + bw / 2, ys[2])
 for i, (a, b_, f, l) in enumerate(row3):
-    box(s, 0.4 + i * 3.1, 4.25, 2.5, bh, a, f, l, 14, sub=b_, sub_size=11)
-    if i < 2:
-        arrow(s, 0.4 + i * 3.1 + 2.5, 4.75, 0.4 + (i + 1) * 3.1, 4.75)
+    box(s, xs[i], ys[2], bw, bh, a, f, l, 13, sub=b_, sub_size=10)
+    if i < 3:
+        arrow(s, xs[i] + bw, ys[2] + bh / 2, xs[i + 1], ys[2] + bh / 2)
 textbox(s, 0.4, 5.55, 9.2, 0.4, "Legend:", 12, True, GREY)
-for i, (lab, f, l) in enumerate([("Storage (HDFS)", TINT_T, TEAL), ("Big Data processing", TINT_O, ORANGE),
-                                 ("Python / outputs", LIGHT, NAVY), ("Novel model", HILITE, ORANGE)]):
-    box(s, 1.2 + i * 2.1, 5.55, 1.9, 0.4, lab, f, l, 11, False)
+for i, (lab, f, l) in enumerate([("Preprocessing", TINT_P, PURPLE), ("Storage (HDFS)", TINT_T, TEAL),
+                                 ("Big Data processing", TINT_O, ORANGE), ("Sources / outputs", LIGHT, NAVY),
+                                 ("Models", HILITE, ORANGE)]):
+    box(s, 1.15 + i * 1.7, 5.55, 1.55, 0.4, lab, f, l, 10, False)
 box(s, 0.4, 6.2, 9.2, 0.6, f"Single-node pseudo-distributed {env['hadoop']}, HDFS replication 1, "
     f"{env['cpu_count']} vCPU, {env['mem_mb'] / 1024:.1f} GB RAM ({REF}); no multi-machine speed-up is claimed",
     WHITE, GREY, 12, False, GREY)
