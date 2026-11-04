@@ -1010,12 +1010,19 @@ for i, rtxt in enumerate(refs):
 owner(s, "Tanmay Singh")
 
 # ================================================================= 23 PHOTO
-s = new_slide("Geotagged Photo: Review 2", "The team adds the geotagged photo taken during the Review 2 "
-              "presentation here.")
-ph = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.6), Inches(1.4), Inches(8.8), Inches(5.4))
-ph.fill.background(); ph.line.color.rgb = GREY; ph.line.width = Pt(1.5); ph.shadow.inherit = False
-ph.text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE
-write(ph.text_frame, "Insert geotagged photo", 20, False, GREY, PP_ALIGN.CENTER)
+s = new_slide("Geotagged Photo: Review 2", "Photo taken during the Review 2 presentation.")
+PHOTO = ROOT / "docs" / "photos" / "review2_photo.jpg"
+if PHOTO.exists():
+    from PIL import Image as _Im
+    _w, _h = _Im.open(PHOTO).size
+    _bw, _bh = 8.8, 5.4
+    _pw = min(_bw, _bh * _w / _h); _ph = _pw * _h / _w
+    s.shapes.add_picture(str(PHOTO), Inches(0.6 + (_bw - _pw) / 2), Inches(1.4 + (_bh - _ph) / 2), Inches(_pw), Inches(_ph))
+else:
+    ph = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.6), Inches(1.4), Inches(8.8), Inches(5.4))
+    ph.fill.background(); ph.line.color.rgb = GREY; ph.line.width = Pt(1.5); ph.shadow.inherit = False
+    ph.text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE
+    write(ph.text_frame, "Insert geotagged photo", 20, False, GREY, PP_ALIGN.CENTER)
 owner(s, "Tanmay Singh")
 
 # ================================================================= 24 COLAB
