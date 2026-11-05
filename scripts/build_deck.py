@@ -394,33 +394,42 @@ s = new_slide("Overall System Architecture Diagram",
               "indices; Hive builds the 30-year baseline and joins development data; Spark finds climate regimes and "
               "trains the MLlib baselines. Features are standardised on training folds only before B-ACPN and the five "
               "baselines are trained and compared.")
-row1 = [("Sources", ["NDAP · Census", "IMD · DataMeet"], LIGHT, NAVY),
-        ("Preprocessing", ["Census rates · matching", "no imputation"], TINT_P, PURPLE),
-        ("HDFS raw zone", ["/project/raw"], TINT_T, TEAL),
-        ("Grid → district", ["area weights · NaN kept", "Chennai check"], TINT_P, PURPLE)]
-row2 = [("HDFS staging", ["7.0 M district-day rows"], TINT_T, TEAL),
-        ("MapReduce on YARN", ["→ 19,200 district-years"], TINT_O, ORANGE),
-        ("Hive", ["30-yr baseline + join"], TINT_O, ORANGE),
-        ("Spark", ["k-means + MLlib"], TINT_O, ORANGE)]
-row3 = [("Standardise", ["training folds only"], TINT_P, PURPLE),
-        ("B-ACPN + 5 baselines", ["RF + PyTorch · MLlib"], HILITE, ORANGE),
-        ("Comparison tables", ["25 folds + LOSO"], LIGHT, NAVY)]
-bw, bh, gap = 1.95, 1.0, 2.42
+_hd = json.loads((RES / "hdfs_usage_bytes.json").read_text())
+_tm = pd.read_csv(RES / "scalability_timings.csv").groupby("years").runtime_s.mean()
+km = json.loads((RES / "kmeans_regimes.json").read_text())
+row1 = [("Sources", ["NDAP 699×79 · Census 640", "IMD 30 yrs · DataMeet 641"], LIGHT, NAVY),
+        ("Preprocessing", ["Python · pandas", "rates · 602/699 matched", "no imputation"], TINT_P, PURPLE),
+        ("HDFS raw zone", ["Hadoop 3.3.6 · 128 MB blocks",
+                           f"/project/raw · {(sum(v for k, v in _hd.items() if k.startswith('raw'))) / 1e6:.0f} MB"],
+         TINT_T, TEAL),
+        ("Grid → district", ["NumPy · shapely · imdlib", "12,365 area weights", "NaN kept · Chennai check"],
+         TINT_P, PURPLE)]
+row2 = [("HDFS staging", ["/project/staging", f"7,013,120 rows · {_hd['staging/district_day'] / 1e6:.0f} MB"],
+         TINT_T, TEAL),
+        ("MapReduce on YARN", ["Hadoop Streaming (Python)", "map (district, year) → reduce", f"7 indices · {_tm[30]:.0f} s"],
+         TINT_O, ORANGE),
+        ("Hive 3.1.3", ["HiveQL: AVG + STDDEV 1991–2020", "JOIN on censuscode", "→ 469 districts"], TINT_O, ORANGE),
+        ("Spark 3.5.3", [f"k-means: k = {km['k']} (sil. {km['silhouette']:.3f})", "MLlib: LR · RF · GBT · SVM"],
+         TINT_O, ORANGE)]
+row3 = [("Standardise", ["scikit-learn", "fit on training folds only"], TINT_P, PURPLE),
+        ("B-ACPN + 5 baselines", ["RF 500 trees + PyTorch", "attention · gate · 5 nets"], HILITE, ORANGE),
+        ("Comparison tables", ["25 folds + LOSO", "17 metrics · CIs · p-values"], LIGHT, NAVY)]
+bw, bh, gap = 1.95, 1.18, 2.42
 xs = [0.4 + i * gap for i in range(4)]
-ys = (1.35, 2.75, 4.15)
+ys = (1.25, 2.68, 4.11)
 for i, (a, b_, f, l) in enumerate(row1):
-    box(s, xs[i], ys[0], bw, bh, a, f, l, 13, sub=b_, sub_size=10)
+    box(s, xs[i], ys[0], bw, bh, a, f, l, 12, sub=b_, sub_size=9)
     if i < 3:
         arrow(s, xs[i] + bw, ys[0] + bh / 2, xs[i + 1], ys[0] + bh / 2)
 arrow(s, xs[3] + bw / 2, ys[0] + bh, xs[3] + bw / 2, ys[1])
 for k, (a, b_, f, l) in enumerate(row2):
     i = 3 - k
-    box(s, xs[i], ys[1], bw, bh, a, f, l, 13, sub=b_, sub_size=10)
+    box(s, xs[i], ys[1], bw, bh, a, f, l, 12, sub=b_, sub_size=9)
     if k < 3:
         arrow(s, xs[i], ys[1] + bh / 2, xs[i - 1] + bw, ys[1] + bh / 2)
 arrow(s, xs[0] + bw / 2, ys[1] + bh, xs[0] + bw / 2, ys[2])
 for i, (a, b_, f, l) in enumerate(row3):
-    box(s, xs[i], ys[2], bw, bh, a, f, l, 13, sub=b_, sub_size=10)
+    box(s, xs[i], ys[2], bw, bh, a, f, l, 12, sub=b_, sub_size=9)
     if i < len(row3) - 1:
         arrow(s, xs[i] + bw, ys[2] + bh / 2, xs[i + 1], ys[2] + bh / 2)
 textbox(s, 0.4, 5.55, 9.2, 0.4, "Legend:", 12, True, GREY)
@@ -487,18 +496,40 @@ owner(s, "Deepankar")
 s = new_slide("Preprocessing: Big Data Analysis Steps",
               "Seven preprocessing steps take the raw sources to a model-ready table. Matching is done inside "
               "states and two wrong fuzzy matches are blocked. We never impute: only 5 development variables "
-              "are complete enough. Standardisation uses training-fold statistics only, so there is no leakage.")
+              "are complete enough. Standardisation uses training-fold statistics only, so there is no leakage. The "
+              "data-size column shows how about 860 MB of raw files shrink to a 223 MB daily table and finally a "
+              "small 469-district model table.")
 mt = pm["matching"]["match_types"]
-table(s, 0.4, 1.3, 9.2, [
-    ["Step", "Operation", "Tool", "Result"],
-    ["1 Census rates", "literacy, female literacy, agri share", "pandas", f"{pm['census']['districts']} districts; totals validated"],
-    ["2 District matching", "NDAP ↔ Census by state + name", "Python", f"{pm['matching']['matched']}/{pm['matching']['ndap_districts']} matched; 2 wrong fuzzy matches blocked"],
-    ["3 Variable selection", "NDAP sparsity analysis", "pandas", f"{pm['ndap']['cols_over_half_empty']}/{pm['ndap']['cols']} columns >50% empty → 5 dev vars, no imputation"],
-    ["4 Grid weights", "cell overlap × cos(lat), normalised", "shapely, imdlib", f"{pm['grid_rain']['pairs']:,} rain + {pm['grid_temp']['pairs']:,} temp pairs, {pm['grid_rain']['districts']}/640"],
-    ["5 Grid → district-day", "weighted mean over non-NaN cells", "NumPy sparse", f"{pm['district_day']['rows']:,} rows"],
-    ["6 Orientation check", "Chennai rain must peak Oct–Dec", "Python", "passed"],
-    ["7 Standardisation", "z-scores on training folds only", "scikit-learn", "no leakage"]],
-    [1.9, 2.75, 1.35, 3.2], size=12, row_h=0.66)
+_hd = json.loads((RES / "hdfs_usage_bytes.json").read_text())
+_imd_mb = (_hd["raw/imd/rain"] + _hd["raw/imd/tmax"] + _hd["raw/imd/tmin"]) / 1e6
+_mb = lambda f: (ROOT / f).stat().st_size / 1e6 if (ROOT / f).exists() else float("nan")  # noqa: E731
+_shp = sum(f.stat().st_size for f in (ROOT / "data/raw/boundaries").glob("2011_Dist.*")) / 1e6
+_ana = _mb("data/processed/analysis_table.csv") * 1000
+table(s, 0.4, 1.25, 9.2, [
+    ["Step", "Operation", "Tool", "Data size (in → out)", "Result"],
+    ["1 Census rates", "literacy, female literacy, agri share", "pandas",
+     f"{_mb('data/raw/census/pca-full.csv'):.2f} MB → {pm['census']['districts']} × 3 rates",
+     f"{pm['census']['districts']} districts; totals validated"],
+    ["2 District matching", "NDAP ↔ Census by state + name", "Python",
+     f"{pm['matching']['ndap_districts']} → {pm['matching']['matched']} rows",
+     f"{pm['matching']['matched']}/{pm['matching']['ndap_districts']} matched; 2 wrong fuzzy matches blocked"],
+    ["3 Variable selection", "NDAP sparsity analysis", "pandas",
+     f"{pm['ndap']['rows']} × {pm['ndap']['cols']} ({_mb('data/raw/ndap_climate_vulnerability_2021.csv') * 1000:.0f} KB) → 5 dev vars",
+     f"{pm['ndap']['cols_over_half_empty']}/{pm['ndap']['cols']} columns >50% empty; no imputation"],
+    ["4 Grid weights", "cell overlap × cos(lat), normalised", "shapely, imdlib",
+     f"{_shp:.1f} MB, 641 polygons → {pm['grid_rain']['pairs'] + pm['grid_temp']['pairs']:,} pairs",
+     f"{pm['grid_rain']['pairs']:,} rain + {pm['grid_temp']['pairs']:,} temp pairs"],
+    ["5 Grid → district-day", "weighted mean over non-NaN cells", "NumPy sparse",
+     f"{_imd_mb:.1f} MB IMD grids → {_hd['staging/district_day'] / 1e6:.1f} MB",
+     f"{pm['district_day']['rows']:,} district-day rows (30 years)"],
+    ["6 Orientation check", "Chennai rain must peak Oct–Dec", "Python", "7.0 M rows checked", "passed"],
+    ["7 Standardisation", "z-scores on training folds only", "scikit-learn",
+     f"{pm['final_table']['rows']} × 13 features ({_ana:.0f} KB)", "no leakage"]],
+    [1.55, 2.0, 1.05, 2.3, 2.3], size=11, row_h=0.62)
+textbox(s, 0.4, 6.35, 9.2, 0.45, f"Total raw input ≈ {(_imd_mb + _hd['raw/census+ndap+boundaries'] / 1e6):.0f} MB "
+        f"(IMD grids {_imd_mb:.1f} MB + tabular and boundary files {_hd['raw/census+ndap+boundaries'] / 1e6:.1f} MB) → "
+        f"{_hd['staging/district_day'] / 1e6:.1f} MB district-day table → {pm['final_table']['rows']}-district "
+        f"model table ({_ana:.0f} KB).", 11, color=GREY)
 owner(s, "Sehjodh Grewal")
 
 # ================================================================= 10 PREPROCESSING RESULTS
