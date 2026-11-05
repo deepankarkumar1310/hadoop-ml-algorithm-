@@ -272,7 +272,7 @@ p = tf.add_paragraph(); p.alignment = PP_ALIGN.CENTER; p.space_before = Pt(10)
 r = p.add_run(); r.text = "Review 2"; style_run(r, 26, True, INK, TITLE_FONT)
 tb = s1.shapes.add_textbox(Inches(5.0), Inches(4.75), Inches(4.6), Inches(2.3))
 tf = tb.text_frame; tf.word_wrap = True
-lines = [("Faculty name - Dr Bhanu Priya", True), ("Team Members info-", True),
+lines = [("Faculty name - Dr. Banu Priya Prathaban", True), ("Team Members info-", True),
          ("Sehjodh Grewal (RA2411031010081)", False), ("Devanshu Kumar (RA2411031010102)", False),
          ("Deepankar (RA2411031010103)", False), ("Tanmay Singh (RA2411031010118)", False)]
 for i, (txt, b) in enumerate(lines):
