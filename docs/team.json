@@ -23,7 +23,7 @@
       "reg_no": "RA2411031010102",
       "role": "Novel Deep Learning Model",
       "responsibilities": "Design and train B-ACPN (random-forest tree stage, attention, residual MLP, development gate, 5-network ensemble); MC Dropout and conformal uncertainty; model card (Table 4); ablation; climate-push analysis (Table 6)",
-      "completion": "In progress (B-ACPN tuning)"
+      "completion": "Completed"
     },
     {
       "name": "Tanmay Singh",

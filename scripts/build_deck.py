@@ -1065,7 +1065,7 @@ cp.subject, cp.keywords, cp.comments = "Big Data Review 2", "", ""
 OUT.parent.mkdir(parents=True, exist_ok=True)
 # Final order: intro → preprocessing → Big Data tools → ML models → closing; inside each part a figure follows its table.
 # Slides are built in the original order above and moved here by title.
-ORDER = ["Beyond Development", "Contents", "Problem Statement", "Dataset",
+ORDER = ["Beyond Development", "Contents", "Overall System Architecture", "Problem Statement", "Dataset",
          # 1. preprocessing: each table followed by the figure that shows it
          "Preprocessing: Big Data Analysis Steps",
          "Results of Preprocessing", "Preprocessing Results (Figures)",
@@ -1074,7 +1074,6 @@ ORDER = ["Beyond Development", "Contents", "Problem Statement", "Dataset",
          "Effect of Preprocessing on the Models", "Classification Metrics: Before vs After",
          "Effect of Preprocessing (Figure)",
          # 2. Big Data tools
-         "Overall System Architecture",
          "Big Data Platform", "HDFS Storage (Figure)",
          "Big Data Processing", "MapReduce & Spark Results",
          # 3. ML models: proposed model (tables, then their figures), then the comparison
