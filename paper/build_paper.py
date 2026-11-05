@@ -31,13 +31,16 @@ def f3(v):
     return "n/a" if pd.isna(v) else f"{v:.3f}"
 
 
-def table(label, caption, cols, rows, star=False, size=r"\footnotesize"):
+def table(label, caption, cols, rows, star=False, size=r"\footnotesize", fit=False):
     env = "table*" if star else "table"
     head = " & ".join(cols) + r" \\"
     body = "\n".join(" & ".join(str(c) for c in r) + r" \\" for r in rows)
+    tab = (f"\\begin{{tabular}}{{{'l' + 'c' * (len(cols) - 1)}}}\n\\toprule\n"
+           f"{head}\n\\midrule\n{body}\n\\bottomrule\n\\end{{tabular}}")
+    if fit:  # scale to the column width so the table sits in one column
+        tab = "\\resizebox{\\linewidth}{!}{" + tab + "}"
     return (f"\\begin{{{env}}}[t]\n\\centering\n\\caption{{{caption}}}\n\\label{{{label}}}\n{size}\n"
-            f"\\setlength{{\\tabcolsep}}{{3.5pt}}\n\\begin{{tabular}}{{{'l' + 'c' * (len(cols) - 1)}}}\n\\toprule\n"
-            f"{head}\n\\midrule\n{body}\n\\bottomrule\n\\end{{tabular}}\n\\end{{{env}}}")
+            f"\\setlength{{\\tabcolsep}}{{3.5pt}}\n{tab}\n\\end{{{env}}}")
 
 
 def main():
@@ -96,18 +99,25 @@ def main():
     rows = []
     for m in order:
         r = t5.loc[m]
-        name = f"\\textbf{{{SHORT[m]}}}" if m == M else SHORT[m]
+        name = f"\\textbf{{{ABBR[m]}}}" if m == M else ABBR[m]
         rows.append([name, f"{r.roc_auc:.3f}$\\pm${r.roc_auc_sd:.3f}", f"{r.bal_acc:.3f}", f"{r.accuracy:.3f}",
                      f"{r.f1:.3f}", f"{r.loso_auc:.3f}", sig.loc[m, "p_value_fmt"].replace("—", "--").replace("<", "$<$")])
     T["TABLE_CMP"] = table("tab:cmp", "Comparison with existing models (mean over 25 folds)",
-                           ["Model", "ROC-AUC", "Bal. acc.", "Acc.", "F1", "LOSO", "$p$"], rows, star=True)
+                           ["Model", "ROC-AUC", "Bal. acc.", "Acc.", "F1", "LOSO", "$p$"], rows, fit=True)
 
     cols = [("precision", "Prec."), ("recall", "Rec."), ("specificity", "Spec."), ("mcc", "MCC"), ("kappa", "$\\kappa$"),
             ("pr_auc", "PR-AUC"), ("log_loss", "LogL$\\downarrow$"), ("brier", "Brier$\\downarrow$"),
             ("ece", "ECE$\\downarrow$"), ("rmse", "RMSE$\\downarrow$")]
-    T["TABLE_DETAIL"] = table("tab:detail", "Further classification metrics ($\\downarrow$ = lower is better)",
+    _detail = table("tab:detail", "Further classification metrics ($\\downarrow$ = lower is better)",
                               ["Model"] + [c[1] for c in cols],
-                              [[ABBR[m]] + [f3(full.loc[m, c]) for c, _ in cols] for m in order], star=True)
+                              [[ABBR[m]] + [f3(full.loc[m, c]) for c, _ in cols] for m in order], fit=True)
+    # Tables IV and V side by side: left and right halves of one full-width float
+    def _half(tbl, w):
+        body = tbl.split("\\centering\n", 1)[1].rsplit("\\end{table}", 1)[0]
+        return f"\\begin{{minipage}}[t]{{{w}\\textwidth}}\n\\centering\n" + body + "\\end{minipage}"
+    T["TABLE_CMP"] = ("\\begin{table*}[t]\n" + _half(T["TABLE_CMP"], 0.42) + "\\hfill\n" + _half(_detail, 0.56) +
+                      "\n\\end{table*}")
+    T["TABLE_DETAIL"] = ""
 
     bam = [("Accuracy", "acc"), ("Precision", "precision"), ("Recall", "recall"), ("F1", "f1"),
            ("Specificity", "specificity"), ("ROC-AUC", "auc"), ("MCC", "mcc"), ("Log loss$\\downarrow$", "log_loss"),
