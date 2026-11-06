@@ -397,49 +397,64 @@ s = new_slide("Overall System Architecture Diagram",
 _hd = json.loads((RES / "hdfs_usage_bytes.json").read_text())
 _tm = pd.read_csv(RES / "scalability_timings.csv").groupby("years").runtime_s.mean()
 km = json.loads((RES / "kmeans_regimes.json").read_text())
-row1 = [("Sources", ["NDAP 699×79 · Census 640", "IMD 30 yrs · DataMeet 641"], LIGHT, NAVY),
-        ("Preprocessing", ["Python · pandas", "rates · 602/699 matched", "no imputation"], TINT_P, PURPLE),
-        ("HDFS raw zone", ["Hadoop 3.3.6 · 128 MB blocks",
-                           f"/project/raw · {(sum(v for k, v in _hd.items() if k.startswith('raw'))) / 1e6:.0f} MB"],
-         TINT_T, TEAL),
-        ("Grid → district", ["NumPy · shapely · imdlib", "12,365 area weights", "NaN kept · Chennai check"],
-         TINT_P, PURPLE)]
-row2 = [("HDFS staging", ["/project/staging", f"7,013,120 rows · {_hd['staging/district_day'] / 1e6:.0f} MB"],
-         TINT_T, TEAL),
-        ("MapReduce on YARN", ["Hadoop Streaming (Python)", "map (district, year) → reduce", f"7 indices · {_tm[30]:.0f} s"],
-         TINT_O, ORANGE),
-        ("Hive 3.1.3", ["HiveQL: AVG + STDDEV 1991–2020", "JOIN on censuscode", "→ 469 districts"], TINT_O, ORANGE),
-        ("Spark 3.5.3", [f"k-means: k = {km['k']} (sil. {km['silhouette']:.3f})", "MLlib: LR · RF · GBT · SVM"],
-         TINT_O, ORANGE)]
-row3 = [("Standardise", ["scikit-learn", "fit on training folds only"], TINT_P, PURPLE),
-        ("B-ACPN + 5 baselines", ["RF 500 trees + PyTorch", "attention · gate · 5 nets"], HILITE, ORANGE),
-        ("Comparison tables", ["25 folds + LOSO", "17 metrics · CIs · p-values"], LIGHT, NAVY)]
-bw, bh, gap = 1.95, 1.18, 2.42
-xs = [0.4 + i * gap for i in range(4)]
-ys = (1.25, 2.68, 4.11)
-for i, (a, b_, f, l) in enumerate(row1):
-    box(s, xs[i], ys[0], bw, bh, a, f, l, 12, sub=b_, sub_size=9)
-    if i < 3:
-        arrow(s, xs[i] + bw, ys[0] + bh / 2, xs[i + 1], ys[0] + bh / 2)
-arrow(s, xs[3] + bw / 2, ys[0] + bh, xs[3] + bw / 2, ys[1])
-for k, (a, b_, f, l) in enumerate(row2):
-    i = 3 - k
-    box(s, xs[i], ys[1], bw, bh, a, f, l, 12, sub=b_, sub_size=9)
-    if k < 3:
-        arrow(s, xs[i], ys[1] + bh / 2, xs[i - 1] + bw, ys[1] + bh / 2)
-arrow(s, xs[0] + bw / 2, ys[1] + bh, xs[0] + bw / 2, ys[2])
-for i, (a, b_, f, l) in enumerate(row3):
-    box(s, xs[i], ys[2], bw, bh, a, f, l, 12, sub=b_, sub_size=9)
-    if i < len(row3) - 1:
-        arrow(s, xs[i] + bw, ys[2] + bh / 2, xs[i + 1], ys[2] + bh / 2)
-textbox(s, 0.4, 5.55, 9.2, 0.4, "Legend:", 12, True, GREY)
-for i, (lab, f, l) in enumerate([("Preprocessing", TINT_P, PURPLE), ("Storage (HDFS)", TINT_T, TEAL),
+_imd = (_hd["raw/imd/rain"] + _hd["raw/imd/tmax"] + _hd["raw/imd/tmin"]) / 1e6
+_raw = sum(v for k, v in _hd.items() if k.startswith("raw")) / 1e6
+_pairs = pm["grid_rain"]["pairs"] + pm["grid_temp"]["pairs"]
+P_, D_ = (TINT_P, PURPLE), (LIGHT, NAVY)
+# three lanes: development data (top), climate data in HDFS (middle), Big Data jobs and models (bottom, right → left)
+lane1 = [("Sources (tables)", [f"NDAP 2021: {pm['ndap']['rows']}×{pm['ndap']['cols']}", f"Census 2011: {pm['census']['districts']} dist.",
+                               "DataMeet: 641 polygons"], *D_),
+         ("P1 Census rates", ["literacy = literates ÷", "(population − age 0–6)", "+ female lit. · agri share"], *P_),
+         ("P2 District matching", ["inside state groups", "exact → alias → fuzzy", "(name score ≥ 0.86)",
+                                   f"{pm['matching']['matched']}/{pm['matching']['ndap_districts']} · 2 wrong blocked"], *P_),
+         ("P3 Variable selection", [f"{pm['ndap']['cols_over_half_empty']}/{pm['ndap']['cols']} NDAP cols", ">50% empty → dropped",
+                                    "keep 3 Census + 2 NDAP", f"→ {pm['final_table']['rows']} rows, no imputation"], *P_)]
+lane2 = [("IMD grids", ["rain 0.25° · Tmax/Tmin 1°", f"1991–2020 · {_imd:.0f} MB", "size-checked download"], *D_),
+         ("HDFS raw zone", ["Hadoop 3.3.6", "128 MB blocks", f"/project/raw · {_raw:.0f} MB"], TINT_T, TEAL),
+         ("P4 Grid weights", ["cell overlap × cos(lat)", "weights sum to 1", f"{_pairs:,} cell–district pairs"], *P_),
+         ("P5 Grid → district-day", ["weighted mean of", "valid cells only", "−999 / 99.9 → NaN",
+                                     f"{pm['district_day']['rows']:,} rows"], *P_),
+         ("P6 Orientation check", ["Chennai rain must", "peak Oct–Dec", "else the build stops"], *P_),
+         ("HDFS staging", ["/project/staging", f"{_hd['staging/district_day'] / 1e6:.0f} MB · 30 files"], TINT_T, TEAL)]
+lane3 = [("MapReduce · YARN", ["Hadoop Streaming (Python)", "(district, year) → 7 indices", f"19,200 rows · {_tm[30]:.0f} s"],
+          TINT_O, ORANGE),
+         ("Hive 3.1.3", ["30-yr AVG + rain SD", "JOIN P3 table", f"→ {pm['final_table']['rows']} districts × 13"], TINT_O, ORANGE),
+         ("Spark 3.5.3", [f"k-means k = {km['k']} ({km['silhouette']:.3f})", "MLlib: LR · RF", "GBT · SVM"], TINT_O, ORANGE),
+         ("P7 Standardise", ["z-score with training-", "fold mean & SD only", "no test leakage"], *P_),
+         ("B-ACPN + 5 baselines", ["RF 500 trees +", "attention network", "· 5 nets averaged"], HILITE, ORANGE),
+         ("Comparison", ["25 folds + LOSO", "17 metrics", "CIs · p-values"], *D_)]
+bw, bh, gx = 1.42, 1.22, 0.135
+cx = [0.39 + i * (bw + gx) for i in range(6)]
+ys = (1.18, 2.6, 4.02)
+for i, (a, b_, f, l) in enumerate(lane1):
+    box(s, cx[i], ys[0], bw, bh, a, f, l, 10, sub=b_, sub_size=8)
+    if i < len(lane1) - 1:
+        arrow(s, cx[i] + bw, ys[0] + bh / 2, cx[i + 1], ys[0] + bh / 2)
+for i, (a, b_, f, l) in enumerate(lane2):
+    box(s, cx[i], ys[1], bw, bh, a, f, l, 10, sub=b_, sub_size=8)
+    if i < len(lane2) - 1:
+        arrow(s, cx[i] + bw, ys[1] + bh / 2, cx[i + 1], ys[1] + bh / 2)
+arrow(s, cx[5] + bw / 2, ys[1] + bh, cx[5] + bw / 2, ys[2])
+for k, (a, b_, f, l) in enumerate(lane3):
+    i = 5 - k
+    box(s, cx[i], ys[2], bw, bh, a, f, l, 10, sub=b_, sub_size=8)
+    if k < len(lane3) - 1:
+        arrow(s, cx[i], ys[2] + bh / 2, cx[i - 1] + bw, ys[2] + bh / 2)
+# legend in the free space of the top lane
+lx, ly = cx[4], ys[0]
+textbox(s, lx, ly - 0.05, 2.9, 0.3, "Legend", 10, True, GREY)
+for i, (lab, f, l) in enumerate([("Preprocessing P1–P7", TINT_P, PURPLE), ("Storage (HDFS)", TINT_T, TEAL),
                                  ("Big Data processing", TINT_O, ORANGE), ("Sources / outputs", LIGHT, NAVY),
                                  ("Models", HILITE, ORANGE)]):
-    box(s, 1.15 + i * 1.7, 5.55, 1.55, 0.4, lab, f, l, 10, False)
-box(s, 0.4, 6.2, 9.2, 0.6, f"Single-node pseudo-distributed {env['hadoop']}, HDFS replication 1, "
+    col, row = divmod(i, 3)
+    box(s, lx + col * 1.5, ly + 0.27 + row * 0.32, 1.4, 0.27, lab, f, l, 8, False)
+textbox(s, 0.39, 5.33, 9.2, 0.55,
+        "How to read: top lane = development data cleaned in P1–P3; middle lane = climate grids turned into daily "
+        "district values (P4–P6) and stored in HDFS; bottom lane (right to left) = Big Data jobs, then P7 and the models. "
+        "The P3 development table is joined to the climate indices in Hive.", 10, color=INK)
+box(s, 0.39, 5.95, 9.2, 0.42, f"Single-node pseudo-distributed {env['hadoop']}, HDFS replication 1, "
     f"{env['cpu_count']} vCPU, {env['mem_mb'] / 1024:.1f} GB RAM ({REF}); no multi-machine speed-up is claimed",
-    WHITE, GREY, 12, False, GREY)
+    WHITE, GREY, 10, False, GREY)
 owner(s, "Deepankar")
 
 # ================================================================= 7 HDFS
