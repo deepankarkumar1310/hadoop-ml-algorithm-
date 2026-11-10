@@ -1,4 +1,4 @@
-"""Build the Review 2 slide deck on the SRM template.
+"""Build the Review 3 slide deck on the SRM template.
 
 Every number comes from results/*.json|csv. Numbers that do not exist yet
 (B-ACPN, Spark MLlib baselines, k-means regimes, ablation, climate push) are
@@ -269,7 +269,7 @@ p = tf.paragraphs[0]; p.alignment = PP_ALIGN.CENTER
 r = p.add_run(); r.text = "Beyond Development: Explaining Climate Resilience Across Indian Districts"
 style_run(r, 32, True, NAVY, TITLE_FONT)
 p = tf.add_paragraph(); p.alignment = PP_ALIGN.CENTER; p.space_before = Pt(10)
-r = p.add_run(); r.text = "Review 2"; style_run(r, 26, True, INK, TITLE_FONT)
+r = p.add_run(); r.text = "Review 3"; style_run(r, 26, True, INK, TITLE_FONT)
 tb = s1.shapes.add_textbox(Inches(5.0), Inches(4.75), Inches(4.6), Inches(2.3))
 tf = tb.text_frame; tf.word_wrap = True
 lines = [("Faculty name - Dr. Banu Priya Prathaban", True), ("Team Members info-", True),
@@ -292,7 +292,7 @@ items = ["Dataset", "Preprocessing: steps, results and error metrics", "Effect o
          "Big Data tools: architecture, HDFS, MapReduce, Hive, Spark", "Proposed Model (B-ACPN)",
          "Ablation, tuning and climate-push results", "Comparison with existing models and CEEW rankings",
          "Key findings", "Plan of Action / Member Tasks", "References",
-         "Geotagged photo taken during Review 2 presentation", "Google Colab Implementation link"]
+         "Geotagged photo taken during Review 3 presentation", "Google Colab Implementation link"]
 for i, it in enumerate(items):
     col, row = divmod(i, 6)
     x, y = 0.5 + col * 4.6, 1.55 + row * 0.88
@@ -1140,7 +1140,7 @@ for i, rtxt in enumerate(refs):
 owner(s, "Tanmay Singh")
 
 # ================================================================= 23 PHOTO
-s = new_slide("Geotagged Photo: Review 2", "Photo taken during the Review 2 presentation.")
+s = new_slide("Geotagged Photo: Review 3", "Photo taken during the Review 3 presentation.")
 PHOTO = ROOT / "docs" / "photos" / "review2_photo.jpg"
 if PHOTO.exists():
     from PIL import Image as _Im
@@ -1157,7 +1157,7 @@ owner(s, "Tanmay Singh")
 
 # ================================================================= 24 COLAB
 s = new_slide("Google Colab Implementation Link",
-              "The Colab notebook runs the whole project in the Review 2 order, with every table printed before "
+              "The Colab notebook runs the whole project in the same order as these slides, with every table printed before "
               "any figure. The model sections can also run on their own from the committed analysis table.")
 textbox(s, 0.4, 1.3, 9.2, 0.35, "Colab (with outputs):", 14, True, NAVY)
 textbox(s, 0.4, 1.62, 9.2, 0.55, "https://colab.research.google.com/github/deepankarkumar1310/hadoop-ml-algorithm-/"
@@ -1177,8 +1177,8 @@ owner(s, "Tanmay Singh")
 # ----------------------------------------------------------------- save
 cp = prs.core_properties
 cp.author = cp.last_modified_by = "Deepankar"
-cp.title = "Beyond Development: Explaining Climate Resilience Across Indian Districts - Review 2"
-cp.subject, cp.keywords, cp.comments = "Big Data Review 2", "", ""
+cp.title = "Beyond Development: Explaining Climate Resilience Across Indian Districts - Review 3"
+cp.subject, cp.keywords, cp.comments = "Big Data Review 3", "", ""
 OUT.parent.mkdir(parents=True, exist_ok=True)
 # Final order: intro → preprocessing → Big Data tools → ML models → closing; inside each part a figure follows its table.
 # Slides are built in the original order above and moved here by title.
