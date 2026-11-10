@@ -1,0 +1,351 @@
+ceew_rank,district,event,exposure,sensitivity,adaptive_capacity,vulnerability_index,vulnerability_class,censuscode,match,district_name,state_name,climate_vul_in,push,quadrant,vul_group,bacpn_prob
+1,Khamman,Flood & Drought,0.45,0.74,0.14,1.0,Very High,541,exact,Khammam,Telangana,0.514,0.143126302,Low dev / Low vul,Low,0.777155206
+1,Gajapati,Flood & Cyclone,0.875,0.96,0.36,1.0,Very High,389,exact,Gajapati,Odisha,0.544,0.099427604,Low dev / Low vul,Low,0.6128654179999999
+1,Vizianagaram,Drought & Cyclone,0.909,1.0,0.4,1.0,Very High,543,exact,Vizianagaram,Andhra Pradesh,0.504,0.165376638,Low dev / Low vul,Low,0.7620061039999999
+2,Chennai,Flood & Cyclone,1.0,0.69,0.45,0.976,Very High,603,exact,Chennai,Tamil Nadu,0.54643,-0.1350773218,High dev / Low vul,Low,0.27764529800000004
+3,Madhepura,Flood & Drought,0.86,0.75,0.29,0.935,Very High,213,exact,Madhepura,Bihar,0.68,0.320958176,Low dev / High vul,High,0.981669768
+3,Imphal East,Flood & Cyclone,0.72,1.0,0.49,0.935,Very High,278,exact,Imphal East,Manipur,0.557,0.143269666,High dev / Low vul,Low,0.45731427799999996
+4,Sitamarhi,Flood & Drought,0.97,0.71,0.31,0.934,Very High,206,exact,Sitamarhi,Bihar,0.668,0.250473938,Low dev / High vul,High,0.9814923199999999
+4,Banka,Flood & Cyclone,0.61,0.77,0.32,0.934,Very High,225,exact,Banka,Bihar,0.619,0.3145386579999999,Low dev / High vul,High,0.99423886
+5,Jaisalmer,Drought,0.99,0.69,0.42,0.932,Very High,114,exact,Jaisalmer,Rajasthan,0.587,-0.17170583802,Low dev / High vul,High,0.34482597400000004
+6,Pashchim Champaran,Flood,0.81,0.95,0.33,0.925,Very High,203,exact,Pashchim Champaran,Bihar,0.633,0.379965928,Low dev / High vul,High,0.98516836
+7,Darbhanga,"Flood, Drought & Cyclone",0.925,0.81,0.35,0.917,Very High,215,exact,Darbhanga,Bihar,0.632,0.213018985,Low dev / High vul,High,0.975553914
+8,Khagaria,Flood,0.78,0.99,0.31,0.91,Very High,223,exact,Khagaria,Bihar,0.66,0.351616572,Low dev / High vul,High,0.9835043000000001
+9,Araria,Flood,0.7,0.98,0.3,0.907,Very High,209,exact,Araria,Bihar,0.707,0.522246624,Low dev / High vul,High,0.881965124
+11,Jodhpur,Drought,0.99,0.73,0.48,0.863,Very High,113,exact,Jodhpur,Rajasthan,0.553,0.1878375906,High dev / Low vul,Low,0.45754152000000003
+12,Jalor,Drought & Cyclone,0.818,1.0,0.42,0.857,Very High,116,exact,Jalore,Rajasthan,0.513,0.07220212284,Low dev / Low vul,Low,0.5318476719999999
+14,Mahbubnagar,Flood & Drought,0.63,1.0,0.32,0.828,Very High,538,exact,Mahabubnagar,Telangana,0.622,0.0586334232,Low dev / High vul,High,0.663110946
+17,Jagatsinghapur,Flood & Cyclone,0.83,0.84,0.56,0.792,Very High,380,exact,Jagatsinghapur,Odisha,0.616,0.340385224,High dev / High vul,High,0.65292252
+19,Bijnor,Drought,0.82,0.62,0.37,0.788,Very High,134,exact,Bijnor,Uttar Pradesh,0.593,-0.598607032,Low dev / High vul,High,0.1764361492
+21,Purnia,Flood,0.59,0.97,0.29,0.751,Very High,211,exact,Purnia,Bihar,0.701,0.570894838,Low dev / High vul,High,0.9409230559999999
+23,Tirunelveli,Flood & Drought,0.89,0.72,0.36,0.748,Very High,628,exact,Tirunelveli,Tamil Nadu,0.486,0.1440495950999999,High dev / Low vul,Low,0.281181134
+25,West Godavari,"Flood, Drought & Cyclone",0.75,0.97,0.42,0.742,Very High,546,exact,West Godavari,Andhra Pradesh,0.566,0.162377276,High dev / High vul,High,0.64421703
+27,Ganjam,"Flood, Drought & Cyclone",0.875,0.92,0.47,0.734,Very High,388,exact,Ganjam,Odisha,0.485,0.1195977429999999,High dev / Low vul,Low,0.504072182
+30,Barmer,Drought,0.99,0.57,0.45,0.719,Very High,115,exact,Barmer,Rajasthan,0.587,0.0169360438,Low dev / High vul,High,0.47880711
+31,Yamunanagar,Flood,0.78,0.95,0.38,0.713,Very High,71,exact,Yamunanagar,Haryana,0.511,-0.20801285572,High dev / Low vul,Low,0.187673658
+33,Nayagarh,"Flood, Drought & Cyclone",1.0,0.74,0.45,0.705,Very High,385,exact,Nayagarh,Odisha,0.661,0.129836655,High dev / High vul,High,0.591558228
+34,Banswara,Drought,0.76,0.63,0.39,0.704,Very High,125,exact,Banswara,Rajasthan,0.563,-0.276836312,Low dev / Low vul,Low,0.309879282
+38,Gulbarga,Drought,0.93,0.61,0.47,0.692,Very High,579,exact,Kalaburagi,Karnataka,0.586,0.2023434647999999,Low dev / High vul,High,0.48211728000000004
+39,Jhunjhunun,Drought,0.82,0.73,0.5,0.686,Very High,103,exact,Jhunjhunu,Rajasthan,0.465,-0.273923392,High dev / Low vul,Low,0.176579484
+41,Bara Banki,Flood,0.81,0.86,0.44,0.674,Very High,176,exact,Barabanki,Uttar Pradesh,0.585,0.11371776,Low dev / High vul,High,0.8861757320000001
+43,Samastipur,Flood & Drought,1.0,0.54,0.34,0.668,Very High,221,exact,Samastipur,Bihar,0.623,0.264309554,Low dev / High vul,High,0.912947186
+45,Pathanamthitta,Flood & Drought,0.74,0.92,0.44,0.651,Very High,599,exact,Pathanamthitta,Kerala,0.548,0.41006314,High dev / Low vul,Low,0.398060992
+46,Pashchim Medinipur,Flood & Cyclone,0.72,0.75,0.54,0.636,Very High,344,exact,Medinipur West,West Bengal,0.653,0.1431939614,High dev / High vul,High,0.752806946
+47,Pilibhit,Flood & Drought,0.63,0.78,0.33,0.626,Very High,151,exact,Pilibhit,Uttar Pradesh,0.637,0.0568255744,Low dev / High vul,High,0.754533662
+48,Jalaun,Drought,0.82,0.49,0.37,0.622,Very High,165,exact,Jalaun,Uttar Pradesh,0.591,0.1595608,Low dev / High vul,High,0.59131823
+50,Guntur,"Flood, Drought & Cyclone",0.7,0.84,0.42,0.6,Very High,548,exact,Guntur,Andhra Pradesh,0.625,0.179615518,Low dev / High vul,High,0.6273817
+51,Anantapur,Flood & Drought,0.74,0.63,0.33,0.594,High,553,exact,Anantapur,Andhra Pradesh,0.528,0.080828401,Low dev / Low vul,Low,0.354146872
+53,Bhopal,Flood,0.7,0.93,0.37,0.586,High,444,exact,Bhopal,Madhya Pradesh,0.531,-0.1328853399,High dev / Low vul,Low,0.278920748
+54,Surendranagar,Flood & Drought,0.86,0.78,0.49,0.576,High,475,exact,Surendranagar,Gujarat,0.593,0.057341504,High dev / High vul,High,0.5329159459999999
+55,Sheohar,"Flood, Drought & Cyclone",0.575,0.86,0.37,0.573,High,205,exact,Sheohar,Bihar,0.694,0.2334111179999999,Low dev / High vul,High,0.984426448
+56,Koppal,Flood & Drought,0.74,0.84,0.46,0.568,High,560,exact,Koppal,Karnataka,0.602,0.0706527563999999,High dev / High vul,High,0.3693771
+56,Sidhi,Drought,0.68,0.67,0.46,0.568,High,462,exact,Sidhi,Madhya Pradesh,0.617,0.148702928,Low dev / High vul,High,0.851771456
+57,Krishna,"Flood, Drought & Cyclone",0.85,0.7,0.45,0.567,High,547,exact,Krishna,Andhra Pradesh,0.571,0.1660298356,High dev / High vul,High,0.639780164
+58,Puri,"Flood, Drought & Cyclone",1.0,0.7,0.53,0.566,High,387,exact,Puri,Odisha,0.551,0.386965794,High dev / Low vul,Low,0.760828372
+60,Agra,Drought,0.68,0.69,0.48,0.56,High,146,exact,Agra,Uttar Pradesh,0.572,0.0828439636,High dev / High vul,High,0.474100272
+61,Kushinagar,Flood & Drought,0.89,0.7,0.47,0.557,High,189,exact,Kushi Nagar,Uttar Pradesh,0.571,0.258244958,Low dev / High vul,High,0.9838037
+63,Baleshwar,"Flood, Drought & Cyclone",0.675,0.91,0.48,0.548,High,377,exact,Baleshwar,Odisha,0.587,0.4226621259999999,High dev / High vul,High,0.87122254
+64,Patna,Flood & Drought,0.89,0.57,0.39,0.547,High,230,exact,Patna,Bihar,0.609,0.1692376743999999,High dev / High vul,High,0.810117254
+65,Kendrapara,Flood & Cyclone,0.61,0.76,0.54,0.546,High,379,exact,Kendrapara,Odisha,0.586,0.422972194,High dev / High vul,High,0.765211988
+66,Ahmadabad,Flood & Drought,0.93,0.75,0.54,0.543,High,474,exact,Ahmadabad,Gujarat,0.6,0.0040406801999999,High dev / High vul,High,0.319839216
+69,Sri Potti Sriramulu Nellore,"Flood, Drought & Cyclone",0.75,0.83,0.5,0.534,High,550,exact,Spsr Nellore,Andhra Pradesh,0.601,-0.0458933718,Low dev / High vul,High,0.6405659
+70,Bidar,Drought,0.93,0.48,0.48,0.533,High,558,exact,Bidar,Karnataka,0.612,0.1506466491999999,High dev / High vul,High,0.50141172
+71,Chittoor,Flood,0.81,1.0,0.51,0.532,High,554,exact,Chittoor,Andhra Pradesh,0.558,0.0648300706,High dev / Low vul,Low,0.386580236
+72,Hardoi,Drought,0.68,0.49,0.36,0.531,High,155,exact,Hardoi,Uttar Pradesh,0.608,0.1315408,Low dev / High vul,High,0.6353691899999999
+73,Ramanagara,Drought,0.82,0.54,0.48,0.529,High,584,exact,Ramanagara,Karnataka,0.499,0.1688671904,High dev / Low vul,Low,0.5581771059999999
+75,Kishanganj,Flood,0.87,0.68,0.29,0.522,High,210,exact,Kishanganj,Bihar,0.707,0.97590957,Low dev / High vul,High,0.7760566040000001
+76,Auraiya,Flood & Drought,0.57,0.81,0.38,0.511,High,162,exact,Auraiya,Uttar Pradesh,0.549,0.20283277308,High dev / Low vul,Low,0.593585004
+77,Bagalkot,Flood & Drought,0.74,0.77,0.47,0.51,High,556,exact,Bagalkote,Karnataka,0.563,0.12294324754,High dev / Low vul,Low,0.373293486
+78,Saharsa,"Flood, Drought & Cyclone",0.4,0.85,0.29,0.502,High,214,exact,Saharsa,Bihar,0.616,0.36052899,Low dev / High vul,High,0.9835374379999999
+79,Muzaffarpur,Flood & Drought,0.74,0.58,0.36,0.501,High,216,exact,Muzaffarpur,Bihar,0.643,0.295405122,Low dev / High vul,High,0.969319702
+80,Vaishali,Flood & Drought,0.63,0.68,0.36,0.5,High,220,exact,Vaishali,Bihar,0.655,0.26064448,Low dev / High vul,High,0.968330596
+83,Thanjavur,"Flood, Drought & Cyclone",0.525,0.81,0.37,0.493,High,620,exact,Thanjavur,Tamil Nadu,0.491,0.0255181791,High dev / Low vul,Low,0.40080923999999996
+85,Mysore,Drought,0.82,0.52,0.5,0.489,High,577,exact,Mysuru,Karnataka,0.545,-0.2728861835999999,High dev / Low vul,Low,0.345919526
+86,Churu,Flood,0.87,0.91,0.46,0.486,High,102,exact,Churu,Rajasthan,0.536,-0.140163016,Low dev / Low vul,Low,0.274253788
+89,Gopalganj,Flood,0.47,0.85,0.32,0.482,High,217,exact,Gopalganj,Bihar,0.659,0.339115294,Low dev / High vul,High,0.986489812
+90,Rohtas,Drought & Cyclone,0.545,0.74,0.37,0.48,High,234,exact,Rohtas,Bihar,0.585,0.184727554,Low dev / High vul,High,0.830504
+91,Nagappattinam,"Flood, Drought & Cyclone",0.575,0.7,0.36,0.479,High,618,fuzzy,Nagapattinam,Tamil Nadu,0.541,-0.0775208182,High dev / Low vul,Low,0.378821646
+92,Nagaur,Flood & Drought,0.86,0.62,0.47,0.477,High,112,exact,Nagaur,Rajasthan,0.566,-0.049170717,Low dev / High vul,High,0.25478834800000005
+93,Tiruppur,Drought,0.68,0.44,0.36,0.476,High,633,exact,Tiruppur,Tamil Nadu,0.502,0.0711785846,High dev / Low vul,Low,0.24331765
+94,Bhadrak,"Flood, Drought & Cyclone",0.65,0.8,0.47,0.474,High,378,exact,Bhadrak,Odisha,0.573,0.440340412,High dev / High vul,High,0.7293685560000001
+95,North 24 Parganas,Flood & Cyclone,0.44,0.87,0.52,0.468,High,337,exact,24 Paraganas North,West Bengal,0.532,0.484613782,High dev / Low vul,Low,0.606801234
+96,West Tripura,Flood,1.0,0.51,0.46,0.455,High,289,exact,West Tripura,Tripura,0.509,0.2656241894,High dev / Low vul,Low,0.405612856
+97,Thoothukkudi,Flood & Drought,0.89,0.52,0.43,0.452,High,627,exact,Tuticorin,Tamil Nadu,0.54,-0.0835812408,High dev / Low vul,Low,0.146189832
+98,Kullu,Flood & Drought,0.89,0.6,0.5,0.449,High,26,exact,Kullu,Himachal Pradesh,0.392,-1.743624132,High dev / Low vul,Low,0.145000138
+98,Gadag,Flood & Drought,0.63,0.83,0.49,0.449,High,561,exact,Gadag,Karnataka,0.616,0.0852987906,High dev / High vul,High,0.375095406
+99,Chamrajnagar,Drought,0.82,0.36,0.38,0.445,High,578,fuzzy,Chamarajanagara,Karnataka,0.503,0.1764870016,Low dev / Low vul,Low,0.5435815639999999
+100,Bhagalpur,"Flood, Drought & Cyclone",0.4,0.88,0.34,0.444,High,224,exact,Bhagalpur,Bihar,0.605,0.314471048,Low dev / High vul,High,0.9206131479999999
+102,Dharwad,Flood & Drought,0.74,0.71,0.5,0.442,High,562,exact,Dharwad,Karnataka,0.594,0.0831407154,High dev / High vul,High,0.39886646200000003
+101,Cuddalore,Flood & Drought,0.74,0.61,0.43,0.441,High,617,exact,Cuddalore,Tamil Nadu,0.584,-0.0945938692,High dev / High vul,High,0.444888646
+102,Chitradurga,Flood,0.7,0.86,0.49,0.438,High,566,exact,Chitradurga,Karnataka,0.51,-0.0676756522,High dev / Low vul,Low,0.338956896
+103,Pali,Drought,0.82,0.4,0.43,0.437,High,118,exact,Pali,Rajasthan,0.561,0.1587044806,Low dev / Low vul,Low,0.347861152
+103,Rajkot,"Flood, Drought & Cyclone",0.625,0.88,0.54,0.437,High,476,exact,Rajkot,Gujarat,0.593,-0.0098604334,High dev / High vul,High,0.48599548800000003
+104,Bishnupur,Flood,0.59,0.89,0.46,0.434,High,275,exact,Bishnupur,Manipur,0.665,0.219099058,High dev / High vul,High,0.606321956
+105,Darjiling,Flood,0.7,0.86,0.52,0.428,High,327,exact,Darjeeling,West Bengal,0.607,0.265929366,High dev / High vul,High,0.411370256
+106,Hassan,Drought,0.82,0.46,0.51,0.424,High,574,exact,Hassan,Karnataka,0.587,-0.623111508,High dev / High vul,High,0.197486856
+107,Jhansi,Drought,0.68,0.51,0.47,0.423,High,166,exact,Jhansi,Uttar Pradesh,0.531,0.01903689666,High dev / Low vul,Low,0.355108698
+108,Jaipur,Drought,0.76,0.53,0.55,0.42,High,110,exact,Jaipur,Rajasthan,0.506,0.011960097,High dev / Low vul,Low,0.353566992
+109,Ajmer,Drought,0.96,0.33,0.44,0.413,High,119,exact,Ajmer,Rajasthan,0.574,0.159475535,High dev / High vul,High,0.23090723
+110,Y.s.r.,"Flood, Drought & Cyclone",0.5,0.94,0.49,0.411,High,551,exact,Y.S.R.,Andhra Pradesh,0.521,-0.2077056178,High dev / Low vul,Low,0.373616654
+110,Madhubani,Flood & Drought,1.0,0.44,0.45,0.411,High,207,exact,Madhubani,Bihar,0.659,0.378697266,Low dev / High vul,High,0.987398136
+111,Bulandshahr,Drought,0.41,0.62,0.36,0.405,Moderate,142,exact,Bulandshahr,Uttar Pradesh,0.512,0.1012214066999999,Low dev / Low vul,Low,0.386983166
+112,Ghaziabad,Flood & Drought,0.57,0.81,0.48,0.404,Moderate,140,exact,Ghaziabad,Uttar Pradesh,0.614,0.0957362748,High dev / High vul,High,0.488320062
+113,Kinnaur,Flood,0.7,0.8,0.53,0.397,Moderate,34,exact,Kinnaur,Himachal Pradesh,0.35,-1.164481048,High dev / Low vul,Low,0.125657506
+114,Gorakhpur,Flood,0.59,0.85,0.47,0.396,Moderate,188,exact,Gorakhpur,Uttar Pradesh,0.487,0.1392112972,High dev / Low vul,Low,0.9116617180000001
+114,Hugli,Flood,0.59,0.93,0.48,0.396,Moderate,338,exact,Hooghly,West Bengal,0.547,0.3195160233,High dev / Low vul,Low,0.648397134
+114,Raichur,Flood & Drought,0.57,0.71,0.43,0.396,Moderate,559,exact,Raichur,Karnataka,0.579,0.0838731028,Low dev / High vul,High,0.592362512
+116,Kangra,Flood,0.7,0.95,0.56,0.394,Moderate,24,exact,Kangra,Himachal Pradesh,0.501,0.0538760669999999,High dev / Low vul,Low,0.379824842
+118,Munger,Flood & Drought,0.45,0.72,0.35,0.389,Moderate,226,exact,Munger,Bihar,0.627,0.2470342459999999,High dev / High vul,High,0.907982796
+118,Koraput,Flood & Cyclone,0.44,0.5,0.36,0.389,Moderate,398,exact,Koraput,Odisha,0.654,0.1571307639999999,Low dev / High vul,High,0.67825307
+119,Saran(chhapra),Flood & Drought,0.45,0.69,0.34,0.384,Moderate,219,exact,Saran,Bihar,0.607,0.227195754,Low dev / High vul,High,0.945020268
+120,Mandi,Flood,0.59,0.51,0.52,0.383,Moderate,27,exact,Mandi,Himachal Pradesh,0.455,-1.510717154,High dev / Low vul,Low,0.1300521592
+121,Ernakulam,Flood & Drought,0.74,0.65,0.53,0.382,Moderate,595,exact,Ernakulam,Kerala,0.542,-0.939747074,High dev / Low vul,Low,0.12193293000000001
+122,Jaunpur,Drought,0.68,0.45,0.46,0.381,Moderate,194,exact,Jaunpur,Uttar Pradesh,0.581,0.1351863522,High dev / High vul,High,0.676533032
+123,Amreli,Drought,0.41,0.58,0.36,0.379,Moderate,480,exact,Amreli,Gujarat,0.565,0.055438099,High dev / Low vul,Low,0.628871004
+125,Kiphire,Flood,0.47,0.93,0.4,0.377,Moderate,269,exact,Kiphire,Nagaland,0.521,0.2684948139999999,Low dev / Low vul,Low,0.46387862999999996
+125,Upper Siang,Flood,0.47,0.95,0.31,0.377,Moderate,252,exact,Upper Siang,Arunachal Pradesh,0.484,-1.469341438,Low dev / Low vul,Low,0.1440252112
+127,Fatehpur,Drought,0.41,0.55,0.35,0.369,Moderate,172,exact,Fatehpur,Uttar Pradesh,0.557,0.1836812302,Low dev / Low vul,Low,0.366010862
+128,Jalpaiguri,Flood,0.47,0.92,0.45,0.365,Moderate,328,exact,Jalpaiguri,West Bengal,0.679,0.0157726799999999,High dev / High vul,High,0.522557454
+129,Bellary,Drought,0.82,0.37,0.48,0.362,Moderate,565,exact,Ballari,Karnataka,0.532,0.0444893329999999,High dev / Low vul,Low,0.315105476
+130,Kollam,Flood & Drought,0.45,0.63,0.33,0.361,Moderate,600,exact,Kollam,Kerala,0.566,0.1085451411999999,High dev / High vul,High,0.233231412
+131,Cuttack,"Flood, Drought & Cyclone",0.75,0.59,0.53,0.358,Moderate,381,exact,Cuttack,Odisha,0.616,0.354099524,High dev / High vul,High,0.620718214
+132,Bhilwara,Drought,0.96,0.29,0.45,0.355,Moderate,122,exact,Bhilwara,Rajasthan,0.549,0.1064335226,Low dev / Low vul,Low,0.30318702799999997
+132,Bangalore,Drought,0.76,0.35,0.43,0.355,Moderate,572,exact,Bengaluru Urban,Karnataka,0.589,0.0325268776,High dev / High vul,High,0.34970325999999996
+133,Kachchh,"Flood, Drought & Cyclone",0.375,0.97,0.44,0.354,Moderate,468,exact,Kachchh,Gujarat,0.497,0.3877926234,High dev / Low vul,Low,0.49220187
+134,Virudunagar,Drought,0.41,0.54,0.36,0.353,Moderate,625,fuzzy,Virudhunagar,Tamil Nadu,0.617,0.0262909312,High dev / High vul,High,0.312343626
+136,Ballia,Flood & Drought,0.57,0.71,0.49,0.347,Moderate,193,exact,Ballia,Uttar Pradesh,0.606,0.2463408091999999,High dev / High vul,High,0.892724708
+137,Tikamgarh,Flood,0.47,0.81,0.46,0.345,Moderate,424,exact,Tikamgarh,Madhya Pradesh,0.622,0.0391997539999999,Low dev / High vul,High,0.46577749199999996
+139,Junagadh,Drought & Cyclone,1.0,0.34,0.44,0.34,Moderate,479,exact,Junagadh,Gujarat,0.519,0.0410836502,High dev / Low vul,Low,0.70014188
+140,Belgaum,Flood & Drought,0.57,0.75,0.53,0.339,Moderate,555,exact,Belagavi,Karnataka,0.55,0.2259646792,High dev / Low vul,Low,0.534490732
+141,Banas Kantha,Flood & Drought,0.45,0.84,0.47,0.338,Moderate,469,exact,Banas Kantha,Gujarat,0.572,-0.1161373626,Low dev / High vul,High,0.4576467
+143,Jamnagar,"Flood, Drought & Cyclone",0.4,0.84,0.43,0.335,Moderate,477,exact,Jamnagar,Gujarat,0.582,0.0876556674,High dev / High vul,High,0.587632712
+144,Etawah,Drought,0.41,0.54,0.38,0.334,Moderate,161,exact,Etawah,Uttar Pradesh,0.595,0.050261178,High dev / High vul,High,0.359467906
+145,Mandya,Drought,0.82,0.38,0.54,0.331,Moderate,573,exact,Mandya,Karnataka,0.517,-0.374039172,Low dev / Low vul,Low,0.46498814800000005
+146,Visakhapatnam,"Flood, Drought & Cyclone",0.525,0.79,0.54,0.329,Moderate,544,exact,Visakhapatanam,Andhra Pradesh,0.593,0.214846158,High dev / High vul,High,0.550431348
+147,Srikakulam,"Flood, Drought & Cyclone",0.7,0.48,0.44,0.327,Moderate,542,exact,Srikakulam,Andhra Pradesh,0.605,0.292139724,Low dev / High vul,High,0.773282142
+149,Bangalore Rural,Drought,0.82,0.3,0.44,0.32,Moderate,583,exact,Bengaluru Rural,Karnataka,0.575,-0.0731664528,High dev / High vul,High,0.300311462
+149,Thoubal,Flood,0.47,0.91,0.47,0.32,Moderate,276,exact,Thoubal,Manipur,0.58,0.2463628628,Low dev / High vul,High,0.657386008
+151,Mahesana,Flood & Drought,0.57,0.7,0.53,0.317,Moderate,471,exact,Mahesana,Gujarat,0.537,-0.3117043439999999,High dev / Low vul,Low,0.179317934
+152,Katihar,Flood & Drought,0.45,0.5,0.3,0.315,Moderate,212,exact,Katihar,Bihar,0.725,0.381171946,Low dev / High vul,High,0.9841143859999999
+154,Namakkal,Drought,0.41,0.55,0.42,0.308,Moderate,609,exact,Namakkal,Tamil Nadu,0.526,0.1035700984,High dev / Low vul,Low,0.35244108599999996
+155,Dewas,Drought,0.41,0.61,0.47,0.305,Moderate,437,exact,Dewas,Madhya Pradesh,0.482,-0.34793225,Low dev / Low vul,Low,0.28060019599999997
+156,Karur,Drought,0.41,0.54,0.42,0.302,Moderate,613,exact,Karur,Tamil Nadu,0.525,0.0941483662,High dev / Low vul,Low,0.20797430600000003
+157,Palakkad,Drought,0.41,0.56,0.44,0.299,Moderate,593,exact,Palakkad,Kerala,0.539,0.277170868,High dev / Low vul,Low,0.349337558
+158,Ratlam,Drought,0.41,0.58,0.46,0.296,Moderate,434,exact,Ratlam,Madhya Pradesh,0.56,-0.2269466839999999,Low dev / Low vul,Low,0.242471304
+159,Shahdol,Drought,0.41,0.56,0.45,0.292,Moderate,460,exact,Shahdol,Madhya Pradesh,0.637,0.0976238526,Low dev / High vul,High,0.69406925
+160,Idukki,Flood & Drought,0.45,0.79,0.52,0.287,Moderate,596,exact,Idukki,Kerala,0.495,0.333128634,High dev / Low vul,Low,0.362728286
+161,Medak,Flood & Drought,0.28,0.8,0.33,0.285,Moderate,535,exact,Medak,Telangana,0.634,0.046030507,Low dev / High vul,High,0.560470562
+162,Nadia,Flood,0.47,0.96,0.5,0.281,Moderate,336,exact,Nadia,West Bengal,0.573,0.1761323996,High dev / High vul,High,0.7341130060000001
+163,Mainpuri,Drought,0.68,0.35,0.49,0.278,Moderate,148,exact,Mainpuri,Uttar Pradesh,0.596,0.08778094952,High dev / High vul,High,0.617774322
+163,Chikkaballapura,Drought,0.82,0.29,0.49,0.278,Moderate,582,exact,Chikkaballapura,Karnataka,0.577,-0.0858611274,High dev / High vul,High,0.352908724
+164,Haveri,Drought,0.76,0.33,0.52,0.276,Moderate,564,exact,Haveri,Karnataka,0.6,0.0800273087,High dev / High vul,High,0.48457718200000005
+164,Sundargarh,Drought & Cyclone,0.363,0.88,0.51,0.276,Moderate,374,exact,Sundargarh,Odisha,0.532,0.243126728,High dev / Low vul,Low,0.6127323459999999
+166,Begusarai,"Flood, Drought & Cyclone",0.25,0.84,0.33,0.273,Moderate,222,exact,Begusarai,Bihar,0.611,0.356634276,Low dev / High vul,High,0.9609747719999999
+167,Sheopur,Drought,0.41,0.51,0.44,0.272,Moderate,418,exact,Sheopur,Madhya Pradesh,0.462,0.1283161564,Low dev / Low vul,Low,0.640009812
+170,Panna,Drought,0.68,0.31,0.46,0.263,Moderate,426,exact,Panna,Madhya Pradesh,0.615,-0.0069421563999999,Low dev / High vul,High,0.599996636
+171,Etah,Drought,0.68,0.24,0.36,0.26,Moderate,201,exact,Etah,Uttar Pradesh,0.568,0.11124232916,High dev / High vul,High,0.526080818
+172,Kanpur Nagar,Drought,0.41,0.43,0.39,0.259,Moderate,164,exact,Kanpur Nagar,Uttar Pradesh,0.565,0.1664221028,High dev / Low vul,Low,0.385061876
+173,Maldah,Flood,0.47,0.86,0.47,0.258,Moderate,332,exact,Maldah,West Bengal,0.622,0.4824060660000001,High dev / High vul,High,0.830405922
+174,Dimapur,Flood,0.47,0.42,0.53,0.253,Moderate,265,exact,Dimapur,Nagaland,0.413,0.079156114,High dev / Low vul,Low,0.165693524
+175,Udaipur,Drought,0.96,0.22,0.48,0.252,Moderate,130,exact,Udaipur,Rajasthan,0.6,-0.0877927103999999,Low dev / High vul,High,0.15700572880000002
+175,Imphal West,Flood,0.59,0.93,0.53,0.252,Moderate,277,exact,Imphal West,Manipur,0.619,0.1954307409,High dev / High vul,High,0.365775998
+175,Erode,Drought,0.41,0.45,0.42,0.252,Moderate,610,exact,Erode,Tamil Nadu,0.414,0.014615381,High dev / Low vul,Low,0.27435357600000004
+175,Chittaurgarh,Drought,0.76,0.26,0.45,0.252,Moderate,126,exact,Chittorgarh,Rajasthan,0.493,0.0625557342,Low dev / Low vul,Low,0.30934295
+176,Kaushambi,Drought,0.41,0.34,0.32,0.25,Moderate,174,exact,Kaushambi,Uttar Pradesh,0.548,0.1003588154,Low dev / Low vul,Low,0.641852624
+177,Lahul & Spiti,Flood,0.59,0.94,0.48,0.249,Moderate,25,exact,Lahul and Spiti,Himachal Pradesh,0.344,-0.656911012,High dev / Low vul,Low,0.223136524
+178,Unnao,Drought,0.41,0.38,0.36,0.248,Moderate,156,exact,Unnao,Uttar Pradesh,0.532,0.131982913,Low dev / Low vul,Low,0.500495946
+178,Madurai,Flood & Drought,0.28,0.8,0.38,0.248,Moderate,623,exact,Madurai,Tamil Nadu,0.585,0.0395121731999999,High dev / High vul,High,0.263028578
+179,Azamgarh,Flood & Drought,0.28,0.73,0.35,0.246,Moderate,191,exact,Azamgarh,Uttar Pradesh,0.581,0.228322562,Low dev / High vul,High,0.711394894
+181,Shivpuri,Drought,0.41,0.49,0.47,0.245,Moderate,423,exact,Shivpuri,Madhya Pradesh,0.615,0.0674281498,Low dev / High vul,High,0.517901438
+183,Giridih,Drought,0.41,0.36,0.35,0.242,Moderate,349,exact,Giridih,Jharkhand,0.657,0.266233612,Low dev / High vul,High,0.9705534800000001
+183,Anand,Flood,0.28,0.28,0.38,0.242,Moderate,482,exact,Anand,Gujarat,0.514,0.1261919636,High dev / Low vul,Low,0.6010977000000001
+184,Vidisha,Drought,0.41,0.5,0.49,0.24,Moderate,443,exact,Vidisha,Madhya Pradesh,0.51,-0.0682379352,Low dev / Low vul,Low,0.41547842
+184,Thiruvananthapuram,Flood & Drought,0.57,0.51,0.51,0.24,Moderate,601,exact,Thiruvananthapuram,Kerala,0.573,-0.044357034,High dev / High vul,High,0.179199944
+185,Rayagada,Flood,0.28,0.54,0.37,0.239,Moderate,396,exact,Rayagada,Odisha,0.523,0.156708462,Low dev / Low vul,Low,0.532572608
+186,Dakshina Kannada,"Flood, Drought & Cyclone",0.25,1.0,0.45,0.238,Moderate,575,exact,Dakshina Kannada,Karnataka,0.488,-0.0610471298,High dev / Low vul,Low,0.35901074
+187,Bahraich,Flood,0.28,0.91,0.41,0.235,Moderate,180,exact,Bahraich,Uttar Pradesh,0.676,0.29269758,Low dev / High vul,High,0.937076062
+188,Mau,Drought,0.41,0.44,0.45,0.23,Moderate,192,exact,Mau,Uttar Pradesh,0.591,0.33415267,High dev / High vul,High,0.628252966
+188,Umaria,Drought,0.41,0.44,0.45,0.23,Moderate,431,exact,Umaria,Madhya Pradesh,0.629,0.1062899272,Low dev / High vul,High,0.8017086580000001
+189,Banda,Flood & Drought,0.28,0.68,0.35,0.229,Moderate,170,exact,Banda,Uttar Pradesh,0.61,0.118800958,Low dev / High vul,High,0.599079754
+190,Mahoba,Drought,0.41,0.32,0.33,0.228,Moderate,169,exact,Mahoba,Uttar Pradesh,0.636,0.0847918179999999,Low dev / High vul,High,0.507568224
+190,Kasaragod,Flood & Drought,0.28,0.89,0.46,0.228,Moderate,588,exact,Kasaragod,Kerala,0.535,-0.5987623972,High dev / Low vul,Low,0.17807717520000002
+190,Ariyalur,Drought,0.41,0.31,0.32,0.228,Moderate,616,exact,Ariyalur,Tamil Nadu,0.686,0.00140121314,Low dev / High vul,High,0.708688478
+193,Bokaro,Drought,0.41,0.33,0.35,0.222,Moderate,355,exact,Bokaro,Jharkhand,0.599,0.2329298199999999,High dev / High vul,High,0.75560039
+194,Farrukhabad,Drought,0.41,0.43,0.46,0.22,Moderate,159,exact,Farrukhabad,Uttar Pradesh,0.593,0.1227466174,Low dev / High vul,High,0.543797662
+197,Thrissur,Flood & Drought,0.45,0.54,0.49,0.208,Low,594,exact,Thrissur,Kerala,0.518,-0.0293603781999999,High dev / Low vul,Low,0.405809536
+198,Sehore,Drought,0.41,0.43,0.49,0.206,Low,445,exact,Sehore,Madhya Pradesh,0.51,-0.295121366,Low dev / Low vul,Low,0.249925634
+198,Perambalur,Drought,0.41,0.28,0.32,0.206,Low,615,exact,Perambalur,Tamil Nadu,0.688,0.0440229276,Low dev / High vul,High,0.7068963540000001
+199,East Godavari,"Flood, Drought & Cyclone",0.75,0.33,0.52,0.204,Low,545,exact,East Godavari,Andhra Pradesh,0.575,0.1919190988,High dev / High vul,High,0.670551294
+199,Rampur,Drought,0.41,0.26,0.3,0.204,Low,136,exact,Rampur,Uttar Pradesh,0.589,0.1011396409199999,Low dev / High vul,High,0.772390794
+200,Ashoknagar,Drought,0.41,0.39,0.46,0.199,Low,459,exact,Ashoknagar,Madhya Pradesh,0.592,0.0237684834,Low dev / High vul,High,0.49413272399999997
+200,Dumka,Drought,0.76,0.21,0.46,0.199,Low,362,exact,Dumka,Jharkhand,0.596,0.1351367282,Low dev / High vul,High,0.9107383459999999
+200,Kolar,Drought,0.93,0.19,0.51,0.199,Low,581,exact,Kolar,Karnataka,0.608,0.0756518858,High dev / High vul,High,0.32196593399999995
+201,North Tripura,Flood,0.28,0.83,0.43,0.196,Low,292,exact,North Tripura,Tripura,0.592,0.366783082,High dev / High vul,High,0.20213744399999997
+201,Sagar,Flood & Drought,0.28,0.85,0.51,0.196,Low,427,exact,Sagar,Madhya Pradesh,0.577,0.0286783628,High dev / High vul,High,0.353278448
+202,Muzaffarnagar,Flood & Drought,0.28,0.59,0.36,0.193,Low,133,exact,Muzaffarnagar,Uttar Pradesh,0.531,-0.1857671528,High dev / Low vul,Low,0.453814164
+202,Nalanda,Flood & Drought,0.28,0.54,0.33,0.193,Low,229,exact,Nalanda,Bihar,0.621,0.339183324,Low dev / High vul,High,0.990021106
+203,Kurnool,Flood & Drought,0.74,0.29,0.47,0.192,Low,552,exact,Kurnool,Andhra Pradesh,0.619,-0.0861672186,Low dev / High vul,High,0.45741346400000005
+204,Mathura,Drought,0.41,0.39,0.48,0.191,Low,145,exact,Mathura,Uttar Pradesh,0.513,0.0100461128,High dev / Low vul,Low,0.414873488
+205,Kheri,Flood,0.28,0.89,0.47,0.19,Low,153,exact,Kheri,Uttar Pradesh,0.627,0.181675666,Low dev / High vul,High,0.9164049200000001
+206,Prakasam,"Flood, Drought & Cyclone",0.475,0.39,0.43,0.185,Low,549,exact,Prakasam,Andhra Pradesh,0.628,-0.0106382296,Low dev / High vul,High,0.5407472280000001
+207,Rajsamand,Drought,0.96,0.14,0.42,0.183,Low,123,exact,Rajsamand,Rajasthan,0.553,0.222518688,High dev / Low vul,Low,0.341244934
+208,Kanpur Dehat,Flood & Drought,0.28,0.58,0.38,0.18,Low,163,exact,Kanpur Dehat,Uttar Pradesh,0.596,0.2411723174,High dev / High vul,High,0.486439202
+209,Patan,Flood & Drought,0.28,0.74,0.49,0.178,Low,470,exact,Patan,Gujarat,0.604,-0.06354666949,Low dev / High vul,High,0.52842159
+210,Rewa,Flood & Drought,0.28,0.75,0.5,0.177,Low,430,exact,Rewa,Madhya Pradesh,0.636,0.182900707,Low dev / High vul,High,0.67191506
+211,Mirzapur,Drought,0.41,0.27,0.36,0.176,Low,199,exact,Mirzapur,Uttar Pradesh,0.615,0.1212431551,High dev / High vul,High,0.755137574
+211,Jajapur,Flood,0.28,0.79,0.52,0.176,Low,382,exact,Jajapur,Odisha,0.651,0.549690064,High dev / High vul,High,0.8582003300000001
+212,Vellore,Drought,0.41,0.33,0.45,0.172,Low,605,exact,Vellore,Tamil Nadu,0.527,-0.0300632802,High dev / Low vul,Low,0.1670199988
+212,Theni,Drought & Cyclone,0.363,0.42,0.39,0.172,Low,624,exact,Theni,Tamil Nadu,0.522,-0.0415669068,High dev / Low vul,Low,0.324382042
+214,Thiruvallur,"Flood, Drought & Cyclone",0.25,0.85,0.56,0.163,Low,602,exact,Thiruvallur,Tamil Nadu,0.553,-0.0100678939999999,High dev / Low vul,Low,0.239452006
+215,Chhatarpur,Flood & Drought,0.28,0.66,0.48,0.162,Low,425,exact,Chhatarpur,Madhya Pradesh,0.634,0.08647062534,Low dev / High vul,High,0.618573328
+216,Siwan,Flood & Drought,0.16,0.81,0.34,0.16,Low,218,exact,Siwan,Bihar,0.669,0.185652498,Low dev / High vul,High,0.9392389339999999
+216,Bhojpur,"Flood, Drought & Cyclone",0.15,0.87,0.35,0.16,Low,231,exact,Bhojpur,Bihar,0.618,0.201771789,Low dev / High vul,High,0.959406568
+217,Tiruchirappalli,Drought & Cyclone,0.545,0.3,0.46,0.156,Low,614,exact,Tiruchirappalli,Tamil Nadu,0.515,0.1176384378,High dev / Low vul,Low,0.306999254
+218,Sawai Madhopur,Drought,0.41,0.31,0.47,0.155,Low,108,exact,Sawai Madhopur,Rajasthan,0.554,0.0727417997999999,Low dev / Low vul,Low,0.42365112
+218,Chitrakoot,Drought,0.41,0.29,0.44,0.155,Low,171,exact,Chitrakoot,Uttar Pradesh,0.63,0.17284358,Low dev / High vul,High,0.6196665400000001
+219,Krishnagiri,Drought,0.41,0.23,0.35,0.154,Low,631,exact,Krishnagiri,Tamil Nadu,0.566,0.1011011854,High dev / High vul,High,0.34916385400000005
+220,Porbandar,"Flood, Drought & Cyclone",0.25,0.7,0.49,0.153,Low,478,exact,Porbandar,Gujarat,0.604,-0.345006258,High dev / High vul,High,0.5042790239999999
+222,Alappuzha,Flood & Drought,0.28,0.63,0.5,0.148,Low,598,exact,Alappuzha,Kerala,0.548,-0.0588866548,High dev / Low vul,Low,0.279161914
+223,Adilabad,Flood & Drought,0.16,0.69,0.32,0.145,Low,532,exact,Adilabad,Telangana,0.502,0.0612712974,Low dev / Low vul,Low,0.6670811000000001
+224,Deoria,Flood & Drought,0.45,0.33,0.44,0.142,Low,190,exact,Deoria,Uttar Pradesh,0.578,0.2065007768,High dev / High vul,High,0.8908667080000001
+225,Bhind,Drought,0.41,0.31,0.52,0.14,Low,420,exact,Bhind,Madhya Pradesh,0.618,0.0845045722,High dev / High vul,High,0.43321150399999997
+228,Kozhikode,"Flood, Drought & Cyclone",0.15,0.99,0.49,0.13,Low,591,exact,Kozhikode,Kerala,0.605,-0.0712647091199999,High dev / High vul,High,0.18274472
+229,Morena,Drought,0.41,0.28,0.51,0.129,Low,419,exact,Morena,Madhya Pradesh,0.585,0.19079528,High dev / High vul,High,0.312380382
+230,Faizabad,Flood & Drought,0.16,0.84,0.44,0.128,Low,177,exact,Ayodhya,Uttar Pradesh,0.536,0.252001174,High dev / Low vul,Low,0.827594302
+230,East Nimar,Drought,0.41,0.25,0.46,0.128,Low,466,exact,East Nimar,Madhya Pradesh,0.527,-0.1474037666,Low dev / Low vul,Low,0.425899534
+233,Balrampur,Flood & Drought,0.16,0.69,0.39,0.119,Low,182,exact,Balrampur,Uttar Pradesh,0.659,0.177421638,Low dev / High vul,High,0.9067119480000001
+234,Damoh,Flood & Drought,0.28,0.48,0.48,0.118,Low,428,exact,Damoh,Madhya Pradesh,0.605,-0.0046236454,High dev / High vul,High,0.493988344
+234,Aligarh,Flood & Drought,0.16,0.84,0.48,0.118,Low,143,exact,Aligarh,Uttar Pradesh,0.526,-0.0419394229999999,Low dev / Low vul,Low,0.42924763600000004
+237,Bhavnagar,"Flood, Drought & Cyclone",0.15,0.86,0.51,0.108,Low,481,exact,Bhavnagar,Gujarat,0.6,0.165206387,High dev / High vul,High,0.4836751980000001
+237,Kheda,Flood & Drought,0.16,0.74,0.46,0.108,Low,483,exact,Kheda,Gujarat,0.576,-0.1246545576,High dev / High vul,High,0.358268264
+238,Karnal,Flood,0.28,0.22,0.5,0.107,Low,74,exact,Karnal,Haryana,0.511,-0.292146952,High dev / Low vul,Low,0.0914846434
+238,Purba Champaran,Flood & Cyclone,0.11,0.75,0.49,0.107,Low,204,exact,Purbi Champaran,Bihar,0.673,0.2978849259999999,Low dev / High vul,High,0.982692428
+239,Coimbatore,Flood & Drought,0.16,0.62,0.41,0.102,Low,632,exact,Coimbatore,Tamil Nadu,0.462,0.0280980647599999,High dev / Low vul,Low,0.21457031799999998
+240,Shimla,Flood,0.28,0.43,0.55,0.1,Low,33,exact,Shimla,Himachal Pradesh,0.396,-0.998117388,High dev / Low vul,Low,0.14780838599999999
+241,Kottayam,Flood & Drought,0.16,0.62,0.44,0.095,Low,597,exact,Kottayam,Kerala,0.544,-0.2420132782,High dev / Low vul,Low,0.126733228
+242,Gandhinagar,Drought,0.68,0.12,0.5,0.094,Low,473,exact,Gandhinagar,Gujarat,0.526,-0.435253798,High dev / Low vul,Low,0.17226549200000002
+243,Dindigul,Drought,0.41,0.19,0.48,0.093,Low,612,exact,Dindigul,Tamil Nadu,0.509,0.0411410231199999,High dev / Low vul,Low,0.48931948
+244,Chandel,Flood,0.28,0.28,0.46,0.092,Low,280,exact,Chandel,Manipur,0.585,0.3135099332,Low dev / High vul,High,0.727894998
+245,Gaya,Drought,0.41,0.14,0.36,0.091,Low,236,exact,Gaya,Bihar,0.647,0.16946026,Low dev / High vul,High,0.9171292660000001
+246,Kannur,"Flood, Drought & Cyclone",0.1,0.98,0.49,0.086,Low,589,exact,Kannur,Kerala,0.556,-0.1036469187999999,High dev / Low vul,Low,0.34212969
+247,Bharuch,Flood & Drought,0.16,0.64,0.52,0.083,Low,488,exact,Bharuch,Gujarat,0.57,0.0133686079999999,High dev / High vul,High,0.34637572600000005
+248,Satna,Flood & Drought,0.16,0.61,0.5,0.082,Low,429,exact,Satna,Madhya Pradesh,0.628,0.190106354,High dev / High vul,High,0.675567374
+249,Sikar,Drought,0.68,0.1,0.49,0.08,Low,111,exact,Sikar,Rajasthan,0.485,-0.19757409724,High dev / Low vul,Low,0.17168524999999998
+250,Vadodara,Flood & Drought,0.45,0.19,0.49,0.073,Low,486,exact,Vadodara,Gujarat,0.555,-0.06482997054,High dev / Low vul,Low,0.505243126
+251,Sivaganga,Drought & Cyclone,0.545,0.14,0.48,0.07,Low,622,exact,Sivaganga,Tamil Nadu,0.565,-0.15279546102,High dev / Low vul,Low,0.344161998
+252,Thiruvarur,Drought,0.68,0.07,0.41,0.067,Low,619,exact,Thiruvarur,Tamil Nadu,0.468,-0.1434847632,High dev / Low vul,Low,0.40422999800000003
+254,Surat,Flood & Cyclone,0.17,0.32,0.53,0.065,Low,492,exact,Surat,Gujarat,0.517,-0.217650448,High dev / Low vul,Low,0.40779667399999997
+255,Ramanathapuram,"Flood, Drought & Cyclone",0.1,0.7,0.49,0.061,Low,626,exact,Ramanathapuram,Tamil Nadu,0.663,0.0333165412,High dev / High vul,High,0.351490868
+256,Shajapur,Flood & Drought,0.16,0.41,0.47,0.059,Low,436,exact,Shajapur,Madhya Pradesh,0.469,-0.30458003,Low dev / Low vul,Low,0.23934097679999997
+257,Saharanpur,Drought,0.41,0.08,0.36,0.052,Low,132,exact,Saharanpur,Uttar Pradesh,0.547,-0.0664198253,Low dev / Low vul,Low,0.505872536
+259,Kalahandi,Flood & Drought,0.04,0.7,0.3,0.039,Low,395,exact,Kalahandi,Odisha,0.586,0.269628158,Low dev / High vul,High,0.810477474
+260,Sitapur,Flood,0.28,0.18,0.48,0.038,Low,154,exact,Sitapur,Uttar Pradesh,0.6,0.2278418488,Low dev / High vul,High,0.948461508
+261,Ambedkar Nagar,Flood & Drought,0.04,0.71,0.34,0.035,Low,178,exact,Ambedkar Nagar,Uttar Pradesh,0.546,0.222298848,High dev / Low vul,Low,0.828157908
+262,Kurukshetra,Drought,0.41,0.07,0.51,0.032,Low,72,exact,Kurukshetra,Haryana,0.486,-0.354714184,High dev / Low vul,Low,0.106541246
+263,Ghazipur,Flood & Drought,0.04,0.68,0.37,0.031,Low,195,exact,Ghazipur,Uttar Pradesh,0.586,0.220679306,Low dev / High vul,High,0.514424788
+263,Budaun,Flood & Drought,0.04,0.78,0.43,0.031,Low,149,exact,Budaun,Uttar Pradesh,0.603,0.0545481746,Low dev / High vul,High,0.670901304
+264,Buxar,"Flood, Drought & Cyclone",0.025,0.9,0.34,0.028,Low,232,exact,Buxar,Bihar,0.656,0.178289588,Low dev / High vul,High,0.9604458960000001
+264,Shahjahanpur,Flood & Drought,0.04,0.58,0.35,0.028,Low,152,exact,Shahjahanpur,Uttar Pradesh,0.622,0.0508240301999999,Low dev / High vul,High,0.835806112
+265,Bankura,Flood & Drought,0.04,0.77,0.51,0.025,Low,339,exact,Bankura,West Bengal,0.615,0.1919037068,High dev / High vul,High,0.7792855320000001
+266,Allahabad,Flood & Drought,0.04,0.62,0.49,0.021,Low,175,exact,Prayagraj,Uttar Pradesh,0.539,0.1769074046,High dev / Low vul,Low,0.593880764
+267,The Nilgiris,Flood & Drought,0.04,0.4,0.34,0.02,Low,611,exact,The Nilgiris,Tamil Nadu,0.504,0.2375712479999999,High dev / Low vul,Low,0.310876768
+268,Kanniyakumari,"Flood, Drought & Cyclone",0.025,0.77,0.46,0.018,Low,629,exact,Kanniyakumari,Tamil Nadu,0.45,0.120077674,High dev / Low vul,Low,0.27784371399999996
+269,Jabalpur,Flood & Drought,0.04,0.49,0.51,0.016,Low,451,exact,Jabalpur,Madhya Pradesh,0.645,-0.0478040169,High dev / High vul,High,0.351239044
+270,Lakhisarai,Flood & Drought,0.04,0.11,0.32,0.006,Low,227,exact,Lakhisarai,Bihar,0.672,0.2263321959999999,Low dev / High vul,High,0.99114438
+271,Rohtak,Flood & Drought,0.04,0.12,0.38,0.005,Low,82,exact,Rohtak,Haryana,0.52,-0.208243686,High dev / Low vul,Low,0.26862308
+272,Kodagu,Flood & Drought,0.04,0.01,0.49,0.0,Very Low,576,exact,Kodagu,Karnataka,0.513,0.676808036,High dev / Low vul,Low,0.50312541
+272,Aizawl,Flood,0.0,1.0,0.51,0.0,Very Low,283,exact,Aizawl,Mizoram,0.546,-0.328918132,High dev / Low vul,Low,0.125870675
+272,Ambala,Flood,0.0,0.79,0.38,0.0,Very Low,70,exact,Ambala,Haryana,0.499,-0.1917442416,High dev / Low vul,Low,0.10294090119999999
+272,Anugul,Flood,0.0,0.97,0.44,0.0,Very Low,384,exact,Anugul,Odisha,0.559,0.188024908,High dev / Low vul,Low,0.562725426
+272,Birbhum,Flood,0.0,0.73,0.44,0.0,Very Low,334,exact,Birbhum,West Bengal,0.609,0.220440252,High dev / High vul,High,0.8586039400000001
+272,Chandauli,Flood,0.0,0.49,0.35,0.0,Very Low,196,exact,Chandauli,Uttar Pradesh,0.595,0.1794271167999999,High dev / High vul,High,0.6697611139999999
+272,Chikmagalur,Flood,0.0,0.99,0.49,0.0,Very Low,570,exact,Chikkamagaluru,Karnataka,0.512,0.28959484,High dev / Low vul,Low,0.403262654
+272,Dhalai,Flood,0.0,0.91,0.45,0.0,Very Low,291,exact,Dhalai,Tripura,0.577,0.259634404,High dev / High vul,High,0.228068166
+272,Kancheepuram,Flood,0.0,0.72,0.4,0.0,Very Low,604,exact,Kanchipuram,Tamil Nadu,0.532,-0.1032833748,High dev / Low vul,Low,0.261370612
+272,Kandhamal,Flood,0.0,0.57,0.31,0.0,Very Low,390,exact,Kandhamal,Odisha,0.536,0.1043972103999999,Low dev / Low vul,Low,0.604564128
+272,Katni,Flood,0.0,0.0,0.48,0.0,Very Low,450,exact,Katni,Madhya Pradesh,0.599,0.07290623504,High dev / High vul,High,0.554107598
+272,Lohit,Flood,0.0,0.08,0.33,0.0,Very Low,259,exact,Lohit,Arunachal Pradesh,0.495,-0.904290907,Low dev / Low vul,Low,0.250892338
+272,Malkangiri,Flood,0.0,0.68,0.34,0.0,Very Low,399,exact,Malkangiri,Odisha,0.631,0.215156458,Low dev / High vul,High,0.74190392
+272,Mandla,Flood,0.0,0.52,0.46,0.0,Very Low,454,exact,Mandla,Madhya Pradesh,0.643,0.1818750539999999,Low dev / High vul,High,0.768466444
+272,Puruliya,Flood,0.0,0.91,0.52,0.0,Very Low,340,exact,Purulia,West Bengal,0.676,0.198416548,Low dev / High vul,High,0.6954880880000001
+272,Sabar Kantha,Flood,0.0,0.94,0.54,0.0,Very Low,472,exact,Sabar Kantha,Gujarat,0.554,-0.377004678,High dev / Low vul,Low,0.29273329800000003
+272,Shrawasti,Flood,0.0,0.81,0.29,0.0,Very Low,181,exact,Shravasti,Uttar Pradesh,0.653,0.261745136,Low dev / High vul,High,0.936963202
+272,Sirsa,Flood,0.0,0.69,0.48,0.0,Very Low,79,exact,Sirsa,Haryana,0.476,-0.292967863,Low dev / Low vul,Low,0.16241112600000002
+272,South 24 Parganas,Flood,0.0,0.85,0.55,0.0,Very Low,343,exact,24 Paraganas South,West Bengal,0.614,0.1884908658,High dev / High vul,High,0.500897514
+272,Supaul,Flood,0.0,0.83,0.3,0.0,Very Low,208,exact,Supaul,Bihar,0.655,0.371921166,Low dev / High vul,High,0.9231738740000001
+272,The Dangs,Flood,0.0,0.1,0.47,0.0,Very Low,489,exact,Dang,Gujarat,0.548,-0.463444692,High dev / Low vul,Low,0.365330756
+272,Balaghat,Flood & Drought,0.0,0.66,0.47,0.0,Very Low,457,exact,Balaghat,Madhya Pradesh,0.544,0.0462917293999999,High dev / Low vul,Low,0.5051574480000001
+272,Balangir,Flood & Drought,0.0,0.66,0.47,0.0,Very Low,393,exact,Balangir,Odisha,0.64,0.1526226692,Low dev / High vul,High,0.6530228680000001
+272,Chatra,Flood & Drought,0.0,0.3,0.32,0.0,Very Low,347,exact,Chatra,Jharkhand,0.651,0.232650514,Low dev / High vul,High,0.986406512
+272,Karimnagar,Flood & Drought,0.74,0.0,0.33,0.0,Very Low,534,exact,Karimnagar,Telangana,0.546,0.0638445762,Low dev / Low vul,Low,0.6131645000000001
+272,Sultanpur,Flood & Drought,0.0,0.48,0.46,0.0,Very Low,179,exact,Sultanpur,Uttar Pradesh,0.585,0.1980341834,Low dev / High vul,High,0.69726796
+272,Navsari,Flood & Cyclone,0.0,0.64,0.51,0.0,Very Low,490,exact,Navsari,Gujarat,0.573,-1.87992426,High dev / High vul,High,0.1210518188
+272,Alwar,Drought,0.0,0.63,0.54,0.0,Very Low,104,exact,Alwar,Rajasthan,0.461,-0.0887458912,Low dev / Low vul,Low,0.44743403600000003
+272,Anuppur,Drought,0.0,0.28,0.45,0.0,Very Low,461,exact,Anuppur,Madhya Pradesh,0.62,0.13695373,Low dev / High vul,High,0.9051822059999999
+272,Baran,Drought,0.0,0.48,0.46,0.0,Very Low,128,exact,Baran,Rajasthan,0.493,0.0746490553,Low dev / Low vul,Low,0.5095704299999999
+272,Bareilly,Drought,0.0,0.55,0.45,0.0,Very Low,150,exact,Bareilly,Uttar Pradesh,0.639,-0.3029730854,Low dev / High vul,High,0.4219061780000001
+272,Basti,Drought,0.0,0.45,0.32,0.0,Very Low,185,exact,Basti,Uttar Pradesh,0.584,0.17664537,Low dev / High vul,High,0.792911842
+272,Bhiwani,Drought,0.0,0.46,0.37,0.0,Very Low,81,exact,Bhiwani,Haryana,0.548,-0.1595997712,Low dev / Low vul,Low,0.1417761032
+272,Bikaner,Drought,0.0,0.69,0.5,0.0,Very Low,101,exact,Bikaner,Rajasthan,0.541,0.008424638,High dev / Low vul,Low,0.40225753399999997
+272,Bundi,Drought,0.0,0.37,0.43,0.0,Very Low,121,exact,Bundi,Rajasthan,0.5,0.1679444202,Low dev / Low vul,Low,0.31715486400000004
+272,Burhanpur,Drought,0.0,0.56,0.44,0.0,Very Low,467,exact,Burhanpur,Madhya Pradesh,0.503,-0.1744825508,Low dev / Low vul,Low,0.467852304
+272,Datia,Drought,0.0,0.1,0.49,0.0,Very Low,422,exact,Datia,Madhya Pradesh,0.48,0.0777862518,High dev / Low vul,Low,0.6357466
+272,Dausa,Drought,0.0,0.25,0.47,0.0,Very Low,109,exact,Dausa,Rajasthan,0.546,0.072718472,Low dev / Low vul,Low,0.341894814
+272,Davanagere,Drought,0.82,0.0,0.44,0.0,Very Low,567,exact,Davangere,Karnataka,0.561,0.0027491548,High dev / Low vul,Low,0.338399654
+272,Deoghar,Drought,0.0,0.47,0.48,0.0,Very Low,350,exact,Deoghar,Jharkhand,0.603,0.308950866,Low dev / High vul,High,0.917875674
+272,Dhanbad,Drought,0.0,0.29,0.51,0.0,Very Low,354,exact,Dhanbad,Jharkhand,0.599,0.242426012,High dev / High vul,High,0.6415548419999999
+272,Dhar,Drought,0.0,0.58,0.43,0.0,Very Low,438,exact,Dhar,Madhya Pradesh,0.51,-0.1656534559999999,Low dev / Low vul,Low,0.389603182
+272,Dharmapuri,Drought,0.0,0.43,0.34,0.0,Very Low,630,exact,Dharmapuri,Tamil Nadu,0.551,0.207128542,Low dev / Low vul,Low,0.581939706
+272,Dindori,Drought,0.0,0.41,0.44,0.0,Very Low,453,exact,Dindori,Madhya Pradesh,0.585,0.228194196,Low dev / High vul,High,0.9040166660000001
+272,Dungarpur,Drought,0.0,0.38,0.39,0.0,Very Low,124,exact,Dungarpur,Rajasthan,0.55,-0.469401802,Low dev / Low vul,Low,0.152056346
+272,Firozabad,Drought,0.0,0.56,0.47,0.0,Very Low,147,exact,Firozabad,Uttar Pradesh,0.581,0.00904692012,High dev / High vul,High,0.334021854
+272,Garhwa,Drought,0.0,0.27,0.32,0.0,Very Low,346,exact,Garhwa,Jharkhand,0.626,0.159947668,Low dev / High vul,High,0.9477091120000001
+272,Gautam Buddha Nagar,Drought,0.0,0.54,0.52,0.0,Very Low,141,exact,Gautam Buddha Nagar,Uttar Pradesh,0.596,0.0102602594,High dev / High vul,High,0.331901982
+272,Godda,Drought,0.0,0.37,0.31,0.0,Very Low,351,exact,Godda,Jharkhand,0.642,0.389610474,Low dev / High vul,High,0.98882187
+272,Gumla,Drought,0.0,0.37,0.32,0.0,Very Low,366,exact,Gumla,Jharkhand,0.583,0.1109498047999999,Low dev / High vul,High,0.741417452
+272,Guna,Drought,0.0,0.44,0.44,0.0,Very Low,458,exact,Guna,Madhya Pradesh,0.572,0.0070124033999999,Low dev / High vul,High,0.49403014799999995
+272,Gurgaon,Drought,0.0,0.72,0.52,0.0,Very Low,86,exact,Gurugram,Haryana,0.486,-0.0741174127,High dev / Low vul,Low,0.297410586
+272,Gwalior,Drought,0.0,0.32,0.51,0.0,Very Low,421,exact,Gwalior,Madhya Pradesh,0.529,0.0743939508,High dev / Low vul,Low,0.289656302
+272,Hanumangarh,Drought,0.0,0.56,0.48,0.0,Very Low,100,exact,Hanumangarh,Rajasthan,0.459,-0.30491859,High dev / Low vul,Low,0.178167716
+272,Hazaribagh,Drought,0.0,0.34,0.48,0.0,Very Low,360,exact,Hazaribagh,Jharkhand,0.644,0.208155291,Low dev / High vul,High,0.8544313280000001
+272,Hisar,Drought,0.0,0.3,0.52,0.0,Very Low,80,exact,Hisar,Haryana,0.469,-0.182332065,Low dev / Low vul,Low,0.0786783172
+272,Indore,Drought,0.0,0.52,0.5,0.0,Very Low,439,exact,Indore,Madhya Pradesh,0.453,-0.501069736,High dev / Low vul,Low,0.140424566
+272,Jamtara,Drought,0.0,0.41,0.32,0.0,Very Low,363,exact,Jamtara,Jharkhand,0.627,0.26699296,Low dev / High vul,High,0.8721320739999999
+272,Jamui,Drought,0.0,0.27,0.32,0.0,Very Low,238,exact,Jamui,Bihar,0.7,0.25307529,Low dev / High vul,High,0.9735378559999999
+272,Jehanabad,Drought,0.0,0.32,0.33,0.0,Very Low,239,exact,Jehanabad,Bihar,0.626,0.270401192,Low dev / High vul,High,0.92271912
+272,Jhabua,Drought,0.0,0.61,0.38,0.0,Very Low,464,exact,Jhabua,Madhya Pradesh,0.618,-0.522764284,Low dev / High vul,High,0.16056193400000002
+272,Jhalawar,Drought,0.0,0.5,0.45,0.0,Very Low,129,exact,Jhalawar,Rajasthan,0.514,-0.0196113791,Low dev / Low vul,Low,0.27643623
+272,Kannauj,Drought,0.0,0.35,0.36,0.0,Very Low,160,exact,Kannauj,Uttar Pradesh,0.605,0.14675042284,Low dev / High vul,High,0.655177628
+272,Kodarma,Drought,0.0,0.36,0.33,0.0,Very Low,348,exact,Koderma,Jharkhand,0.613,0.222690938,Low dev / High vul,High,0.886628556
+272,Kota,Drought,0.0,0.5,0.46,0.0,Very Low,127,exact,Kota,Rajasthan,0.431,0.09518531692,High dev / Low vul,Low,0.22345163
+272,Lalitpur,Drought,0.0,0.2,0.32,0.0,Very Low,167,exact,Lalitpur,Uttar Pradesh,0.525,0.04712740132,Low dev / Low vul,Low,0.641320332
+272,Latehar,Drought,0.0,0.34,0.3,0.0,Very Low,359,exact,Latehar,Jharkhand,0.622,0.1377304928,Low dev / High vul,High,0.9065228940000001
+272,Lohardaga,Drought,0.0,0.18,0.31,0.0,Very Low,356,exact,Lohardaga,Jharkhand,0.639,0.167337574,Low dev / High vul,High,0.8790628999999999
+272,Lucknow,Drought,0.0,0.37,0.37,0.0,Very Low,157,exact,Lucknow,Uttar Pradesh,0.494,0.124651697,High dev / Low vul,Low,0.49118185600000003
+272,Maharajganj,Drought,0.0,0.37,0.44,0.0,Very Low,187,fuzzy,Maharajganj,Uttar Pradesh,0.626,0.25852672,Low dev / High vul,High,0.964804062
+272,Mahendragarh,Drought,0.0,0.46,0.37,0.0,Very Low,84,exact,Mahendragarh,Haryana,0.535,-0.2742506249999999,High dev / Low vul,Low,0.183476782
+272,Meerut,Drought,0.0,0.38,0.47,0.0,Very Low,138,exact,Meerut,Uttar Pradesh,0.48,-0.1308116844,High dev / Low vul,Low,0.220337382
+272,Nawada,Drought,0.0,0.33,0.32,0.0,Very Low,237,exact,Nawada,Bihar,0.639,0.1608630188,Low dev / High vul,High,0.966413762
+272,Nuapada,Drought,0.0,0.4,0.36,0.0,Very Low,394,exact,Nuapada,Odisha,0.699,0.067770806,Low dev / High vul,High,0.75169471
+272,Palamu,Drought,0.0,0.33,0.48,0.0,Very Low,358,exact,Palamu,Jharkhand,0.645,0.147084728,Low dev / High vul,High,0.868590412
+272,Pashchimi Singhbhum,Drought,0.0,0.55,0.32,0.0,Very Low,368,exact,West Singhbhum,Jharkhand,0.602,0.159668057,Low dev / High vul,High,0.8566271520000001
+272,Rae Bareli,Drought,0.0,0.3,0.35,0.0,Very Low,158,exact,Rae Bareli,Uttar Pradesh,0.592,0.1228041954,Low dev / High vul,High,0.521829722
+272,Raisen,Drought,0.0,0.45,0.5,0.0,Very Low,446,exact,Raisen,Madhya Pradesh,0.485,-0.0659399682,High dev / Low vul,Low,0.399337974
+272,Ranchi,Drought,0.0,0.46,0.37,0.0,Very Low,364,exact,Ranchi,Jharkhand,0.599,0.1463427199999999,High dev / High vul,High,0.39901051
+272,Salem,Drought,0.0,0.48,0.49,0.0,Very Low,608,exact,Salem,Tamil Nadu,0.56,0.0560360189999999,High dev / Low vul,Low,0.34870821799999996
+272,Sant Kabir Nagar,Drought,0.0,0.35,0.37,0.0,Very Low,186,exact,Sant Kabeer Nagar,Uttar Pradesh,0.619,0.17382576,Low dev / High vul,High,0.8849731179999999
+272,Saraikela-kharsawan,Drought,0.0,0.26,0.34,0.0,Very Low,369,exact,Saraikela Kharsawan,Jharkhand,0.638,0.314054356,Low dev / High vul,High,0.896618016
+272,Siddharth Nagar,Drought,0.0,0.29,0.41,0.0,Very Low,184,exact,Siddharth Nagar,Uttar Pradesh,0.631,0.1965332,Low dev / High vul,High,0.96543925
+272,Simdega,Drought,0.0,0.35,0.32,0.0,Very Low,367,exact,Simdega,Jharkhand,0.64,0.23289468,Low dev / High vul,High,0.9111941439999999
+272,Sirohi,Drought,0.0,0.43,0.42,0.0,Very Low,117,exact,Sirohi,Rajasthan,0.536,-0.1610241899999999,Low dev / Low vul,Low,0.34965567200000003
+272,Sonbhadra,Drought,0.0,0.44,0.44,0.0,Very Low,200,exact,Sonbhadra,Uttar Pradesh,0.64,0.168636422,Low dev / High vul,High,0.8605593920000001
+272,Tonk,Drought,0.0,0.31,0.44,0.0,Very Low,120,exact,Tonk,Rajasthan,0.52,0.1152703234,Low dev / Low vul,Low,0.357983284
+272,Ujjain,Drought,0.0,0.45,0.47,0.0,Very Low,435,exact,Ujjain,Madhya Pradesh,0.536,-0.451518728,High dev / Low vul,Low,0.1544189328
+272,Varanasi,Drought,0.0,0.09,0.38,0.0,Very Low,197,exact,Varanasi,Uttar Pradesh,0.563,0.14162908928,High dev / Low vul,Low,0.66742805
+272,Arwal,Drought & Cyclone,0.0,0.82,0.32,0.0,Very Low,240,exact,Arwal,Bihar,0.648,0.218099812,Low dev / High vul,High,0.9520591979999999
+272,Dhenkanal,Drought & Cyclone,0.0,0.65,0.44,0.0,Very Low,383,exact,Dhenkanal,Odisha,0.613,0.2483047571999999,High dev / High vul,High,0.6135953620000001
+272,Ramgarh,Drought & Cyclone,0.0,0.69,0.34,0.0,Very Low,361,exact,Ramgarh,Jharkhand,0.539,0.162937534,High dev / Low vul,Low,0.550852974
+272,Sambalpur,Drought & Cyclone,0.0,0.0,0.44,0.0,Very Low,372,exact,Sambalpur,Odisha,0.546,0.249249864,High dev / Low vul,Low,0.542060946
+272,Malappuram,"Flood, Drought & Cyclone",0.0,0.89,0.44,0.0,Very Low,592,exact,Malappuram,Kerala,0.597,0.12546413234,High dev / High vul,High,0.27820614
+272,Pudukkottai,"Flood, Drought & Cyclone",0.025,0.0,0.42,0.0,Very Low,621,exact,Pudukkottai,Tamil Nadu,0.572,-0.06103827,High dev / High vul,High,0.435627824
+272,Sheikhpura,"Flood, Drought & Cyclone",0.0,0.7,0.31,0.0,Very Low,228,exact,Sheikhpura,Bihar,0.612,0.2196809772,Low dev / High vul,High,0.991451554

@@ -22,14 +22,14 @@
       "name": "Devanshu Kumar",
       "reg_no": "RA2411031010102",
       "role": "Novel Deep Learning Model",
-      "responsibilities": "Design and train B-ACPN (random-forest tree stage, attention, residual MLP, development gate, 5-network ensemble); MC Dropout and conformal uncertainty; model card (Table 4); ablation; climate-push analysis (Table 6)",
+      "responsibilities": "Design and train B-ACPN (random-forest tree stage, attention, residual MLP, development gate, 5-network ensemble); MC Dropout and conformal uncertainty; model card (Table 4); ablation; climate-push analysis (Table 6); hyperparameter tuning (Review 3)",
       "completion": "Completed"
     },
     {
       "name": "Tanmay Singh",
       "reg_no": "RA2411031010118",
       "role": "Comparative ML & Visualization",
-      "responsibilities": "Compare B-ACPN with Logistic Regression, Random Forest, GBT, Linear SVM (Spark MLlib) and MLP on the same folds; all metrics, confidence intervals, significance; effect of preprocessing on the models (Table 5); result figures; slides",
+      "responsibilities": "Compare B-ACPN with Logistic Regression, Random Forest, GBT, Linear SVM (Spark MLlib) and MLP on the same folds; all metrics, confidence intervals, significance; effect of preprocessing on the models (Table 5); result figures; slides; CEEW 2021 comparison (Review 3)",
       "completion": "Completed"
     }
   ]

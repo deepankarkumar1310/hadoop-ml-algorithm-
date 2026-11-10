@@ -290,7 +290,7 @@ s = new_slide("Contents", "The deck runs in three parts, each with its own table
               "followed by the key findings, team plan, references, photo and the Colab link.")
 items = ["Dataset", "Preprocessing: steps, results and error metrics", "Effect of preprocessing on the models",
          "Big Data tools: architecture, HDFS, MapReduce, Hive, Spark", "Proposed Model (B-ACPN)",
-         "Ablation, tuning and climate-push results", "Comparison with the existing classifier models",
+         "Ablation, tuning and climate-push results", "Comparison with existing models and CEEW rankings",
          "Key findings", "Plan of Action / Member Tasks", "References",
          "Geotagged photo taken during Review 2 presentation", "Google Colab Implementation link"]
 for i, it in enumerate(items):
@@ -999,6 +999,40 @@ fig_slide("Ablation (Figure)",
           "Each bar is B-ACPN with one component removed, on the same 25 folds. A drop larger than one standard "
           "deviation means the part helps accuracy; parts within one SD are kept for the explanation they give.",
           "ablation.png", None, "Ablation: one B-ACPN component removed at a time", None, "Devanshu Kumar")
+# ================================================================= CEEW COMPARISON (Review 3)
+_cc = RES / "ceew_comparison.json"
+if _cc.exists():
+    cc = json.loads(_cc.read_text())
+    f2 = lambda d: f"ρ = {d['rho']:+.2f} (p = {d['p']:.2f})"
+    rows = [["Check (same districts in both)", "Result", "Reading"],
+            ["CEEW index vs NDAP index (our target)", f2(cc["spearman_ceew_vi_vs_ndap_cvi"]), "no agreement"],
+            ["CEEW index vs B-ACPN predicted risk", f2(cc["spearman_ceew_vi_vs_bacpn_prob"]), "no agreement"],
+            ["CEEW index vs B-ACPN climate push", f2(cc["spearman_ceew_vi_vs_push"]), "weak, not significant"],
+            ["CEEW exposure vs B-ACPN climate push", f2(cc["spearman_ceew_exposure_vs_push"]), "no agreement"],
+            ["High / low class agreement", f"{cc['high_low_agreement']:.0%} (κ = {cc['high_low_kappa']:.2f})", "chance level"],
+            ["CEEW High/Very High: Anomaly A vs expected developed",
+             f"{cc['anomaly_A_ceew_high_share']:.0%} vs {cc['expected_dev_ceew_high_share']:.0%}", "small difference"]]
+    ce_items = [("Data: ", f"CEEW 2021 Annexure I Table A1, {cc['ceew_districts']} districts; {cc['matched_to_census']} "
+                           f"matched to Census codes by name (ambiguous names such as Hamirpur dropped); "
+                           f"{cc['in_our_469']} of our 469 districts are in both."),
+                ("Finding: ", "the two national indices rank districts very differently. CEEW's index is driven by "
+                              "hydro-met hazard exposure (floods, droughts, cyclones); NDAP's indicators are mainly "
+                              "socio-economic sensitivity and adaptive capacity. Our model explains the NDAP index, so its results do not carry over "
+                              "to CEEW's ranking, and \"vulnerable\" depends on which index is used.")]
+else:
+    rows = [["Check", "Result", "Reading"], [PENDING, PENDING, PENDING]]
+    ce_items = [("Result: ", PENDING)]
+s = new_slide("Comparison with CEEW District Rankings",
+              "Review 3 task: compare our districts with an independent national ranking, CEEW 2021 (Mohanty and "
+              "Wadhawan). Spearman ρ measures how similarly two lists rank the same districts (1 = same order, "
+              "0 = unrelated). Script: scripts/compare_ceew.py; matched table in results/ceew_matched.csv.", size=26)
+table(s, 0.4, 1.3, 9.2, rows, [4.3, 2.6, 2.3], size=12, row_h=0.4)
+bullets(s, 0.4, 4.4, 9.2, 2.5, ce_items, size=13, space=4)
+owner(s, "Tanmay Singh")
+fig_slide("CEEW Comparison (Figure)",
+          "Left: each district's NDAP index (our target) against its CEEW index; the cloud has no trend, so the two "
+          "indices disagree. Right: the share of each of our groups that CEEW rates High or Very High.",
+          "ceew_comparison.png", None, "Our target (NDAP) vs CEEW 2021 vulnerability, by group", None, "Tanmay Singh")
 fig_slide("Climate-Push Visualisation",
           "Left: the climate push of every district by group, with the group mean. Right: an India map of the "
           "climate push, so the panel can see where climate drives vulnerability beyond development.",
@@ -1070,8 +1104,8 @@ rows = [["Member", "Role", "Key Responsibilities", "Status"]]
 for mbr in team["members"]:
     rows.append([mbr["name"], mbr["role"], mbr["responsibilities"], mbr["completion"]])
 table(s, 0.4, 1.25, 9.2, rows, [1.6, 1.8, 4.4, 1.6], size=11, row_h=0.9)
-textbox(s, 0.4, 6.45, 9.2, 0.55, "All four stages are complete, including B-ACPN tuning (Review 3). Future work: extend the "
-        "climate record to 1991–2024; compare with CEEW / DST district rankings.", 12, color=INK)
+textbox(s, 0.4, 6.45, 9.2, 0.55, "All four stages are complete, including the Review 3 tasks: B-ACPN tuning and the CEEW comparison. "
+        "Future work: extend the climate record to 1991–2024; explain the CEEW index as a second target.", 12, color=INK)
 owner(s, "Tanmay Singh")
 
 # ================================================================= 22 REFERENCES
@@ -1165,7 +1199,7 @@ ORDER = ["Beyond Development", "Contents", "Problem Statement", "Overall System 
          "Climate-Push Analysis", "Climate-Push Visualisation",
          "Comparison with Existing", "Results of Classification (Figures)",
          "Detailed Classifier Metrics", "Confusion Matrix, CIs", "Confusion Matrices & Stability",
-         "Classification Performance Metrics",
+         "Classification Performance Metrics", "Comparison with CEEW", "CEEW Comparison (Figure)",
          # closing
          "Key Findings", "Plan of Action", "References", "Geotagged Photo", "Google Colab Implementation"]
 

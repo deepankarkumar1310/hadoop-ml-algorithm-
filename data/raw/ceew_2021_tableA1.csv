@@ -1,0 +1,464 @@
+ceew_rank,district,event,exposure,sensitivity,adaptive_capacity,vulnerability_index,vulnerability_class
+1,Dhemaji,Flood,0.98,0.9,0.35,1.0,Very High
+1,Khamman,Flood & Drought,0.45,0.74,0.14,1.0,Very High
+1,Gajapati,Flood & Cyclone,0.875,0.96,0.36,1.0,Very High
+1,Vizianagaram,Drought & Cyclone,0.909,1.0,0.4,1.0,Very High
+1,Sangli,Drought,0.82,1.0,0.47,1.0,Very High
+1,Nagaon,"Flood, Drought & Cyclone",0.83,0.89,0.47,1.0,Very High
+2,Chennai,Flood & Cyclone,1.0,0.69,0.45,0.976,Very High
+3,Madhepura,Flood & Drought,0.86,0.75,0.29,0.935,Very High
+3,Imphal East,Flood & Cyclone,0.72,1.0,0.49,0.935,Very High
+4,Sitamarhi,Flood & Drought,0.97,0.71,0.31,0.934,Very High
+4,Banka,Flood & Cyclone,0.61,0.77,0.32,0.934,Very High
+5,Jaisalmer,Drought,0.99,0.69,0.42,0.932,Very High
+6,Pashchim Champaran,Flood,0.81,0.95,0.33,0.925,Very High
+7,Darbhanga,"Flood, Drought & Cyclone",0.925,0.81,0.35,0.917,Very High
+8,Khagaria,Flood,0.78,0.99,0.31,0.91,Very High
+9,Araria,Flood,0.7,0.98,0.3,0.907,Very High
+10,Lakhimpur,Flood,0.95,0.87,0.41,0.869,Very High
+11,Jodhpur,Drought,0.99,0.73,0.48,0.863,Very High
+12,Jalor,Drought & Cyclone,0.818,1.0,0.42,0.857,Very High
+13,Darrang,Flood & Drought,0.96,0.8,0.38,0.85,Very High
+14,Mahbubnagar,Flood & Drought,0.63,1.0,0.32,0.828,Very High
+15,Ahmadnagar,Drought,0.96,0.65,0.44,0.813,Very High
+16,Dhubri,Flood,0.98,0.88,0.43,0.796,Very High
+17,Jagatsinghapur,Flood & Cyclone,0.83,0.84,0.56,0.792,Very High
+18,Dibrugarh,Flood,0.95,0.98,0.44,0.791,Very High
+19,Bijnor,Drought,0.82,0.62,0.37,0.788,Very High
+20,Khordha,"Flood, Drought & Cyclone",0.95,0.9,0.48,0.763,Very High
+21,Purnia,Flood,0.59,0.97,0.29,0.751,Very High
+22,Solapur,Drought,0.82,0.75,0.47,0.75,Very High
+23,Tirunelveli,Flood & Drought,0.89,0.72,0.36,0.748,Very High
+24,Golaghat,Flood,0.94,0.87,0.44,0.745,Very High
+25,West Godavari,"Flood, Drought & Cyclone",0.75,0.97,0.42,0.742,Very High
+26,Goalpara,Flood & Drought,0.86,0.86,0.42,0.74,Very High
+27,Dhule,Drought,0.82,0.75,0.48,0.734,Very High
+27,Ganjam,"Flood, Drought & Cyclone",0.875,0.92,0.47,0.734,Very High
+28,Mumbai,Flood & Cyclone,0.94,0.76,0.62,0.733,Very High
+29,Karbi Anglong,Flood,0.78,0.86,0.4,0.729,Very High
+30,Barmer,Drought,0.99,0.57,0.45,0.719,Very High
+31,Yamunanagar,Flood,0.78,0.95,0.38,0.713,Very High
+32,Sonitpur,Flood,0.91,0.87,0.45,0.709,Very High
+33,Nayagarh,"Flood, Drought & Cyclone",1.0,0.74,0.45,0.705,Very High
+34,Banswara,Drought,0.76,0.63,0.39,0.704,Very High
+35,Kupwara,Flood,0.59,0.96,0.32,0.701,Very High
+36,Bongaigaon,Flood,0.81,0.87,0.41,0.698,Very High
+37,Buldana,Drought,0.82,0.65,0.44,0.694,Very High
+38,Gulbarga,Drought,0.93,0.61,0.47,0.692,Very High
+39,Jhunjhunun,Drought,0.82,0.73,0.5,0.686,Very High
+40,Bijapur,Flood & Drought,0.93,0.66,0.38,0.679,Very High
+41,Bara Banki,Flood,0.81,0.86,0.44,0.674,Very High
+42,Barpeta,Flood & Drought,0.97,0.74,0.45,0.671,Very High
+43,Samastipur,Flood & Drought,1.0,0.54,0.34,0.668,Very High
+44,Jorhat,Flood,0.93,0.88,0.49,0.663,Very High
+45,Pathanamthitta,Flood & Drought,0.74,0.92,0.44,0.651,Very High
+46,Pashchim Medinipur,Flood & Cyclone,0.72,0.75,0.54,0.636,Very High
+47,Pilibhit,Flood & Drought,0.63,0.78,0.33,0.626,Very High
+47,West Siang,Flood & Drought,0.63,0.78,0.33,0.626,Very High
+48,Jalaun,Drought,0.82,0.49,0.37,0.622,Very High
+49,Hingoli,Drought,0.76,0.52,0.37,0.612,Very High
+49,Jalgaon,Flood & Drought,0.63,0.97,0.42,0.612,Very High
+50,Guntur,"Flood, Drought & Cyclone",0.7,0.84,0.42,0.6,Very High
+51,Anantapur,Flood & Drought,0.74,0.63,0.33,0.594,High
+52,Osmanabad,Drought,0.96,0.55,0.51,0.593,High
+53,Bhopal,Flood,0.7,0.93,0.37,0.586,High
+54,Surendranagar,Flood & Drought,0.86,0.78,0.49,0.576,High
+55,Sheohar,"Flood, Drought & Cyclone",0.575,0.86,0.37,0.573,High
+56,Koppal,Flood & Drought,0.74,0.84,0.46,0.568,High
+56,Sidhi,Drought,0.68,0.67,0.46,0.568,High
+57,Krishna,"Flood, Drought & Cyclone",0.85,0.7,0.45,0.567,High
+58,Puri,"Flood, Drought & Cyclone",1.0,0.7,0.53,0.566,High
+59,Parbhani,Drought,0.82,0.43,0.36,0.561,High
+60,Agra,Drought,0.68,0.69,0.48,0.56,High
+61,Kushinagar,Flood & Drought,0.89,0.7,0.47,0.557,High
+61,Nandurbar,Drought,0.76,0.55,0.43,0.557,High
+61,Nagpur,Drought,0.68,0.8,0.56,0.557,High
+62,East Siang,Flood,0.9,0.94,0.4,0.556,High
+63,Baleshwar,"Flood, Drought & Cyclone",0.675,0.91,0.48,0.548,High
+64,Patna,Flood & Drought,0.89,0.57,0.39,0.547,High
+65,Kendrapara,Flood & Cyclone,0.61,0.76,0.54,0.546,High
+66,Ahmadabad,Flood & Drought,0.93,0.75,0.54,0.543,High
+67,Karimganj,Flood,0.91,0.93,0.47,0.542,High
+68,Satara,Drought,0.82,0.65,0.57,0.536,High
+69,Sri Potti Sriramulu Nellore,"Flood, Drought & Cyclone",0.75,0.83,0.5,0.534,High
+70,Bidar,Drought,0.93,0.48,0.48,0.533,High
+71,Chittoor,Flood,0.81,1.0,0.51,0.532,High
+72,Hardoi,Drought,0.68,0.49,0.36,0.531,High
+73,Yadgir,Drought,0.76,0.51,0.42,0.529,High
+73,Ramanagara,Drought,0.82,0.54,0.48,0.529,High
+74,Akola,Drought,0.68,0.7,0.52,0.525,High
+75,Kishanganj,Flood,0.87,0.68,0.29,0.522,High
+76,Auraiya,Flood & Drought,0.57,0.81,0.38,0.511,High
+77,Bagalkot,Flood & Drought,0.74,0.77,0.47,0.51,High
+78,Saharsa,"Flood, Drought & Cyclone",0.4,0.85,0.29,0.502,High
+79,Muzaffarpur,Flood & Drought,0.74,0.58,0.36,0.501,High
+79,Nanded,Drought,0.76,0.46,0.4,0.501,High
+80,Vaishali,Flood & Drought,0.63,0.68,0.36,0.5,High
+81,Tinsukia,Flood,0.7,0.85,0.47,0.497,High
+82,Bid,Drought,0.82,0.58,0.55,0.496,High
+83,Thanjavur,"Flood, Drought & Cyclone",0.525,0.81,0.37,0.493,High
+84,Cachar,Flood & Drought,0.96,0.61,0.5,0.492,High
+85,Mysore,Drought,0.82,0.52,0.5,0.489,High
+86,Churu,Flood,0.87,0.91,0.46,0.486,High
+87,Aurangabad,Flood & Drought,0.74,0.81,0.52,0.485,High
+88,Sivasagar,Flood & Drought,0.93,0.63,0.51,0.483,High
+89,Gopalganj,Flood,0.47,0.85,0.32,0.482,High
+90,Rohtas,Drought & Cyclone,0.545,0.74,0.37,0.48,High
+91,Nagappattinam,"Flood, Drought & Cyclone",0.575,0.7,0.36,0.479,High
+92,Nagaur,Flood & Drought,0.86,0.62,0.47,0.477,High
+92,Rajouri,Flood,0.81,0.91,0.55,0.477,High
+93,Tiruppur,Drought,0.68,0.44,0.36,0.476,High
+94,Bhadrak,"Flood, Drought & Cyclone",0.65,0.8,0.47,0.474,High
+95,North 24 Parganas,Flood & Cyclone,0.44,0.87,0.52,0.468,High
+96,West Tripura,Flood,1.0,0.51,0.46,0.455,High
+97,Thoothukkudi,Flood & Drought,0.89,0.52,0.43,0.452,High
+98,Kullu,Flood & Drought,0.89,0.6,0.5,0.449,High
+98,Gadag,Flood & Drought,0.63,0.83,0.49,0.449,High
+99,Chamrajnagar,Drought,0.82,0.36,0.38,0.445,High
+100,Bhagalpur,"Flood, Drought & Cyclone",0.4,0.88,0.34,0.444,High
+102,Dharwad,Flood & Drought,0.74,0.71,0.5,0.442,High
+101,Kamrup,Flood,0.59,0.89,0.44,0.441,High
+101,Cuddalore,Flood & Drought,0.74,0.61,0.43,0.441,High
+102,Chitradurga,Flood,0.7,0.86,0.49,0.438,High
+103,Pali,Drought,0.82,0.4,0.43,0.437,High
+103,Rajkot,"Flood, Drought & Cyclone",0.625,0.88,0.54,0.437,High
+104,Bishnupur,Flood,0.59,0.89,0.46,0.434,High
+105,Darjiling,Flood,0.7,0.86,0.52,0.428,High
+105,Marigaon,Flood & Drought,0.45,0.86,0.38,0.428,High
+106,Hassan,Drought,0.82,0.46,0.51,0.424,High
+107,Jhansi,Drought,0.68,0.51,0.47,0.423,High
+108,Jaipur,Drought,0.76,0.53,0.55,0.42,High
+109,Ajmer,Drought,0.96,0.33,0.44,0.413,High
+110,Y.s.r.,"Flood, Drought & Cyclone",0.5,0.94,0.49,0.411,High
+110,Madhubani,Flood & Drought,1.0,0.44,0.45,0.411,High
+111,Bulandshahr,Drought,0.41,0.62,0.36,0.405,Moderate
+112,Ghaziabad,Flood & Drought,0.57,0.81,0.48,0.404,Moderate
+113,Kinnaur,Flood,0.7,0.8,0.53,0.397,Moderate
+114,Gorakhpur,Flood,0.59,0.85,0.47,0.396,Moderate
+114,Hugli,Flood,0.59,0.93,0.48,0.396,Moderate
+114,Raichur,Flood & Drought,0.57,0.71,0.43,0.396,Moderate
+115,Latur,Drought,0.82,0.42,0.5,0.395,Moderate
+116,Kangra,Flood,0.7,0.95,0.56,0.394,Moderate
+117,Pune,Flood & Drought,0.74,0.79,0.63,0.39,Moderate
+118,Munger,Flood & Drought,0.45,0.72,0.35,0.389,Moderate
+118,Koraput,Flood & Cyclone,0.44,0.5,0.36,0.389,Moderate
+119,Saran(chhapra),Flood & Drought,0.45,0.69,0.34,0.384,Moderate
+120,Mandi,Flood,0.59,0.51,0.52,0.383,Moderate
+121,Ernakulam,Flood & Drought,0.74,0.65,0.53,0.382,Moderate
+122,Jaunpur,Drought,0.68,0.45,0.46,0.381,Moderate
+123,Amreli,Drought,0.41,0.58,0.36,0.379,Moderate
+124,Srinagar,Flood & Drought,0.72,0.7,0.56,0.378,Moderate
+125,Nainital,Flood & Drought,0.63,0.57,0.4,0.377,Moderate
+125,Kiphire,Flood,0.47,0.93,0.4,0.377,Moderate
+125,Upper Siang,Flood,0.47,0.95,0.31,0.377,Moderate
+126,Nalgonda,Flood & Drought,0.63,0.48,0.34,0.374,Moderate
+127,Fatehpur,Drought,0.41,0.55,0.35,0.369,Moderate
+128,Nalbari,Flood & Drought,0.45,0.85,0.44,0.365,Moderate
+128,Jalpaiguri,Flood,0.47,0.92,0.45,0.365,Moderate
+129,Bellary,Drought,0.82,0.37,0.48,0.362,Moderate
+129,North (Sikkim),Flood,0.59,0.97,0.55,0.362,Moderate
+130,South (Sikkim),Flood,0.59,0.93,0.55,0.361,Moderate
+130,Kollam,Flood & Drought,0.45,0.63,0.33,0.361,Moderate
+131,Cuttack,"Flood, Drought & Cyclone",0.75,0.59,0.53,0.358,Moderate
+132,Bhilwara,Drought,0.96,0.29,0.45,0.355,Moderate
+132,Bangalore,Drought,0.76,0.35,0.43,0.355,Moderate
+133,Kachchh,"Flood, Drought & Cyclone",0.375,0.97,0.44,0.354,Moderate
+134,Virudunagar,Drought,0.41,0.54,0.36,0.353,Moderate
+135,Amravati,Flood & Drought,0.45,0.78,0.42,0.351,Moderate
+136,Ballia,Flood & Drought,0.57,0.71,0.49,0.347,Moderate
+137,Tikamgarh,Flood,0.47,0.81,0.46,0.345,Moderate
+138,Doda,Flood,0.7,0.76,0.56,0.342,Moderate
+139,Junagadh,Drought & Cyclone,1.0,0.34,0.44,0.34,Moderate
+140,Belgaum,Flood & Drought,0.57,0.75,0.53,0.339,Moderate
+141,Banas Kantha,Flood & Drought,0.45,0.84,0.47,0.338,Moderate
+142,Tumkur,Drought,0.93,0.34,0.54,0.336,Moderate
+143,Jamnagar,"Flood, Drought & Cyclone",0.4,0.84,0.43,0.335,Moderate
+144,Etawah,Drought,0.41,0.54,0.38,0.334,Moderate
+145,Mandya,Drought,0.82,0.38,0.54,0.331,Moderate
+146,Visakhapatnam,"Flood, Drought & Cyclone",0.525,0.79,0.54,0.329,Moderate
+147,Srikakulam,"Flood, Drought & Cyclone",0.7,0.48,0.44,0.327,Moderate
+148,Nashik,Flood & Drought,0.72,0.61,0.57,0.324,Moderate
+149,Bangalore Rural,Drought,0.82,0.3,0.44,0.32,Moderate
+149,Thoubal,Flood,0.47,0.91,0.47,0.32,Moderate
+150,Jalna,Drought,0.41,0.65,0.48,0.318,Moderate
+151,Garhchiroli,Drought,0.68,0.39,0.48,0.317,Moderate
+151,Mahesana,Flood & Drought,0.57,0.7,0.53,0.317,Moderate
+152,Katihar,Flood & Drought,0.45,0.5,0.3,0.315,Moderate
+153,Viluppuram,Flood & Drought,0.45,0.63,0.38,0.314,Moderate
+154,Namakkal,Drought,0.41,0.55,0.42,0.308,Moderate
+155,Dewas,Drought,0.41,0.61,0.47,0.305,Moderate
+156,Karur,Drought,0.41,0.54,0.42,0.302,Moderate
+157,Palakkad,Drought,0.41,0.56,0.44,0.299,Moderate
+158,Ratlam,Drought,0.41,0.58,0.46,0.296,Moderate
+159,Shahdol,Drought,0.41,0.56,0.45,0.292,Moderate
+160,Idukki,Flood & Drought,0.45,0.79,0.52,0.287,Moderate
+161,Medak,Flood & Drought,0.28,0.8,0.33,0.285,Moderate
+162,Nadia,Flood,0.47,0.96,0.5,0.281,Moderate
+163,Mainpuri,Drought,0.68,0.35,0.49,0.278,Moderate
+163,Chikkaballapura,Drought,0.82,0.29,0.49,0.278,Moderate
+164,Haveri,Drought,0.76,0.33,0.52,0.276,Moderate
+164,Sundargarh,Drought & Cyclone,0.363,0.88,0.51,0.276,Moderate
+165,Hyderabad,"Flood, Drought & Cyclone",0.35,0.93,0.51,0.274,Moderate
+166,Begusarai,"Flood, Drought & Cyclone",0.25,0.84,0.33,0.273,Moderate
+167,Sheopur,Drought,0.41,0.51,0.44,0.272,Moderate
+168,New Delhi,Flood,0.44,0.63,0.66,0.267,Moderate
+169,Pratapgarh,Drought,0.41,0.43,0.38,0.266,Moderate
+170,Puducherry,Flood,0.47,0.36,0.48,0.263,Moderate
+170,Panna,Drought,0.68,0.31,0.46,0.263,Moderate
+171,Ratnagiri,Flood & Cyclone,0.17,0.89,0.37,0.26,Moderate
+171,Etah,Drought,0.68,0.24,0.36,0.26,Moderate
+172,Kanpur Nagar,Drought,0.41,0.43,0.39,0.259,Moderate
+173,Maldah,Flood,0.47,0.86,0.47,0.258,Moderate
+174,Dimapur,Flood,0.47,0.42,0.53,0.253,Moderate
+175,Udaipur,Drought,0.96,0.22,0.48,0.252,Moderate
+175,Imphal West,Flood,0.59,0.93,0.53,0.252,Moderate
+175,Erode,Drought,0.41,0.45,0.42,0.252,Moderate
+175,Chittaurgarh,Drought,0.76,0.26,0.45,0.252,Moderate
+176,Kaushambi,Drought,0.41,0.34,0.32,0.25,Moderate
+177,Lahul & Spiti,Flood,0.59,0.94,0.48,0.249,Moderate
+178,Unnao,Drought,0.41,0.38,0.36,0.248,Moderate
+178,Madurai,Flood & Drought,0.28,0.8,0.38,0.248,Moderate
+179,Azamgarh,Flood & Drought,0.28,0.73,0.35,0.246,Moderate
+181,Shivpuri,Drought,0.41,0.49,0.47,0.245,Moderate
+182,Washim,Drought,0.41,0.52,0.5,0.244,Moderate
+183,Giridih,Drought,0.41,0.36,0.35,0.242,Moderate
+183,Anand,Flood,0.28,0.28,0.38,0.242,Moderate
+184,Vidisha,Drought,0.41,0.5,0.49,0.24,Moderate
+184,Thiruvananthapuram,Flood & Drought,0.57,0.51,0.51,0.24,Moderate
+185,Warangal,Flood & Drought,0.28,0.69,0.34,0.239,Moderate
+185,Rayagada,Flood,0.28,0.54,0.37,0.239,Moderate
+186,Dakshina Kannada,"Flood, Drought & Cyclone",0.25,1.0,0.45,0.238,Moderate
+187,Bahraich,Flood,0.28,0.91,0.41,0.235,Moderate
+187,Raigarh,Drought,0.41,0.49,0.49,0.235,Moderate
+188,Mau,Drought,0.41,0.44,0.45,0.23,Moderate
+188,Umaria,Drought,0.41,0.44,0.45,0.23,Moderate
+188,Hamirpur,Flood & Drought,0.45,0.68,0.56,0.23,Moderate
+189,Banda,Flood & Drought,0.28,0.68,0.35,0.229,Moderate
+190,Mahoba,Drought,0.41,0.32,0.33,0.228,Moderate
+190,Kasaragod,Flood & Drought,0.28,0.89,0.46,0.228,Moderate
+190,Ariyalur,Drought,0.41,0.31,0.32,0.228,Moderate
+191,Chandrapur,Drought,0.41,0.5,0.52,0.226,Moderate
+192,Chirang,Flood,0.28,0.93,0.39,0.225,Moderate
+193,Hailakandi,Flood,0.28,0.92,0.42,0.222,Moderate
+193,Bokaro,Drought,0.41,0.33,0.35,0.222,Moderate
+194,Farrukhabad,Drought,0.41,0.43,0.46,0.22,Moderate
+195,Barddhaman,Flood,0.28,0.76,0.58,0.217,Moderate
+196,Gondiya,Drought,0.41,0.42,0.46,0.215,Moderate
+197,Thrissur,Flood & Drought,0.45,0.54,0.49,0.208,Low
+198,Sehore,Drought,0.41,0.43,0.49,0.206,Low
+198,Perambalur,Drought,0.41,0.28,0.32,0.206,Low
+199,East Godavari,"Flood, Drought & Cyclone",0.75,0.33,0.52,0.204,Low
+199,Rampur,Drought,0.41,0.26,0.3,0.204,Low
+200,Ashoknagar,Drought,0.41,0.39,0.46,0.199,Low
+200,Dumka,Drought,0.76,0.21,0.46,0.199,Low
+200,Kolar,Drought,0.93,0.19,0.51,0.199,Low
+201,North Tripura,Flood,0.28,0.83,0.43,0.196,Low
+201,Sagar,Flood & Drought,0.28,0.85,0.51,0.196,Low
+201,Kulgam,Flood,0.28,0.97,0.46,0.196,Low
+202,Muzaffarnagar,Flood & Drought,0.28,0.59,0.36,0.193,Low
+202,Nalanda,Flood & Drought,0.28,0.54,0.33,0.193,Low
+203,Kurnool,Flood & Drought,0.74,0.29,0.47,0.192,Low
+204,Mathura,Drought,0.41,0.39,0.48,0.191,Low
+205,Kheri,Flood,0.28,0.89,0.47,0.19,Low
+205,Anantnag,Flood,0.47,0.99,0.57,0.19,Low
+206,Prakasam,"Flood, Drought & Cyclone",0.475,0.39,0.43,0.185,Low
+207,Rajsamand,Drought,0.96,0.14,0.42,0.183,Low
+208,Kanpur Dehat,Flood & Drought,0.28,0.58,0.38,0.18,Low
+209,Patan,Flood & Drought,0.28,0.74,0.49,0.178,Low
+210,Rewa,Flood & Drought,0.28,0.75,0.5,0.177,Low
+211,Mirzapur,Drought,0.41,0.27,0.36,0.176,Low
+211,Jajapur,Flood,0.28,0.79,0.52,0.176,Low
+212,Vellore,Drought,0.41,0.33,0.45,0.172,Low
+212,Theni,Drought & Cyclone,0.363,0.42,0.39,0.172,Low
+213,Wardha,Flood & Drought,0.28,0.72,0.51,0.166,Low
+214,Thiruvallur,"Flood, Drought & Cyclone",0.25,0.85,0.56,0.163,Low
+215,Chhatarpur,Flood & Drought,0.28,0.66,0.48,0.162,Low
+216,Siwan,Flood & Drought,0.16,0.81,0.34,0.16,Low
+216,Bhojpur,"Flood, Drought & Cyclone",0.15,0.87,0.35,0.16,Low
+217,Tiruchirappalli,Drought & Cyclone,0.545,0.3,0.46,0.156,Low
+218,Sawai Madhopur,Drought,0.41,0.31,0.47,0.155,Low
+218,Chitrakoot,Drought,0.41,0.29,0.44,0.155,Low
+219,Krishnagiri,Drought,0.41,0.23,0.35,0.154,Low
+220,Porbandar,"Flood, Drought & Cyclone",0.25,0.7,0.49,0.153,Low
+221,Shimoga,Flood & Drought,0.28,0.67,0.52,0.152,Low
+222,Alappuzha,Flood & Drought,0.28,0.63,0.5,0.148,Low
+223,Adilabad,Flood & Drought,0.16,0.69,0.32,0.145,Low
+224,Deoria,Flood & Drought,0.45,0.33,0.44,0.142,Low
+225,Bhind,Drought,0.41,0.31,0.52,0.14,Low
+226,Rangareddy,Flood & Drought,0.63,0.19,0.37,0.136,Low
+227,Pithoragarh,Flood & Drought,0.16,0.7,0.36,0.131,Low
+228,Kozhikode,"Flood, Drought & Cyclone",0.15,0.99,0.49,0.13,Low
+229,Morena,Drought,0.41,0.28,0.51,0.129,Low
+230,Faizabad,Flood & Drought,0.16,0.84,0.44,0.128,Low
+230,East Nimar,Drought,0.41,0.25,0.46,0.128,Low
+231,Yavatmal,Drought,0.41,0.27,0.51,0.124,Low
+232,Uttara Kannada,"Flood, Drought & Cyclone",0.15,0.94,0.5,0.121,Low
+233,Balrampur,Flood & Drought,0.16,0.69,0.39,0.119,Low
+234,Damoh,Flood & Drought,0.28,0.48,0.48,0.118,Low
+234,Aligarh,Flood & Drought,0.16,0.84,0.48,0.118,Low
+235,Jammu,Flood & Cyclone,0.17,0.6,0.58,0.112,Low
+236,Tiruvannamalai,Drought,0.41,0.21,0.45,0.11,Low
+237,Bhavnagar,"Flood, Drought & Cyclone",0.15,0.86,0.51,0.108,Low
+237,Kheda,Flood & Drought,0.16,0.74,0.46,0.108,Low
+238,Karnal,Flood,0.28,0.22,0.5,0.107,Low
+238,Purba Champaran,Flood & Cyclone,0.11,0.75,0.49,0.107,Low
+239,Coimbatore,Flood & Drought,0.16,0.62,0.41,0.102,Low
+240,Shimla,Flood,0.28,0.43,0.55,0.1,Low
+241,Kottayam,Flood & Drought,0.16,0.62,0.44,0.095,Low
+242,Gandhinagar,Drought,0.68,0.12,0.5,0.094,Low
+243,Dindigul,Drought,0.41,0.19,0.48,0.093,Low
+244,Chandel,Flood,0.28,0.28,0.46,0.092,Low
+245,Gaya,Drought,0.41,0.14,0.36,0.091,Low
+246,Kannur,"Flood, Drought & Cyclone",0.1,0.98,0.49,0.086,Low
+247,Bharuch,Flood & Drought,0.16,0.64,0.52,0.083,Low
+248,Satna,Flood & Drought,0.16,0.61,0.5,0.082,Low
+249,Bilaspur,Flood & Drought,0.16,0.56,0.47,0.08,Low
+249,Sikar,Drought,0.68,0.1,0.49,0.08,Low
+250,Vadodara,Flood & Drought,0.45,0.19,0.49,0.073,Low
+251,Sivaganga,Drought & Cyclone,0.545,0.14,0.48,0.07,Low
+252,Thiruvarur,Drought,0.68,0.07,0.41,0.067,Low
+253,Thane,Flood & Cyclone,0.17,0.38,0.62,0.066,Low
+254,Surat,Flood & Cyclone,0.17,0.32,0.53,0.065,Low
+255,Ramanathapuram,"Flood, Drought & Cyclone",0.1,0.7,0.49,0.061,Low
+256,Shajapur,Flood & Drought,0.16,0.41,0.47,0.059,Low
+257,Saharanpur,Drought,0.41,0.08,0.36,0.052,Low
+258,Kolkata,Flood & Cyclone,0.06,0.55,0.47,0.045,Low
+259,Kalahandi,Flood & Drought,0.04,0.7,0.3,0.039,Low
+259,Nizamabad,Flood & Drought,0.04,0.7,0.3,0.039,Low
+260,Sitapur,Flood,0.28,0.18,0.48,0.038,Low
+261,Ambedkar Nagar,Flood & Drought,0.04,0.71,0.34,0.035,Low
+262,Kurukshetra,Drought,0.41,0.07,0.51,0.032,Low
+263,Ghazipur,Flood & Drought,0.04,0.68,0.37,0.031,Low
+263,Budaun,Flood & Drought,0.04,0.78,0.43,0.031,Low
+264,Buxar,"Flood, Drought & Cyclone",0.025,0.9,0.34,0.028,Low
+264,Shahjahanpur,Flood & Drought,0.04,0.58,0.35,0.028,Low
+265,Bankura,Flood & Drought,0.04,0.77,0.51,0.025,Low
+266,Allahabad,Flood & Drought,0.04,0.62,0.49,0.021,Low
+267,The Nilgiris,Flood & Drought,0.04,0.4,0.34,0.02,Low
+268,Kanniyakumari,"Flood, Drought & Cyclone",0.025,0.77,0.46,0.018,Low
+269,Jabalpur,Flood & Drought,0.04,0.49,0.51,0.016,Low
+270,Lakhisarai,Flood & Drought,0.04,0.11,0.32,0.006,Low
+271,Rohtak,Flood & Drought,0.04,0.12,0.38,0.005,Low
+272,Kodagu,Flood & Drought,0.04,0.01,0.49,0.0,Very Low
+272,Bandipore,Flood,0.28,0.46,0.52,0.0,Very Low
+272,Aizawl,Flood,0.0,1.0,0.51,0.0,Very Low
+272,Ambala,Flood,0.0,0.79,0.38,0.0,Very Low
+272,Anugul,Flood,0.0,0.97,0.44,0.0,Very Low
+272,Birbhum,Flood,0.0,0.73,0.44,0.0,Very Low
+272,Chandauli,Flood,0.0,0.49,0.35,0.0,Very Low
+272,Chandigarh,Flood,0.0,0.79,0.48,0.0,Very Low
+272,Chikmagalur,Flood,0.0,0.99,0.49,0.0,Very Low
+272,Dhalai,Flood,0.0,0.91,0.45,0.0,Very Low
+272,Hardwar,Flood,0.0,0.79,0.5,0.0,Very Low
+272,Kancheepuram,Flood,0.0,0.72,0.4,0.0,Very Low
+272,Kandhamal,Flood,0.0,0.57,0.31,0.0,Very Low
+272,Katni,Flood,0.0,0.0,0.48,0.0,Very Low
+272,Kokrajhar,Flood,0.0,0.86,0.39,0.0,Very Low
+272,Leh (ladakh),Flood,0.0,0.94,0.6,0.0,Very Low
+272,Lohit,Flood,0.0,0.08,0.33,0.0,Very Low
+272,Malkangiri,Flood,0.0,0.68,0.34,0.0,Very Low
+272,Mandla,Flood,0.0,0.52,0.46,0.0,Very Low
+272,Puruliya,Flood,0.0,0.91,0.52,0.0,Very Low
+272,Sabar Kantha,Flood,0.0,0.94,0.54,0.0,Very Low
+272,Shrawasti,Flood,0.0,0.81,0.29,0.0,Very Low
+272,Sirsa,Flood,0.0,0.69,0.48,0.0,Very Low
+272,South 24 Parganas,Flood,0.0,0.85,0.55,0.0,Very Low
+272,South Garo Hills,Flood,0.0,0.96,0.46,0.0,Very Low
+272,South Goa,Flood,0.0,0.85,0.33,0.0,Very Low
+272,Supaul,Flood,0.0,0.83,0.3,0.0,Very Low
+272,The Dangs,Flood,0.0,0.1,0.47,0.0,Very Low
+272,Uttarkashi,Flood,0.0,0.22,0.47,0.0,Very Low
+272,Balaghat,Flood & Drought,0.0,0.66,0.47,0.0,Very Low
+272,Balangir,Flood & Drought,0.0,0.66,0.47,0.0,Very Low
+272,Chatra,Flood & Drought,0.0,0.3,0.32,0.0,Very Low
+272,Karimnagar,Flood & Drought,0.74,0.0,0.33,0.0,Very Low
+272,Sultanpur,Flood & Drought,0.0,0.48,0.46,0.0,Very Low
+272,Navsari,Flood & Cyclone,0.0,0.64,0.51,0.0,Very Low
+272,North Goa,Flood & Cyclone,0.39,0.0,0.48,0.0,Very Low
+272,Alwar,Drought,0.0,0.63,0.54,0.0,Very Low
+272,Anuppur,Drought,0.0,0.28,0.45,0.0,Very Low
+272,Baran,Drought,0.0,0.48,0.46,0.0,Very Low
+272,Bareilly,Drought,0.0,0.55,0.45,0.0,Very Low
+272,Basti,Drought,0.0,0.45,0.32,0.0,Very Low
+272,Bhandara,Drought,0.0,0.52,0.37,0.0,Very Low
+272,Bhiwani,Drought,0.0,0.46,0.37,0.0,Very Low
+272,Bikaner,Drought,0.0,0.69,0.5,0.0,Very Low
+272,Bundi,Drought,0.0,0.37,0.43,0.0,Very Low
+272,Burhanpur,Drought,0.0,0.56,0.44,0.0,Very Low
+272,Datia,Drought,0.0,0.1,0.49,0.0,Very Low
+272,Dausa,Drought,0.0,0.25,0.47,0.0,Very Low
+272,Davanagere,Drought,0.82,0.0,0.44,0.0,Very Low
+272,Deoghar,Drought,0.0,0.47,0.48,0.0,Very Low
+272,Dhamtari,Drought,0.0,0.26,0.42,0.0,Very Low
+272,Dhanbad,Drought,0.0,0.29,0.51,0.0,Very Low
+272,Dhar,Drought,0.0,0.58,0.43,0.0,Very Low
+272,Dharmapuri,Drought,0.0,0.43,0.34,0.0,Very Low
+272,Dindori,Drought,0.0,0.41,0.44,0.0,Very Low
+272,Dungarpur,Drought,0.0,0.38,0.39,0.0,Very Low
+272,Durg,Drought,0.0,0.32,0.46,0.0,Very Low
+272,Firozabad,Drought,0.0,0.56,0.47,0.0,Very Low
+272,Garhwa,Drought,0.0,0.27,0.32,0.0,Very Low
+272,Gautam Buddha Nagar,Drought,0.0,0.54,0.52,0.0,Very Low
+272,Godda,Drought,0.0,0.37,0.31,0.0,Very Low
+272,Gumla,Drought,0.0,0.37,0.32,0.0,Very Low
+272,Guna,Drought,0.0,0.44,0.44,0.0,Very Low
+272,Gurgaon,Drought,0.0,0.72,0.52,0.0,Very Low
+272,Gwalior,Drought,0.0,0.32,0.51,0.0,Very Low
+272,Hanumangarh,Drought,0.0,0.56,0.48,0.0,Very Low
+272,Hazaribagh,Drought,0.0,0.34,0.48,0.0,Very Low
+272,Hisar,Drought,0.0,0.3,0.52,0.0,Very Low
+272,Indore,Drought,0.0,0.52,0.5,0.0,Very Low
+272,Jamtara,Drought,0.0,0.41,0.32,0.0,Very Low
+272,Jamui,Drought,0.0,0.27,0.32,0.0,Very Low
+272,Janjgir-champa,Drought,0.0,0.33,0.49,0.0,Very Low
+272,Jehanabad,Drought,0.0,0.32,0.33,0.0,Very Low
+272,Jhabua,Drought,0.0,0.61,0.38,0.0,Very Low
+272,Jhalawar,Drought,0.0,0.5,0.45,0.0,Very Low
+272,Jyotiba Phule Nagar,Drought,0.0,0.52,0.44,0.0,Very Low
+272,Kabeerdham,Drought,0.0,0.37,0.3,0.0,Very Low
+272,Kannauj,Drought,0.0,0.35,0.36,0.0,Very Low
+272,Kodarma,Drought,0.0,0.36,0.33,0.0,Very Low
+272,Kolhapur,Drought,0.0,0.51,0.51,0.0,Very Low
+272,Korba,Drought,0.0,0.1,0.46,0.0,Very Low
+272,Koriya,Drought,0.0,0.15,0.47,0.0,Very Low
+272,Kota,Drought,0.0,0.5,0.46,0.0,Very Low
+272,Lalitpur,Drought,0.0,0.2,0.32,0.0,Very Low
+272,Latehar,Drought,0.0,0.34,0.3,0.0,Very Low
+272,Lohardaga,Drought,0.0,0.18,0.31,0.0,Very Low
+272,Lucknow,Drought,0.0,0.37,0.37,0.0,Very Low
+272,Maharajganj,Drought,0.0,0.37,0.44,0.0,Very Low
+272,Mahasamund,Drought,0.0,0.48,0.47,0.0,Very Low
+272,Mahendragarh,Drought,0.0,0.46,0.37,0.0,Very Low
+272,Meerut,Drought,0.0,0.38,0.47,0.0,Very Low
+272,Narayanpur,Drought,0.0,0.54,0.4,0.0,Very Low
+272,Nawada,Drought,0.0,0.33,0.32,0.0,Very Low
+272,Nuapada,Drought,0.0,0.4,0.36,0.0,Very Low
+272,Palamu,Drought,0.0,0.33,0.48,0.0,Very Low
+272,Pashchimi Singhbhum,Drought,0.0,0.55,0.32,0.0,Very Low
+272,Rae Bareli,Drought,0.0,0.3,0.35,0.0,Very Low
+272,Raipur,Drought,0.0,0.32,0.53,0.0,Very Low
+272,Raisen,Drought,0.0,0.45,0.5,0.0,Very Low
+272,Rajnandgaon,Drought,0.0,0.46,0.43,0.0,Very Low
+272,Ranchi,Drought,0.0,0.46,0.37,0.0,Very Low
+272,Salem,Drought,0.0,0.48,0.49,0.0,Very Low
+272,Sant Kabir Nagar,Drought,0.0,0.35,0.37,0.0,Very Low
+272,Saraikela-kharsawan,Drought,0.0,0.26,0.34,0.0,Very Low
+272,Siddharth Nagar,Drought,0.0,0.29,0.41,0.0,Very Low
+272,Simdega,Drought,0.0,0.35,0.32,0.0,Very Low
+272,Sirohi,Drought,0.0,0.43,0.42,0.0,Very Low
+272,Sonbhadra,Drought,0.0,0.44,0.44,0.0,Very Low
+272,Tonk,Drought,0.0,0.31,0.44,0.0,Very Low
+272,Udupi,Drought,0.0,0.32,0.48,0.0,Very Low
+272,Ujjain,Drought,0.0,0.45,0.47,0.0,Very Low
+272,Varanasi,Drought,0.0,0.09,0.38,0.0,Very Low
+272,Wayanad,Drought,0.0,0.36,0.44,0.0,Very Low
+272,North & Middle Andaman,Cyclone,0.0,1.0,0.38,0.0,Very Low
+272,South Andaman,Cyclone,0.0,0.6,0.38,0.0,Very Low
+272,Yanam,Cyclone,0.0,0.0,0.47,0.0,Very Low
+272,Arwal,Drought & Cyclone,0.0,0.82,0.32,0.0,Very Low
+272,Dhenkanal,Drought & Cyclone,0.0,0.65,0.44,0.0,Very Low
+272,Ramgarh,Drought & Cyclone,0.0,0.69,0.34,0.0,Very Low
+272,Sambalpur,Drought & Cyclone,0.0,0.0,0.44,0.0,Very Low
+272,Malappuram,"Flood, Drought & Cyclone",0.0,0.89,0.44,0.0,Very Low
+272,Pudukkottai,"Flood, Drought & Cyclone",0.025,0.0,0.42,0.0,Very Low
+272,Sheikhpura,"Flood, Drought & Cyclone",0.0,0.7,0.31,0.0,Very Low

@@ -455,7 +455,7 @@ Single network (no ensemble) & 0.801 & -0.018 & 0.58 \\
 \end{table}
 
 \subsection{Hyperparameter tuning}
-We tuned the deep stage over 18 settings (hidden units 8, 16, 32; dropout 0.1, 0.3, 0.5; learning rate 0.001, 0.003), training each exactly like B-ACPN on the same 25 folds with the tree stage fixed. The setting was chosen on the CV folds only and then checked on leave-one-state-out. All settings lie between 0.817 and 0.820 ROC-AUC; the best (16 units, dropout 0.3, learning rate 0.001) improves on the default by 0.001 in CV and 0.002 in LOSO, far below the fold-to-fold standard deviation of about 0.035. B-ACPN is therefore not sensitive to these settings, and the reported results keep the default.
+We tuned the deep stage over 18 settings (hidden units 8, 16, 32; dropout 0.1, 0.3, 0.5; learning rate 0.001, 0.003) on the same 25 folds with the tree stage fixed, choosing on CV only and checking on LOSO. All settings lie between 0.817 and 0.820 ROC-AUC; the best (16 units, dropout 0.3, learning rate 0.001) improves on the default by 0.001 in CV and 0.002 in LOSO, far below the fold SD of about 0.035, so B-ACPN is insensitive to these settings and we keep the default.
 
 \subsection{What the climate push explains}
 Fig.~\ref{fig:push} and Table~\ref{tab:push} show the out-of-fold climate push per group. Developed but vulnerable districts (anomaly A) have a positive mean push of +0.09, against -0.10 for developed districts that are not vulnerable (p = $1.6\times10^{-5}$). Less developed but resilient districts (anomaly B) have a negative push of -0.17, against +0.13 for the expected group (p = $4.5\times10^{-7}$). The raw data agree: anomaly A districts have about twice as many tropical nights as expected developed districts (91 vs 45 per year, p = 0.001). Attention gives heavy-rain days the largest mean weight. The Spark climate regimes, found without the model, also differ in push (+0.05 for the larger regime and -0.24 for the smaller one), which supports that the push follows real climate patterns. At the regression level, adding the eight hazards to development raises the explained variance of the index from 0.127 to 0.334.
@@ -485,6 +485,9 @@ Anomaly B: less developed, resilient & 89 & -0.17 & 46\% \\
 \end{tabular}
 \end{table}
 
+\subsection{Comparison with the CEEW ranking}
+As an independent check we matched the 463 districts of the CEEW 2021 hotspot table \cite{ceew2021} to Census codes by name (ambiguous names dropped); 350 of our 469 districts appear in both. The two indices barely agree: Spearman $\rho$ = 0.02 (p = 0.66) between the CEEW index and our NDAP target, 0.04 with B-ACPN's predicted risk, and 0.10 (p = 0.05) with the climate push; high/low classes agree for 51\% of districts ($\kappa$ = 0.02). CEEW's index is driven by hazard exposure, while the NDAP indicators are mainly socio-economic, so which districts count as vulnerable depends on the index; our conclusions hold for the NDAP index only.
+
 \subsection{Interactive dashboard}
 To make the explanations usable outside the code, we built a browser dashboard (Fig.~\ref{fig:dash}) that reads the out-of-fold results directly. A user searches for any of the 469 districts and sees its group, baseline, climate push with its Monte Carlo Dropout uncertainty, the dominant climate factor and the attention weights of all eight hazards, next to the most climate-driven districts and the mean push of each group. The page is a single static HTML file generated from the results, so it runs offline and always shows the same numbers as the tables.
 
@@ -504,7 +507,7 @@ Three lessons stand out. First, on 469 districts a tree ensemble is a hard basel
 The work has clear limits. Development comes from Census 2011 while the index is from 2021. Temperature is on a coarse 1\textdegree{} grid. Only five development variables survive without imputation, and 469 districts in 21 states give fold-to-fold standard deviations of about 0.035 ROC-AUC. Hadoop ran on a single node, so no multi-machine speed-up is claimed. The advantage of B-ACPN over gradient-boosted trees is not statistically significant.
 
 \section{Conclusion and Future Work}
-We combined a Hadoop pipeline over 30 years of daily IMD climate data with a hybrid model, B-ACPN, to explain why development does not always predict climate resilience in Indian districts. B-ACPN matches or exceeds five existing models on every main metric and, unlike them, assigns each district a climate push with uncertainty, which shows that climate explains much of why developed districts remain vulnerable. Future work will extend the climate record to 1991--2024, compare our district explanations with national vulnerability rankings \cite{ceew2021,dst2020}, and move the pipeline to a multi-node cluster.
+We combined a Hadoop pipeline over 30 years of daily IMD climate data with a hybrid model, B-ACPN, to explain why development does not always predict climate resilience in Indian districts. B-ACPN matches or exceeds five existing models on every main metric and, unlike them, assigns each district a climate push with uncertainty, which shows that climate explains much of why developed districts remain vulnerable. Future work will extend the climate record to 1991--2024, model the CEEW index as a second target, and move the pipeline to a multi-node cluster.
 
 \begin{thebibliography}{00}
 \bibitem{ceew2021} A. Mohanty and S. Wadhawan, ``Mapping India's climate vulnerability: A district-level assessment,'' Council on Energy, Environment and Water (CEEW), New Delhi, 2021.

@@ -1,0 +1,42 @@
+{
+  "ceew_districts": 463,
+  "matched_to_census": 457,
+  "match_types": {
+    "exact": 452,
+    "ambiguous": 6,
+    "fuzzy": 5
+  },
+  "in_our_469": 350,
+  "spearman_ceew_vi_vs_ndap_cvi": {
+    "rho": 0.024,
+    "p": 0.656
+  },
+  "spearman_ceew_vi_vs_bacpn_prob": {
+    "rho": 0.039,
+    "p": 0.471
+  },
+  "spearman_ceew_exposure_vs_push": {
+    "rho": 0.001,
+    "p": 0.986
+  },
+  "spearman_ceew_vi_vs_push": {
+    "rho": 0.103,
+    "p": 0.0546
+  },
+  "high_low_agreement": 0.509,
+  "high_low_kappa": 0.016,
+  "anomaly_A_n": 80,
+  "expected_dev_n": 104,
+  "anomaly_A_ceew_high_share": 0.275,
+  "expected_dev_ceew_high_share": 0.25,
+  "anomaly_A_ceew_exposure_median": 0.46,
+  "expected_dev_ceew_exposure_median": 0.41,
+  "anomaly_A_vs_expected_exposure_p": 0.255,
+  "class_counts_in_469": {
+    "Very Low": 96,
+    "Low": 81,
+    "Moderate": 84,
+    "High": 54,
+    "Very High": 35
+  }
+}

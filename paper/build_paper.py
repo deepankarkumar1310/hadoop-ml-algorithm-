@@ -169,6 +169,12 @@ def main():
                  "TUNE_BEST": f"{ts['cv_auc_best']:.3f}", "TUNE_GAIN": f"{ts['cv_auc_best'] - ts['cv_auc_default']:.3f}",
                  "TUNE_LGAIN": f"{ts['loso_auc_best'] - ts['loso_auc_default']:.3f}"}
     N.update(TUNE)
+    cc = json.loads((RES / "ceew_comparison.json").read_text())
+    N.update({"CE_N": cc["ceew_districts"], "CE_BOTH": cc["in_our_469"],
+              "CE_R1": f"{cc['spearman_ceew_vi_vs_ndap_cvi']['rho']:.2f}", "CE_P1": f"{cc['spearman_ceew_vi_vs_ndap_cvi']['p']:.2f}",
+              "CE_R2": f"{cc['spearman_ceew_vi_vs_bacpn_prob']['rho']:.2f}",
+              "CE_R3": f"{cc['spearman_ceew_vi_vs_push']['rho']:.2f}", "CE_P3": f"{cc['spearman_ceew_vi_vs_push']['p']:.2f}",
+              "CE_AGREE": f"{cc['high_low_agreement']:.0%}".replace("%", "\\%"), "CE_K": f"{cc['high_low_kappa']:.2f}"})
     for k in ("P_A", "P_B"):
         N[k] = "$" + N[k] + "}$"
 
