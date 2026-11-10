@@ -12,8 +12,8 @@ byte size is skipped. Every file is checked against its expected size
 Usage
     python3 scripts/download_imd.py --imd-dir /content/drive/MyDrive/climate_project/imd \
         --start 1991 --end 2020
-    # optional larger HDFS volume: rainfall back to 1901 (analysis still uses 1991-2020)
-    python3 scripts/download_imd.py --imd-dir ... --start 1901 --end 2024 --vars rain
+    # optional extension: 1991-2024 (analysis uses 1991-2020)
+    python3 scripts/download_imd.py --imd-dir ... --start 1991 --end 2024
 """
 import argparse
 import calendar

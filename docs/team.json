@@ -30,7 +30,7 @@
       "reg_no": "RA2411031010118",
       "role": "Comparative ML & Visualization",
       "responsibilities": "Compare B-ACPN with Logistic Regression, Random Forest, GBT, Linear SVM (Spark MLlib) and MLP on the same folds; all metrics, confidence intervals, significance; effect of preprocessing on the models (Table 5); result figures; slides",
-      "completion": "In progress (Spark MLlib re-run in Colab; final report)"
+      "completion": "Completed"
     }
   ]
 }

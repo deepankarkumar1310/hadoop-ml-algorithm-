@@ -1033,8 +1033,8 @@ rows = [["Member", "Role", "Key Responsibilities", "Status"]]
 for mbr in team["members"]:
     rows.append([mbr["name"], mbr["role"], mbr["responsibilities"], mbr["completion"]])
 table(s, 0.4, 1.25, 9.2, rows, [1.6, 1.8, 4.4, 1.6], size=11, row_h=0.9)
-textbox(s, 0.4, 6.45, 9.2, 0.55, "Next (Review 3): B-ACPN tuning; "
-        "comparison with CEEW / DST district rankings; final report.", 12, color=INK)
+textbox(s, 0.4, 6.45, 9.2, 0.55, "All four stages are complete. Future work: extend the climate record to "
+        "1991–2024, tune B-ACPN, compare with CEEW / DST district rankings.", 12, color=INK)
 owner(s, "Tanmay Singh")
 
 # ================================================================= 22 REFERENCES
