@@ -1,0 +1,20 @@
+{
+  "settings_tried": 18,
+  "folds": 25,
+  "default": {
+    "hidden": 16,
+    "dropout": 0.3,
+    "lr": 0.003
+  },
+  "best": {
+    "hidden": 16,
+    "dropout": 0.3,
+    "lr": 0.001
+  },
+  "best_is_default": false,
+  "cv_auc_default": 0.8193,
+  "cv_auc_best": 0.8202,
+  "cv_auc_worst": 0.8168,
+  "loso_auc_default": 0.7176,
+  "loso_auc_best": 0.7199
+}

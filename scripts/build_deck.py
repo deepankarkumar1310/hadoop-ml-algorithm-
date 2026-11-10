@@ -290,7 +290,7 @@ s = new_slide("Contents", "The deck runs in three parts, each with its own table
               "followed by the key findings, team plan, references, photo and the Colab link.")
 items = ["Dataset", "Preprocessing: steps, results and error metrics", "Effect of preprocessing on the models",
          "Big Data tools: architecture, HDFS, MapReduce, Hive, Spark", "Proposed Model (B-ACPN)",
-         "Ablation and climate-push results", "Comparison with the existing classifier models",
+         "Ablation, tuning and climate-push results", "Comparison with the existing classifier models",
          "Key findings", "Plan of Action / Member Tasks", "References",
          "Geotagged photo taken during Review 2 presentation", "Google Colab Implementation link"]
 for i, it in enumerate(items):
@@ -882,6 +882,43 @@ table(s, 0.4, 1.3, 9.2, rows, [4.6, 1.5, 1.6, 1.5], size=13, row_h=0.52, highlig
 bullets(s, 0.4, 5.6, 9.2, 1.4, ab_items, size=14, space=3)
 owner(s, "Devanshu Kumar")
 
+# ================================================================= 17b TUNING (Review 3)
+_tg = RES / "tuning_grid.csv"
+if _tg.exists():
+    tg = pd.read_csv(_tg)
+    ts = json.loads((RES / "tuning_summary.json").read_text())
+    rows = [["Rank", "Hidden", "Dropout", "Learning rate", "CV ROC-AUC (SD)", "Accuracy", "F1"]]
+    show = list(range(5)) + [len(tg) - 1]
+    for i in show:
+        r = tg.iloc[i]
+        rows.append([f"{i + 1}" + (" (current)" if r.default else ""), str(int(r.hidden)), f"{r.dropout:.1f}",
+                     f"{r.lr:g}", f"{r.roc_auc:.3f} ({r.roc_auc_sd:.3f})", f"{r.accuracy:.3f}", f"{r.f1:.3f}"])
+    hl = tuple(k + 1 for k, i in enumerate(show) if tg.iloc[i].default)
+    spread = ts["cv_auc_best"] - ts["cv_auc_worst"]
+    tune_items = [("Search: ", f"{ts['settings_tried']} settings (hidden 8/16/32 × dropout 0.1/0.3/0.5 × learning rate "
+                               f"0.001/0.003), each on the same {ts['folds']} folds; tree stage fixed (500 trees)."),
+                  ("Result: ", f"all settings lie within {spread:.3f} ROC-AUC ({ts['cv_auc_worst']:.3f}–{ts['cv_auc_best']:.3f}); "
+                               f"best vs current +{ts['cv_auc_best'] - ts['cv_auc_default']:.3f} CV, "
+                               f"+{ts['loso_auc_best'] - ts['loso_auc_default']:.3f} LOSO ({ts['loso_auc_default']:.3f} → "
+                               f"{ts['loso_auc_best']:.3f})."),
+                  ("Decision: ", "the gain is far smaller than the fold-to-fold SD (≈0.035), so B-ACPN is not sensitive "
+                                 "to these settings and the reported results keep the current setting.")]
+else:
+    rows = [["Rank", "Hidden", "Dropout", "Learning rate", "CV ROC-AUC (SD)", "Accuracy", "F1"],
+            [PENDING] * 7]
+    hl, tune_items = (), [("Result: ", PENDING)]
+s = new_slide("B-ACPN Hyperparameter Tuning", "Review 3 task: tune the deep stage of B-ACPN. Every setting is trained "
+              "exactly like B-ACPN (5 networks, same seeds, early stopping) on the same 25 folds. The setting is chosen "
+              "on the CV folds only and then checked on leave-one-state-out, which plays no part in the choice. "
+              "Script: scripts/tune_bacpn.py; all 18 rows in results/tuning_grid.csv.")
+table(s, 0.4, 1.3, 9.2, rows, [1.5, 0.9, 1.0, 1.4, 1.9, 1.25, 1.25], size=12, row_h=0.42, highlight=hl)
+bullets(s, 0.4, 4.45, 9.2, 2.0, tune_items, size=13, space=4)
+if _tg.exists():
+    textbox(s, 0.4, 6.35, 9.2, 0.5, f"Note: the tuning run re-trains every setting one thread per fold, so the current setting "
+            f"scores {ts['cv_auc_default']:.4f} here vs {cmp5.set_index('model').loc['B-ACPN (proposed)', 'roc_auc']:.4f} in the main results "
+            f"(difference from CPU thread order only).", 10, color=GREY)
+owner(s, "Devanshu Kumar")
+
 # ================================================================= 18 CLIMATE PUSH ANALYSIS
 pq = (push or {}).get("by_quadrant", {})
 rows = [["Group", "Districts", "Mean climate push", "Push > 0", "Top climate factor"]]
@@ -1033,8 +1070,8 @@ rows = [["Member", "Role", "Key Responsibilities", "Status"]]
 for mbr in team["members"]:
     rows.append([mbr["name"], mbr["role"], mbr["responsibilities"], mbr["completion"]])
 table(s, 0.4, 1.25, 9.2, rows, [1.6, 1.8, 4.4, 1.6], size=11, row_h=0.9)
-textbox(s, 0.4, 6.45, 9.2, 0.55, "All four stages are complete. Future work: extend the climate record to "
-        "1991–2024, tune B-ACPN, compare with CEEW / DST district rankings.", 12, color=INK)
+textbox(s, 0.4, 6.45, 9.2, 0.55, "All four stages are complete, including B-ACPN tuning (Review 3). Future work: extend the "
+        "climate record to 1991–2024; compare with CEEW / DST district rankings.", 12, color=INK)
 owner(s, "Tanmay Singh")
 
 # ================================================================= 22 REFERENCES
@@ -1124,7 +1161,7 @@ ORDER = ["Beyond Development", "Contents", "Problem Statement", "Overall System 
          "Big Data Processing", "MapReduce & Spark Results",
          # 3. ML models: proposed model (tables, then their figures), then the comparison
          "Proposed Model", "Classification: B-ACPN Model Card", "B-ACPN Training & Attention",
-         "Ablation Study", "Ablation (Figure)",
+         "Ablation Study", "Ablation (Figure)", "B-ACPN Hyperparameter Tuning",
          "Climate-Push Analysis", "Climate-Push Visualisation",
          "Comparison with Existing", "Results of Classification (Figures)",
          "Detailed Classifier Metrics", "Confusion Matrix, CIs", "Confusion Matrices & Stability",

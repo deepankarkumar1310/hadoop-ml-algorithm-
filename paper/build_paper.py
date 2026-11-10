@@ -164,6 +164,11 @@ def main():
          "REG1": f"{push['by_regime']['1']['push']:+.2f}", "REG0": f"{push['by_regime']['0']['push']:+.2f}",
          "T1": f"{tm[1]:.0f}", "T10": f"{tm[10]:.0f}", "T30": f"{tm[30]:.0f}",
          "DEPT": DEPT, **{f"EMAIL_{k}": v for k, v in EMAILS.items()}}
+    ts = json.loads((RES / "tuning_summary.json").read_text())
+    TUNE = {"TUNE_N": ts["settings_tried"], "TUNE_WORST": f"{ts['cv_auc_worst']:.3f}",
+                 "TUNE_BEST": f"{ts['cv_auc_best']:.3f}", "TUNE_GAIN": f"{ts['cv_auc_best'] - ts['cv_auc_default']:.3f}",
+                 "TUNE_LGAIN": f"{ts['loso_auc_best'] - ts['loso_auc_default']:.3f}"}
+    N.update(TUNE)
     for k in ("P_A", "P_B"):
         N[k] = "$" + N[k] + "}$"
 
