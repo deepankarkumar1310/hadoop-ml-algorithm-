@@ -7,7 +7,7 @@ Tanmay Singh (RA2411031010118).
 **Research question.** Why do some economically developed Indian districts remain highly climate-vulnerable, while
 some less-developed districts are resilient?
 
-**Run it:** [Open the Colab notebook](https://colab.research.google.com/github/deepankarkumar1310/hadoop-ml-algorithm-/blob/main/notebooks/Review2_Colab.ipynb) · slides: `docs/Review2_Deck.pptx`
+**Run it:** [Open the Colab notebook](https://colab.research.google.com/github/deepankarkumar1310/hadoop-ml-algorithm-/blob/main/notebooks/Review2_Colab.ipynb) · slides: `docs/Review3_Deck.pptx`
 
 ## 1. Dataset
 | Dataset | Source | Year | Format | Role |

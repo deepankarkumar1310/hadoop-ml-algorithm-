@@ -25,8 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.common import run_label  # noqa: E402
 RES = ROOT / "results"
-TEMPLATE = ROOT / "docs" / "templates" / "Review_2_PPT.pptx"
-OUT = ROOT / "docs" / "Review2_Deck.pptx"
+TEMPLATE = ROOT / "docs" / "templates" / "Review_3_PPT.pptx"
+OUT = ROOT / "docs" / "Review3_Deck.pptx"
 
 NAVY = RGBColor(0x1B, 0x3A, 0x6B)
 TEAL = RGBColor(0x0E, 0x6E, 0x6E)
@@ -285,25 +285,26 @@ s1.notes_slide.notes_text_frame.text = (
     "climate data and a novel hybrid deep-learning model, B-ACPN, to explain each district.")
 
 # ================================================================= 2 CONTENTS
-s = new_slide("Contents", "The deck runs in three parts, each with its own tables and figures: preprocessing "
-              "first, then the Big Data tools, then the proposed model and the comparison with existing models, "
-              "followed by the key findings, team plan, references, photo and the Colab link.")
-items = ["Dataset", "Preprocessing: steps, results and error metrics", "Effect of preprocessing on the models",
-         "Big Data tools: architecture, HDFS, MapReduce, Hive, Spark", "Proposed Model (B-ACPN)",
-         "Ablation, tuning and climate-push results", "Comparison with existing models and CEEW rankings",
-         "Key findings", "Plan of Action / Member Tasks", "References",
+s = new_slide("Contents", "The deck follows the 17 sections of the Review 3 template: abstract, introduction, "
+              "literature review and gaps, the proposed model and architecture, data and preprocessing with the Big "
+              "Data steps, the classification results and comparison, the dashboard, and the closing items.")
+items = ["Abstract", "Introduction", "Literature Review Table", "Gaps Identified", "Proposed Model",
+         "Overall System Architecture Diagram", "Dataset", "Preprocessing and Big Data Analysis steps",
+         "Results of Preprocessing", "Classification: proposed model B-ACPN",
+         "Results of Classification using B-ACPN", "Comparison with the existing classifier models",
+         "Visualization (Dashboard) with snapshots", "Team Member Tasks", "References",
          "Geotagged photo taken during Review 3 presentation", "Google Colab Implementation link"]
 for i, it in enumerate(items):
-    col, row = divmod(i, 6)
-    x, y = 0.5 + col * 4.6, 1.55 + row * 0.88
-    c = s.shapes.add_shape(MSO_SHAPE.OVAL, Inches(x), Inches(y), Inches(0.5), Inches(0.5))
-    c.fill.solid(); c.fill.fore_color.rgb = NAVY if i < 8 else TEAL; c.line.fill.background()
+    col, row = divmod(i, 9)
+    x, y = 0.45 + col * 4.65, 1.3 + row * 0.62
+    c = s.shapes.add_shape(MSO_SHAPE.OVAL, Inches(x), Inches(y), Inches(0.42), Inches(0.42))
+    c.fill.solid(); c.fill.fore_color.rgb = NAVY if i < 13 else TEAL; c.line.fill.background()
     c.shadow.inherit = False
     ctf = c.text_frame
     ctf.word_wrap, ctf.vertical_anchor = False, MSO_ANCHOR.MIDDLE
     ctf.margin_left = ctf.margin_right = ctf.margin_top = ctf.margin_bottom = 0
-    write(ctf, str(i + 1), 14, True, WHITE, PP_ALIGN.CENTER)
-    textbox(s, x + 0.6, y - 0.05, 3.85, 0.65, it, 16, anchor=MSO_ANCHOR.MIDDLE)
+    write(ctf, str(i + 1), 13, True, WHITE, PP_ALIGN.CENTER)
+    textbox(s, x + 0.52, y - 0.08, 3.95, 0.58, it, 14, anchor=MSO_ANCHOR.MIDDLE)
 owner(s, "Sehjodh Grewal")
 
 # ================================================================= 3 PROBLEM
@@ -334,6 +335,95 @@ for r_, c_, n, lab, fill, ln in cells:
 textbox(s, 5.3, 5.95, 4.3, 0.8, f"{ar['anomalies']} districts ({ar['anomaly_share'] * 100:.1f}%) break the "
         "expected pattern", 14, True, ORANGE, PP_ALIGN.CENTER)
 owner(s, "Sehjodh Grewal")
+
+# ================================================================= ABSTRACT (Review 3)
+_b = cmp5.set_index("model").loc["B-ACPN (proposed)"]
+_hd_gb = sum(hdfs.values()) / 1e9
+_sg = sig.set_index("model")
+s = new_slide("Abstract", "Our project in one slide: the question, the data and Big Data pipeline, the proposed model "
+              "and what it found. Every number here is repeated and explained later in the deck.")
+for i, (num, lab) in enumerate([(f"{ar['n_districts']}", f"districts in {ar['n_states']} states"),
+                                (f"{pm['district_day']['rows'] / 1e6:.1f} M", "district-day climate rows (1991–2020)"),
+                                (f"{_hd_gb:.2f} GB", "stored in HDFS"),
+                                (f"{_b.roc_auc:.3f}", "B-ACPN ROC-AUC, best of 6 models")]):
+    box(s, 0.4 + i * 2.33, 1.3, 2.2, 1.25, num, LIGHT if i < 3 else HILITE, NAVY if i < 3 else ORANGE, 26, True,
+        NAVY if i < 3 else ORANGE, sub=lab, sub_size=11)
+bullets(s, 0.4, 2.8, 9.2, 4.1, [
+    ("Problem: ", f"development explains only {ar['regression']['m1_dev_only']['r2'] * 100:.0f}% of district climate "
+                  f"vulnerability; {ar['anomalies']} of {ar['n_districts']} districts are developed yet vulnerable or "
+                  "less developed yet resilient."),
+    ("Data and Big Data: ", "NDAP 2021 vulnerability index, Census 2011 development, 30 years of daily IMD rain and "
+                            "temperature grids; HDFS stores them, MapReduce on YARN builds yearly indices, Hive the "
+                            "30-year baseline and join, Spark the climate regimes."),
+    ("Proposed model: ", "B-ACPN, a random-forest score boosted by an attention network that adds a development-gated "
+                         "climate push, averaged over 5 networks, with MC Dropout and conformal uncertainty."),
+    ("Result: ", f"ROC-AUC {_b.roc_auc:.3f}, accuracy {_b.accuracy:.3f}, F1 {_b.f1:.3f} on 25 folds; significantly "
+                 f"better than RF, MLP, SVM and LR, comparable to GBT (p = {_sg.loc['Gradient-Boosted Trees', 'p_value']:.2f}). "
+                 "The climate push separates the anomalous districts from the expected ones (p < 0.001).")], size=15, space=8)
+owner(s, "Sehjodh Grewal")
+
+# ================================================================= INTRODUCTION (Review 3)
+s = new_slide("Introduction", "India is highly exposed to heavy rain, drought and heat, and adaptation is planned at "
+              "district level. National indices rank districts, and the usual assumption is that development "
+              "protects. Our data show this holds only partly, which motivates the project.")
+bullets(s, 0.4, 1.3, 5.3, 5.5, [
+    ("Context: ", "India faces heavy rainfall, droughts and heat; districts are where adaptation is planned."),
+    ("Assumption: ", "more developed districts (higher literacy, less farming) should be less vulnerable."),
+    ("Reality: ", "the data agree only partly, so development alone cannot explain vulnerability."),
+    ("Challenge: ", "explaining this needs 30 years of daily climate grids for all of India, too large for plain "
+                    "files, so we built a Hadoop pipeline."),
+    ("Aim: ", "a model that is accurate and also splits each district's risk into a development part and a "
+              "climate part.")], size=14, space=6)
+for i, (num, lab, f, l) in enumerate([
+        (f"R² = {ar['regression']['m1_dev_only']['r2']:.3f}", "share of vulnerability explained by development alone", LIGHT, NAVY),
+        (f"{ar['anomalies']} ({ar['anomaly_share'] * 100:.1f}%)", "districts that break the expected pattern", TINT_O, ORANGE),
+        (f"R² = {ar['regression']['m2_dev_climate']['r2']:.3f}", "after adding 8 climate indices", TINT_T, TEAL)]):
+    box(s, 6.0, 1.35 + i * 1.8, 3.6, 1.55, num, f, l, 24, True, l, sub=lab, sub_size=12)
+owner(s, "Sehjodh Grewal")
+
+# ================================================================= LITERATURE REVIEW (Review 3)
+s = new_slide("Literature Review Table", "Each row is a work our project builds on, what it offers, and what it "
+              "leaves open for our question. The gaps on the next slide come from the last column.", size=26)
+lit = [["Work", "Method / data", "What it gives", "Gap for our question"],
+       ["Mohanty & Wadhawan, CEEW (2021)", "District index: exposure, sensitivity, adaptive capacity",
+        "Ranks hotspot districts", "Ranks, but does not explain why similar districts differ"],
+       ["DST, Govt. of India (2020)", "Common framework of district indicators", "Comparable state/district scores",
+        "Composite index; no climate vs development split"],
+       ["IPCC AR6 WGII (2022)", "Vulnerability = exposure + adaptive capacity", "Conceptual basis",
+        "No district-level model"],
+       ["Pai et al. (2014); Srivastava et al. (2009)", "IMD daily gridded rain 0.25°, temperature 1°",
+        "National daily climate data", "Grids must be turned into district values at scale"],
+       ["Shvachko (2010); Dean & Ghemawat (2008); Thusoo (2009)", "HDFS, MapReduce, Hive",
+        "Distributed storage, batch aggregation, SQL", "Not applied here to district climate indices"],
+       ["Zaharia (2016); Meng (2016)", "Spark and MLlib", "In-memory clustering and classifiers",
+        "Standard models give no explanation"],
+       ["Breiman (2001); Friedman (2001); Grinsztajn (2022)", "Random forest, boosting; trees vs deep nets",
+        "Strong accuracy on small tables", "Black box: no per-district climate effect"],
+       ["Arik & Pfister (2021); Gal (2016); Angelopoulos (2021)", "TabNet attention; MC Dropout; conformal",
+        "Feature weights and uncertainty", "Generic; not built around development vs climate"]]
+table(s, 0.4, 1.3, 9.2, lit, [2.45, 2.35, 2.05, 2.35], size=11, row_h=0.64)
+owner(s, "Devanshu Kumar")
+
+# ================================================================= GAPS IDENTIFIED (Review 3)
+s = new_slide("Gaps Identified", "Four gaps follow from the literature table; each has a direct answer in our work, "
+              "and each answer is measured later in the deck.")
+textbox(s, 0.4, 1.25, 4.3, 0.4, "Gap in existing work", 16, True, ORANGE)
+textbox(s, 5.3, 1.25, 4.3, 0.4, "How this project closes it", 16, True, TEAL)
+_cov = "" if card is None else f" ({card['conformal_coverage_mean']:.1%} coverage)"
+gaps = [("Indices rank districts but do not explain why development and vulnerability disagree",
+         f"B-ACPN gives every district a climate push; it separates the {ar['anomalies']} anomalies (p < 0.001)"),
+        ("Long daily climate records are rarely brought to district level at scale",
+         f"Hadoop pipeline: {pm['district_day']['rows']:,} district-days → 19,200 district-years → 30-year baseline"),
+        ("Accurate tree models are black boxes; interpretable networks are weaker on small tables",
+         "Hybrid: random-forest score plus a gated attention network (accuracy and explanation)"),
+        ("Predictions come without uncertainty",
+         f"MC Dropout spread per district and conformal prediction sets{_cov}")]
+for i, (gap_t, ans_t) in enumerate(gaps):
+    y = 1.75 + i * 1.28
+    box(s, 0.4, y, 4.3, 1.08, gap_t, TINT_O, ORANGE, 13, False)
+    arrow(s, 4.75, y + 0.54, 5.25, y + 0.54)
+    box(s, 5.3, y, 4.3, 1.08, ans_t, TINT_T, TEAL, 13, False)
+owner(s, "Devanshu Kumar")
 
 # ================================================================= 4 DATASET
 s = new_slide("Dataset", "We combine five public sources. NDAP gives the outcome and two development "
@@ -999,6 +1089,17 @@ fig_slide("Ablation (Figure)",
           "Each bar is B-ACPN with one component removed, on the same 25 folds. A drop larger than one standard "
           "deviation means the part helps accuracy; parts within one SD are kept for the explanation they give.",
           "ablation.png", None, "Ablation: one B-ACPN component removed at a time", None, "Devanshu Kumar")
+# ================================================================= DASHBOARD (Review 3)
+s = new_slide("Visualization: Dashboard", "The Climate Push Explorer is an offline web page built from our results "
+              "(dashboard/build_dashboard.py → dashboard/index.html). It needs no server or internet: open the file "
+              "in a browser, search a district, and it shows that district's explanation.")
+fig_or_panel(s, 0.4, 1.3, 9.2, 4.55, FIG / "dashboard.png", "Dashboard snapshot", PENDING)
+bullets(s, 0.4, 5.9, 9.2, 1.1, [
+    ("Panels: ", f"KPIs ({ar['n_districts']} districts, ROC-AUC, accuracy, F1, HDFS size) · district search with group, "
+                 "baseline, climate push, MC Dropout uncertainty and top factor · attention bars per climate variable · "
+                 "8 most climate-driven districts · mean push by group.")], size=12, space=2)
+owner(s, "Tanmay Singh")
+
 # ================================================================= CEEW COMPARISON (Review 3)
 _cc = RES / "ceew_comparison.json"
 if _cc.exists():
@@ -1096,7 +1197,7 @@ owner(s, "Tanmay Singh")
 
 # ================================================================= 21 PLAN OF ACTION
 team = json.loads((ROOT / "docs" / "team.json").read_text())
-s = new_slide("Plan of Action / Member Tasks",
+s = new_slide("Team Member Tasks",
               "Each member owns one stage with no overlap: Sehjodh the dataset and preprocessing, Deepankar the Big "
               "Data pipeline, Devanshu the novel deep-learning model, and Tanmay the comparison with existing models "
               "and the visualisation. Each member presents only the slides of their own stage.")
@@ -1182,26 +1283,32 @@ cp.subject, cp.keywords, cp.comments = "Big Data Review 3", "", ""
 OUT.parent.mkdir(parents=True, exist_ok=True)
 # Final order: intro → preprocessing → Big Data tools → ML models → closing; inside each part a figure follows its table.
 # Slides are built in the original order above and moved here by title.
-ORDER = ["Beyond Development", "Contents", "Problem Statement", "Overall System Architecture", "Dataset",
-         # 1. preprocessing: each table followed by the figure that shows it
-         "Preprocessing: Big Data Analysis Steps",
+ORDER = ["Beyond Development", "Contents",
+         # 1-4 abstract, introduction, literature, gaps
+         "Abstract", "Introduction", "Problem Statement", "Literature Review Table", "Gaps Identified",
+         # 5-7 proposed model, architecture, dataset
+         "Proposed Model", "Overall System Architecture", "Dataset",
+         # 8 preprocessing and the Big Data analysis steps
+         "Preprocessing: Big Data Analysis Steps", "Big Data Platform", "HDFS Storage (Figure)",
+         "Big Data Processing", "MapReduce & Spark Results",
+         # 9 results of preprocessing
          "Results of Preprocessing", "Preprocessing Results (Figures)",
          "Preprocessing Error Metrics", "Preprocessing: Before vs After (Figures)",
          "Preprocessing Performance Metrics",
          "Effect of Preprocessing on the Models", "Classification Metrics: Before vs After",
          "Effect of Preprocessing (Figure)",
-         # 2. Big Data tools
-         "Big Data Platform", "HDFS Storage (Figure)",
-         "Big Data Processing", "MapReduce & Spark Results",
-         # 3. ML models: proposed model (tables, then their figures), then the comparison
-         "Proposed Model", "Classification: B-ACPN Model Card", "B-ACPN Training & Attention",
-         "Ablation Study", "Ablation (Figure)", "B-ACPN Hyperparameter Tuning",
-         "Climate-Push Analysis", "Climate-Push Visualisation",
+         # 10 classification: the proposed model
+         "Classification: B-ACPN Model Card", "B-ACPN Training & Attention", "B-ACPN Hyperparameter Tuning",
+         # 11 results of classification using the proposed model
+         "Ablation Study", "Ablation (Figure)", "Climate-Push Analysis", "Climate-Push Visualisation",
+         # 12 comparison with existing models
          "Comparison with Existing", "Results of Classification (Figures)",
          "Detailed Classifier Metrics", "Confusion Matrix, CIs", "Confusion Matrices & Stability",
          "Classification Performance Metrics", "Comparison with CEEW", "CEEW Comparison (Figure)",
-         # closing
-         "Key Findings", "Plan of Action", "References", "Geotagged Photo", "Google Colab Implementation"]
+         "Key Findings",
+         # 13 dashboard, 14-17 closing
+         "Visualization: Dashboard", "Team Member Tasks", "References", "Geotagged Photo", "Google Colab Implementation"]
+
 
 
 def _title(sl):
