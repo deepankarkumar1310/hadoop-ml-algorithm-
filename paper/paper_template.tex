@@ -114,8 +114,8 @@ Table~\ref{tab:data} lists the sources. The outcome is the 2021 district climate
 \subsection{Preprocessing}
 Census counts were converted to rates and checked against national totals: the population matches the official figure exactly and national literacy differs by @@LIT_ERR@@ percentage points. NDAP and Census districts were matched inside state clusters (Andhra Pradesh with Telangana, Jammu and Kashmir with Ladakh) by exact name, an alias table and fuzzy matching; @@MATCHED@@ of @@NDAP_N@@ NDAP districts were matched with no duplicate codes, and two wrong fuzzy matches were found by hand and blocked. NDAP is sparse (@@NDAP_MISS@@\% of all cells empty), so we kept only the five development variables that are well covered and dropped districts with missing values instead of imputing them, leaving @@N_DIST@@ complete districts.
 
-Grid values were turned into district values with area weights. The weight of grid cell $c$ for district $d$ is
-\begin{equation}
+Grid values were turned into district values with area weights. The weight of grid cell $c$ for district $d$ is given in equation~(\ref{eq:w}):
+\begin{equation}\label{eq:w}
 w_{c,d} = \frac{A(c \cap d)\cos\varphi_c}{\sum_{c'} A(c' \cap d)\cos\varphi_{c'}},
 \end{equation}
 \noindent where $w_{c,d}$ is the area weight of grid cell $c$ for district $d$, $A(c \cap d)$ is the share of cell $c$ lying inside district $d$ (computed in an equal-area projection), $\varphi_c$ is the latitude of the centre of cell $c$ (cells shrink towards the north), and the sum runs over every grid cell $c'$ that overlaps district $d$, so the weights add up to one.
@@ -159,27 +159,27 @@ HDFS holds three zones: \emph{raw} for the untouched sources, \emph{staging} for
 \subsection{Overview}
 Let $\mathbf{x}_i = (\mathbf{d}_i, \mathbf{h}_i)$ be the five development and eight hazard variables of district $i$ and $y_i \in \{0,1\}$ its vulnerability class. B-ACPN (Fig.~\ref{fig:model}) has three parts.
 
-\emph{Tree stage.} A random forest \cite{breiman2001} with 500 trees and a minimum leaf size of two is trained on all 13 features. For training districts its probability is computed out-of-fold over five inner folds, so the next stage never sees a score that the forest produced on its own training rows. The tree score of district $i$ is the log-odds of its random-forest probability,
-\begin{equation}
+\emph{Tree stage.} A random forest \cite{breiman2001} with 500 trees and a minimum leaf size of two is trained on all 13 features. For training districts its probability is computed out-of-fold over five inner folds, so the next stage never sees a score that the forest produced on its own training rows. The tree score of district $i$, the log-odds of its random-forest probability, is given in equation~(\ref{eq:s}):
+\begin{equation}\label{eq:s}
 s_i = \log\frac{\hat p^{\,\text{RF}}_i}{1-\hat p^{\,\text{RF}}_i},
 \end{equation}
 \noindent where $s_i$ is the tree score of district $i$ and $\hat p^{\,\text{RF}}_i$ is the random-forest probability that district $i$ is highly vulnerable, computed out-of-fold for training districts.
 
 
 
-\emph{Deep stage.} A small network starts from $s_i$ and adds a development term and a climate push. The baseline $b_i$, the attention weights $\mathbf{a}_i$ and the climate push $c_i$ of district $i$ are
+\emph{Deep stage.} A small network starts from $s_i$ and adds a development term and a climate push. The baseline $b_i$, the attention weights $\mathbf{a}_i$ and the climate push $c_i$ of district $i$ are given in equations~(\ref{eq:b})--(\ref{eq:c}):
 \begin{align}
-b_i &= s_i + \mathbf{w}^{\top}\mathbf{d}_i + \beta, \\
+b_i &= s_i + \mathbf{w}^{\top}\mathbf{d}_i + \beta, \label{eq:b}\\
 \mathbf{a}_i &= \operatorname{softmax}\!\big(W_2 \tanh(W_1 \mathbf{h}_i)\big),\quad \tilde{\mathbf{h}}_i = 8\,\mathbf{a}_i \odot \mathbf{h}_i, \\
-c_i &= f_\theta(\tilde{\mathbf{h}}_i)\cdot 2\,\sigma\!\big(g_\phi(\mathbf{d}_i)\big).
+c_i &= f_\theta(\tilde{\mathbf{h}}_i)\cdot 2\,\sigma\!\big(g_\phi(\mathbf{d}_i)\big). \label{eq:c}
 \end{align}
 \noindent where $\mathbf{d}_i$ and $\mathbf{h}_i$ are the five standardised development features and the eight standardised climate-hazard features of district $i$, $\mathbf{w}$ and $\beta$ are the learned weights and bias of the development term, $W_1$ and $W_2$ are the learned weight matrices of the attention network, the attention weights $\mathbf{a}_i$ sum to one, $\tilde{\mathbf{h}}_i$ are the attention-weighted hazards (the factor 8 keeps the mean weight at one), $\odot$ is the element-wise product, $f_\theta$ is the climate network (an MLP with a residual block) with parameters $\theta$, $g_\phi$ is the development-gate network with parameters $\phi$, and $\sigma(x) = 1/(1+e^{-x})$ is the sigmoid function; $c_i > 0$ means that climate adds risk and $c_i < 0$ that it protects.
 
 
 Here $\mathbf{a}_i$ are attention weights over the hazards, $f_\theta$ is a linear layer (8$\rightarrow$16) with ReLU and dropout 0.3, a residual block \cite{he2016} (linear, batch normalisation, ReLU, dropout, skip connection) and a bias-free output layer, and the development gate $2\sigma(g_\phi)$, with $g_\phi$ a 5$\rightarrow$4$\rightarrow$1 tanh network, scales the push between 0 and 2. A positive push means that climate adds risk beyond what the trees and development explain.
 
-\emph{Ensemble.} Five deep stages with different seeds are averaged, so the final probability that district $i$ is highly vulnerable is
-\begin{equation}
+\emph{Ensemble.} Five deep stages with different seeds are averaged, so the final probability that district $i$ is highly vulnerable is given in equation~(\ref{eq:p}):
+\begin{equation}\label{eq:p}
 \hat p_i = \frac{1}{M}\sum_{m=1}^{M}\sigma\big(b^{(m)}_i + c^{(m)}_i\big),\qquad M = 5.
 \end{equation}
 \noindent where $\hat p_i$ is that final probability, $M$ is the number of deep stages in the ensemble, and $b^{(m)}_i$ and $c^{(m)}_i$ are the baseline and the climate push of district $i$ from deep stage $m$.
@@ -210,8 +210,8 @@ Here $\mathbf{a}_i$ are attention weights over the hazards, $f_\theta$ is a line
 \end{figure}
 
 \subsection{Training}
-Each network minimises the class-weighted binary cross-entropy. The training loss over the training districts is
-\begin{equation}
+Each network minimises the class-weighted binary cross-entropy. The training loss over the training districts is given in equation~(\ref{eq:loss}):
+\begin{equation}\label{eq:loss}
 \mathcal{L} = -\frac{1}{n}\sum_{i} \omega_{y_i}\big[y_i\log \hat p_i + (1-y_i)\log(1-\hat p_i)\big],
 \end{equation}
 \noindent where $\mathcal{L}$ is the training loss, $n$ is the number of training districts, $y_i$ is the true class of district $i$ (1 = High, 0 = Low vulnerability), $\omega_{y_i}$ is the class weight, 0.5 divided by the share of class $y_i$ in the training set, and $\hat p_i$ is the predicted probability of high vulnerability for district $i$.
@@ -243,8 +243,8 @@ For each district we run the deep stages 50 times with dropout active and report
 
 \section{Experiments and Results}
 \subsection{Protocol}
-All six models use the same splits: repeated stratified five-fold cross-validation with five repeats (25 train/test splits, seed 42) and leave-one-state-out (LOSO) over the 21 states. The five existing models are logistic regression, a random forest (200 trees), gradient-boosted trees (100 iterations, depth 3) and a linear SVM, all trained with Spark MLlib, and a standard multilayer perceptron (13--64--32--16--1) trained with the same loop as B-ACPN. We report means over the 25 folds. Because repeated folds share training data, we compare models with the corrected resampled $t$-test of Nadeau and Bengio \cite{nadeau2003}, which inflates the variance of the paired differences. The corrected variance of the paired differences is
-\begin{equation}
+All six models use the same splits: repeated stratified five-fold cross-validation with five repeats (25 train/test splits, seed 42) and leave-one-state-out (LOSO) over the 21 states. The five existing models are logistic regression, a random forest (200 trees), gradient-boosted trees (100 iterations, depth 3) and a linear SVM, all trained with Spark MLlib, and a standard multilayer perceptron (13--64--32--16--1) trained with the same loop as B-ACPN. We report means over the 25 folds. Because repeated folds share training data, we compare models with the corrected resampled $t$-test of Nadeau and Bengio \cite{nadeau2003}, which inflates the variance of the paired differences. The corrected variance of the paired differences is given in equation~(\ref{eq:var}):
+\begin{equation}\label{eq:var}
 \hat\sigma^2_{c} = \Big(\frac{1}{J} + \frac{n_{\text{test}}}{n_{\text{train}}}\Big)\hat\sigma^2,\qquad J = 25,
 \end{equation}
 \noindent where $\hat\sigma^2$ is the sample variance of the 25 paired per-fold ROC-AUC differences, $\hat\sigma^2_{c}$ is the corrected variance used for the $t$-statistic, $J$ is the number of train/test splits (folds), and $n_{\text{test}}/n_{\text{train}}$ is the ratio of test to training districts ($1/4$ for five-fold CV).
