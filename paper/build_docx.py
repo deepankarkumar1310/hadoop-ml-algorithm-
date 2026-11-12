@@ -75,8 +75,9 @@ def convert(tex, work):
     for code, png in tikz_pngs(body, work):
         body = body.replace(code, f"\\includegraphics{{{png}}}")
     body = body.replace("\\graphicspath{{../figures/}}", "")
-    body = re.sub(r"\\includegraphics(\[[^\]]*\])?\{([^}/]+\.png)\}", lambda m: f"\\includegraphics{{{FIG / m.group(2)}}}",
-                  body)
+    body = re.sub(r"\\includegraphics(\[[^\]]*\])?\{([^}]+\.png)\}",
+                  lambda m: "\\includegraphics{" + str(PAPER / m.group(2) if (PAPER / m.group(2)).exists()
+                                                       else FIG / m.group(2)) + "}", body)
     for head in ("\\resizebox{\\columnwidth}{!}{", "\\resizebox{\\linewidth}{!}{", "\\resizebox{\\textwidth}{!}{"):
         body = strip_wrapper(body, head)
     body = re.sub(r"\\begin\{minipage\}(\[[^\]]*\])?\{[^}]*\}", "", body).replace("\\end{minipage}", "")
