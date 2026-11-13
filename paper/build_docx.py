@@ -1,4 +1,4 @@
-"""Build paper/Final_IEEE_Paper.docx, an editable Word copy of paper/paper.tex.
+"""Build paper/IEEE_Paper.docx, an editable Word copy of paper/paper.tex.
 
 Run after paper/build_paper.py (it needs paper.tex and paper.aux). Steps:
   1. the two TikZ diagrams are compiled on their own and saved as PNG;
@@ -23,7 +23,7 @@ from docx.shared import Inches, Pt
 
 PAPER = Path(__file__).resolve().parent
 FIG = PAPER.parent / "figures"
-OUT = PAPER / "Final_IEEE_Paper.docx"
+OUT = PAPER / "IEEE_Paper.docx"
 AUTHORS = [("Sehjodh Grewal", "sg2827@srmist.edu.in"), ("Devanshu Kumar", "dk5504@srmist.edu.in"),
            ("Deepankar", "dz9629@srmist.edu.in"), ("Tanmay Singh", "ts4494@srmist.edu.in"),
            ("Dr. Banu Priya Prathaban", "banuprip2@srmist.edu.in")]
