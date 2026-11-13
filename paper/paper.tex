@@ -171,19 +171,20 @@ Fig.~\ref{fig:pipe} shows the pipeline. It runs on a single-node, pseudo-distrib
 \begin{figure}[t]
 \centering
 \resizebox{\columnwidth}{!}{%
-\begin{tikzpicture}[node distance=5mm and 4mm,
-  box/.style={draw, rounded corners=2pt, align=center, font=\small, minimum height=11mm, text width=24mm, fill=#1},
+\begin{tikzpicture}[node distance=4mm and 4mm,
+  box/.style={draw, rounded corners=2pt, align=center, font=\small, minimum height=8.5mm, text width=19mm, fill=#1},
   box/.default=white, arr/.style={-{Stealth[length=2mm]}, thick}]
-\node[box=gray!10] (src) {Sources: NDAP,\\Census, IMD,\\DataMeet};
+\node[box=gray!10] (src) {Sources\\NDAP, Census,\\IMD, DataMeet};
 \node[box=teal!12, right=of src] (raw) {HDFS raw\\zone};
 \node[box=gray!10, right=of raw] (grid) {Grid $\rightarrow$ district\\(area weights)};
-\node[box=teal!12, below=of grid] (stg) {HDFS staging\\7.0 M rows};
-\node[box=orange!15, left=of stg] (mr) {MapReduce on\\YARN\\19,200 rows};
-\node[box=orange!15, left=of mr] (hive) {Hive: baseline\\+ join\\469 districts};
-\node[box=orange!15, below=of hive] (spark) {Spark: k-means,\\MLlib};
-\node[box=yellow!25, right=of spark] (model) {B-ACPN +\\5 baselines};
+\node[box=teal!12, right=of grid] (stg) {HDFS staging\\7.0 M rows};
+\node[box=orange!15, below=of stg] (mr) {MapReduce on\\YARN: 19,200 rows};
+\node[box=orange!15, left=of mr] (hive) {Hive: baseline +\\join, 469 districts};
+\node[box=orange!15, left=of hive] (spark) {Spark\\k-means, MLlib};
+\node[box=yellow!25, left=of spark] (model) {B-ACPN +\\5 baselines};
 \draw[arr] (src) -- (raw); \draw[arr] (raw) -- (grid); \draw[arr] (grid) -- (stg); \draw[arr] (stg) -- (mr);
-\draw[arr] (mr) -- (hive); \draw[arr] (hive) -- (spark); \draw[arr] (spark) -- (model);
+\draw[arr] (mr) -- (hive); \draw[arr] (hive) -- (spark);
+\draw[arr] (spark) -- (model);
 \end{tikzpicture}}
 \caption{Processing pipeline. Teal: HDFS storage zones; orange: Big Data processing; yellow: models.}
 \label{fig:pipe}
@@ -243,21 +244,20 @@ Here $\mathbf{a}_i$ are attention weights over the hazards, $f_\theta$ is a line
 \begin{figure}[t]
 \centering
 \resizebox{\columnwidth}{!}{%
-\begin{tikzpicture}[node distance=5mm and 4mm,
-  box/.style={draw, rounded corners=2pt, align=center, font=\small, minimum height=10mm, text width=24mm, fill=#1},
+\begin{tikzpicture}[node distance=3.5mm and 5mm,
+  box/.style={draw, rounded corners=2pt, align=center, font=\small, minimum height=8mm, text width=20mm, fill=#1},
   box/.default=white, arr/.style={-{Stealth[length=2mm]}, thick}]
-\node[box=gray!10] (all) {All 13\\features};
+\node[box=gray!10] (all) {All 13 features};
 \node[box=gray!10, right=of all] (rf) {Random forest\\500 trees (OOF)};
 \node[box=gray!10, right=of rf] (b) {$b$ = tree score\\+ development};
-\node[box=teal!12, below=of all] (haz) {8 hazard\\features};
+\node[box=teal!12, below=8mm of all] (haz) {8 hazard features};
 \node[box=teal!12, right=of haz] (att) {Attention $\rightarrow$\\MLP + residual};
 \node[box=teal!12, right=of att] (c) {$c$ = push $\times$\\development gate};
-\node[draw, circle, font=\small, below=5mm of c] (plus) {$+$};
-\node[box=yellow!25, left=8mm of plus] (out) {$\sigma(b{+}c)$, mean\\of 5 networks};
-\node[box=orange!12, left=of out] (unc) {MC Dropout +\\conformal set};
+\node[draw, circle, font=\small, right=6mm of $(b)!0.5!(c)$] (plus) {$+$};
+\node[box=yellow!25, right=6mm of plus, text width=17mm] (out) {$\sigma(b{+}c)$, mean\\of 5 networks};
+\node[box=orange!12, below=4mm of out, text width=17mm] (unc) {MC Dropout +\\conformal set};
 \draw[arr] (all) -- (rf); \draw[arr] (rf) -- (b); \draw[arr] (haz) -- (att); \draw[arr] (att) -- (c);
-\draw[arr] (c) -- (plus); \draw[arr] (b.east) -- ++(2.5mm,0) |- (plus.east);
-\draw[arr] (plus) -- (out); \draw[arr] (out) -- (unc);
+\draw[arr] (b) -- (plus); \draw[arr] (c) -- (plus); \draw[arr] (plus) -- (out); \draw[arr] (out) -- (unc);
 \end{tikzpicture}}
 \caption{B-ACPN. The deep stage starts from the random-forest score and learns a development term and a development-gated climate push.}
 \label{fig:model}
@@ -356,9 +356,76 @@ Table~\ref{tab:detail} lists further metrics. B-ACPN is best on precision, speci
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figs/roc_paper.png}
+\includegraphics[width=\columnwidth]{figs/roc_curves.png}
 \caption{ROC (left) and precision--recall (right) curves of the six models, pooled over the 25 test folds.}
 \label{fig:roc}
+\end{figure}
+
+Fig.~\ref{fig:bars} compares the four main metrics with their fold-to-fold spread, and Table~\ref{tab:ci} gives the 95\% confidence interval of each model's ROC-AUC with the corrected $t$-test against B-ACPN. The intervals of B-ACPN and gradient-boosted trees overlap almost completely, while those of logistic regression and the linear SVM are centred clearly lower.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.9\textwidth]{figs/comparison_bars.png}
+\caption{Mean ROC-AUC, balanced accuracy, accuracy and F1 of the six models over the 25 folds; error bars show one standard deviation.}
+\label{fig:bars}
+\end{figure*}
+
+\begin{table}[t]
+\centering
+\caption{ROC-AUC with 95\% confidence interval and corrected $t$-test against B-ACPN}
+\label{tab:ci}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lccc}
+\toprule
+Model & ROC-AUC & 95\% CI & $p$ vs B-ACPN \\
+\midrule
+\textbf{B-ACPN} & 0.820 & 0.780 -- 0.859 & -- \\
+GBT & 0.811 & 0.773 -- 0.849 & 0.550 \\
+RF & 0.804 & 0.764 -- 0.845 & 0.042 \\
+MLP & 0.784 & 0.743 -- 0.825 & 0.019 \\
+SVM & 0.755 & 0.711 -- 0.798 & 0.006 \\
+LR & 0.747 & 0.700 -- 0.793 & 0.004 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{Confusion matrices.} Fig.~\ref{fig:cm} and Table~\ref{tab:cm} show the confusion counts summed over the 25 test folds. B-ACPN correctly identifies 902 low-vulnerability and 829 high-vulnerability test predictions, raises the fewest false alarms (258 false positives, specificity 0.778) and makes the fewest errors overall (614, against 644--723 for the other models). Its sensitivity (0.700) is lower than that of logistic regression, the linear SVM and gradient-boosted trees, which label more districts as highly vulnerable and therefore also raise many more false alarms.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.82\textwidth]{figs/confusion_matrices.png}
+\caption{Confusion matrices of the six models, summed over the 25 test folds (rows: true class; columns: predicted class).}
+\label{fig:cm}
+\end{figure*}
+
+\begin{table}[t]
+\centering
+\caption{Confusion counts summed over the 25 test folds}
+\label{tab:cm}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\linewidth}{!}{\begin{tabular}{lccccccc}
+\toprule
+Model & TP & TN & FP & FN & Sens. & Spec. & Errors \\
+\midrule
+\textbf{B-ACPN} & 829 & 902 & 258 & 356 & 0.700 & 0.778 & 614 \\
+GBT & 851 & 850 & 310 & 334 & 0.718 & 0.733 & 644 \\
+RF & 816 & 860 & 300 & 369 & 0.689 & 0.741 & 669 \\
+MLP & 799 & 840 & 320 & 386 & 0.674 & 0.724 & 706 \\
+SVM & 869 & 764 & 396 & 316 & 0.733 & 0.659 & 712 \\
+LR & 851 & 771 & 389 & 334 & 0.718 & 0.665 & 723 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\emph{Stability.} Fig.~\ref{fig:folds} shows the ROC-AUC of every fold. B-ACPN has the highest median (0.821) and ranges from 0.747 to 0.917; its spread is similar to that of the other models, so its lead does not come from a few lucky folds.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/fold_boxplots.png}
+\caption{ROC-AUC of each model on each of the 25 folds.}
+\label{fig:folds}
 \end{figure}
 
 \subsection{Effect of preprocessing}
@@ -388,7 +455,7 @@ RMSE$\downarrow$ & 0.422$\rightarrow$0.417 & 0.445$\rightarrow$0.440 & 0.427$\ri
 \end{table}
 
 \subsection{Ablation}
-Table~\ref{tab:abl} removes one part of B-ACPN at a time. Removing the tree stage or the ensemble costs about 0.02 ROC-AUC, the largest drops. Removing the climate push, the attention or the gate changes accuracy by less than one standard deviation; these parts are kept because they provide the per-district explanation, not because they add accuracy.
+Table~\ref{tab:abl} and Fig.~\ref{fig:abl} remove one part of B-ACPN at a time. Removing the tree stage or the ensemble costs about 0.02 ROC-AUC, the largest drops. Removing the climate push, the attention or the gate changes accuracy by less than one standard deviation; these parts are kept because they provide the per-district explanation, not because they add accuracy.
 
 \begin{table}[t]
 \centering
@@ -411,6 +478,13 @@ Single network (no ensemble) & 0.801 & -0.018 & 0.58 \\
 \end{tabular}
 \end{table}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/ablation.png}
+\caption{Ablation: ROC-AUC (mean and one standard deviation over 25 folds) with one B-ACPN component removed at a time.}
+\label{fig:abl}
+\end{figure}
+
 \subsection{Hyperparameter tuning}
 We tuned the deep stage over 18 settings (hidden units 8, 16, 32; dropout 0.1, 0.3, 0.5; learning rate 0.001, 0.003) on the same 25 folds with the tree stage fixed, choosing on CV only and checking on LOSO. All settings lie between 0.817 and 0.820 ROC-AUC; the best (16 units, dropout 0.3, learning rate 0.001) improves on the default by 0.001 in CV and 0.002 in LOSO, far below the fold SD of about 0.035, so B-ACPN is insensitive to these settings and we keep the default.
 
@@ -419,8 +493,8 @@ Fig.~\ref{fig:push} and Table~\ref{tab:push} show the out-of-fold climate push p
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figs/push_paper.png}
-\caption{Out-of-fold climate push of every district by group; black bars and the numbers above mark group means.}
+\includegraphics[width=\columnwidth]{figs/climate_push_by_quadrant.png}
+\caption{Out-of-fold climate push of every district by group; bars mark group means.}
 \label{fig:push}
 \end{figure}
 
@@ -442,6 +516,22 @@ Anomaly B: less developed, resilient & 89 & -0.17 & 46\% \\
 \end{tabular}
 \end{table}
 
+Fig.~\ref{fig:att} shows how the attention spreads over the eight climate variables: heavy-rain days receive the largest mean weight, followed by the longest dry spell and annual rainfall, while tropical nights receive the smallest. Fig.~\ref{fig:map} maps the climate push of every district. Positive pushes concentrate in the eastern states (mean push +0.30 in Bihar, +0.27 in West Bengal, +0.24 in Jharkhand and +0.23 in Odisha), while the Himalayan and north-eastern states show the strongest negative pushes (Himachal Pradesh $-0.80$, Arunachal Pradesh $-0.77$, Mizoram $-0.95$).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/attention_importance.png}
+\caption{Mean attention weight of each climate variable in B-ACPN; the dotted line marks equal weight.}
+\label{fig:att}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figs/climate_push_map.png}
+\caption{B-ACPN climate push of every district (red: climate adds risk; blue: climate protects; grey: not among the 469 districts).}
+\label{fig:map}
+\end{figure}
+
 \subsection{Comparison with the CEEW ranking}
 As an independent check we matched the 463 districts of the CEEW 2021 hotspot table \cite{ceew2021} to Census codes by name (ambiguous names dropped); 350 of our 469 districts appear in both. The two indices barely agree: Spearman $\rho$ = 0.02 (p = 0.66) between the CEEW index and our NDAP target, 0.04 with B-ACPN's predicted risk, and 0.10 (p = 0.05) with the climate push; high/low classes agree for 51\% of districts ($\kappa$ = 0.02). CEEW's index is driven by hazard exposure, while the NDAP indicators are mainly socio-economic, so which districts count as vulnerable depends on the index; our conclusions hold for the NDAP index only.
 
@@ -451,7 +541,7 @@ To make the explanations usable outside the code, we built a browser dashboard (
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figs/dashboard_paper.png}
-\caption{Climate Push Explorer dashboard built on the B-ACPN results (district view), here showing Kishanganj (Bihar), the most climate-driven district.}
+\caption{Climate Push Explorer dashboard built on the B-ACPN results, here showing Kishanganj (Bihar), the most climate-driven district.}
 \label{fig:dash}
 \end{figure}
 

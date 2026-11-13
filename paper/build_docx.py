@@ -135,6 +135,8 @@ def convert(tex, work):
         body = re.sub(rf"\\begin\{{{env}\}}.*?\\end\{{{env}\}}", fix, body, flags=re.S)
     number_captions("table\\*?", "TABLE {}\\\\ ")
     number_captions("figure\\*?", "Fig. {}. ")
+    # pandoc drops the caption of figure*; page-wide figures are widened again in finish()
+    body = re.sub(r"\\(begin|end)\{figure\*\}", lambda m: f"\\{m.group(1)}{{figure}}", body)
 
     def algo(m):
         blk = m.group(0)
@@ -369,6 +371,31 @@ def finish(docx):
         while el is not None and el.tag != qn("w:tbl"):
             el = el.getnext()
         endp = OxmlElement("w:p"); el.addnext(endp)
+        _sect(endp, 1)
+    # page-wide figures (figure* in the PDF): one-column section, 6.9 in wide
+    aux = (PAPER / "paper.aux").read_text()
+    labels = {k: v for k, v in re.findall(r"\\newlabel\{([^}]+)\}\{\{([^}]*)\}", aux)}
+    star = re.findall(r"\\begin\{figure\*\}.*?\\label\{([^}]+)\}", (PAPER / "paper.tex").read_text(), re.S)
+    for lab in star:
+        n = labels.get(lab)
+        cap = next((p for p in d.paragraphs if p.text.startswith(f"Fig. {n}. ")), None)
+        if cap is None:
+            continue
+        img = cap._p.getprevious()
+        while img is not None and img.find(".//" + qn("w:drawing")) is None:
+            img = img.getprevious()
+        if img is None:
+            continue
+        for ext in img.iter("{http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing}extent"):
+            cx, cy = int(ext.get("cx")), int(ext.get("cy"))
+            k = Inches(6.9) / cx
+            ext.set("cx", str(int(cx * k))); ext.set("cy", str(int(cy * k)))
+        for ext in img.iter("{http://schemas.openxmlformats.org/drawingml/2006/main}ext"):
+            cx, cy = int(ext.get("cx")), int(ext.get("cy"))
+            k = Inches(6.9) / cx
+            ext.set("cx", str(int(cx * k))); ext.set("cy", str(int(cy * k)))
+        _section_break_before(img, 2)
+        endp = OxmlElement("w:p"); cap._p.addnext(endp)
         _sect(endp, 1)
     # the rest of the body is in two columns
     _sect(body.sectPr if body.sectPr is not None else body.get_or_add_sectPr(), 2, last=True)

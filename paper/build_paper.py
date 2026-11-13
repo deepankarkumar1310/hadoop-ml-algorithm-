@@ -128,6 +128,24 @@ def main():
                           [[n] + [f"{ba.loc[m, k + '_before']:.3f}$\\rightarrow${ba.loc[m, k + '_after']:.3f}" for m in ms]
                            for n, k in bam])
 
+    cm = pd.read_csv(RES / "confusion_matrices.csv").set_index("model")
+    cm["sens"], cm["spec"] = cm.tp / (cm.tp + cm.fn), cm.tn / (cm.tn + cm.fp)
+    T["TABLE_CM"] = table("tab:cm", "Confusion counts summed over the 25 test folds", ["Model", "TP", "TN", "FP", "FN",
+                          "Sens.", "Spec.", "Errors"],
+                          [[(f"\\textbf{{{ABBR[m]}}}" if m == M else ABBR[m]), int(cm.loc[m, "tp"]), int(cm.loc[m, "tn"]),
+                            int(cm.loc[m, "fp"]), int(cm.loc[m, "fn"]), f"{cm.loc[m, 'sens']:.3f}", f"{cm.loc[m, 'spec']:.3f}",
+                            int(cm.loc[m, "fp"] + cm.loc[m, "fn"])] for m in order], fit=True)
+    T["TABLE_CI"] = table("tab:ci", "ROC-AUC with 95\\% confidence interval and corrected $t$-test against B-ACPN",
+                          ["Model", "ROC-AUC", "95\\% CI", "$p$ vs B-ACPN"],
+                          [[(f"\\textbf{{{ABBR[m]}}}" if m == M else ABBR[m]), f"{sig.loc[m, 'auc_mean']:.3f}",
+                            sig.loc[m, "auc_ci"].replace("–", "--"),
+                            "--" if pd.isna(sig.loc[m, "p_value"]) else f"{sig.loc[m, 'p_value']:.3f}"] for m in order])
+    fm = pd.read_csv(RES / "fold_metrics.csv").groupby("model").roc_auc
+    CMX = {"CM_TN": int(cm.loc[M, "tn"]), "CM_FP": int(cm.loc[M, "fp"]), "CM_TP": int(cm.loc[M, "tp"]),
+           "CM_FN": int(cm.loc[M, "fn"]), "CM_SPEC": f"{cm.loc[M, 'spec']:.3f}", "CM_SENS": f"{cm.loc[M, 'sens']:.3f}",
+           "CM_ERR": int(cm.loc[M, "fp"] + cm.loc[M, "fn"]),
+           "CM_ERR_MIN_OTHER": int((cm.fp + cm.fn).drop(M).min()), "CM_ERR_MAX_OTHER": int((cm.fp + cm.fn).drop(M).max()),
+           "FOLD_MED": f"{fm.median()[M]:.3f}", "FOLD_MIN": f"{fm.min()[M]:.3f}", "FOLD_MAX": f"{fm.max()[M]:.3f}"}
     T["TABLE_ABL"] = table("tab:abl", "Ablation of B-ACPN (ROC-AUC, 25 folds)", ["Variant", "ROC-AUC", "Change", "$p$"],
                            [[r.model, f"{r.roc_auc:.3f}", "--" if r.model == "Full B-ACPN" else f"{r.delta:+.3f}",
                              "--" if pd.isna(r.p_value) else f"{r.p_value:.2f}"] for r in ab.itertuples()])
@@ -169,6 +187,7 @@ def main():
                  "TUNE_BEST": f"{ts['cv_auc_best']:.3f}", "TUNE_GAIN": f"{ts['cv_auc_best'] - ts['cv_auc_default']:.3f}",
                  "TUNE_LGAIN": f"{ts['loso_auc_best'] - ts['loso_auc_default']:.3f}"}
     N.update(TUNE)
+    N.update(CMX)
     cc = json.loads((RES / "ceew_comparison.json").read_text())
     N.update({"CE_N": cc["ceew_districts"], "CE_BOTH": cc["in_our_469"],
               "CE_R1": f"{cc['spearman_ceew_vi_vs_ndap_cvi']['rho']:.2f}", "CE_P1": f"{cc['spearman_ceew_vi_vs_ndap_cvi']['p']:.2f}",
