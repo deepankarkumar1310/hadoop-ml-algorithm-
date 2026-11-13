@@ -349,6 +349,17 @@ def finish(docx):
                 for p in c.paragraphs:
                     _font(p, 8)
                     p.paragraph_format.space_after = Pt(0)
+    # keep table properties in the order the Word schema expects
+    order = ["tblStyle", "tblpPr", "tblOverlap", "bidiVisual", "tblStyleRowBandSize", "tblStyleColBandSize", "tblW",
+             "jc", "tblCellSpacing", "tblInd", "tblBorders", "shd", "tblLayout", "tblCellMar", "tblLook",
+             "tblCaption", "tblDescription"]
+    for tb in d.tables:
+        pr = tb._tbl.tblPr
+        kids = list(pr)
+        for k in kids:
+            pr.remove(k)
+        for k in sorted(kids, key=lambda e: order.index(e.tag.split("}")[1]) if e.tag.split("}")[1] in order else 99):
+            pr.append(k)
     # Tables IV and V span the page in the PDF: put them in a one-column section
     caps = [p for p in d.paragraphs if p.text.startswith(("TABLE IV", "TABLE V"))
             and not p.text.startswith(("TABLE VI", "TABLE VII", "TABLE VIII"))]
