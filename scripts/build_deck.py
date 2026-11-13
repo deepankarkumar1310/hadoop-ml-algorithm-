@@ -216,7 +216,8 @@ def new_slide(title, notes, size=28):
 
 
 def owner(slide, name):
-    textbox(slide, 0.4, 7.05, 9.2, 0.3, f"Presenter: {name}", 10, color=GREY, align=PP_ALIGN.RIGHT)
+    """Presenter labels are no longer printed on the slides (kept in the code as the slide's owner)."""
+    return None
 
 
 # ----------------------------------------------------------------- data
@@ -348,7 +349,7 @@ for i, (num, lab) in enumerate([(f"{ar['n_districts']}", f"districts in {ar['n_s
                                 (f"{_b.roc_auc:.3f}", "B-ACPN ROC-AUC, best of 6 models")]):
     box(s, 0.4 + i * 2.33, 1.3, 2.2, 1.25, num, LIGHT if i < 3 else HILITE, NAVY if i < 3 else ORANGE, 26, True,
         NAVY if i < 3 else ORANGE, sub=lab, sub_size=11)
-bullets(s, 0.4, 2.8, 9.2, 4.1, [
+bullets(s, 0.4, 2.7, 9.2, 4.3, [
     ("Problem: ", f"development explains only {ar['regression']['m1_dev_only']['r2'] * 100:.0f}% of district climate "
                   f"vulnerability; {ar['anomalies']} of {ar['n_districts']} districts are developed yet vulnerable or "
                   "less developed yet resilient."),
@@ -359,7 +360,13 @@ bullets(s, 0.4, 2.8, 9.2, 4.1, [
                          "climate push, averaged over 5 networks, with MC Dropout and conformal uncertainty."),
     ("Result: ", f"ROC-AUC {_b.roc_auc:.3f}, accuracy {_b.accuracy:.3f}, F1 {_b.f1:.3f} on 25 folds; significantly "
                  f"better than RF, MLP, SVM and LR, comparable to GBT (p = {_sg.loc['Gradient-Boosted Trees', 'p_value']:.2f}). "
-                 "The climate push separates the anomalous districts from the expected ones (p < 0.001).")], size=15, space=8)
+                 "The climate push separates the anomalous districts from the expected ones (p < 0.001)."),
+    ("Preprocessing: ", f"no imputation; {pm['matching']['matched']}/{pm['matching']['ndap_districts']} NDAP districts "
+                        "matched to Census codes; area-weighted grid-to-district values checked with eight error "
+                        "metrics; after preprocessing B-ACPN improves on every reported metric."),
+    ("Checks and output: ", "tuning over 18 settings changes ROC-AUC by under 0.004; the CEEW 2021 ranking barely "
+                            "agrees with our index (ρ = 0.02); an offline dashboard shows each district's climate push.")],
+    size=13, space=5)
 owner(s, "Sehjodh Grewal")
 
 # ================================================================= INTRODUCTION (Review 3)
@@ -373,7 +380,11 @@ bullets(s, 0.4, 1.3, 5.3, 5.5, [
     ("Challenge: ", "explaining this needs 30 years of daily climate grids for all of India, too large for plain "
                     "files, so we built a Hadoop pipeline."),
     ("Aim: ", "a model that is accurate and also splits each district's risk into a development part and a "
-              "climate part.")], size=14, space=6)
+              "climate part."),
+    ("Data: ", f"{ar['n_districts']} districts in {ar['n_states']} states; NDAP 2021 index as the target, Census 2011 "
+               "development and 30 years (1991–2020) of daily IMD rain and temperature."),
+    ("Contributions: ", "a measured Hadoop pipeline (HDFS, MapReduce, Hive, Spark), preprocessing without imputation, "
+                        "the B-ACPN model and a fair comparison with five existing models.")], size=13, space=4)
 for i, (num, lab, f, l) in enumerate([
         (f"R² = {ar['regression']['m1_dev_only']['r2']:.3f}", "share of vulnerability explained by development alone", LIGHT, NAVY),
         (f"{ar['anomalies']} ({ar['anomaly_share'] * 100:.1f}%)", "districts that break the expected pattern", TINT_O, ORANGE),
