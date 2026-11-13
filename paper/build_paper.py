@@ -39,7 +39,7 @@ def table(label, caption, cols, rows, star=False, size=r"\footnotesize", fit=Fal
            f"{head}\n\\midrule\n{body}\n\\bottomrule\n\\end{{tabular}}")
     if fit:  # scale to the column width so the table sits in one column
         tab = "\\resizebox{\\linewidth}{!}{" + tab + "}"
-    return (f"\\begin{{{env}}}[t]\n\\centering\n\\caption{{{caption}}}\n\\label{{{label}}}\n{size}\n"
+    return (f"\\begin{{{env}}}[{'!t' if star else '!htb'}]\n\\centering\n\\caption{{{caption}}}\n\\label{{{label}}}\n{size}\n"
             f"\\setlength{{\\tabcolsep}}{{3.5pt}}\n{tab}\n\\end{{{env}}}")
 
 

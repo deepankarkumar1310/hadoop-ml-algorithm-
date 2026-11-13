@@ -9,6 +9,11 @@
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{tikz}
+\usepackage{placeins}
+% let figures sit near their text: more floats per page, smaller text share required
+\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.8}\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.75}\renewcommand{\dbltopfraction}{0.9}\renewcommand{\dblfloatpagefraction}{0.75}
+\setcounter{topnumber}{3}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{5}\setcounter{dbltopnumber}{2}
 \usetikzlibrary{arrows.meta,positioning,fit,calc}
 \usepackage[hidelinks]{hyperref}
 \graphicspath{{../figures/}{./}}
@@ -109,7 +114,7 @@ Monte Carlo Dropout \cite{gal2016} approximates Bayesian uncertainty by keeping 
 \subsection{Sources}
 Table~\ref{tab:data} lists the sources. The outcome is the 2021 district climate vulnerability index from NITI Aayog's National Data and Analytics Platform (NDAP, dataset 7160), split at its median into High and Low vulnerability. Five development variables come from Census 2011 (literacy, female literacy, agricultural-worker share) and NDAP (MGNREGA days, yield variability). Eight climate hazard variables are computed from the IMD grids. The index is only the target and is never an input.
 
-\begin{table}[t]
+\begin{table}[!htb]
 \centering
 \caption{Data sources}
 \label{tab:data}
@@ -142,7 +147,7 @@ The weights of every district sum to one within $10^{-7}$. Daily district values
 
 Table~\ref{tab:prep} evaluates the two preprocessing steps that have an exact reference with eight error metrics. Replacing our area-weighted rainfall by the naive nearest-cell value would cause an RMSE of 287 mm and a MAPE of 11.1\% per district; the MapReduce indices agree with an independent pandas recomputation to rounding error.
 
-\begin{table}[t]
+\begin{table}[!htb]
 \centering
 \caption{Preprocessing error metrics}
 \label{tab:prep}
@@ -168,7 +173,7 @@ Bias (ME) & 5.045 & $-2.2\times10^{-5}$ \\
 \subsection{Big Data pipeline}
 Fig.~\ref{fig:pipe} shows the pipeline. It runs on a single-node, pseudo-distributed Hadoop 3.3.6 cluster (HDFS replication 1, 128 MB blocks, 2 vCPU, 12.7 GB RAM) in Google Colab, with Java 8, Hive 3.1.3 and Spark 3.5.3. Colab has no SSH, so each daemon is started directly. Because the cluster has one node we make no claim about multi-machine speed-up.
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \resizebox{\columnwidth}{!}{%
 \begin{tikzpicture}[node distance=4mm and 4mm,
@@ -192,7 +197,7 @@ Fig.~\ref{fig:pipe} shows the pipeline. It runs on a single-node, pseudo-distrib
 
 HDFS holds three zones: \emph{raw} for the untouched sources, \emph{staging} for the district-day table and \emph{processed} for job outputs. MapReduce, run with Hadoop Streaming, keys every district-day row by (district, year); each reducer sorts the days of one district-year by date and computes seven indices: annual rainfall, heavy-rain days (rain $\ge$ 64.5 mm), maximum five-day rainfall, longest dry spell (rain $<$ 1 mm), mean daily maximum temperature, hot days ($T_{\max} \ge$ 35\,\textdegree C) and tropical nights ($T_{\min} \ge$ 25\,\textdegree C). Incomplete years are left blank rather than set to zero. Hive then averages each index over 1991--2020, adds the inter-annual standard deviation of rainfall as rain variability, and joins the result with the development table on the Census district code. Spark k-means on the eight standardised hazard variables, with $k$ chosen by the silhouette score \cite{rousseeuw1987}, groups districts into climate regimes. Table~\ref{tab:bigdata} summarises the jobs.
 
-\begin{table}[t]
+\begin{table}[!htb]
 \centering
 \caption{Big Data jobs (single node, Colab run)}
 \label{tab:bigdata}
@@ -241,7 +246,7 @@ Finally, five deep stages with different seeds are averaged, so the final probab
 
 
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \resizebox{\columnwidth}{!}{%
 \begin{tikzpicture}[node distance=3.5mm and 5mm,
@@ -354,7 +359,7 @@ LR & 0.688 & 0.718 & 0.665 & 0.386 & 0.383 & 0.746 & 0.611 & 0.206 & 0.101 & 0.4
 
 Table~\ref{tab:detail} lists further metrics. B-ACPN is best on precision, specificity, MCC, Cohen's kappa, PR-AUC, log loss, Brier score and RMSE of the predicted probability. It is not best on recall, where the linear SVM is higher, or on expected calibration error, where the random forest is lower: B-ACPN is more careful about calling a district highly vulnerable, which gives fewer false alarms at the cost of some missed districts.
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=\columnwidth]{figs/roc_curves.png}
 \caption{ROC (left) and precision--recall (right) curves of the six models, pooled over the 25 test folds.}
@@ -363,14 +368,14 @@ Table~\ref{tab:detail} lists further metrics. B-ACPN is best on precision, speci
 
 Fig.~\ref{fig:bars} compares the four main metrics with their fold-to-fold spread, and Table~\ref{tab:ci} gives the 95\% confidence interval of each model's ROC-AUC with the corrected $t$-test against B-ACPN. The intervals of B-ACPN and gradient-boosted trees overlap almost completely, while those of logistic regression and the linear SVM are centred clearly lower.
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=\columnwidth]{figs/comparison_bars.png}
 \caption{Mean ROC-AUC, balanced accuracy, accuracy and F1 of the six models over the 25 folds; error bars show one standard deviation.}
 \label{fig:bars}
 \end{figure}
 
-\begin{table}[t]
+\begin{table}[!htb]
 \centering
 \caption{ROC-AUC with 95\% confidence interval and corrected $t$-test against B-ACPN}
 \label{tab:ci}
@@ -392,14 +397,14 @@ LR & 0.747 & 0.700 -- 0.793 & 0.004 \\
 
 Fig.~\ref{fig:cm} and Table~\ref{tab:cm} show the confusion counts summed over the 25 test folds. B-ACPN correctly identifies 902 low-vulnerability and 829 high-vulnerability test predictions, raises the fewest false alarms (258 false positives, specificity 0.778) and makes the fewest errors overall (614, against 644--723 for the other models). Its sensitivity (0.700) is lower than that of logistic regression, the linear SVM and gradient-boosted trees, which label more districts as highly vulnerable and therefore also raise many more false alarms.
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=\columnwidth]{figs/confusion_matrices_column.png}
 \caption{Confusion matrices of the six models, summed over the 25 test folds (rows: true class; columns: predicted class).}
 \label{fig:cm}
 \end{figure}
 
-\begin{table}[t]
+\begin{table}[!htb]
 \centering
 \caption{Confusion counts summed over the 25 test folds}
 \label{tab:cm}
@@ -421,7 +426,7 @@ LR & 851 & 771 & 389 & 334 & 0.718 & 0.665 & 723 \\
 
 Fig.~\ref{fig:folds} shows the ROC-AUC of every fold. B-ACPN has the highest median (0.821) and ranges from 0.747 to 0.917; its spread is similar to that of the other models, so its lead does not come from a few lucky folds.
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=\columnwidth]{figs/fold_boxplots.png}
 \caption{ROC-AUC of each model on each of the 25 folds.}
@@ -431,7 +436,7 @@ Fig.~\ref{fig:folds} shows the ROC-AUC of every fold. B-ACPN has the highest med
 \subsection{Effect of preprocessing}
 To measure what preprocessing contributes, every model was also trained on the raw, unscaled features with the same folds (Table~\ref{tab:ba}). B-ACPN improves on all reported metrics, for example ROC-AUC from 0.806 to 0.820. The MLP gains ROC-AUC but loses accuracy, because after scaling it labels more districts as highly vulnerable. Tree models are insensitive to feature scale, and Spark's logistic regression and linear SVM standardise internally, so their results do not change.
 
-\begin{table}[t]
+\begin{table}[!htb]
 \centering
 \caption{Before $\rightarrow$ after preprocessing (raw vs.\ preprocessed features)}
 \label{tab:ba}
@@ -457,7 +462,7 @@ RMSE$\downarrow$ & 0.422$\rightarrow$0.417 & 0.445$\rightarrow$0.440 & 0.427$\ri
 \subsection{Ablation}
 Table~\ref{tab:abl} and Fig.~\ref{fig:abl} remove one part of B-ACPN at a time. Removing the tree stage or the ensemble costs about 0.02 ROC-AUC, the largest drops. Removing the climate push, the attention or the gate changes accuracy by less than one standard deviation; these parts are kept because they provide the per-district explanation, not because they add accuracy.
 
-\begin{table}[t]
+\begin{table}[!htb]
 \centering
 \caption{Ablation of B-ACPN (ROC-AUC, 25 folds)}
 \label{tab:abl}
@@ -478,7 +483,7 @@ Single network (no ensemble) & 0.801 & -0.018 & 0.58 \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=\columnwidth]{figs/ablation.png}
 \caption{Ablation: ROC-AUC (mean and one standard deviation over 25 folds) with one B-ACPN component removed at a time.}
@@ -498,14 +503,14 @@ We tuned the deep stage over 18 settings (hidden units 8, 16, 32; dropout 0.1, 0
 \subsection{What the climate push explains}
 Fig.~\ref{fig:push} and Table~\ref{tab:push} show the out-of-fold climate push per group. Developed but vulnerable districts (anomaly A) have a positive mean push of +0.09, against -0.10 for developed districts that are not vulnerable (p = $1.6\times10^{-5}$). Less developed but resilient districts (anomaly B) have a negative push of -0.17, against +0.13 for the expected group (p = $4.5\times10^{-7}$). The raw data agree: anomaly A districts have about twice as many tropical nights as expected developed districts (91 vs 45 per year, p = 0.001). Attention gives heavy-rain days the largest mean weight. The Spark climate regimes, found without the model, also differ in push (+0.05 for the larger regime and -0.24 for the smaller one), which supports that the push follows real climate patterns. At the regression level, adding the eight hazards to development raises the explained variance of the index from 0.127 to 0.334.
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=\columnwidth]{figs/climate_push_by_quadrant.png}
 \caption{Out-of-fold climate push of every district by group; bars mark group means.}
 \label{fig:push}
 \end{figure}
 
-\begin{table}[t]
+\begin{table}[!htb]
 \centering
 \caption{Mean climate push by group}
 \label{tab:push}
@@ -525,14 +530,14 @@ Anomaly B: less developed, resilient & 89 & -0.17 & 46\% \\
 
 Fig.~\ref{fig:att} shows how the attention spreads over the eight climate variables: heavy-rain days receive the largest mean weight, followed by the longest dry spell and annual rainfall, while tropical nights receive the smallest. Fig.~\ref{fig:map} maps the climate push of every district. Positive pushes concentrate in the eastern states (mean push +0.30 in Bihar, +0.27 in West Bengal, +0.24 in Jharkhand and +0.23 in Odisha), while the Himalayan and north-eastern states show the strongest negative pushes (Himachal Pradesh $-0.80$, Arunachal Pradesh $-0.77$, Mizoram $-0.95$).
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=\columnwidth]{figs/attention_importance.png}
 \caption{Mean attention weight of each climate variable in B-ACPN; the dotted line marks equal weight.}
 \label{fig:att}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=\columnwidth]{figs/climate_push_map.png}
 \caption{B-ACPN climate push of every district (red: climate adds risk; blue: climate protects; grey: not among the 469 districts).}
@@ -550,6 +555,7 @@ To make the explanations usable outside the code, we built a browser dashboard (
 \subsection{Pipeline scaling}
 On the single node, MapReduce took 55, 140 and 333 s for 1, 10 and 30 years of input (two runs each). Runtime grows almost linearly with input, while throughput rises from about 4,300 to 21,000 records per second as the fixed job start-up cost is shared over more data.
 
+\FloatBarrier
 \section{Discussion}
 Three lessons stand out. First, on 469 districts a tree ensemble is a hard baseline, and the network was most useful as a correction on top of it rather than as a replacement; design choices were compared with an inner cross-validation inside the training folds, so the test folds were not used to pick the model. Second, the explanation is not free accuracy: the climate push, attention and gate are kept for interpretability, and the ablation shows that honestly. Third, the Big Data pipeline earns its place through repeatability and checks rather than speed on one machine: each job has an independent pandas check, and the same scripts run on a real cluster.
 
