@@ -134,7 +134,7 @@ def main():
                           "Sens.", "Spec.", "Errors"],
                           [[(f"\\textbf{{{ABBR[m]}}}" if m == M else ABBR[m]), int(cm.loc[m, "tp"]), int(cm.loc[m, "tn"]),
                             int(cm.loc[m, "fp"]), int(cm.loc[m, "fn"]), f"{cm.loc[m, 'sens']:.3f}", f"{cm.loc[m, 'spec']:.3f}",
-                            int(cm.loc[m, "fp"] + cm.loc[m, "fn"])] for m in order], fit=True)
+                            int(cm.loc[m, "fp"] + cm.loc[m, "fn"])] for m in order])
     T["TABLE_CI"] = table("tab:ci", "ROC-AUC with 95\\% confidence interval and corrected $t$-test against B-ACPN",
                           ["Model", "ROC-AUC", "95\\% CI", "$p$ vs B-ACPN"],
                           [[(f"\\textbf{{{ABBR[m]}}}" if m == M else ABBR[m]), f"{sig.loc[m, 'auc_mean']:.3f}",

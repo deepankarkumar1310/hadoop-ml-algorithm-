@@ -22,7 +22,7 @@ from scripts.common import ROOT, load_table  # noqa: E402
 OUT = Path(__file__).resolve().parent / "figs"
 # physical width (in) each figure is saved at; the paper prints column figures 3.5 in and page-wide ones 7.2 in
 WIDTH = {"roc_curves.png": 6.0, "climate_push_by_quadrant.png": 7.2, "confusion_matrices.png": 8.0,
-         "comparison_bars.png": 8.4, "fold_boxplots.png": 4.8, "ablation.png": 4.8, "attention_importance.png": 4.4,
+         "comparison_bars.png": 5.6, "fold_boxplots.png": 4.8, "ablation.png": 4.8, "attention_importance.png": 4.4,
          "climate_push_map.png": 4.4, "calibration.png": 4.2}
 _orig_save = MF.V.save
 

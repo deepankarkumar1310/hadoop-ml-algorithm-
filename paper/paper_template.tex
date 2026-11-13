@@ -270,12 +270,12 @@ Table~\ref{tab:detail} lists further metrics. B-ACPN is best on precision, speci
 
 Fig.~\ref{fig:bars} compares the four main metrics with their fold-to-fold spread, and Table~\ref{tab:ci} gives the 95\% confidence interval of each model's ROC-AUC with the corrected $t$-test against B-ACPN. The intervals of B-ACPN and gradient-boosted trees overlap almost completely, while those of logistic regression and the linear SVM are centred clearly lower.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.9\textwidth]{figs/comparison_bars.png}
+\includegraphics[width=\columnwidth]{figs/comparison_bars.png}
 \caption{Mean ROC-AUC, balanced accuracy, accuracy and F1 of the six models over the 25 folds; error bars show one standard deviation.}
 \label{fig:bars}
-\end{figure*}
+\end{figure}
 
 @@TABLE_CI@@
 
