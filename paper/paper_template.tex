@@ -160,7 +160,7 @@ HDFS holds three zones: \emph{raw} for the untouched sources, \emph{staging} for
 \subsection{Overview}
 Let $\mathbf{x}_i = (\mathbf{d}_i, \mathbf{h}_i)$ be the five development and eight hazard variables of district $i$ and $y_i \in \{0,1\}$ its vulnerability class. B-ACPN (Fig.~\ref{fig:model}) has three parts.
 
-\emph{Tree stage.} A random forest \cite{breiman2001} with 500 trees and a minimum leaf size of two is trained on all 13 features. For training districts its probability is computed out-of-fold over five inner folds, so the next stage never sees a score that the forest produced on its own training rows. The tree score of district $i$, the log-odds of its random-forest probability, is given in equation~(\ref{eq:s}):
+In the tree stage, a random forest \cite{breiman2001} with 500 trees and a minimum leaf size of two is trained on all 13 features. For training districts its probability is computed out-of-fold over five inner folds, so the next stage never sees a score that the forest produced on its own training rows. The tree score of district $i$, the log-odds of its random-forest probability, is given in equation~(\ref{eq:s}):
 \begin{equation}\label{eq:s}
 s_i = \log\frac{\hat p^{\,\text{RF}}_i}{1-\hat p^{\,\text{RF}}_i},
 \end{equation}
@@ -168,7 +168,7 @@ s_i = \log\frac{\hat p^{\,\text{RF}}_i}{1-\hat p^{\,\text{RF}}_i},
 
 
 
-\emph{Deep stage.} A small network starts from $s_i$ and adds a development term and a climate push. The baseline $b_i$, the attention weights $\mathbf{a}_i$ and the climate push $c_i$ of district $i$ are given in equations~(\ref{eq:b})--(\ref{eq:c}):
+In the deep stage, a small network starts from $s_i$ and adds a development term and a climate push. The baseline $b_i$, the attention weights $\mathbf{a}_i$ and the climate push $c_i$ of district $i$ are given in equations~(\ref{eq:b})--(\ref{eq:c}):
 \begin{align}
 b_i &= s_i + \mathbf{w}^{\top}\mathbf{d}_i + \beta, \label{eq:b}\\
 \mathbf{a}_i &= \operatorname{softmax}\!\big(W_2 \tanh(W_1 \mathbf{h}_i)\big),\quad \tilde{\mathbf{h}}_i = 8\,\mathbf{a}_i \odot \mathbf{h}_i, \\
@@ -179,7 +179,7 @@ c_i &= f_\theta(\tilde{\mathbf{h}}_i)\cdot 2\,\sigma\!\big(g_\phi(\mathbf{d}_i)\
 
 Here $\mathbf{a}_i$ are attention weights over the hazards, $f_\theta$ is a linear layer (8$\rightarrow$16) with ReLU and dropout 0.3, a residual block \cite{he2016} (linear, batch normalisation, ReLU, dropout, skip connection) and a bias-free output layer, and the development gate $2\sigma(g_\phi)$, with $g_\phi$ a 5$\rightarrow$4$\rightarrow$1 tanh network, scales the push between 0 and 2. A positive push means that climate adds risk beyond what the trees and development explain.
 
-\emph{Ensemble.} Five deep stages with different seeds are averaged, so the final probability that district $i$ is highly vulnerable is given in equation~(\ref{eq:p}):
+Finally, five deep stages with different seeds are averaged, so the final probability that district $i$ is highly vulnerable is given in equation~(\ref{eq:p}):
 \begin{equation}\label{eq:p}
 \hat p_i = \frac{1}{M}\sum_{m=1}^{M}\sigma\big(b^{(m)}_i + c^{(m)}_i\big),\qquad M = 5.
 \end{equation}
@@ -191,7 +191,7 @@ Here $\mathbf{a}_i$ are attention weights over the hazards, $f_\theta$ is a line
 \centering
 \resizebox{\columnwidth}{!}{%
 \begin{tikzpicture}[node distance=3.5mm and 5mm,
-  box/.style={draw, rounded corners=2pt, align=center, font=\small, minimum height=8mm, text width=20mm, fill=#1},
+  box/.style={draw, rounded corners=2pt, align=center, font=\small, minimum height=9mm, text width=17mm, fill=#1},
   box/.default=white, arr/.style={-{Stealth[length=2mm]}, thick}]
 \node[box=gray!10] (all) {All 13 features};
 \node[box=gray!10, right=of all] (rf) {Random forest\\500 trees (OOF)};
@@ -200,8 +200,8 @@ Here $\mathbf{a}_i$ are attention weights over the hazards, $f_\theta$ is a line
 \node[box=teal!12, right=of haz] (att) {Attention $\rightarrow$\\MLP + residual};
 \node[box=teal!12, right=of att] (c) {$c$ = push $\times$\\development gate};
 \node[draw, circle, font=\small, right=6mm of $(b)!0.5!(c)$] (plus) {$+$};
-\node[box=yellow!25, right=6mm of plus, text width=17mm] (out) {$\sigma(b{+}c)$, mean\\of 5 networks};
-\node[box=orange!12, below=4mm of out, text width=17mm] (unc) {MC Dropout +\\conformal set};
+\node[box=yellow!25, right=5mm of plus, text width=15mm] (out) {$\sigma(b{+}c)$, mean\\of 5 networks};
+\node[box=orange!12, below=4mm of out, text width=15mm] (unc) {MC Dropout +\\conformal set};
 \draw[arr] (all) -- (rf); \draw[arr] (rf) -- (b); \draw[arr] (haz) -- (att); \draw[arr] (att) -- (c);
 \draw[arr] (b) -- (plus); \draw[arr] (c) -- (plus); \draw[arr] (plus) -- (out); \draw[arr] (out) -- (unc);
 \end{tikzpicture}}
@@ -279,7 +279,7 @@ Fig.~\ref{fig:bars} compares the four main metrics with their fold-to-fold sprea
 
 @@TABLE_CI@@
 
-\emph{Confusion matrices.} Fig.~\ref{fig:cm} and Table~\ref{tab:cm} show the confusion counts summed over the 25 test folds. B-ACPN correctly identifies @@CM_TN@@ low-vulnerability and @@CM_TP@@ high-vulnerability test predictions, raises the fewest false alarms (@@CM_FP@@ false positives, specificity @@CM_SPEC@@) and makes the fewest errors overall (@@CM_ERR@@, against @@CM_ERR_MIN_OTHER@@--@@CM_ERR_MAX_OTHER@@ for the other models). Its sensitivity (@@CM_SENS@@) is lower than that of logistic regression, the linear SVM and gradient-boosted trees, which label more districts as highly vulnerable and therefore also raise many more false alarms.
+Fig.~\ref{fig:cm} and Table~\ref{tab:cm} show the confusion counts summed over the 25 test folds. B-ACPN correctly identifies @@CM_TN@@ low-vulnerability and @@CM_TP@@ high-vulnerability test predictions, raises the fewest false alarms (@@CM_FP@@ false positives, specificity @@CM_SPEC@@) and makes the fewest errors overall (@@CM_ERR@@, against @@CM_ERR_MIN_OTHER@@--@@CM_ERR_MAX_OTHER@@ for the other models). Its sensitivity (@@CM_SENS@@) is lower than that of logistic regression, the linear SVM and gradient-boosted trees, which label more districts as highly vulnerable and therefore also raise many more false alarms.
 
 \begin{figure}[t]
 \centering
@@ -290,7 +290,7 @@ Fig.~\ref{fig:bars} compares the four main metrics with their fold-to-fold sprea
 
 @@TABLE_CM@@
 
-\emph{Stability.} Fig.~\ref{fig:folds} shows the ROC-AUC of every fold. B-ACPN has the highest median (@@FOLD_MED@@) and ranges from @@FOLD_MIN@@ to @@FOLD_MAX@@; its spread is similar to that of the other models, so its lead does not come from a few lucky folds.
+Fig.~\ref{fig:folds} shows the ROC-AUC of every fold. B-ACPN has the highest median (@@FOLD_MED@@) and ranges from @@FOLD_MIN@@ to @@FOLD_MAX@@; its spread is similar to that of the other models, so its lead does not come from a few lucky folds.
 
 \begin{figure}[t]
 \centering
@@ -318,6 +318,13 @@ Table~\ref{tab:abl} and Fig.~\ref{fig:abl} remove one part of B-ACPN at a time. 
 
 \subsection{Hyperparameter tuning}
 We tuned the deep stage over @@TUNE_N@@ settings (hidden units 8, 16, 32; dropout 0.1, 0.3, 0.5; learning rate 0.001, 0.003) on the same 25 folds with the tree stage fixed, choosing on CV only and checking on LOSO. All settings lie between @@TUNE_WORST@@ and @@TUNE_BEST@@ ROC-AUC; the best (16 units, dropout 0.3, learning rate 0.001) improves on the default by @@TUNE_GAIN@@ in CV and @@TUNE_LGAIN@@ in LOSO, far below the fold SD of about 0.035, so B-ACPN is insensitive to these settings and we keep the default.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.92\textwidth]{figs/dashboard_paper.png}
+\caption{Climate Push Explorer dashboard built on the B-ACPN results, here showing Kishanganj (Bihar), the most climate-driven district.}
+\label{fig:dash}
+\end{figure*}
 
 \subsection{What the climate push explains}
 Fig.~\ref{fig:push} and Table~\ref{tab:push} show the out-of-fold climate push per group. Developed but vulnerable districts (anomaly A) have a positive mean push of @@PUSH_A@@, against @@PUSH_EA@@ for developed districts that are not vulnerable (p = @@P_A@@). Less developed but resilient districts (anomaly B) have a negative push of @@PUSH_B@@, against @@PUSH_EB@@ for the expected group (p = @@P_B@@). The raw data agree: anomaly A districts have about twice as many tropical nights as expected developed districts (@@TN_A@@ vs @@TN_E@@ per year, p = @@TN_P@@). Attention gives heavy-rain days the largest mean weight. The Spark climate regimes, found without the model, also differ in push (@@REG1@@ for the larger regime and @@REG0@@ for the smaller one), which supports that the push follows real climate patterns. At the regression level, adding the eight hazards to development raises the explained variance of the index from @@R2_DEV@@ to @@R2_DC@@.
@@ -353,12 +360,7 @@ As an independent check we matched the @@CE_N@@ districts of the CEEW 2021 hotsp
 \subsection{Interactive dashboard}
 To make the explanations usable outside the code, we built a browser dashboard (Fig.~\ref{fig:dash}) that reads the out-of-fold results directly. A user searches for any of the @@N_DIST@@ districts and sees its group, baseline, climate push with its Monte Carlo Dropout uncertainty, the dominant climate factor and the attention weights of all eight hazards, next to the most climate-driven districts and the mean push of each group. The page is a single static HTML file generated from the results, so it runs offline and always shows the same numbers as the tables.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{figs/dashboard_paper.png}
-\caption{Climate Push Explorer dashboard built on the B-ACPN results, here showing Kishanganj (Bihar), the most climate-driven district.}
-\label{fig:dash}
-\end{figure}
+
 
 \subsection{Pipeline scaling}
 On the single node, MapReduce took @@T1@@, @@T10@@ and @@T30@@ s for 1, 10 and 30 years of input (two runs each). Runtime grows almost linearly with input, while throughput rises from about 4,300 to 21,000 records per second as the fixed job start-up cost is shared over more data.
