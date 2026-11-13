@@ -281,12 +281,12 @@ Fig.~\ref{fig:bars} compares the four main metrics with their fold-to-fold sprea
 
 \emph{Confusion matrices.} Fig.~\ref{fig:cm} and Table~\ref{tab:cm} show the confusion counts summed over the 25 test folds. B-ACPN correctly identifies @@CM_TN@@ low-vulnerability and @@CM_TP@@ high-vulnerability test predictions, raises the fewest false alarms (@@CM_FP@@ false positives, specificity @@CM_SPEC@@) and makes the fewest errors overall (@@CM_ERR@@, against @@CM_ERR_MIN_OTHER@@--@@CM_ERR_MAX_OTHER@@ for the other models). Its sensitivity (@@CM_SENS@@) is lower than that of logistic regression, the linear SVM and gradient-boosted trees, which label more districts as highly vulnerable and therefore also raise many more false alarms.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.82\textwidth]{figs/confusion_matrices.png}
+\includegraphics[width=\columnwidth]{figs/confusion_matrices_column.png}
 \caption{Confusion matrices of the six models, summed over the 25 test folds (rows: true class; columns: predicted class).}
 \label{fig:cm}
-\end{figure*}
+\end{figure}
 
 @@TABLE_CM@@
 

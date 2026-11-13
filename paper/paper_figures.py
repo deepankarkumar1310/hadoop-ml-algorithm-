@@ -40,6 +40,31 @@ def save(fig, path):
     print("figure ->", OUT / name)
 
 
+def confusion_column():
+    """Confusion matrices for one paper column: the same six matrices and colours, in 3 rows x 2 columns, with the
+    True/Pred labels only on the outer edges so neighbouring panels do not overlap."""
+    import numpy as np
+    import pandas as pd
+    plt, V = MF.plt, MF.V
+    cm = pd.read_csv(MF.RES / "confusion_matrices.csv").set_index("model")
+    fig, axs = plt.subplots(3, 2, figsize=(3.5, 5.0), gridspec_kw=dict(wspace=0.06, hspace=0.32))
+    for k, (ax, m) in enumerate(zip(axs.flat, MF.MODELS)):
+        r = cm.loc[m]; mat = np.array([[r.tn, r.fp], [r.fn, r.tp]])
+        ax.imshow(mat, cmap=V.SEQUENTIAL); ax.grid(False)
+        for i in range(2):
+            for j in range(2):
+                ax.text(j, i, f"{mat[i, j]}", ha="center", va="center", fontsize=9,
+                        color="white" if mat[i, j] > mat.max() * 0.6 else V.INK)
+        ax.set_xticks([0, 1], ["Pred\nLow", "Pred\nHigh"] if k >= 4 else ["", ""], fontsize=7.5)
+        ax.set_yticks([0, 1], ["True\nLow", "True\nHigh"] if k % 2 == 0 else ["", ""], fontsize=7.5)
+        ax.tick_params(length=0)
+        ax.set_title(MF.SHORT[m], fontsize=8.5, fontweight="bold", pad=3,
+                     color=V.ORANGE if m.startswith("B-ACPN") else V.INK)
+    fig.savefig(OUT / "confusion_matrices_column.png", dpi=400, bbox_inches="tight", pad_inches=0.03)
+    plt.close(fig)
+    print("figure ->", OUT / "confusion_matrices_column.png")
+
+
 def dashboard():
     """Same page and layout as figures/dashboard.png, in a narrower window so the text is larger."""
     url = (ROOT / "dashboard" / "index.html").as_uri() + "?d=Kishanganj"
@@ -71,6 +96,7 @@ def main():
     MF.classifier(df)
     MF.explanation(df)
     MF.V.save = _orig_save
+    confusion_column()
     dashboard()
 
 

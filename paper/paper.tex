@@ -392,12 +392,12 @@ LR & 0.747 & 0.700 -- 0.793 & 0.004 \\
 
 \emph{Confusion matrices.} Fig.~\ref{fig:cm} and Table~\ref{tab:cm} show the confusion counts summed over the 25 test folds. B-ACPN correctly identifies 902 low-vulnerability and 829 high-vulnerability test predictions, raises the fewest false alarms (258 false positives, specificity 0.778) and makes the fewest errors overall (614, against 644--723 for the other models). Its sensitivity (0.700) is lower than that of logistic regression, the linear SVM and gradient-boosted trees, which label more districts as highly vulnerable and therefore also raise many more false alarms.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
-\includegraphics[width=0.82\textwidth]{figs/confusion_matrices.png}
+\includegraphics[width=\columnwidth]{figs/confusion_matrices_column.png}
 \caption{Confusion matrices of the six models, summed over the 25 test folds (rows: true class; columns: predicted class).}
 \label{fig:cm}
-\end{figure*}
+\end{figure}
 
 \begin{table}[t]
 \centering
