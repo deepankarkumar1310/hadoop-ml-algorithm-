@@ -1,0 +1,347 @@
+<title>Beyond Development Demo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one scrolling walkthrough in project order (data -> Hadoop -> preprocessing -> B-ACPN -> comparison -> map),
+   a sticky step bar, monsoon-slate palette with heat/cool colours reserved for the climate push. */
+:root{
+  --paper:#f5f7f9; --card:#ffffff; --ink:#15212c; --muted:#56687a; --line:#d9e1e8;
+  --monsoon:#0b6e69; --monsoon-soft:#e2f1ef; --heat:#c2410c; --heat-soft:#fbe7dc; --cool:#1d5fc4; --cool-soft:#e2ecfb;
+  --warn:#9a6700;
+  --f-sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0f171e; --card:#16212b; --ink:#e6edf3; --muted:#9db0c2; --line:#2a3a48;
+  --monsoon:#3cc2b8; --monsoon-soft:#12322f; --heat:#f08a5d; --heat-soft:#3a2018; --cool:#6ea2f5; --cool-soft:#172a45;
+  --warn:#e0b04a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0f171e; --card:#16212b; --ink:#e6edf3; --muted:#9db0c2; --line:#2a3a48;
+  --monsoon:#3cc2b8; --monsoon-soft:#12322f; --heat:#f08a5d; --heat-soft:#3a2018; --cool:#6ea2f5; --cool-soft:#172a45;
+  --warn:#e0b04a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:15px;line-height:1.55;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--card)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:1.35rem;font-weight:700}
+h3{font-size:1rem;font-weight:600}
+p{margin:0;max-width:68ch}
+.num,td.n,.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--monsoon)}
+.muted{color:var(--muted)}
+a{color:var(--monsoon)}
+:focus-visible{outline:2px solid var(--monsoon);outline-offset:2px}
+
+/* step bar */
+.steps{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.steps .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:8px;scrollbar-width:none}
+.steps a{flex:0 0 auto;text-decoration:none;color:var(--muted);font-size:.86rem;font-weight:500;padding:6px 10px;border-radius:6px;white-space:nowrap}
+.steps a:hover,.steps a.on{background:var(--monsoon-soft);color:var(--monsoon)}
+.steps b{font-family:var(--f-mono);font-weight:600;margin-right:6px}
+
+header.hero{padding-block:36px 28px;display:grid;gap:18px}
+.question{font-size:1.1rem;color:var(--ink);border-left:3px solid var(--heat);padding-left:14px;max-width:62ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.kpi .v{font-family:var(--f-mono);font-size:1.45rem;font-weight:600}
+.kpi .l{font-size:.8rem;color:var(--muted)}
+.team{font-size:.85rem;color:var(--muted)}
+
+section{padding-block:34px;border-top:1px solid var(--line);display:grid;gap:16px;scroll-margin-top:56px}
+.sec-head{display:grid;gap:6px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.grid2>*{min-width:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:12px;align-content:start;min-width:0}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
+th{font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+td.n,th.n{text-align:right}
+tr.me td{background:var(--monsoon-soft);font-weight:600}
+
+/* pipeline */
+.pipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;counter-reset:st}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;display:grid;gap:4px;transition:border-color .3s,background .3s;position:relative}
+.stage .tool{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.stage .what{font-weight:600}
+.stage .out{font-family:var(--f-mono);font-size:.82rem;color:var(--muted)}
+.stage.store{border-left:4px solid var(--monsoon)}
+.stage.job{border-left:4px solid var(--warn)}
+.stage.model{border-left:4px solid var(--heat)}
+.stage.live{border-color:var(--monsoon);background:var(--monsoon-soft)}
+.stage.done .tool::after{content:" ✓";color:var(--monsoon)}
+.bar-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+button,select,input{font:inherit}
+button.primary{background:var(--monsoon);color:#fff;border:0;border-radius:6px;padding:8px 14px;font-weight:600;cursor:pointer}
+button.primary:disabled{opacity:.6;cursor:default}
+.log{font-family:var(--f-mono);font-size:.8rem;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:10px;min-height:5.5em;white-space:pre-wrap;max-height:11em;overflow:auto}
+.note{font-size:.8rem;color:var(--muted)}
+
+/* explorer */
+.picker{display:flex;gap:8px;flex-wrap:wrap}
+.picker input,.picker select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);min-width:0;flex:1 1 200px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.fact{background:var(--paper);border-radius:6px;padding:8px 10px}
+.fact small{display:block;font-size:.72rem;color:var(--muted)}
+.fact b{font-family:var(--f-mono);font-size:1.05rem}
+.chip{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:999px}
+.chip.hi{background:var(--heat-soft);color:var(--heat)} .chip.lo{background:var(--cool-soft);color:var(--cool)}
+.chip.ok{background:var(--monsoon-soft);color:var(--monsoon)} .chip.no{background:var(--heat-soft);color:var(--heat)}
+.eq{font-family:var(--f-mono);font-size:.95rem;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.eq span{background:var(--paper);border-radius:6px;padding:4px 8px}
+.verdict{border-radius:8px;padding:10px 12px;font-size:.92rem}
+.verdict.pos{background:var(--heat-soft)} .verdict.neg{background:var(--cool-soft)}
+.hbar{display:grid;grid-template-columns:minmax(110px,150px) 1fr 3.4em;gap:8px;align-items:center;font-size:.82rem}
+.hbar .track{height:10px;background:var(--paper);border-radius:3px;position:relative}
+.hbar .fill{height:100%;border-radius:3px;background:var(--monsoon)}
+.hbar .eqline{position:absolute;top:-3px;bottom:-3px;width:0;border-left:1px dashed var(--muted)}
+svg text{fill:var(--ink);font-family:var(--f-sans)}
+svg .ax{stroke:var(--line)}
+.cmx{display:grid;grid-template-columns:auto 1fr 1fr;gap:4px;font-size:.82rem;max-width:320px}
+.cmx div{padding:10px;text-align:center;border-radius:4px;font-family:var(--f-mono)}
+.cmx .h{background:none;color:var(--muted);font-family:var(--f-sans);padding:4px}
+.cmx .tp{background:var(--monsoon);color:#fff}.cmx .fx{background:var(--heat-soft);color:var(--heat)}
+
+/* map */
+.mapbox{position:relative}
+.mapbox svg{width:100%;height:auto;max-height:620px;display:block}
+.mapbox path.d{stroke:var(--card);stroke-width:.35;cursor:pointer}
+.mapbox path.d:hover,.mapbox path.d.sel{stroke:var(--ink);stroke-width:1.2}
+.mapbox path.g{fill:var(--line);stroke:var(--card);stroke-width:.3}
+.tip{position:absolute;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:.8rem;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.legend{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);flex-wrap:wrap}
+.legend .ramp{width:180px;height:10px;border-radius:3px;background:linear-gradient(90deg,var(--cool),var(--paper),var(--heat))}
+footer{padding-block:28px 40px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);display:grid;gap:6px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+<body-start/>
+<nav class="steps" aria-label="Demo steps"><div class="wrap">
+  <a href="#data"><b>1</b>Data</a><a href="#pipeline"><b>2</b>Hadoop pipeline</a><a href="#prep"><b>3</b>Preprocessing</a>
+  <a href="#model"><b>4</b>B-ACPN explorer</a><a href="#results"><b>5</b>Comparison</a><a href="#map"><b>6</b>Climate-push map</a>
+</div></nav>
+<main class="wrap">
+<header class="hero">
+  <div class="eyebrow">Project demo · SRM IST · Networking and Communications</div>
+  <h1>Beyond Development: Explaining Climate Resilience Across Indian Districts</h1>
+  <p class="question">Why do some developed Indian districts stay highly climate-vulnerable, while some less-developed ones are resilient?</p>
+  <div class="kpis" id="kpis"></div>
+  <div class="team">Sehjodh Grewal · Devanshu Kumar · Deepankar · Tanmay Singh &nbsp;|&nbsp; Guide: Dr. Banu Priya Prathaban</div>
+</header>
+
+<section id="data">
+  <div class="sec-head"><div class="eyebrow">Step 1</div><h2>The data</h2>
+  <p class="muted">Five public sources. The vulnerability index is only ever the target; the model never sees it as an input.</p></div>
+  <div class="card scroll"><table>
+    <thead><tr><th>Source</th><th>What it gives</th><th>Years</th><th class="n">Size</th><th>Role</th></tr></thead>
+    <tbody id="srcRows"></tbody></table></div>
+</section>
+
+<section id="pipeline">
+  <div class="sec-head"><div class="eyebrow">Step 2</div><h2>The Hadoop pipeline</h2>
+  <p class="muted">Each tool does one measured job. Press replay to step through the logged Colab run (single-node Hadoop 3.3.6, Hive 3.1.3, Spark 3.5.3).</p></div>
+  <div class="pipe" id="pipe"></div>
+  <div class="bar-row"><button class="primary" id="replay" type="button">Replay the run</button>
+    <span class="note">Replay of the recorded run, not a live cluster. Numbers come from the job logs in results/.</span></div>
+  <div class="log" id="log" aria-live="polite">Ready.</div>
+  <div class="grid2">
+    <div class="card"><h3>MapReduce runtime grows almost linearly with input</h3><div id="tchart"></div>
+      <p class="note">Mean of two runs per input size, single node.</p></div>
+    <div class="card"><h3>What sits in HDFS</h3><div id="hdfsBars"></div></div>
+  </div>
+</section>
+
+<section id="prep">
+  <div class="sec-head"><div class="eyebrow">Step 3</div><h2>Preprocessing, before and after</h2>
+  <p class="muted">No missing value is filled in. Districts that cannot be matched or are incomplete are dropped, never guessed.</p></div>
+  <div class="grid2">
+    <div class="card"><h3>District retention</h3><div id="funnel"></div></div>
+    <div class="card"><h3>Data-quality problems</h3><div class="scroll"><table>
+      <thead><tr><th>Problem</th><th class="n">Before</th><th class="n">After</th></tr></thead><tbody id="qual"></tbody></table></div></div>
+  </div>
+  <div class="card"><h3>Why area weighting matters</h3>
+    <p class="muted" id="aggText"></p>
+    <div class="facts" id="aggFacts"></div></div>
+</section>
+
+<section id="model">
+  <div class="sec-head"><div class="eyebrow">Step 4</div><h2>B-ACPN district explorer</h2>
+  <p class="muted">Pick any of the 469 districts. Every value is out-of-fold: the model never saw that district while it was trained.</p></div>
+  <div class="card">
+    <div class="picker"><input id="q" type="search" placeholder="Search a district or state" aria-label="Search a district or state">
+      <select id="sel" aria-label="District"></select></div>
+    <div class="facts" id="facts"></div>
+    <div class="eq" id="eq"></div>
+    <div class="verdict" id="verdict"></div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>Which climate factor drives the push (attention)</h3><div id="att" class="grid" style="display:grid;gap:6px"></div>
+      <p class="note">Dashed line = equal weight (1/8).</p></div>
+    <div class="card"><h3>Model inputs for this district</h3><div class="scroll"><table>
+      <thead><tr><th>Feature</th><th class="n">Value</th><th>Unit</th></tr></thead><tbody id="inputs"></tbody></table></div></div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="sec-head"><div class="eyebrow">Step 5</div><h2>Comparison with five existing models</h2>
+  <p class="muted">Same 25 folds for every model (5 × 5-fold CV) plus leave-one-state-out; p from the corrected resampled t-test against B-ACPN.</p></div>
+  <div class="card scroll"><table>
+    <thead><tr><th>Model</th><th>Tool</th><th class="n">ROC-AUC</th><th class="n">95% CI</th><th class="n">Accuracy</th><th class="n">F1</th><th class="n">LOSO AUC</th><th class="n">p vs B-ACPN</th></tr></thead>
+    <tbody id="mrows"></tbody></table></div>
+  <div class="grid2">
+    <div class="card"><h3>ROC-AUC with 95% confidence interval</h3><div id="cichart"></div></div>
+    <div class="card"><h3>Confusion matrix (25 test folds summed)</h3>
+      <div class="picker"><select id="cmSel" aria-label="Model for confusion matrix"></select></div>
+      <div class="cmx" id="cmx"></div><p class="note" id="cmNote"></p></div>
+  </div>
+</section>
+
+<section id="map">
+  <div class="sec-head"><div class="eyebrow">Step 6</div><h2>Where climate adds risk</h2>
+  <p class="muted">Each district's B-ACPN climate push. Red: climate adds risk beyond development. Blue: climate protects. Click a district to open it in the explorer.</p></div>
+  <div class="card"><div class="legend"><span>protects</span><span class="ramp"></span><span>adds risk</span><span>· grey = not among the 469</span></div>
+    <div class="mapbox" id="mapbox"><svg id="mapsvg" role="img" aria-label="Map of the climate push of every district"></svg><div class="tip" id="tip" hidden></div></div></div>
+  <div class="card scroll"><table><thead><tr><th>Group</th><th class="n">Districts</th><th class="n">Mean push</th></tr></thead><tbody id="qrows"></tbody></table>
+    <p class="note" id="qnote"></p></div>
+</section>
+</main>
+<footer class="wrap">
+  <div>All numbers are read from the project's result files when this page is built (demo/build_demo.py). Hadoop ran as a single-node pseudo-distributed cluster in Google Colab; no multi-machine speed-up is claimed.</div>
+  <div id="ceewNote"></div>
+</footer>
+<script>
+/*DATA*/
+const $=id=>document.getElementById(id);
+const fmt=(x,d=3)=>Number(x).toFixed(d), sg=x=>(x>0?"+":"")+Number(x).toFixed(2), comma=x=>Number(x).toLocaleString("en-US");
+const K=D.kpi;
+$("kpis").innerHTML=[[K.districts,"districts in "+K.states+" states"],[(K.rows/1e6).toFixed(1)+" M","district-day climate rows"],
+ [K.hdfs_gb+" GB","stored in HDFS"],[fmt(K.auc),"B-ACPN ROC-AUC (best of 6)"],[K.anom+" ("+K.anom_pct+"%)","districts break the pattern"]]
+ .map(([v,l])=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+
+/* 1 data */
+const H=D.hdfs;
+$("srcRows").innerHTML=[
+ ["NITI Aayog NDAP 7160","District climate vulnerability index + indicators (699 × 79)","2021","0.25 MB","Target + 2 development variables"],
+ ["Census of India (PCA)","Population, literacy, workers (640 districts)","2011","0.98 MB","3 development variables"],
+ ["IMD Pune, rain 0.25°","Daily gridded rainfall","1991–2020",H["raw/imd/rain"]+" MB","Climate hazards"],
+ ["IMD Pune, Tmax/Tmin 1°","Daily gridded temperature","1991–2020",(H["raw/imd/tmax"]+H["raw/imd/tmin"]).toFixed(1)+" MB","Climate hazards"],
+ ["DataMeet boundaries","641 district polygons","2011","10.3 MB","Grid → district weights, map"]]
+ .map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="n">${r[3]}</td><td>${r[4]}</td></tr>`).join("");
+
+/* 2 pipeline */
+const T=D.timings, t30=T.find(t=>t.years===30);
+const ST=[
+ ["store","HDFS raw zone","IMD grids + tables",(H["raw/imd/rain"]+H["raw/imd/tmax"]+H["raw/imd/tmin"]+H["raw/census+ndap+boundaries"]).toFixed(0)+" MB, 128 MB blocks",`hdfs dfs -put → /project/raw (${(H["raw/imd/rain"]+H["raw/imd/tmax"]+H["raw/imd/tmin"]+H["raw/census+ndap+boundaries"]).toFixed(1)} MB)`],
+ ["job","Python + NumPy","Grid → district-day",comma(D.prep.pairs)+" cell–district weights",`area-weighted mean of valid cells → ${comma(K.rows)} district-day rows`],
+ ["store","HDFS staging","District-day table",H["staging/district_day"]+" MB, 30 yearly files",`hdfs dfs -put → /project/staging (${H["staging/district_day"]} MB)`],
+ ["job","MapReduce on YARN","Yearly climate indices",comma(t30.out)+" rows in "+t30.rt+" s",`Hadoop Streaming: ${comma(t30.rec)} records in → ${comma(t30.out)} district-years out (${t30.rt} s)`],
+ ["job","Hive 3.1.3","30-yr baseline + join",K.districts+" districts × 13 features","HiveQL AVG + STDDEV, JOIN on censuscode → "+K.districts+" complete districts"],
+ ["job","Spark 3.5.3","Climate regimes + MLlib","k = "+D.km.k+", silhouette "+D.km.sil,`k-means: regimes of ${D.km.sizes["1"]} and ${D.km.sizes["0"]} districts; MLlib trains LR, RF, GBT, SVM`],
+ ["model","PyTorch + scikit-learn","B-ACPN + 5 baselines","ROC-AUC "+fmt(K.auc),`25 folds + LOSO → B-ACPN ROC-AUC ${fmt(K.auc)}, accuracy ${fmt(K.acc)}, F1 ${fmt(K.f1)}`]];
+$("pipe").innerHTML=ST.map((s,i)=>`<div class="stage ${s[0]}" id="st${i}"><span class="tool">${s[1]}</span><span class="what">${s[2]}</span><span class="out">${s[3]}</span></div>`).join("");
+$("replay").addEventListener("click",()=>{
+  const btn=$("replay"); btn.disabled=true; $("log").textContent="";
+  document.querySelectorAll(".stage").forEach(e=>e.classList.remove("live","done"));
+  let i=0; const step=()=>{
+    if(i>0){$("st"+(i-1)).classList.remove("live");$("st"+(i-1)).classList.add("done")}
+    if(i===ST.length){$("log").textContent+="Done. Same numbers as in the paper and report.";btn.disabled=false;return}
+    $("st"+i).classList.add("live"); $("log").textContent+=`[${i+1}/${ST.length}] ${ST[i][4]}\n`; $("log").scrollTop=1e6; i++;
+    setTimeout(step, matchMedia("(prefers-reduced-motion: reduce)").matches?50:900)};
+  step();
+});
+function barsSVG(items,{w=460,unit="",max=null,color="var(--monsoon)",dp=0}={}){
+  const lw=170, rh=26, h=items.length*rh+6, mx=max||Math.max(...items.map(x=>x[1]));
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" role="img">`+items.map(([l,v],i)=>{
+    const bw=(w-lw-70)*v/mx, y=i*rh+4;
+    return `<text x="${lw-8}" y="${y+14}" text-anchor="end" font-size="12">${l}</text><rect x="${lw}" y="${y+3}" width="${bw}" height="15" rx="2" fill="${color}"/>`+
+      `<text x="${lw+bw+6}" y="${y+14}" font-size="12" font-family="var(--f-mono)">${Number(v).toFixed(dp)}${unit}</text>`}).join("")+`</svg>`;
+}
+$("tchart").innerHTML=barsSVG(T.map(t=>[t.years+(t.years>1?" years":" year")+" ("+comma(t.rec)+" rec.)",t.rt]),{unit:" s"});
+$("hdfsBars").innerHTML=barsSVG([["raw / IMD rain",H["raw/imd/rain"]],["staging / district-day",H["staging/district_day"]],
+ ["raw / IMD Tmax",H["raw/imd/tmax"]],["raw / IMD Tmin",H["raw/imd/tmin"]],["raw / tables + maps",H["raw/census+ndap+boundaries"]],["processed",H["processed"]]],{unit:" MB",dp:1,color:"var(--cool)"});
+
+/* 3 preprocessing */
+const P=D.prep;
+$("funnel").innerHTML=barsSVG(P.funnel.map(([l,n])=>[l,n]),{max:640})+`<p class="note">${P.funnel.map(f=>f[1]).join(" → ")} districts (${Math.round(P.funnel[3][1]/640*100)}% kept).</p>`;
+$("qual").innerHTML=[["Empty cells in the NDAP table",P.ndap_missing+"%","0% (only complete variables kept)"],
+ ["NDAP districts with no 2011 match",P.unmatched,"0 (excluded, not guessed)"],
+ ["Wrong fuzzy matches (e.g. Sangareddy → Rangareddy)",2,"0 (blocked by hand)"],
+ ["Rain days missing after aggregation",P.rain_missing+"%","kept as missing, never set to 0"],
+ ["Census literacy vs official figure",fmt(P.lit,2)+"%",P.lit_official+"% official"]]
+ .map(r=>`<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n">${r[2]}</td></tr>`).join("");
+$("aggText").textContent=`Taking the single nearest grid cell instead of our area-weighted mean would change each district's annual rainfall by this much (2020, ${636} districts). The MapReduce indices match an independent pandas recomputation on ${comma(P.mr_rows)} district-years.`;
+$("aggFacts").innerHTML=[["RMSE",fmt(P.agg.rmse,1)+" mm"],["MAE",fmt(P.agg.mae,1)+" mm"],["MAPE",fmt(P.agg.mape_pct,1)+"%"],["R²",fmt(P.agg.r2,3)],["Median abs. error",fmt(P.agg.medae,1)+" mm"]]
+ .map(([k,v])=>`<div class="fact"><small>${k}</small><b>${v}</b></div>`).join("");
+
+/* 4 explorer */
+const byName=[...D.districts].sort((a,b)=>a.n.localeCompare(b.n));
+const QN={"High dev / Low vul":"Developed, low vulnerability (expected)","Low dev / High vul":"Less developed, high vulnerability (expected)",
+ "High dev / High vul":"Anomaly A: developed yet vulnerable","Low dev / Low vul":"Anomaly B: less developed yet resilient"};
+function fill(f){const s=$("sel"),keep=s.value;const rows=byName.filter(d=>(d.n+" "+d.s).toLowerCase().includes(f));
+ s.innerHTML=rows.map(d=>`<option value="${d.c}">${d.n} (${d.s})</option>`).join("");
+ if(rows.some(d=>String(d.c)===keep))s.value=keep; show();}
+function show(){const d=D.districts.find(x=>String(x.c)===$("sel").value); if(!d)return;
+ const pred=d.p>=.5?"High":"Low", ok=pred===d.y;
+ $("facts").innerHTML=[["Group",d.q],["True class (NDAP index "+d.idx+")",`<span class="chip ${d.y==="High"?"hi":"lo"}">${d.y}</span>`],
+  ["B-ACPN predicts",`<span class="chip ${pred==="High"?"hi":"lo"}">${pred}</span> <span class="chip ${ok?"ok":"no"}">${ok?"correct":"wrong"}</span>`],
+  ["P(high vulnerability)",fmt(d.p)],["Uncertainty (MC Dropout SD)",fmt(d.sd,2)],["Spark climate regime",d.reg]]
+  .map(([k,v])=>`<div class="fact"><small>${k}</small><b>${v}</b></div>`).join("");
+ $("eq").innerHTML=`<span>baseline (trees + development) ${sg(d.b)}</span><span>+</span><span style="color:${d.u>0?"var(--heat)":"var(--cool)"}">climate push ${sg(d.u)}</span><span>→</span><span>probability ${fmt(d.p)}</span>`;
+ const v=$("verdict"); v.className="verdict "+(d.u>0?"pos":"neg");
+ v.textContent=d.u>0?`Climate adds risk in ${d.n} beyond what its development explains. Main climate factor: ${d.top}.`
+  :`Climate lowers the risk of ${d.n} compared with what its development alone suggests. Main climate factor: ${d.top}.`;
+ const mx=Math.max(...d.att);
+ $("att").innerHTML=D.haz.map((h,i)=>`<div class="hbar"><span>${h[0]}</span><span class="track"><span class="fill" style="display:block;width:${d.att[i]/mx*100}%;background:${d.att[i]===mx?"var(--heat)":"var(--monsoon)"}"></span><span class="eqline" style="left:${.125/mx*100}%"></span></span><span class="mono">${fmt(d.att[i])}</span></div>`).join("");
+ $("inputs").innerHTML=D.dev.map((x,i)=>`<tr><td>${x[0]} <span class="muted">(development)</span></td><td class="n">${d.dev[i]}</td><td>${x[1]}</td></tr>`).join("")+
+  D.haz.map((x,i)=>`<tr><td>${x[0]} <span class="muted">(climate)</span></td><td class="n">${d.haz[i]}</td><td>${x[1]}</td></tr>`).join("");
+ document.querySelectorAll("#mapsvg path.d").forEach(p=>p.classList.toggle("sel",p.dataset.c===String(d.c)));}
+$("q").addEventListener("input",e=>fill(e.target.value.toLowerCase())); $("sel").addEventListener("change",show);
+
+/* 5 results */
+const M=D.models;
+$("mrows").innerHTML=M.map((m,i)=>`<tr class="${i===0?"me":""}"><td>${m.name}</td><td>${m.tool}</td><td class="n">${fmt(m.auc)} ± ${fmt(m.sd)}</td><td class="n">${fmt(m.lo)}–${fmt(m.hi)}</td><td class="n">${fmt(m.acc)}</td><td class="n">${fmt(m.f1)}</td><td class="n">${fmt(m.loso)}</td><td class="n">${m.p===null?"—":fmt(m.p)}</td></tr>`).join("");
+(function(){const w=480,lw=110,rh=30,h=M.length*rh+30,x0=.65,x1=.9,sx=v=>lw+(w-lw-20)*(v-x0)/(x1-x0);
+ let s=`<svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="ROC-AUC with confidence intervals">`;
+ [.7,.75,.8,.85,.9].forEach(t=>{s+=`<line class="ax" x1="${sx(t)}" x2="${sx(t)}" y1="0" y2="${h-22}"/><text x="${sx(t)}" y="${h-6}" text-anchor="middle" font-size="11">${t.toFixed(2)}</text>`});
+ M.forEach((m,i)=>{const y=i*rh+16,c=i===0?"var(--heat)":"var(--monsoon)";
+  s+=`<text x="${lw-8}" y="${y+4}" text-anchor="end" font-size="12">${m.name}</text><line x1="${sx(m.lo)}" x2="${sx(m.hi)}" y1="${y}" y2="${y}" stroke="${c}" stroke-width="3" stroke-linecap="round"/><circle cx="${sx(m.auc)}" cy="${y}" r="5" fill="${c}"/>`});
+ $("cichart").innerHTML=s+"</svg>";})();
+$("cmSel").innerHTML=M.map((m,i)=>`<option value="${i}">${m.name}</option>`).join("");
+function cmShow(){const m=M[+$("cmSel").value],[tn,fp,fn,tp]=m.cm;
+ $("cmx").innerHTML=`<div class="h"></div><div class="h">Predicted Low</div><div class="h">Predicted High</div><div class="h">True Low</div><div class="tp">${comma(tn)}</div><div class="fx">${comma(fp)}</div><div class="h">True High</div><div class="fx">${comma(fn)}</div><div class="tp">${comma(tp)}</div>`;
+ $("cmNote").textContent=`Errors: ${comma(fp+fn)} of ${comma(tn+fp+fn+tp)} test predictions. Precision ${fmt(m.prec)}, recall ${fmt(m.rec)}.`;}
+$("cmSel").addEventListener("change",cmShow); cmShow();
+
+/* 6 map */
+(function(){const svg=$("mapsvg"),tip=$("tip");let xs=[],ys=[];
+ const all=Object.values(D.map.in).concat(D.map.out).join("");
+ all.replace(/(-?\d+\.?\d*),(-?\d+\.?\d*)/g,(_,a,b)=>{xs.push(+a);ys.push(+b)});
+ const minx=Math.min(...xs),miny=Math.min(...ys),maxx=Math.max(...xs),maxy=Math.max(...ys);
+ svg.setAttribute("viewBox",`${minx-2} ${miny-2} ${maxx-minx+4} ${maxy-miny+4}`);
+ const byC=Object.fromEntries(D.districts.map(d=>[d.c,d]));
+ const css=getComputedStyle(document.documentElement);
+ function col(v){const t=Math.max(-1,Math.min(1,v/0.6)),a=Math.abs(t);
+  return t>=0?`color-mix(in srgb, var(--heat) ${Math.round(15+85*a)}%, var(--paper))`:`color-mix(in srgb, var(--cool) ${Math.round(15+85*a)}%, var(--paper))`}
+ let s=D.map.out.map(d=>`<path class="g" d="${d}"/>`).join("");
+ s+=Object.entries(D.map.in).map(([c,d])=>`<path class="d" data-c="${c}" d="${d}" fill="${col(byC[c].u)}"><title>${byC[c].n}: ${sg(byC[c].u)}</title></path>`).join("");
+ svg.innerHTML=s;
+ svg.addEventListener("mousemove",e=>{const p=e.target.closest("path.d");if(!p){tip.hidden=true;return}
+  const d=byC[p.dataset.c],r=$("mapbox").getBoundingClientRect();
+  tip.innerHTML=`<b>${d.n}</b>, ${d.s}<br>climate push <b class="mono">${sg(d.u)}</b> · ${d.y} vulnerability`;
+  tip.hidden=false; tip.style.left=Math.min(e.clientX-r.left+12,r.width-180)+"px"; tip.style.top=(e.clientY-r.top+12)+"px"});
+ svg.addEventListener("mouseleave",()=>tip.hidden=true);
+ svg.addEventListener("click",e=>{const p=e.target.closest("path.d");if(!p)return;$("q").value="";fill("");$("sel").value=p.dataset.c;show();
+  $("model").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})});
+})();
+$("qrows").innerHTML=Object.entries(QN).map(([k,n])=>`<tr><td>${n}</td><td class="n">${D.quad[k].n}</td><td class="n" style="color:${D.quad[k].push>0?"var(--heat)":"var(--cool)"}">${sg(D.quad[k].push)}</td></tr>`).join("");
+$("qnote").textContent=`Anomaly A vs developed-expected: p = ${D.p_anom[0].toExponential(1)}; anomaly B vs less-developed-expected: p = ${D.p_anom[1].toExponential(1)} (two-sample t-test).`;
+$("ceewNote").textContent=`Independent check: on the ${D.ceew.n} districts also in CEEW's 2021 ranking, the two national indices barely agree (Spearman ρ = ${D.ceew.rho}), so results hold for the NDAP index.`;
+
+/* start on the most climate-driven district; keep the step bar in sync while scrolling */
+fill(""); const firstD=[...D.districts].sort((a,b)=>b.u-a.u)[0]; $("sel").value=String(firstD.c); show();
+const links=[...document.querySelectorAll(".steps a")];
+const obs=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id))}),{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("section[id]").forEach(s=>obs.observe(s));
+</script>
