@@ -493,12 +493,12 @@ Single network (no ensemble) & 0.801 & -0.018 & 0.58 \\
 \subsection{Hyperparameter tuning}
 We tuned the deep stage over 18 settings (hidden units 8, 16, 32; dropout 0.1, 0.3, 0.5; learning rate 0.001, 0.003) on the same 25 folds with the tree stage fixed, choosing on CV only and checking on LOSO. All settings lie between 0.817 and 0.820 ROC-AUC; the best (16 units, dropout 0.3, learning rate 0.001) improves on the default by 0.001 in CV and 0.002 in LOSO, far below the fold SD of about 0.035, so B-ACPN is insensitive to these settings and we keep the default.
 
-\begin{figure*}[!t]
+\begin{figure}[!htb]
 \centering
-\includegraphics[width=0.92\textwidth]{figs/dashboard_paper.png}
-\caption{Climate Push Explorer dashboard built on the B-ACPN results, here showing Kishanganj (Bihar), the most climate-driven district.}
+\includegraphics[width=\columnwidth]{figs/dashboard_paper.png}
+\caption{Climate Push Explorer dashboard built on the B-ACPN results (district view), here showing Kishanganj (Bihar), the most climate-driven district.}
 \label{fig:dash}
-\end{figure*}
+\end{figure}
 
 \subsection{What the climate push explains}
 Fig.~\ref{fig:push} and Table~\ref{tab:push} show the out-of-fold climate push per group. Developed but vulnerable districts (anomaly A) have a positive mean push of +0.09, against -0.10 for developed districts that are not vulnerable (p = $1.6\times10^{-5}$). Less developed but resilient districts (anomaly B) have a negative push of -0.17, against +0.13 for the expected group (p = $4.5\times10^{-7}$). The raw data agree: anomaly A districts have about twice as many tropical nights as expected developed districts (91 vs 45 per year, p = 0.001). Attention gives heavy-rain days the largest mean weight. The Spark climate regimes, found without the model, also differ in push (+0.05 for the larger regime and -0.24 for the smaller one), which supports that the push follows real climate patterns. At the regression level, adding the eight hazards to development raises the explained variance of the index from 0.127 to 0.334.

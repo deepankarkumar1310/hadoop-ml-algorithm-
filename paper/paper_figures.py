@@ -189,18 +189,23 @@ def confusion_column():
 
 
 def dashboard():
-    """Same page and layout as figures/dashboard.png, in a 900 px window; printed across the page width."""
+    """District view of dashboard/index.html in a narrow window (headline numbers, district explanation and
+    attention bars stacked in one column), so it fits one paper column with readable text."""
     url = (ROOT / "dashboard" / "index.html").as_uri() + "?d=Kishanganj"
+    css = (".grid{grid-template-columns:1fr !important} .kpis{grid-template-columns:repeat(3,1fr) !important;gap:6px !important}"
+           " .kpi{padding:8px !important} main{padding:10px 12px !important} header{padding:10px 12px !important}"
+           " header span{display:none} .grid>.card:nth-child(2){display:none}")
     js = f"""
 const {{ chromium }} = require('playwright');
 (async () => {{
   const b = await chromium.launch();
-  const pg = await b.newPage({{ viewport: {{ width: 900, height: 700 }}, deviceScaleFactor: 3 }});
+  const pg = await b.newPage({{ viewport: {{ width: 520, height: 900 }}, deviceScaleFactor: 4 }});
   await pg.goto({json.dumps(url)});
+  await pg.addStyleTag({{ content: {json.dumps(css)} }});
   await pg.waitForTimeout(300);
-  const box = await pg.locator('.grid').boundingBox();
+  const box = await pg.locator('.grid > .card').first().boundingBox();
   await pg.screenshot({{ path: {json.dumps(str(OUT / "dashboard_paper.png"))},
-                        clip: {{ x: 0, y: 0, width: 900, height: box.y + box.height + 12 }} }});
+                        clip: {{ x: 0, y: 0, width: 520, height: box.y + box.height + 10 }} }});
   await b.close();
 }})();
 """
