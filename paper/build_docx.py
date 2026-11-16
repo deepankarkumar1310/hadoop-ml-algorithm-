@@ -23,7 +23,7 @@ from docx.shared import Inches, Pt
 
 PAPER = Path(__file__).resolve().parent
 FIG = PAPER.parent / "figures"
-OUT = PAPER / "IEEE_Paper.docx"
+OUT = PAPER / "IEEE_Paper_editable.docx"
 AUTHORS = [("Sehjodh Grewal", "sg2827@srmist.edu.in"), ("Devanshu Kumar", "dk5504@srmist.edu.in"),
            ("Deepankar", "dz9629@srmist.edu.in"), ("Tanmay Singh", "ts4494@srmist.edu.in"),
            ("Dr. Banu Priya Prathaban", "banuprip2@srmist.edu.in")]
